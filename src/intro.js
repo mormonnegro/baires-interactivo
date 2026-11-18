@@ -33,6 +33,20 @@ const CSS = `
 #intro .entrar { flex: none; min-height: 46px; cursor: pointer; font: inherit; font-size: 17px; letter-spacing: .03em; color: #f7eedb; background: #2a221b; border: 1px solid #2a221b; border-radius: 0; outline: 1px solid #2a221b99; outline-offset: 2px; padding: 10px 24px; }
 #intro .entrar:hover { background: #453a30; }
 #intro .entrar:active { transform: translateY(1px); }
+/* donar: al lado de «Ver la ciudad»; abre hacia arriba los cuatro montos */
+#intro .acciones { flex: none; display: flex; align-items: stretch; gap: 12px; }
+#intro .donar { position: relative; display: flex; }
+#intro .dona { min-height: 46px; cursor: pointer; font: inherit; font-size: 17px; letter-spacing: .03em; color: #2a221b; background: none; border: 1px solid #2a221b; border-radius: 0; padding: 10px 20px; }
+#intro .dona:hover, #intro .dona[aria-expanded="true"] { background: #fff6e2; }
+#intro .dona:active { transform: translateY(1px); }
+#intro .montos { position: absolute; right: 0; bottom: calc(100% + 8px); z-index: 2; width: max-content; max-width: calc(100vw - 40px); background: #f7eedb; border: 1px solid #2a221b; box-shadow: 0 6px 18px #2a221b40; padding: 10px 12px 9px; }
+#intro .montos[hidden] { display: none; }
+#intro .montos div { display: flex; gap: 8px; }
+#intro .montos a { flex: 1; min-width: 58px; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; white-space: nowrap; font-size: 16px; font-variant-numeric: lining-nums; color: #2a221b; text-decoration: none; border: 1px solid #2a221b; }
+#intro .montos a:hover { background: #2a221b; color: #f7eedb; }
+#intro .montos p { margin: 7px 0 0; font-size: 12px; font-style: italic; opacity: .7; text-align: center; }
+/* (el texto no ensancha el recuadro: se acomoda al ancho de los montos) */
+#intro .montos p.para { margin: 0 0 9px; width: 0; min-width: 100%; font-size: 13.5px; font-style: normal; line-height: 1.35; opacity: 1; text-align: left; }
 #titulo { pointer-events: auto; cursor: pointer; }
 #titulo:hover { background: #fff6e2; }
 #titulo .acerca { margin-top: 5px; font-style: normal; font-size: 12px; letter-spacing: .04em; text-decoration: underline; text-underline-offset: 2px; opacity: .7; }
@@ -43,20 +57,23 @@ const CSS = `
   #intro .texto { padding: 18px 18px 4px; }
   #intro h2 { font-size: 27px; } #intro .bajada { font-size: 14.5px; }
   #intro p { font-size: 15px; } #intro li { font-size: 13.5px; }
-  #intro .pie { padding: 12px 18px 16px; } #intro .pie span { display: none; } #intro .entrar { width: 100%; }
+  #intro .pie { padding: 12px 18px 16px; } #intro .pie span { display: none; } #intro .acciones { width: 100%; gap: 8px; } #intro .entrar { flex: 1; padding-left: 12px; padding-right: 12px; } #intro .acciones { position: relative; } #intro .donar { position: static; } #intro .montos { left: 0; right: 0; width: auto; max-width: none; } #intro .montos a { min-width: 0; padding: 0 4px; font-size: 15px; }
 }
 /* el teléfono acostado: poco alto, así que menos aire */
 @media (max-height: 500px) {
   #intro .texto { padding-top: 14px; } #intro h2 { font-size: 24px; } #intro .bajada { font-size: 14px; }
-  #intro h3 { margin-top: 12px; padding-top: 9px; } #intro .pie { padding: 8px 18px 10px; } #intro .entrar { min-height: 44px; padding: 6px 24px; }
+  #intro h3 { margin-top: 12px; padding-top: 9px; } #intro .pie { padding: 8px 18px 10px; } #intro .entrar { min-height: 44px; padding: 6px 24px; } #intro .dona { min-height: 44px; padding: 6px 18px; }
 }
 `;
+
+// los links de donación (NOWPayments, uno por monto en dólares)
+const DONAR = [[10, 5067734003], [25, 4959988522], [50, 5427515638], [100, 5490687460]];
 
 const HTML = `
 <div class="hoja" role="dialog" aria-modal="true" aria-labelledby="intro-t">
   <div class="texto">
     <div class="cabeza"><div>
-    <h2 id="intro-t">Buenos Aires, de 1867 a 1940</h2>
+    <h2 id="intro-t">Buenos Aires, de 1867 a 1950</h2>
     <p class="bajada">Un plano de hace más de siglo y medio, levantado manzana por manzana, y la ciudad que creció encima.</p>
     </div>
     <a class="autor" href="https://x.com/mormonnegro" target="_blank" rel="noopener" title="@mormonnegro en X"><img src="${u('autor.webp')}" alt="" width="44" height="44"><span><i>Hecho por</i><b>@mormonnegro</b></span></a>
@@ -68,7 +85,7 @@ const HTML = `
     <p>Lo que el plano no dice —dónde termina una casa y empieza la otra, cuántos pisos tenía, cómo era su frente— está completado con las costumbres de la época, y los edificios principales, con fotos tomadas tres años antes.</p>
 
     <h3>Y los años que siguen</h3>
-    <p>La ciudad no se queda en 1867. Abajo, la línea de tiempo la lleva a <b>1888, 1895, 1905, 1910, 1921 y 1940</b> (el ▶ los recorre solo). Sobre el mismo plano se levantan las casas que traen los planos de cada año, el río retrocede cuando se hace el puerto, se abren la Avenida de Mayo, las diagonales y la 9 de Julio, y las calles pasan de la tierra al adoquín y al asfalto.</p>
+    <p>La ciudad no se queda en 1867. Abajo, la línea de tiempo la lleva a <b>1888, 1895, 1905, 1910, 1921, 1940 y 1950</b> (el ▶ los recorre solo). Sobre el mismo plano se levantan las casas que traen los planos de cada año, el río retrocede cuando se hace el puerto, se abren la Avenida de Mayo, las diagonales y la 9 de Julio, y las calles pasan de la tierra al adoquín y al asfalto.</p>
     <p>Cada año trae sus edificios y sus plazas, hechos a partir de fotos de entonces: la Casa Rosada, el Congreso y su plaza, el Teatro Colón, Retiro, los diques con sus barcos, la Plaza de Mayo de cada época, el Obelisco. Los que tienen etiqueta se pueden tocar: cuentan qué eran y muestran cómo se veían. Están todos, uno por uno, en <a href="./edificios.html">la página de los edificios</a>.</p>
     <p>Y se la puede recorrer por adentro: <b>a pie</b>, <b>en avión</b> o <b>manejando</b> el coche de cada año, de la volanta de 1867 al Ford V8 de 1940, con los botones de abajo.</p>
 
@@ -93,7 +110,7 @@ const HTML = `
     </ul>
     </div></div>
   </div>
-  <div class="pie"><span class="como">Arrastrá para moverte, acercate con la rueda y tocá un nombre para ir.</span><button class="entrar">Ver la ciudad</button></div>
+  <div class="pie"><span class="como">Arrastrá para moverte, acercate con la rueda y tocá un nombre para ir.</span><div class="acciones"><div class="donar"><button class="dona" type="button" aria-expanded="false" aria-controls="intro-montos" title="Donar al proyecto">Donar</button><div class="montos" id="intro-montos" hidden><p class="para">Lo donado va a la cuota de Claude Code, para seguir desarrollando el proyecto.</p><div>${DONAR.map(([m, id]) => `<a href="https://nowpayments.io/payment/?iid=${id}" target="_blank" rel="noopener" aria-label="Donar ${m} dólares">US$ ${m}</a>`).join('')}</div><p>En cripto, por NOWPayments</p></div></div><button class="entrar">Ver la ciudad</button></div></div>
 </div>`;
 
 export function createIntro() {
@@ -104,7 +121,11 @@ export function createIntro() {
   let abierta = false, avisar;
   const cerrada = new Promise((r) => { avisar = r; });
   const abrir = () => { abierta = true; el.classList.add('ver'); el.querySelector('.texto').scrollTop = 0; el.querySelector('.entrar').focus({ preventScroll: true }); };
-  const cerrar = () => { if (!abierta) return; abierta = false; el.classList.remove('ver'); document.activeElement?.blur?.(); avisar(); };
+  const dona = el.querySelector('.dona'), montos = el.querySelector('.montos');
+  const verMontos = (si) => { montos.hidden = !si; dona.setAttribute('aria-expanded', si ? 'true' : 'false'); };
+  dona.addEventListener('click', () => verMontos(montos.hidden));
+  el.addEventListener('pointerdown', (e) => { if (!e.target.closest('.donar')) verMontos(false); });
+  const cerrar = () => { if (!abierta) return; abierta = false; verMontos(false); el.classList.remove('ver'); document.activeElement?.blur?.(); avisar(); };
   el.querySelector('.entrar').addEventListener('click', cerrar);
   el.addEventListener('pointerdown', (e) => { if (e.target === el) cerrar(); });
   // mientras está abierto, el teclado es suyo: que el espacio no levante la ciudad por detrás
@@ -112,6 +133,9 @@ export function createIntro() {
     if (!abierta) return;
     if (e.code === 'Tab' || e.metaKey || e.ctrlKey) return;
     e.stopImmediatePropagation();
+    // (en «Donar» y sus montos, Enter y espacio son del botón; Escape guarda primero los montos)
+    if (e.target.closest?.('.donar') && e.code !== 'Escape') return;
+    if (e.code === 'Escape' && !montos.hidden) { e.preventDefault(); verMontos(false); dona.focus({ preventScroll: true }); return; }
     if (e.code === 'Enter' || e.code === 'Space' || e.code === 'Escape') { e.preventDefault(); if (!e.repeat) cerrar(); }
   }, true);
   // el título vuelve a abrirlo

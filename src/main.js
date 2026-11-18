@@ -21,6 +21,7 @@ import { createPagina } from './pagina.js';
 import { createCamara } from './camara.js';
 import { createMarcas, LUGARES } from './marcas.js';
 import { createIntro } from './intro.js';
+import { createColaborar } from './colaborar.js';
 import { createCalles } from './calles.js';
 import { createTren } from './tren.js';
 import { pedir as bajar, u } from './url.js';
@@ -33,6 +34,7 @@ const q = new URLSearchParams(location.search), capture = q.has('capture'), $ = 
 const intro = capture || q.has('sinintro') || q.has('limpio') || q.has('lugar') || q.has('juego') ? null : createIntro();
 // (el juego de las fotos se puede pedir antes de que la ciudad esté: desde el cartel de entrada, o con `?juego`)
 let quiereJugar = q.has('juego'); addEventListener('jugar', () => { quiereJugar = true; });
+if (!capture && !q.has('limpio')) createColaborar(); // el botón «Colaborar», al lado del «?»
 if (q.has('limpio')) document.body.classList.add('limpio'); // (desde el principio: que no asome ningún cartel)
 
 // --- todo lo que hay que bajar se pide de entrada y a la vez (lo primero ya lo adelantó index.html) ---
