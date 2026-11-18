@@ -9,6 +9,8 @@ con la misma tinta: cada manzana, cada casilla suelta y cada árbol que el graba
 
 **Para sumar un lugar** (un edificio, una plaza, un estadio) con tu propio Claude: [`CONTRIBUIR.md`](CONTRIBUIR.md). Lo que falta: [`PENDIENTES.md`](PENDIENTES.md). Cómo nos coordinamos entre varios: [`COORDINAR.md`](COORDINAR.md).
 
+**Licencia:** MIT ([`LICENSE`](LICENSE)). Las fotos, el mapa de hoy y los planos antiguos tienen las suyas: [`LICENCIAS.md`](LICENCIAS.md).
+
 Arrastrar mueve, la rueda acerca, el botón derecho (o ⇧) gira e inclina. Espacio: plano ⇄ ciudad. Tocar un nombre
 lleva hasta ese lugar. En el teléfono, los gestos de cualquier mapa: un dedo mueve (y al soltarlo con impulso, sigue
 un poco); dos dedos acercan y mueven, giran recién cuando el giro es franco, e inclinan si suben o bajan juntos; dos

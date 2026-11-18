@@ -111,9 +111,9 @@ preferís no figurar, decilo en el pedido.
 
 ## La licencia
 
-*(Este apartado lo completa el autor: todavía no está decidido con qué licencia se publican el código, los textos
-de las fichas y los modelos. Hasta entonces, al mandar un pedido aceptás que tu aporte se publique en el visor y
-quede en este repositorio con tu crédito.)*
+El proyecto se publica con la licencia MIT ([`LICENSE`](LICENSE); el detalle, en [`LICENCIAS.md`](LICENCIAS.md)): el
+código, los textos, las fichas y los modelos. Al mandar un pedido aceptás que tu aporte se publique con esa misma
+licencia, con tu crédito.
 
 Lo que ya tiene dueño y condiciones propias: las fotos de las fichas son de dominio público o de licencia libre,
 cada una con su procedencia en `fuentes/fotos/`; el mapa de hoy es de © los colaboradores de OpenStreetMap, con
