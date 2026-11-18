@@ -2,7 +2,9 @@
 
 ## Qué lugar
 
-<!-- El nombre, dónde estaba (las calles de hoy) y en una línea qué era. Si cierra un issue: «Cierra #123». -->
+<!-- El nombre, dónde estaba (las calles de hoy) y en una línea qué era. Un pedido, un lugar (COORDINAR.md). -->
+
+Cierra #<!-- el número del issue con que lo reservaste -->
 
 ## Años
 
@@ -32,7 +34,15 @@
 
 <!-- Si donde va el lugar el visor pone casas, árboles o una calle: decí cuáles son las esquinas y desde qué año. Lo hace el autor. Si no hace falta, «No». -->
 
+## Modelo y esfuerzo usados
+
+<!-- Con qué modelo y qué esfuerzo se hizo: «Claude Fable 5.2, esfuerzo medio». Se pide eso como mínimo (COORDINAR.md). Si algún commit no lleva la firma de Claude, contá cómo se hizo. -->
+
 ## Antes de mandar
+
+- [ ] El lugar estaba reservado con un issue, y este pedido lo cita arriba («Cierra #…»).
+- [ ] La rama se llama `lugar/<clave>`, sale de `main` al día y trae un solo lugar.
+- [ ] `node tools/revisar-commits.mjs` da bien: los commits llevan la firma de Claude Fable 5.2 o mayor.
 
 - [ ] `npm run revisar -- <clave>` da todo bien (ningún ❌).
 - [ ] Miré la hoja: el lugar cae donde corresponde en la foto aérea y se parece a la foto de época.

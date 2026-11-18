@@ -4,6 +4,11 @@ Un visor en el navegador (vite + three.js) del plano topográfico de Buenos Aire
 mesa, la ciudad que se levanta del papel y una línea de tiempo que la hace crecer año por año. Está publicado en
 <https://baires.mormon.garden>. `LEEME.md` cuenta todo; esto es lo mínimo para no romper nada.
 
+**Antes de tocar nada, leé [`COORDINAR.md`](COORDINAR.md)**: acá trabaja mucha gente a la vez, cada una con su Claude,
+y ahí está con qué modelo se trabaja (Claude Fable 5.2 con esfuerzo medio, como mínimo), cómo se reserva un lugar
+antes de empezar, cómo se llama la rama y qué archivos son de quién. Son tus reglas tanto como estas. Si al abrir
+la sesión recibiste un «AVISO DEL PROYECTO» sobre el modelo, decíselo a la persona antes que cualquier otra cosa.
+
     npm install
     npx vite            # el visor, en http://localhost:5173
     npx vite build      # tiene que compilar siempre
@@ -22,15 +27,17 @@ de commit. Llano y sin tecnicismos: lo lee gente que no programa.
 | `fuentes/fotos/` → `public/fotos/` | Las fotos de época, cada una con su `.json` de procedencia (`node tools/fotos.mjs` las prepara). |
 | `tools/` | El generador de la ciudad y las herramientas. `tools/revisar-lugar.mjs` revisa un lugar. |
 | `public/datos/`, `public/plano/` | **Datos generados.** No se editan a mano. |
-| `PENDIENTES.md` | Los lugares que faltan. `CONTRIBUIR.md`: cómo se aporta. |
+| `PENDIENTES.md` | Los lugares que faltan. `CONTRIBUIR.md`: cómo se aporta. `COORDINAR.md`: cómo no pisarse. |
 
 Los años de la línea de tiempo no se escriben a mano en ningún lado: salen de `public/datos/crece.json` (y de
 `src/etapas.js`, si está). En un lugar, `c.etapaDe(año)`.
 
 ## Si te piden agregar un lugar
 
-Usá el skill **`agregar-lugar`** (`.claude/skills/agregar-lugar/SKILL.md`) y seguilo paso por paso. Termina con
-`npm run revisar -- <clave>`, que tiene que dar todo bien.
+Usá el skill **`agregar-lugar`** (`.claude/skills/agregar-lugar/SKILL.md`) y seguilo paso por paso. Empieza por
+reservar el lugar con un issue (`COORDINAR.md`) y termina con `npm run revisar -- <clave>`, que tiene que dar todo
+bien. La **clave** de un lugar es el nombre de su archivo, sin `.js` (`src/lugares/teatro-colon.js` → `teatro-colon`):
+la misma en la rama (`lugar/teatro-colon`), en la revisión y en la hoja (`revision/teatro-colon.jpg`).
 
 ## Lo que no se negocia
 
@@ -45,11 +52,13 @@ Usá el skill **`agregar-lugar`** (`.claude/skills/agregar-lugar/SKILL.md`) y se
    (`node tools/esquina.mjs "Calle" "Otra"` y una latitud y longitud buscadas, con `--punto lat lon`). Ya pasó que
    un edificio quedó a 400 metros por confiar en un número recordado.
 4. **Un aporte de lugar no toca el generador ni lo generado**: ni `tools/crece.mjs`, ni `tools/alturas.mjs`, ni
-   `public/datos/`, ni `public/plano/`, ni `src/tinta.js`, ni `src/barrios.js`. Si el lugar necesita que se despeje un solar o que cambie
+   `public/datos/`, ni `public/plano/`, ni `src/tinta.js`, ni `src/barrios.js`; tampoco el motor, las herramientas,
+   `.github/`, `.claude/` ni las guías (la tabla de quién toca qué está en `COORDINAR.md`). Si el lugar necesita que se despeje un solar o que cambie
    una calle, se deja pedido (`solar` en su `LUGAR` y en el pedido): lo hace el dueño, que es quien puede volver a
    generar la ciudad.
 5. **No se publica.** Nada de `wrangler deploy` ni de ningún despliegue: publica solo el dueño. Tampoco se empuja a
-   `main`: se trabaja en una rama y se manda un pedido (pull request); el único que acepta es `@mormonnegro`.
+   `main`: se trabaja en una rama `lugar/<clave>`, un lugar por rama, y se manda un pedido (pull request); el único
+   que acepta es `@mormonnegro`.
 6. **El crédito.** El autor del visor figura como `@mormonnegro` y de ninguna otra forma. Quien aporta un lugar
    figura con su usuario de GitHub en la ficha (`por: '@usuario'`). Ningún otro nombre propio de quien trabaja acá,
    ni correos, ni teléfonos, en ningún archivo ni en ningún commit.
@@ -80,7 +89,9 @@ el arquitecto, cuántos entraban) y sin adjetivos de folleto. Las comillas son �
 ## Los commits
 
 Un título en español que diga qué cambió para quien mira el visor, no qué archivos («El Mercado del Plata, de 1856
-a 1947», «Lo que no se ve no se dibuja: las mallas grandes, en trozos»). `git log` muestra el tono.
+a 1947», «Lo que no se ve no se dibuja: las mallas grandes, en trozos»). `git log` muestra el tono. No apagues la firma que Claude Code deja al pie
+(`Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>`): es la constancia de con qué se hizo, y
+`node tools/revisar-commits.mjs` la controla.
 
 ## Para probar
 

@@ -25,4 +25,4 @@ labels: lugar
 
 ## ¿Lo vas a hacer vos?
 
-<!-- «Sí, lo hago con mi Claude» (ver CONTRIBUIR.md), o «No, lo dejo propuesto». -->
+<!-- «Sí, lo tomo» (este issue es tu reserva: dura 14 días sin pull request; ver COORDINAR.md y CONTRIBUIR.md), o «No, lo dejo propuesto». -->

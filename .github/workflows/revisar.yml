@@ -1,5 +1,5 @@
-# La revisión corta de cada pedido: que instale, que compile y los controles de los lugares que no necesitan
-# navegador. Corre con el código del pedido, así que no tiene ningún permiso más que leer, ni secretos.
+# La revisión corta de cada pedido: que instale, que compile, los controles de los lugares que no necesitan
+# navegador y la firma de los commits. Corre con el código del pedido, así que no tiene ningún permiso más que leer, ni secretos.
 name: Revisar el pedido
 
 on:
@@ -40,3 +40,9 @@ jobs:
           node tools/revisar-lugar.mjs --cambiados --sin-navegador --sin-compilar --base "$BASE" $DE_QUIEN || rc=$?
           for f in revision/*.md; do if [ -f "$f" ]; then cat "$f" >> "$GITHUB_STEP_SUMMARY"; fi; done
           exit $rc
+      - name: Revisar la firma de los commits
+        # (con qué modelo se hizo cada commit: COORDINAR.md. Necesita la historia entera: fetch-depth 0, arriba)
+        if: ${{ !cancelled() }}
+        env:
+          BASE: origin/${{ github.base_ref }}
+        run: node tools/revisar-commits.mjs "$BASE" | tee -a "$GITHUB_STEP_SUMMARY"

@@ -5,7 +5,7 @@
 //   · La planta: las esquinas de hoy (tools/esquina.mjs) y la foto aérea de 1940 del mapa de la Ciudad.
 // Lo que es supuesto: <las alturas, a ojo sobre la foto; el costado que la foto no muestra; …>.
 //
-// (Copiá este archivo a src/lugares/<nombre-con-guiones>.js, registralo al final de LUGARES en src/hitos.js y
+// (Copiá este archivo a src/lugares/<clave>.js, registralo al final de LUGARES en src/hitos.js y
 // borrá estas dos líneas. Las piezas están explicadas en src/lugares/LEEME.md.)
 
 export const LUGAR = {

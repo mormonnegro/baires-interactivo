@@ -9,7 +9,8 @@ Vas a sumar un lugar hecho a mano: un archivo en `src/lugares/`, su marca, su fi
 corre una revisión automática que tiene que dar todo bien, y el aporte se manda como pedido (pull request): lo
 acepta solo el dueño, `@mormonnegro`.
 
-Las reglas del repositorio están en `CLAUDE.md` y valen todas. La que más se rompe: **no inventar**. Un lugar con
+Las reglas del repositorio están en `CLAUDE.md` y en `COORDINAR.md` (cómo se coordinan las personas y sus Claude:
+el modelo mínimo, la reserva, la rama, qué archivos son de quién) y valen todas. La que más se rompe: **no inventar**. Un lugar con
 tres datos ciertos y el resto dicho como supuesto entra; uno con un año inventado, no.
 
 Seguí los pasos en orden. Los archivos de apoyo de esta carpeta:
@@ -17,17 +18,50 @@ Seguí los pasos en orden. Los archivos de apoyo de esta carpeta:
 - `plantilla-lugar.js`: el esqueleto de un archivo de lugar, para copiar.
 - `fallas.md`: qué hacer con cada control de la revisión que falle.
 
-## 0. Antes de empezar
+## 0. Antes de empezar: el modelo, la reserva y la rama
+
+No escribas código hasta terminar este paso. Es lo que pide `COORDINAR.md` (leelo entero: acá va solo el cómo).
+
+**El modelo.** Se pide Claude Fable 5.2 con esfuerzo medio, como mínimo. Si la sesión arrancó con un «AVISO DEL
+PROYECTO» sobre el modelo, o sabés que sos un modelo menor, decíselo a la persona y no sigas hasta que lo cambie.
+
+**La clave.** Elegí el nombre del archivo del lugar: corto, en minúsculas y con guiones (`mercado-del-plata`). Esa
+es la clave: la de la rama (`lugar/mercado-del-plata`), la del archivo (`src/lugares/mercado-del-plata.js`) y la que
+se le pasa a la revisión.
+
+**La reserva.** Fijate que nadie lo esté haciendo, en los issues y los pedidos abiertos **y cerrados** del
+repositorio del autor, y en lo que ya está en el visor:
+
+```
+gh issue list -R mormonnegro/baires-interactivo --state all --search "<el lugar>"
+gh pr list    -R mormonnegro/baires-interactivo --state all --search "<el lugar>"
+grep -i "<nombre>" src/marcas.js src/fichas.js PENDIENTES.md
+```
+(probá también con el nombre viejo del lugar y con la calle). Si alguien lo tiene —un issue que dice «lo tomo» con
+menos de 14 días, o un pedido abierto—, **frená y avisale a la persona**: no abras otro issue ni sigas.
+
+Si está libre, abrí el issue de reserva con la plantilla «Proponer un lugar» (`.github/ISSUE_TEMPLATE/`), con lo que
+se sepa hasta ahora y «lo tomo»:
+
+```
+gh issue create -R mormonnegro/baires-interactivo --title "Lugar: <nombre> (<años>)" --label lugar --body-file <archivo con la plantilla completa>
+```
+Anotá el número: el pedido lo va a citar («Cierra #12»). Si no hay `gh`, o no tiene sesión iniciada, o la persona
+te dijo que no abras issues, no lo rodees: pasale el texto del issue ya escrito para que lo abra ella en
+<https://github.com/mormonnegro/baires-interactivo/issues/new/choose>, y seguí cuando te lo confirme (o cuando te
+diga que sigas sin reserva).
+
+**La rama**, una por lugar, desde `main` al día:
 
 ```
 npm install                 # si no hay node_modules
-git checkout -b lugar/<nombre-corto>     # nunca sobre main
+git fetch origin && git checkout -b lugar/<clave> origin/main     # nunca sobre main
 ```
+(si tu copia es un fork, `origin/main` puede estar atrasada respecto del repositorio del autor: actualizala antes.)
 
 Leé `src/lugares/LEEME.md` entero (las piezas, los ejes, las etapas) y mirá dos lugares que ya están:
 `src/lugares/teatro-colon.js` (un edificio, con su `LUGAR` declarado) y `src/lugares/cabildo.js` (uno que cambia
-cuatro veces). Para un estadio, un hospital o un mercado, `src/lugares/barrios.js`. Fijate si el lugar ya está:
-`grep -i "<nombre>" src/marcas.js src/fichas.js PENDIENTES.md`.
+cuatro veces). Para un estadio, un hospital o un mercado, `src/lugares/barrios.js`.
 
 ## 1. Preguntar lo mínimo
 
@@ -132,12 +166,13 @@ node tools/shot.mjs --puerto 5478 --query color --serie '[{"name":"antes","año"
 arriba, como el plano. La cámara no se acerca a menos de 170 metros: con un `dist` más chico sale igual de lejos.
 Una calle o una plaza seca casi no se distinguen del papel: que se vea liso no quiere decir que no haya nada.)
 
-**Un archivo nuevo** en `src/lugares/<nombre-con-guiones>.js`, copiado de `plantilla-lugar.js`, salvo que el lugar
+**Un archivo nuevo** en `src/lugares/<clave>.js`, copiado de `plantilla-lugar.js`, salvo que el lugar
 sea un detalle de uno que ya está y dure lo mismo que él (un banco, un cantero: va en el archivo de la plaza). Lo
 que tiene sus propios años, su marca y su ficha —una fuente que estuvo quince años en una plazoleta, un monumento—
 va en archivo aparte aunque esté dentro de una plaza ya hecha: así la revisión lo mira solo y no se toca lo ajeno. Se registra en
-`src/hitos.js` con dos cambios y nada más: el `import` junto a los otros, y el nombre **al final** de la lista
-`const LUGARES = { … }`. En el medio, les cambia los colores a todos los lugares que siguen, y la revisión lo nota.
+`src/hitos.js` con dos cambios y nada más: el `import` junto a los otros (con la clave sin guiones:
+`import mercadoDelPlata from './lugares/mercado-del-plata.js';`), y ese nombre **al final** de la lista
+`const LUGARES = { … }`. Del resto de `src/hitos.js` no se toca ni una línea. En el medio, les cambia los colores a todos los lugares que siguen, y la revisión lo nota.
 
 **Empezá por una caja.** Poné el volumen principal con una sola `T.caja`, corré la revisión (paso 7) y mirá en la
 hoja si cae donde tiene que caer contra la foto aérea de 1940. Recién entonces el detalle.
@@ -233,7 +268,7 @@ Si no hay foto libre: la ficha va sin `fotos` y se anota en `PENDIENTES.md`, en 
 ## 7. Verificar
 
 ```
-npm run revisar -- <clave>          # la clave es el nombre con que lo importaste en src/hitos.js
+npm run revisar -- <clave>          # la clave: el nombre del archivo, sin «.js» (mercado-del-plata)
 ```
 Compara contra `main`. Si saliste de otra rama, o si avisa que la base está vieja, traé lo último (`git fetch
 origin`) o decile de cuál saliste: `npm run revisar -- <clave> --base <rama>`. Si fallan «No cambia nada fuera de
@@ -264,15 +299,22 @@ Sin navegador (`--sin-navegador`) corre igual lo demás; sin red, la hoja sale s
 
 1. `PENDIENTES.md`: sacá el lugar de la lista (o dejá anotado lo que quedó sin hacer: la foto, el solar).
 2. `git status`: que estén solo tus archivos (`src/lugares/…`, `src/hitos.js`, `src/marcas.js`, `src/fichas.js`,
-   y si hay foto `src/fotos.json`, `fuentes/fotos/…`, `public/fotos/…`). La carpeta `revision/` no se sube.
+   y si hay foto `src/fotos.json`, `fuentes/fotos/…`, `public/fotos/…`). En los compartidos, solo tus renglones:
+   sin reordenar ni reformatear nada ajeno (la tabla está en `COORDINAR.md`). Un lugar por rama: nada de «de paso
+   arreglé…». La carpeta `revision/` no se sube.
 3. El commit, con un título en español que diga qué se ve ahora en el visor, como los de `git log`:
    «El Puente Pueyrredón de tal año», «La Plaza Colón, con su marca y su ficha».
-   En el cuerpo, dos o tres líneas: de dónde salen los datos y qué es supuesto.
-4. Subí la rama a **tu copia** (fork) del repositorio y abrí el pedido contra `main` de
-   `mormonnegro/baires-interactivo`. La plantilla (`.github/PULL_REQUEST_TEMPLATE.md`) pide: qué lugar y qué años,
+   En el cuerpo, dos o tres líneas: de dónde salen los datos y qué es supuesto. Dejá la firma que Claude Code
+   pone al pie (`Co-Authored-By: Claude …`): no la saques ni la escribas a mano con otro modelo.
+4. Poné tus commits sobre `main` al día (`git fetch origin && git rebase origin/main`), volvé a correr la revisión
+   si cambió algo, y corré `node tools/revisar-commits.mjs`: tiene que dar todos con ✓.
+5. Subí la rama a **tu copia** (fork) del repositorio y abrí el pedido contra `main` de
+   `mormonnegro/baires-interactivo`, recién cuando la revisión da bien y la persona miró la hoja. La plantilla
+   (`.github/PULL_REQUEST_TEMPLATE.md`) pide: qué lugar y qué años, **«Cierra #…»** con el issue de la reserva,
    las fuentes, **la hoja** (`revision/<clave>.jpg`, arrastrada al texto del pedido), el resumen
-   (`revision/<clave>.md`, pegado), qué es supuesto y si hace falta despejar un solar.
-5. No publiques nada ni toques `main`. Si no tenés permiso para subir, dejá la rama lista y decile a la persona
+   (`revision/<clave>.md`, pegado), qué es supuesto, si hace falta despejar un solar, y **con qué modelo y qué
+   esfuerzo se hizo** (decí los de esta sesión, los de verdad).
+6. No publiques nada ni toques `main`. Si no tenés permiso para subir, dejá la rama lista y decile a la persona
    qué comandos correr.
 
 Al terminar, contale a la persona en tres líneas: qué quedó hecho, qué es supuesto y qué quedó pendiente, y

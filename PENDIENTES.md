@@ -5,7 +5,8 @@ aparecerían. De cada uno va **lo que ya se sabe** (lo que dice el propio reposi
 **lo que hay que averiguar**. Lo que acá no figura como sabido, no se sabe: hay que buscarlo con su fuente, no
 suponerlo.
 
-Cómo se aporta: `CONTRIBUIR.md`. Si empezás uno, avisá en un issue («Proponer un lugar») para que no lo hagan dos.
+Cómo se aporta: `CONTRIBUIR.md`. Antes de empezar uno, reservalo con un issue («Proponer un lugar»), para que no lo
+hagan dos: `COORDINAR.md` dice cómo.
 Cuando esté hecho, se saca de esta lista en el mismo pedido.
 
 Las marcas de dificultad son orientativas: 🟢 chico y con fuentes a mano · 🟡 mediano · 🔴 grande, o pide que el dueño

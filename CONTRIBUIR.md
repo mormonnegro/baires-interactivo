@@ -5,6 +5,8 @@ cancha, la plaza de tu barrio como era en 1910. Esta guía es para sumar uno **s
 haciendo el trabajo y vos mirando que quede bien.
 
 Quien acepta los aportes es el autor del visor, [@mormonnegro](https://github.com/mormonnegro). Nadie más publica.
+Como somos varios a la vez, cada uno con su Claude, hay unas pocas reglas para no pisarnos:
+[`COORDINAR.md`](COORDINAR.md). Leela antes de empezar; esta guía no las repite.
 
 ## Qué se puede aportar
 
@@ -27,13 +29,15 @@ necesita algo de eso —que se saquen las casas de una manzana, por ejemplo—, 
 - **esté dentro del plano**: más o menos de la Boca a Palermo y del río a Once y Almagro;
 - **tenga con qué**: al menos una fuente para los años y la dirección, y mejor si hay una foto fechada.
 
-Antes de arrancar, abrí un issue con la plantilla **«Proponer un lugar»**: así no lo hacen dos personas a la vez y
-el autor te puede decir si hay algo que conviene saber.
+Antes de arrancar, **reservalo**: fijate que nadie lo tenga y abrí un issue con la plantilla **«Proponer un lugar»**
+(o pedile a Claude que lo haga). Así no lo hacen dos personas a la vez y el autor te puede decir si hay algo que
+conviene saber. Cómo funciona la reserva y cuánto dura: [`COORDINAR.md`](COORDINAR.md), «Antes de empezar».
 
 ## Cómo se hace
 
 Necesitás [git](https://git-scm.com), [Node.js](https://nodejs.org) (versión 22 o más nueva), una cuenta de GitHub
-y [Claude Code](https://claude.com/claude-code).
+y [Claude Code](https://claude.com/claude-code), con **Claude Fable 5.2 y esfuerzo medio como mínimo** (el repositorio
+ya lo deja puesto al abrirlo; no lo bajes: lo hecho con un modelo menor no se acepta).
 
 1. Hacé tu copia del repositorio en GitHub (el botón **Fork**) y bajala:
 
@@ -71,15 +75,19 @@ esquina») y que vuelva a correr la revisión. No lo mandes con controles en ❌
 
 ## Cómo mandarlo
 
-Pedile a Claude que lo suba a tu copia y abra el pedido (pull request), o hacelo vos:
+Un pedido es **un lugar**, en su rama `lugar/<clave>`. Pedile a Claude que lo suba a tu copia y abra el pedido (pull
+request), o hacelo vos:
 
-    git push -u origin lugar/<nombre>
+    node tools/revisar-commits.mjs        # que cada commit lleve la firma de Claude
+    git push -u origin lugar/<clave>
 
 y en GitHub, **Compare & pull request** contra `main` de `mormonnegro/baires-interactivo`. El formulario pide:
 qué lugar es y de qué años, las fuentes, **la hoja** (arrastrá `revision/<clave>.jpg` al texto), la lista de
-controles (pegá `revision/<clave>.md`), qué es supuesto y si hace falta despejar un solar.
+controles (pegá `revision/<clave>.md`), qué es supuesto, si hace falta despejar un solar, **con qué modelo y qué
+esfuerzo se hizo** y qué issue cierra («Cierra #12»: el de tu reserva).
 
-GitHub corre solo una revisión corta del pedido (que compile y los controles que no necesitan navegador).
+GitHub corre solo una revisión corta del pedido (que compile, los controles que no necesitan navegador y la firma
+de los commits). En un pedido de afuera corre cuando el autor la habilita: es normal que quede esperando.
 
 ## Qué va a mirar el autor para aceptarlo
 

@@ -3,7 +3,7 @@
 // antes de mandarlo, y lo que mira quien lo acepta. La guía está en .claude/skills/agregar-lugar/ y en CONTRIBUIR.md.
 //
 //   node tools/revisar-lugar.mjs <clave>      (o: npm run revisar -- <clave>)
-//     <clave>            el nombre del lugar en la lista LUGARES de src/hitos.js (teatroColon) o el de su archivo (teatro-colon)
+//     <clave>            el nombre del archivo del lugar, sin «.js» (teatro-colon), o el de la lista LUGARES de src/hitos.js (teatroColon)
 //     --cambiados        en vez de una clave: todos los lugares cuyo archivo cambió respecto de la rama base
 //     --base <rama>      contra qué se compara (por omisión origin/main, o main)
 //     --sin-navegador    solo los controles que no necesitan navegador (es lo que corre GitHub en cada pedido)
@@ -13,7 +13,7 @@
 //     --del-autor        el pedido es del autor del visor, que sí puede tocar el generador y la configuración: eso pasa a ser un aviso
 //     --chrome           solo dice qué navegador usaría (para pasárselo a tools/shot.mjs en la variable CHROME)
 //
-// Deja revision/<clave>.jpg (la hoja) y revision/<clave>.md (el resumen, para pegar en el pedido). La carpeta
+// Deja revision/<clave>.jpg (la hoja) y revision/<clave>.md (el resumen, para pegar en el pedido), con el nombre del archivo. La carpeta
 // revision/ no va al repositorio. Sale con código 1 si algún control falla.
 //
 // No necesita nada que no esté en el repositorio (ni el escaneo del plano ni tmp/). El navegador es Chrome for Testing
@@ -50,7 +50,7 @@ const ESPERADOS = [/^src\/lugares\//, /^src\/(hitos|marcas|fichas)\.js$/, /^src\
 const VEDADOS = [
   [/^tools\/(crece|alturas)\.mjs$/, 'el generador de la ciudad'], [/^public\/(datos|plano)\//, 'los datos generados'],
   [/^src\/tinta\.js$/, 'cómo se dibuja todo'], [/^src\/(barrios|edificios|palermo|playas-retiro|plaza-colon)\.js$/, 'los solares y las plantas que usa el generador'],
-  [/^tools\/revisar-lugar\.mjs$/, 'esta misma herramienta'], [/^\.github\//, 'la configuración de GitHub'], [/^(CLAUDE\.md|\.claude\/)/, 'las reglas del repositorio'],
+  [/^tools\/revisar-(lugar|commits)\.mjs$/, 'las herramientas de revisión'], [/^\.github\//, 'la configuración de GitHub'], [/^((CLAUDE|COORDINAR|CONTRIBUIR)\.md|\.claude\/)/, 'las reglas del repositorio'],
   [/^(package(-lock)?\.json|wrangler\.jsonc|vite\.config\.mjs)$/, 'la configuración del proyecto'],
 ];
 
@@ -92,6 +92,8 @@ function registro(texto) {
 }
 const REG = registro(readFileSync('src/hitos.js', 'utf8'));
 const claveDe = (x) => (REG.lista.includes(x) ? x : Object.keys(REG.archivo).find((k) => REG.archivo[k] === x.replace(/\.js$/, '').replace(/^src\/lugares\//, '')) ?? x);
+/** Con qué nombre salen la hoja y el resumen: el del archivo del lugar (teatro-colon), que es también el de su rama. */
+const archivoDe = (k) => REG.archivo[k] ?? k;
 let CLAVES = claves0.map(claveDe);
 if (si('cambiados')) {
   if (!TOCADOS) { console.log('No encuentro la rama base (probá --base <rama>): no sé qué lugares cambiaron.'); process.exit(2); }
@@ -437,7 +439,7 @@ async function hoja(clave, R, nav, sharp) {
   for (const x of lado) { if (x.img) capas.push({ input: x.img, left: xl, top: x.y }); x.r.forEach((l, i) => { svg += `<text x="${xl}" y="${x.y + x.h + 24 + i * 19}" font-size="15.5" fill="#2a221b">${esc(l)}</text>`; }); }
   svg += `<text x="${MAR}" y="${H - MAR}" font-size="15" fill="#2a221b" opacity=".6">${esc(`Hoja de revisión de tools/revisar-lugar.mjs · contra ${BASE ? BASE.rama : 'ninguna rama'} · el recuadro rojo es lo que ocupa el lugar${conAerea ? '' : ' · sin la foto aérea de 1940'}`)}</text></svg>`;
   mkdirSync('revision', { recursive: true });
-  await sharp(Buffer.from(svg)).composite(capas).jpeg({ quality: 84 }).toFile(`revision/${clave}.jpg`);
+  await sharp(Buffer.from(svg)).composite(capas).jpeg({ quality: 84 }).toFile(`revision/${archivoDe(clave)}.jpg`);
   return { filas: filas.map(([e, q]) => `${AÑOS[e]} (${q})`), conAerea };
 }
 
@@ -452,7 +454,7 @@ function resumen(clave, R, extra) {
   if (D?.fuentes?.length) t += '\n### Fuentes que declara\n\n' + D.fuentes.map((f) => `- ${f}`).join('\n') + '\n';
   if (D?.supuestos?.length) t += '\n### Lo que declara como supuesto\n\n' + D.supuestos.map((f) => `- ${f}`).join('\n') + '\n';
   if (D?.solar) t += `\n### Pide que se despeje un solar\n\n${D.solar}\n`;
-  if (extra.hoja) t += `\n### La hoja\n\n\`revision/${clave}.jpg\` (arrastrala al pedido): ${extra.hoja.filas.join(', ')}${extra.hoja.conAerea ? ', con la foto aérea de 1940' : ', sin la foto aérea de 1940'}.\n`;
+  if (extra.hoja) t += `\n### La hoja\n\n\`revision/${archivoDe(clave)}.jpg\` (arrastrala al pedido): ${extra.hoja.filas.join(', ')}${extra.hoja.conAerea ? ', con la foto aérea de 1940' : ', sin la foto aérea de 1940'}.\n`;
   else t += `\n_Sin hoja de imágenes: ${extra.porQue}._\n`;
   if (TOCADOS && R.nuevo !== undefined) t += `\n<details><summary>Archivos que cambian respecto de ${BASE.rama} (${TOCADOS.length})</summary>\n\n${TOCADOS.map((f) => `- \`${f}\``).join('\n')}\n\n</details>\n`;
   return t;
@@ -520,7 +522,7 @@ for (const k of CLAVES) {
   const R = RES[k]; console.log(`\n${k}${R.D?.nombre ? ` — ${R.D.nombre}` : ''}`);
   for (const c of R.C) { console.log(`  ${{ ok: 'ok    ', falla: 'FALLA ', aviso: 'aviso ' }[c.e]} ${c.que}${c.dato ? ': ' + c.dato : ''}`); if (c.e !== 'ok' && c.arreglo) console.log(`         → ${c.arreglo}`); }
   const f = R.C.filter((c) => c.e === 'falla').length; mal += f;
-  writeFileSync(`revision/${k}.md`, resumen(k, R, { hoja: R.hoja, porQue }));
-  console.log(`  ${f ? `${f} control(es) con FALLA` : 'todo bien'} · revision/${k}.md${R.hoja ? ` · revision/${k}.jpg` : ` (sin hoja: ${porQue})`}`);
+  writeFileSync(`revision/${archivoDe(k)}.md`, resumen(k, R, { hoja: R.hoja, porQue }));
+  console.log(`  ${f ? `${f} control(es) con FALLA` : 'todo bien'} · revision/${archivoDe(k)}.md${R.hoja ? ` · revision/${archivoDe(k)}.jpg` : ` (sin hoja: ${porQue})`}`);
 }
 process.exit(mal || process.exitCode ? 1 : 0);

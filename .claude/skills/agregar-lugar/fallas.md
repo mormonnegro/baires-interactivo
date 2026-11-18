@@ -5,7 +5,7 @@ control que falla está avisando de algo real; se arregla la causa, no el dato p
 
 | Control | Qué significa | Qué hacer |
 |---|---|---|
-| **El lugar existe / Está registrado** | La clave no está en `src/hitos.js`. | El `import` junto a los otros y el nombre al final de `const LUGARES = { … }`. La clave es ese nombre (`mercadoDelPlata`), no el del archivo. |
+| **El lugar existe / Está registrado** | La clave no está en `src/hitos.js`. | El `import` junto a los otros y el nombre al final de `const LUGARES = { … }`. A la revisión se le pasa el nombre del archivo (`mercado-del-plata`); también entiende el de la lista (`mercadoDelPlata`). |
 | **Se arma sin errores** | La función del lugar tiró un error, o no puso nada. | Leé el error: casi siempre un argumento que falta en una pieza o una variable sin definir. Las piezas y su orden de argumentos, en `src/lugares/LEEME.md` y en `src/hitos.js`. |
 | **Declara qué es** | Falta `export const LUGAR` o alguno de sus campos. | Completalo (formato en `src/lugares/LEEME.md`). No pongas un campo vacío para que pase: si no hay fuentes, falta investigar. |
 | **Las etapas son válidas / coinciden con los años** | Aparece o se va en una etapa que no corresponde al año que declara. | Usá `c.etapaDe(año)` en vez de números. Si el año estaba mal, corregilo en `LUGAR` **con su fuente**. Si nace y se va entre dos etapas, o es posterior a la última, no entra en el visor: a `PENDIENTES.md`. |
@@ -20,6 +20,7 @@ control que falla está avisando de algo real; se arregla la causa, no el dato p
 | **No cambia marcas ni fichas ajenas** (aviso) | Cambiaste una marca o una ficha que no es de tu lugar. | Si es a propósito (cortarle la época a la marca de lo que tu lugar reemplaza), contalo en el pedido. Si no, deshacelo. |
 | **Toca solo lo suyo** | El aporte cambia el generador, los datos generados o la configuración. | `git checkout main -- <archivo>`. Lo que necesites de ahí se pide en el pedido. |
 | **No deja rutas de la máquina** | Quedó una ruta de tu carpeta personal en algún archivo. | Sacala: rutas relativas al repositorio. |
+| **`node tools/revisar-commits.mjs` marca un commit con ✗** | Ese commit se hizo con un modelo menor que el que pide el proyecto. | Rehacelo con Claude Fable 5.2 o mayor (`/model fable`, `/effort medium`): `COORDINAR.md`. Un «?» (sin firma) no falla, pero se explica en el pedido. |
 | **Compila** | `vite build` falla. | `npx vite build` y leé el error. |
 | **Se ve bien en el visor** | El lugar falla al armarse en el navegador, o la consola tira errores. | `npx vite`, abrir la página y mirar la consola. Si el mismo aviso sale en `main`, no es tuyo: decilo en el pedido. |
 

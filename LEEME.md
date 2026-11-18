@@ -7,7 +7,7 @@ con la misma tinta: cada manzana, cada casilla suelta y cada árbol que el graba
     npm run dev        # http://localhost:5430
     npm run build      # dist/
 
-**Para sumar un lugar** (un edificio, una plaza, un estadio) con tu propio Claude: [`CONTRIBUIR.md`](CONTRIBUIR.md). Lo que falta: [`PENDIENTES.md`](PENDIENTES.md).
+**Para sumar un lugar** (un edificio, una plaza, un estadio) con tu propio Claude: [`CONTRIBUIR.md`](CONTRIBUIR.md). Lo que falta: [`PENDIENTES.md`](PENDIENTES.md). Cómo nos coordinamos entre varios: [`COORDINAR.md`](COORDINAR.md).
 
 Arrastrar mueve, la rueda acerca, el botón derecho (o ⇧) gira e inclina. Espacio: plano ⇄ ciudad. Tocar un nombre
 lleva hasta ese lugar. En el teléfono, los gestos de cualquier mapa: un dedo mueve (y al soltarlo con impulso, sigue
