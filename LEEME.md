@@ -37,6 +37,21 @@ papel que el plano deja entre manzana y manzana. Con el primer paso solo, las ca
 peor, y 3 a 4 m en validación cruzada. Eso vale para el casco viejo, donde hay calles de 1867 con qué calzar; hacia
 las afueras no hay cómo medirlo y el error es mayor (decenas de metros en los bordes del pliego).
 
+## El juego: ¿dónde es esta foto?
+
+El botón «Jugar» (o `?juego` en la dirección, o «Jugar: ¿dónde es esta foto?» en el cartel de entrada) arranca una
+partida: sale una foto de época y hay que tocar en el plano el lugar que muestra, y confirmar. Cada respuesta suma los
+metros que faltaron, y la partida termina cuando la suma llega a 10 km (`LIMITE`, en `src/juego.js`); el puntaje es
+cuántas fotos se ubicaron antes, y la mejor partida se guarda en el navegador. El año que se esté mirando no cuenta:
+solo el lugar. Mientras se juega no hay marcas con nombre, fichas, buscador ni modos de recorrer; quedan los años, el
+color y «lo de hoy».
+
+Las fotos son las de las fichas (136 de las 167). El blanco de cada una es la marca del lugar que retrata, no el punto
+donde se paró el fotógrafo, que no se sabe; alrededor hay un margen que vale como acierto (el `radio` de la marca, 45 m
+si no tiene, 90 m en las plazas y barrios). Quedan afuera los interiores, las vistas aéreas o generales (`SIN_FOTO`) y
+lo que es una línea o una zona y no un punto: las avenidas, el subte, el puerto (`SIN_LUGAR`). Cuando una foto está en
+la ficha de un lugar pero retrata sobre todo otro, `VA_A` dice a cuál va.
+
 ## En color
 
 El visor arranca en color. Se apaga con el botón «Color» o la tecla C (y queda apagado para la próxima visita);
@@ -95,9 +110,8 @@ el «?» va en la fila de los modos, que a la izquierda está libre (la de abajo
 
 Para que la pantalla chica no quede cargada, ahí el recuadro es un cartel de paso: abierto ocupa la fila de los modos
 (que se guardan mientras tanto, igual que la leyenda de «lo de hoy» y la nota del año) y se cierra al tocar el plano,
-al abrirse una ficha —que sube desde abajo— o al entrar a caminar, volar o manejar. La nota del año (qué cambió y de
-qué plano sale) se muestra unos nueve segundos al elegirlo y se guarda; tocando el año de nuevo vuelve (`fresca` y
-`aviso`, en `src/epocas.js`). La leyenda de «lo de hoy» va abajo, encima de los botones (arriba están el buscador y
+al abrirse una ficha —que sube desde abajo— o al entrar a caminar, volar o manejar. La nota del año (qué cambió y de qué plano sale) no se muestra
+en el teléfono: solo aparece mientras carga el año o si falló (`aviso`, en `src/epocas.js`). La leyenda de «lo de hoy» va abajo, encima de los botones (arriba están el buscador y
 los años). La firma queda en el retrato solo. Acostado, el buscador, los años y el retrato entran en una sola fila
 arriba, y con una ficha abierta los años se guardan.
 
@@ -223,7 +237,8 @@ siguen el terreno; los árboles nacen y se van con su etapa.
 |---|---|---|
 | Plaza de Mayo (`plaza-de-mayo.js`) | la plaza unida de 1884 con sus fuentes de hierro y palmeras · el trazado de Thays de 1894 · el de 1905–1910 con los estanques · la Pirámide en el centro (1912) y los parterres de 1921 · el solado de 1929. Siempre, el Belgrano ecuestre | 1888 |
 | Puerto (`puerto.js`) | la rada con veleros, balleneras y carros de desembarco (1867–1888) · los diques con vapores, grúas y puentes giratorios (1895) · los diecisiete docks de ladrillo —cuatro por dique y cinco, más cortos, en el Dique 3; en los diques 1 y 2 los de las puntas son más cortos y más hondos—, los elevadores de granos y el molino (1905) · la Costanera Sur con el balneario, el espigón y la Fuente de las Nereidas (1921) · su ampliación y la Cervecería Munich (1940) | 1867 |
-| Puerto Madero, alrededor de los diques (`puerto-madero.js`) | la Plaza Colón detrás de la Casa de Gobierno (1895) · las vías del puerto en lazo alrededor de cada dique, por los puentes giratorios, con sus vagones, el Parque Colón, el embarcadero de animales del Dique 1 y el depósito en T del Dique 2 (1905) · la Aduana y los primeros depósitos de las manzanas del bajo (1910) · la playa de maniobras del oeste, la alameda de Huergo y Madero, el Monumento a Colón, la Plaza Mazzini, el molino y los silos del Dique 3, la segunda hilera de galpones del Dique 4, la playa de vías del sudeste con los galpones largos de Florencio Sánchez, el corralón y el lazareto (1921) · las manzanas completas, los jardines entre las vías y la Costanera y la estación radiotelegráfica (1940) | 1895 |
+| Puerto Madero, alrededor de los diques (`puerto-madero.js`) | las vías del puerto en lazo alrededor de cada dique, por los puentes giratorios, con sus vagones, el embarcadero de animales del Dique 1 y el depósito en T del Dique 2 (1905) · la Aduana y los primeros depósitos de las manzanas del bajo (1910) · la playa de maniobras del oeste, la alameda de Huergo y Madero, la Plaza Mazzini, el molino y los silos del Dique 3, la segunda hilera de galpones del Dique 4, la playa de vías del sudeste con los galpones largos de Florencio Sánchez, el corralón y el lazareto (1921) · las manzanas completas, los jardines entre las vías y la Costanera y la estación radiotelegráfica (1940) | 1895 |
+| Plaza Colón y Parque Colón (`plaza-colon.js`) | detrás de la Casa de Gobierno, de la Aduana al Correo: el cuadro de la Plaza Colón sobre el relleno (1895) · el Parque Colón de Thays, un trapecio entre las avenidas Espora y Rosales, con la Fuente Monumental (1905–1910) · la plaza partida en tres por una calle en U, con el Monumento a Colón en el escudo del medio, y las plazoletas de Rosales y del Paseo Colón (1921) · la de la foto aérea de 1940: el parque del sur hecho obra del Ministerio de Guerra, la plaza de frente al Correo hecha playa de estacionamiento. El Paseo Colón pasa derecho, pegado a la casa | 1895 |
 | Plaza del Congreso (`plaza-congreso.js`) | la plaza de Thays de 1910, con su pileta, el parterre, El Pensador y la Plaza Lorea con el Mariano Moreno · el Monumento de los Dos Congresos (1914) · los canteros de 1940 y el Kilómetro Cero | 1910 |
 | Plaza San Martín (`plaza-san-martin.js`) | el San Martín de Daumas solo en la Plaza de Marte (1867) · el jardín de Courtois, con su avenida, canteros y estanque (1888–1905; el Falucho, en 1905) · el monumento de Eberlein, la escalinata y «La Duda» (1910–1921) · la ampliación: la punta hasta Esmeralda, la terraza donde estuvo el Pabellón y la barranca plantada (1940) | 1867 |
 | Plaza Lavalle (`plaza-lavalle.js`) | la Plaza del Parque con su pabellón y el frente del Parque de Artillería (1867) · el jardín con la columna de Lavalle y el Palacio Miró (1888) · Tucumán abierta, con la columna en su isla (1905) · el solado y la boca del subte, y la manzana del Miró hecha plaza tras la demolición de 1937 (1940) | 1867 |
@@ -558,6 +573,24 @@ Lo que es aproximado o falta:
   los canteros y dónde se cortan las tres manzanas de los depósitos (las calles de hoy ahí son otras). No están la
   Escuela Industrial (hoy Otto Krause) ni el mercado del Paseo Colón que rotula el plano de 1921: sus manzanas llevan
   lotes comunes o quedan vacías.
+- Detrás de la Casa de Gobierno (`src/plaza-colon.js`, `src/lugares/plaza-colon.js`). El suelo pintaba ahí las calles
+  de hoy —la curva chata de la avenida de la Rábida, que es de después de cerrarse el Paseo Colón detrás de la casa—
+  a manchones, y dejaba un descampado entre la casa y la plaza. **Sale de las fuentes**: que el Paseo Colón–Paseo de
+  Julio pasaba derecho por detrás de la casa (planos de 1895 a 1936; foto aérea de 1940; «Casa Rosada» y «Avenida
+  Paseo Colón», Wikipedia: el tramo se cerró en los años ochenta); las diagonales Espora y Rosales (en todos los
+  planos desde 1895; en la aérea de 1940, en uso); la calle en U alrededor del escudo del medio (plano de 1921 y
+  aérea de 1940); el lugar del monumento, inaugurado el 15-6-1921; que al sur del escudo en 1940 estaba la obra del
+  Ministerio de Guerra (empezada en 1938, inaugurada en 1943); la playa de autos frente al Correo, y que frente a la
+  Aduana había una plaza y no una manzana edificada (1921 y 1940). Los ejes y los anchos están medidos sobre la foto
+  aérea de 1940 del mapa interactivo de la Ciudad de Buenos Aires, que calza con el plano a unos metros (el mosaico
+  tiene una costura justo en el eje de la plaza: ± 6 m). **Es supuesto**: que las calzadas tuvieran antes de 1940 el
+  mismo eje y ancho; cuándo se asfaltaron (el Paseo Colón en 1921, las demás en 1940); que Espora y Rosales estén
+  recién en 1905 (el plano de 1895 las dibuja, sobre relleno sin urbanizar); el dibujo de canteros y senderos del
+  parque de 1905–1910 y de los trapecios de 1921; la forma de la fuente, de los faroles, de los dos cuadros de la
+  explanada y de la obra del Ministerio; el lugar de cada árbol fuera del escudo. **No están**: las terrazas y
+  escalinatas de 1911, las vías del tranvía del Paseo Colón, la Fuente de las Nereidas (que estuvo en el parque de
+  1903 a 1918) y los canteros que el plano de 1905 dibuja a lo largo del Paseo de Julio, de Cangallo a Corrientes.
+  Tampoco tiene marca ni ficha propia.
 - Lo que no se arregló ahí: el bulevar que el suelo pinta al este del puente entre los diques 1 y 2 no figura en los planos de 1921 ni de 1936; y
   el Departamento del Puerto, el correo, el teatro y los juegos atléticos que rotula el plano de 1921 no están.
 - Las manzanas de las afueras siguen el trazado de hoy, que no siempre es el de entonces.

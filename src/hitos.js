@@ -16,7 +16,7 @@
 //     y La Continental).
 // Las medidas están en metros; los lugares, en píxeles del plano (los mismos de tools/plano.mjs).
 import * as THREE from 'three';
-import { trozar } from './trozos.js';
+import { trozar, soltar } from './trozos.js';
 import { EDIFICIOS } from './edificios.js';
 import nueveDeJulio from './lugares/nueve-de-julio.js';
 import plazaCongreso from './lugares/plaza-congreso.js';
@@ -42,10 +42,11 @@ import plazaConstitucion from './lugares/plaza-constitucion.js';
 import plazaOnce from './lugares/plaza-once.js';
 import plazaBritanica from './lugares/plaza-britanica.js';
 import obelisco1940 from './lugares/obelisco-1940.js';
+import plazaColon from './lugares/plaza-colon.js';
 
 const PIEDRA = 6, TINTA = 7, PIZARRA = 8, CASA = 0, FOLLAJE = 5, PINTADO = 9;
 // Los lugares hechos a mano, cada uno en su archivo (src/lugares/LEEME.md cuenta con qué se construyen).
-const LUGARES = { nueveDeJulio, plazaCongreso, plazaDeMayo, puerto, puertoMadero, diagonalNorte, teatroColon, puertoNuevo, cabildo, casaRosada, subteA, avenidaDeMayo, retiro, modernos, viejos1867, plazaSanMartin, plazaLavalle, plazaConstitucion, plazaOnce, plazaBritanica, obelisco1940, playasRetiro, palermo, barrios }; // (playasRetiro va al final: cada pieza que se agrega le corre la tirada de colores a las que siguen)
+const LUGARES = { nueveDeJulio, plazaCongreso, plazaDeMayo, puerto, puertoMadero, diagonalNorte, teatroColon, puertoNuevo, cabildo, casaRosada, subteA, avenidaDeMayo, retiro, modernos, viejos1867, plazaSanMartin, plazaLavalle, plazaConstitucion, plazaOnce, plazaBritanica, obelisco1940, playasRetiro, palermo, barrios, plazaColon }; // (playasRetiro va al final: cada pieza que se agrega le corre la tirada de colores a las que siguen)
 /** De qué va pintado lo PINTADO (el número va en aWall.z; los colores están en src/tinta.js). */
 export const PINTA = { MADERA: 0, VERDE: 1, BRONCE: 2, ROJO: 3, OCRE: 4, LONA: 5, BALASTO: 6, CESPED: 7, AGUA: 8, BALDOSA: 9, GRANZA: 10, ADOQUIN: 11, FLORES: 12, ASFALTO: 13, CHAPA: 14, NEGRO: 15, BLANCO: 16, LADRILLO: 17, PATINA: 18, COBRE: 19 };
 
@@ -560,12 +561,16 @@ export function createHitos({ meta, mz }, tinta) {
     THREE, lugar, mundo, m, obra, EDIFICIOS, ETAPAS, PINTA, fino, adentro,
     PIEDRA, TINTA, PIZARRA, CASA, FOLLAJE, PINTADO, BLANCO, CREMA, ROSA, GRIS, LADRILLO, SILLAR,
     get grilla() { return GRILLA; },
+    /** la tirada de colores (cada pieza que se agrega la corre): se puede leer y reponer, para que un lugar que cambia
+     *  de piezas no les cambie los colores a los que siguen */
+    get tirada() { return seed; }, set tirada(v) { seed = v; },
     /** desde qué etapa existe lo que se construya de acá en más y hasta cuál (0: desde 1867 · 0: para siempre) */
     epoca: (d = 0, h = 0) => { desde = d; hasta = h; },
     /** la etapa de un año: la primera que ya lo encuentra hecho (1888 → 1 … 1940 → 6) */
     etapaDe: (año) => ETAPAS.findIndex((a) => a >= año) + 1,
   };
-  for (const [nombre, hacer] of Object.entries(LUGARES)) { desde = 0; hasta = 0; try { hacer(ctx); } catch (e) { console.warn(`el lugar ${nombre} no se pudo armar:`, e); } }
+  const puntos = {}; // (cuántos puntos pone cada lugar, contando los de a ras del suelo: para saber cuál pesa)
+  for (const [nombre, hacer] of Object.entries(LUGARES)) { desde = 0; hasta = 0; const n0 = P.length + RASO.P.length; try { hacer(ctx); } catch (e) { console.warn(`el lugar ${nombre} no se pudo armar:`, e); } puntos[nombre] = (P.length + RASO.P.length - n0) / 3; }
   desde = 0; hasta = 0;
 
   const g = new THREE.BufferGeometry();
@@ -578,9 +583,10 @@ export function createHitos({ meta, mz }, tinta) {
     const gr = new THREE.BufferGeometry();
     gr.setAttribute('position', new THREE.Float32BufferAttribute(RASO.P, 3)); gr.setAttribute('normal', new THREE.Float32BufferAttribute(RASO.N, 3)); gr.setAttribute('aInfo', new THREE.Float32BufferAttribute(RASO.I, 4)); gr.setAttribute('aAncla', new THREE.Float32BufferAttribute(new Float32Array(RASO.P.length), 3)); gr.setAttribute('aWall', new THREE.Float32BufferAttribute(RASO.Wl, 4));
     const rasos = new THREE.Mesh(gr, tinta.make({ manto: 2, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }));
-    rasos.receiveShadow = true; rasos.frustumCulled = false; trozar(rasos); mesh.add(rasos);
+    rasos.receiveShadow = true; rasos.frustumCulled = false; trozar(rasos); soltar(gr); mesh.add(rasos);
   }
   trozar(mesh); // (en trozos, como las casas: src/trozos.js)
+  soltar(g, ['position', 'normal', 'aInfo']); // (src/modos.js los lee para armar por dónde se camina)
   // Para el velo de lo que se puede tocar (src/ficha.js): qué hay hecho a mano junto a una marca. De cada ancla (el
   // origen de un lugar), hasta dónde llegan sus piezas y en qué etapas existen; y, en una grilla de 8 m, dónde hay piezas.
   const CELDA = 8, anclas = new Map(), celdas = new Map();
@@ -593,6 +599,9 @@ export function createHitos({ meta, mz }, tinta) {
     let a = anclas.get(ka); if (!a) anclas.set(ka, a = { x: ax, z: az, ext: 0, vive: 0 });
     a.vive |= vive; a.ext = Math.max(a.ext, Math.hypot(x - ax, z - az));
   }
+  // (las listas con que se armó todo ya están copiadas en la malla: se vacían. Si no, quedan vivas mientras viva
+  // `junto`, que comparte este ámbito, y son cientos de megas —cada número suelto pesa el doble que en la malla—)
+  for (const l of [P, N, I, Wl, An, RASO.P, RASO.N, RASO.I, RASO.Wl]) l.length = 0;
   /** Junto a la marca (x, z, con su radio) en esa etapa: `ancla` > 0 si ahí hay un edificio suelto —las piezas con el
    *  ancla a menos de esa distancia son las suyas, y de nadie más—; si no, `hay` dice si hay piezas a menos del radio. */
   const junto = (x, z, r, etapa) => {
@@ -607,5 +616,5 @@ export function createHitos({ meta, mz }, tinta) {
       if (celdas.get((cx + 4096) * 8192 + cz + 4096) & bit && Math.hypot((cx + 0.5) * CELDA - x, (cz + 0.5) * CELDA - z) < r) return { ancla: 0, hay: true };
     return { ancla: 0, hay: false };
   };
-  return { mesh, arboles, iglesias, grilla: GRILLA, junto };
+  return { mesh, arboles, iglesias, grilla: GRILLA, junto, puntos };
 }

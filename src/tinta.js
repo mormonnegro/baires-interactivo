@@ -191,7 +191,13 @@ const PLANO = /* glsl */ `
     return mix(col, vec3(0.31, 0.29, 0.26), muralla * 0.8);
   }`;
 
-export function createTinta() {
+/** `fijo`: los datos de cada casa (semilla, pisos, medidas del muro) pasan al sombreador de los puntos sin interpolar
+ *  (`flat`). Interpolados son iguales en toda la pared salvo por un error ínfimo que algunas placas de teléfono sí
+ *  cometen, y que las cuentas con la semilla agrandan millones de veces: las paredes titilan al moverse. Pero `flat`
+ *  solo sale gratis si el navegador deja elegir de qué vértice se toma el dato (WEBGL_provoking_vertex, src/main.js):
+ *  sin eso, en Metal y Direct3D reacomoda todos los triángulos por procesador y la página se arrastra. */
+export function createTinta({ fijo = false } = {}) {
+  const FIJO = fijo ? 'flat ' : '';
   const U = {
     tMedio: { value: null }, tFino: { value: [null, null, null, null] }, uFino: { value: [0, 1, 2, 3].map(() => new THREE.Vector4(0, 0, 1, 1)) }, uFinoOn: { value: [0, 0, 0, 0] }, uMedioRes: { value: 9 },
     uHoja: { value: new THREE.Vector2(1, 1) }, uPlaza: { value: new THREE.Vector2() }, uMetro: { value: 0.675 }, uFront: { value: -1000 },
@@ -207,19 +213,19 @@ export function createTinta() {
   const vertex = (shader) => {
     Object.assign(shader.uniforms, U);
     shader.vertexShader = shader.vertexShader
-      .replace('#include <common>', `#include <common>\nattribute vec4 aInfo; attribute vec4 aWall; attribute vec3 aAncla; attribute float aEstilo; varying vec4 vInfo; varying vec3 vWorld; varying vec4 vWall; varying float vRise; varying vec3 vAncla; varying float vEstilo;\n${COMUN}`)
+      .replace('#include <common>', `#include <common>\nattribute vec4 aInfo; attribute vec4 aWall; attribute vec3 aAncla; attribute float aEstilo; ${FIJO}varying vec4 vInfo; varying vec3 vWorld; varying vec4 vWall; ${FIJO}varying vec2 vMuro; varying float vRise; varying vec3 vAncla;\n${COMUN}`)
       .replace('#include <begin_vertex>', /* glsl */ `#include <begin_vertex>
-          vAncla = aAncla; vEstilo = aEstilo;
+          vAncla = aAncla;
         vRise = alzado(aInfo.w, aInfo.x);
         #ifdef USE_INSTANCING
           // (los árboles de 1867 que quedan bajo una casa nueva o en medio de una calle nueva se van; los de los fondos, no.
           // Y con ellos lo de los patios, que lleva la distancia en negativo: los aljibes también)
           if (uEpocaK > 0.0 && ((aInfo.y > 49.5 && aInfo.y < 50.5) || (aInfo.w < -0.5 && aInfo.w > -9.0e4))) { vec2 o = (modelMatrix * instanceMatrix * vec4(0.0, 0.0, 0.0, 1.0)).xz; vec2 ouv = (o / uMetro + uPlaza) / uHoja; vec3 c = crecido(ouv, length(o)); vRise *= 1.0 - max(max(c.z, c.x * (1.0 - c.y)), despejado(ouv, length(o)).x); }
         #endif
-        transformed.y *= vRise; vInfo = aInfo;
+        transformed.y *= vRise; vInfo = vec4(aInfo.xyz, aEstilo); // (el estilo viaja en el cuarto lugar, que del otro lado no se usa: así no se suma un dato más entre los dos sombreadores)
         // (lo que todavía no se levantó no existe: acostado, el plano es solo el plano)
         if (vRise <= 0.0 && (aInfo.y < 39.5 || aInfo.y > 49.5)) transformed = vec3(0.0, -1.0e4, 0.0);
-        vWall = aWall;
+        vWall = aWall; vMuro = aWall.zw;
         { vec4 wp = vec4(transformed, 1.0);
           #ifdef USE_INSTANCING
             wp = instanceMatrix * wp;
@@ -248,7 +254,7 @@ export function createTinta() {
     m.onBeforeCompile = (shader) => {
       vertex(shader); shader.uniforms.uManto = { value: manto };
       shader.fragmentShader = shader.fragmentShader
-        .replace('#include <common>', `#include <common>\nvarying vec4 vInfo; varying vec3 vWorld; varying vec4 vWall; varying float vRise; varying vec3 vAncla; varying float vEstilo; uniform vec4 uSobre; uniform vec4 uSobreQue; uniform float uManto;\n${COMUN}\n${PLANO}`)
+        .replace('#include <common>', `#include <common>\n${FIJO}varying vec4 vInfo; varying vec3 vWorld; varying vec4 vWall; ${FIJO}varying vec2 vMuro; varying float vRise; varying vec3 vAncla; uniform vec4 uSobre; uniform vec4 uSobreQue; uniform float uManto;\n${COMUN}\n${PLANO}`)
         .replace('#include <opaque_fragment>', /* glsl */ `
           // (pisos: de 1 a 9; con 0, los que entren en la altura a 3,3 m cada uno —las torres, src/hitos.js—)
           float kind = floor(vInfo.y / 10.0 + 0.01), floors = vInfo.y - kind * 10.0, seed = vInfo.x;
@@ -257,7 +263,7 @@ export function createTinta() {
           float kc = enColor(vWorld.xz);
           // (el estilo de las casas sin nombre, src/ciudad.js: 0 colonial · 1 italianizante · 2 francesa · 3 de comercio ·
           // 4 racionalista · 5 galpón · 6 casilla de chapa · 7 de las orillas · 8 rancho. Lo demás va siempre con 0.)
-          float est = uManto > 2.5 ? floor(vEstilo + 0.5) : 0.0;
+          float est = uManto > 2.5 ? floor(vInfo.w + 0.5) : 0.0;
           vec3 col;
           if (kind > 2.5 && kind < 4.5) {
             // techo o suelo: el plano, y encima la sombra
@@ -294,11 +300,11 @@ export function createTinta() {
             if (kind < 3.5) {
               // la azotea: cada casa un poco distinta de la de al lado, y el pretil alrededor
               col = mix(col, uPaper, (0.2 + 0.22 * h11(seed * 9.1)) * vRise);
-              borde = min(min(vWall.x, vWall.z - vWall.x), min(vWall.y, vWall.w - vWall.y)); aw = fwidth(borde);
+              borde = min(min(vWall.x, vMuro.x - vWall.x), min(vWall.y, vMuro.y - vWall.y)); aw = fwidth(borde);
               if (aguas) {
                 // el techo a dos aguas, dibujado: la cumbrera por el medio, a lo largo, y una falda más oscura que la otra
-                bool lx = vWall.z >= vWall.w; alLargo = lx ? vWall.x : vWall.y; alTraves = lx ? vWall.y : vWall.x;
-                float s = alTraves / max(lx ? vWall.w : vWall.z, 0.1), sw = fwidth(s);
+                bool lx = vMuro.x >= vMuro.y; alLargo = lx ? vWall.x : vWall.y; alTraves = lx ? vWall.y : vWall.x;
+                float s = alTraves / max(lx ? vMuro.y : vMuro.x, 0.1), sw = fwidth(s);
                 falda = smoothstep(0.5 - sw, 0.5 + sw, s); cumbre = 1.0 - smoothstep(sw * 0.6, sw * 1.8 + 0.004, abs(s - 0.5));
                 col = mix(col, uInk, cumbre * 0.4 * vRise * clamp(1.5 - aw * 1.2, 0.0, 1.0)); // (las dos faldas son de verdad, src/ciudad.js: la luz ya las distingue)
               } else if (mansarda) {
@@ -320,8 +326,8 @@ export function createTinta() {
                 if (est > 3.5 && est < 4.5) {
                   // la terraza de los años treinta: cemento, y la casilla del tanque y del ascensor con su sombra
                   teja = mix(vec3(0.71, 0.69, 0.64), vec3(0.6, 0.59, 0.57), h11(seed * 5.3));
-                  if (min(vWall.z, vWall.w) > 7.0 && floors < 4.5) { // (las de cinco pisos o más la llevan de verdad, src/ciudad.js)
-                    vec2 cq = vWall.zw * (0.5 + 0.3 * (vec2(h11(seed * 2.1), h11(seed * 2.7)) - 0.5)), dq = abs(vWall.xy - cq) - vec2(1.5, 2.0), ds = abs(vWall.xy - cq - vec2(0.9, 0.7)) - vec2(1.5, 2.0);
+                  if (min(vMuro.x, vMuro.y) > 7.0 && floors < 4.5) { // (las de cinco pisos o más la llevan de verdad, src/ciudad.js)
+                    vec2 cq = vMuro * (0.5 + 0.3 * (vec2(h11(seed * 2.1), h11(seed * 2.7)) - 0.5)), dq = abs(vWall.xy - cq) - vec2(1.5, 2.0), ds = abs(vWall.xy - cq - vec2(0.9, 0.7)) - vec2(1.5, 2.0);
                     teja = mix(teja, teja * 0.6, 1.0 - smoothstep(0.0, aw + 0.05, max(ds.x, ds.y)));
                     teja = mix(teja, vec3(0.84, 0.82, 0.77), 1.0 - smoothstep(0.0, aw + 0.05, max(dq.x, dq.y)));
                   }
@@ -365,8 +371,8 @@ export function createTinta() {
             float raya = mix(0.5, 1.0 - smoothstep(0.42 - hw, 0.42 + hw, hl), clamp(1.0 / (hw + 0.6) - 0.35, 0.0, 1.0));
             col = mix(col, uInk, raya * (1.0 - k) * 0.34);
             if (kind > 8.5) {
-              // pintado (el tren): un tono parejo, tan claro como diga vWall.w, con la misma sombra rayada
-              col = mix(uInk, uPaper, vWall.w) * mix(0.62, 1.05, k);
+              // pintado (el tren): un tono parejo, tan claro como diga vMuro.y, con la misma sombra rayada
+              col = mix(uInk, uPaper, vMuro.y) * mix(0.62, 1.05, k);
               col = mix(col, uInk, raya * (1.0 - k) * 0.3);
             } else if (kind > 7.5) {
               // pizarra, tejas, cúpulas: un tono medio con las hiladas marcadas
@@ -474,11 +480,11 @@ export function createTinta() {
                 } else corn = 0.0;
               }
               // El aviso pintado en la medianera: las casas altas que asoman sobre las vecinas, algunas, llevan uno
-              // arriba: un paño de color con su filete y dos o tres renglones de letras. (vWall.z: el largo del
-              // muro; vWall.w: de dónde arranca, que es hasta donde lo tapa la casa de al lado.)
-              if (uManto > 2.5 && kind > 1.5 && kind < 2.5 && est > 0.5 && est < 4.5 && floors > 2.5 && vWall.z > 6.5 && H - vWall.w > 5.0 && h11(seed * 4.7 + vWall.z * 0.37) < 0.3) {
-                float aw = min(vWall.z - 2.2, 6.0 + 6.0 * e1), ah = min(H - vWall.w - 2.2, 3.2 + 2.6 * h11(seed * 8.3)), fa = max(fwidth(x), ay);
-                vec2 ca = vec2(vWall.z * 0.5, H - 1.3 - ah * 0.5), da = abs(vec2(x, y) - ca) - vec2(aw, ah) * 0.5;
+              // arriba: un paño de color con su filete y dos o tres renglones de letras. (vMuro.x: el largo del
+              // muro; vMuro.y: de dónde arranca, que es hasta donde lo tapa la casa de al lado.)
+              if (uManto > 2.5 && kind > 1.5 && kind < 2.5 && est > 0.5 && est < 4.5 && floors > 2.5 && vMuro.x > 6.5 && H - vMuro.y > 5.0 && h11(seed * 4.7 + vMuro.x * 0.37) < 0.3) {
+                float aw = min(vMuro.x - 2.2, 6.0 + 6.0 * e1), ah = min(H - vMuro.y - 2.2, 3.2 + 2.6 * h11(seed * 8.3)), fa = max(fwidth(x), ay);
+                vec2 ca = vec2(vMuro.x * 0.5, H - 1.3 - ah * 0.5), da = abs(vec2(x, y) - ca) - vec2(aw, ah) * 0.5;
                 float sd = max(da.x, da.y), nf = ah > 4.3 ? 3.0 : 2.0, ry = (y - ca.y) / ah + 0.5, fl = floor(ry * nf), lw = ah / nf * 0.4;
                 aviso = 1.0 - smoothstep(-fa, fa, sd);
                 avisoL = (smoothstep(-0.34 - fa, -0.34 + fa, sd) - smoothstep(-0.2 - fa, -0.2 + fa, sd)) * 0.8;
@@ -517,8 +523,8 @@ export function createTinta() {
               vec3 dado = tono < 0.5 ? vec3(0.93, 0.91, 0.85) : tono < 1.5 ? vec3(0.9, 0.83, 0.69) : tono < 2.5 ? vec3(0.87, 0.63, 0.57) : tono < 3.5 ? vec3(0.74, 0.73, 0.69) : tono < 4.5 ? vec3(0.8, 0.59, 0.42) : vec3(0.85, 0.81, 0.73);
               if (seed > 1.5) muro = dado;
               if (kind > 8.5) {
-                // pintado: madera barnizada, verde, bronce, rojo, ocre o lona, según vWall.z
-                float p = vWall.z;
+                // pintado: madera barnizada, verde, bronce, rojo, ocre o lona, según vMuro.x
+                float p = vMuro.x;
                 muro = p < 0.5 ? vec3(0.47, 0.27, 0.13) : p < 1.5 ? vec3(0.15, 0.27, 0.18) : p < 2.5 ? vec3(0.8, 0.61, 0.25) : p < 3.5 ? vec3(0.58, 0.15, 0.1) : p < 4.5 ? vec3(0.74, 0.56, 0.24) : p < 5.5 ? vec3(0.7, 0.67, 0.6) : vec3(0.57, 0.53, 0.47) * (0.9 + 0.2 * n3(vWorld * 2.3));
                 // (y lo de las plazas y el puerto, src/hitos.js: césped, agua de fuente, baldosa, granza, adoquín,
                 // flores, asfalto, chapa, negro, blanco, ladrillo, bronce patinado y cobre verde)

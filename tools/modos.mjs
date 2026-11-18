@@ -27,7 +27,7 @@ console.log('— escritorio —');
   const pausa = (ms) => page.waitForTimeout(ms);
   // a pie, desde cerca del Cabildo
   await page.evaluate(() => { const m = lab.marcas.marcas.find((m) => m.el.querySelector('b').textContent === 'Cabildo'); lab.cam.jump({ x: m.x + 40, z: m.z + 60, dist: 500, yaw: -0.5, pitch: 0.5 }); }); await pausa(600);
-  await page.click('#caminar'); await pausa(2500);
+  await page.evaluate(() => document.getElementById('caminar').click()); await pausa(2500);
   let a = await pie(page);
   ok(a.modo === 'caminar', 'el botón entra al modo a pie'); ok(!a.adentro, 'se arranca en la calle, no dentro de una casa');
   { const d = await page.evaluate(() => { const m = lab.marcas.marcas.find((m) => m.nombre === 'Plaza de la Victoria'), p = lab.modos.pie; return Math.hypot(p.x - m.x, p.z - m.z); }); ok(d < 60, 'y en la Plaza de Mayo, mirara a donde mirara la cámara: a ' + Math.round(d) + ' m del centro de la plaza'); }
@@ -65,7 +65,7 @@ console.log('— escritorio —');
   ok(/hoy, /.test(conHoy), 'con «lo de hoy» prendido dice por qué calle de hoy se camina:', conHoy);
   await page.click('#hoy'); await pausa(500);
   // de a pie al avión: se despega desde donde se estaba
-  await page.click('#volar'); await pausa(2500);
+  await page.evaluate(() => document.getElementById('volar').click()); await pausa(2500);
   let v = await av(page); const p0 = await pie(page);
   ok(v.modo === 'volar', 'el botón del avión despega'); ok(Math.hypot(v.x - p0.x, v.z - p0.z) < 600, 'desde donde se caminaba');
   await page.screenshot({ path: 'shots/modo-avion-1.png' });

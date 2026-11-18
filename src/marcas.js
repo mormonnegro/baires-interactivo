@@ -207,7 +207,7 @@ export const LUGARES = [
   ['Subte: Castro Barros', 10337, 2939, 5, 3, 'Abierta el 1 de abril de 1914.', { desde: 5, ficha: 'Subte A', radio: 22 }],
   ['Subte: Río de Janeiro', 9850, 1830, 5, 3, 'La punta de la línea de abril a julio de 1914, cuando llegó a Caballito.', { desde: 5, ficha: 'Subte A', radio: 22 }],
   // los estadios, los hospitales y los edificios sueltos de los barrios (src/lugares/barrios.js)
-  ['El Gasómetro', 6592, 2387, 18, 2, 'La cancha de San Lorenzo en Avenida La Plata, de 1916.', { desde: 5, radio: 127 }],
+  ['El Gasómetro', 6521, 2372, 18, 2, 'La cancha de San Lorenzo en Avenida La Plata, de 1916.', { desde: 5, radio: 127 }],
   ['Cancha de Huracán', 4874, 5850, 12, 2, 'En Alcorta y Luna desde 1924, todavía de tablones.', { desde: 6, radio: 91 }],
   ['Sportivo Barracas', 3472, 7163, 16, 2, 'El estadio de cemento de Iriarte y Luzuriaga, de 1920 a 1937.', { desde: 5, hasta: 6, radio: 73 }],
   ['Cancha de River', 6400, 11546, 8, 2, 'La de la Dársena Sur, de 1915 a 1923.', { desde: 5, hasta: 6, radio: 47, velo: 'suelo' }],

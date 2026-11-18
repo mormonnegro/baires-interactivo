@@ -26,11 +26,13 @@ import { createTren } from './tren.js';
 import { pedir as bajar, u } from './url.js';
 import { loadRelieve } from './relieve.js';
 import { createEpocas } from './epocas.js';
-import { trozar, trozosEnteros } from './trozos.js';
+import { trozar, trozosEnteros, soltar } from './trozos.js';
 
 const q = new URLSearchParams(location.search), capture = q.has('capture'), $ = (id) => document.getElementById(id);
 // el cartel de entrada: se puede ir leyendo mientras carga el plano  (?sinintro lo saltea)
-const intro = capture || q.has('sinintro') || q.has('limpio') || q.has('lugar') ? null : createIntro();
+const intro = capture || q.has('sinintro') || q.has('limpio') || q.has('lugar') || q.has('juego') ? null : createIntro();
+// (el juego de las fotos se puede pedir antes de que la ciudad esté: desde el cartel de entrada, o con `?juego`)
+let quiereJugar = q.has('juego'); addEventListener('jugar', () => { quiereJugar = true; });
 if (q.has('limpio')) document.body.classList.add('limpio'); // (desde el principio: que no asome ningún cartel)
 
 // --- todo lo que hay que bajar se pide de entrada y a la vez (lo primero ya lo adelantó index.html) ---
@@ -45,7 +47,7 @@ const renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: 'h
 const maxTex = renderer.capabilities.maxTextureSize, aniso = renderer.capabilities.getMaxAnisotropy();
 // un teléfono (o un equipo con poca memoria): láminas y sombras más chicas. Se ve igual: la pantalla tiene menos puntos.
 const liviano = q.has('liviano') || (!q.has('pesado') && (maxTex < 8192 || Math.min(screen.width, screen.height) < 600 || (navigator.deviceMemory ?? 8) < 4));
-const PUNTOS = capture ? 1 : q.has('puntos') ? Math.min(3, Math.max(0.5, parseFloat(q.get('puntos')) || 1)) : Math.min(devicePixelRatio, 2); // (`?puntos=1.5`: para probar)
+const PUNTOS = capture ? 1 : q.has('puntos') ? Math.min(3, Math.max(0.5, parseFloat(q.get('puntos')) || 1)) : Math.min(devicePixelRatio, liviano ? 1.5 : 2); // (en un teléfono, 1,5: con 2 son casi el doble de puntos que pintar, y no llega. `?puntos=2`: para probar)
 renderer.setPixelRatio(PUNTOS);
 renderer.setSize(innerWidth, innerHeight);
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
@@ -59,7 +61,11 @@ const scene = new THREE.Scene();
 // (los colores se escriben tal cual se ven: acá no hay conversión de espacio de color al final)
 const tal = (hex) => new THREE.Color().setRGB(((hex >> 16) & 255) / 255, ((hex >> 8) & 255) / 255, (hex & 255) / 255, THREE.LinearSRGBColorSpace);
 scene.background = tal(0x2a2521); // (igual que la mesa: así no se le ve el borde a lo lejos)
-const tinta = createTinta(), U = tinta.U;
+// (los datos de cada casa, sin interpolar: solo si el navegador deja elegir de qué vértice se toman, que así sale gratis;
+// ver createTinta. `?fijo=0` y `?fijo=1`: para probar sin eso y con eso a la fuerza)
+const vertice = q.has('sinvertice') ? null : renderer.getContext().getExtension('WEBGL_provoking_vertex');
+if (vertice) vertice.provokingVertexWEBGL(vertice.FIRST_VERTEX_CONVENTION_WEBGL);
+const tinta = createTinta({ fijo: q.has('fijo') ? q.get('fijo') !== '0' : !!vertice }), U = tinta.U;
 const [laminas, meta] = await Promise.all([pLaminas, pMeta]), { plaza, metro } = meta.plano;
 U.uHoja.value.set(laminas.ancho, laminas.alto); U.uPlaza.value.set(plaza[0], plaza[1]); U.uMetro.value = metro;
 { const m = meta.plano.marco; U.uMarco.value.set(m[0] / laminas.ancho, m[1] / laminas.alto, m[2] / laminas.ancho, m[3] / laminas.alto); }
@@ -111,7 +117,7 @@ let mesa;
   // (apenas hundida, para que no pelee con lo que está apoyado en ella. Sin corrimiento por pendiente: mirando de lejos
   // y al ras, ese corrimiento la mandaba detrás de la mesa y el plano se veía negro.)
   const hoja = new THREE.Mesh(g.translate(0, -0.05, 0), tinta.make({ polygonOffset: true, polygonOffsetFactor: 0, polygonOffsetUnits: 2 }));
-  hoja.receiveShadow = true; trozar(hoja); scene.add(hoja); // (en trozos, como la ciudad: src/trozos.js)
+  hoja.receiveShadow = true; trozar(hoja); soltar(hoja.geometry); scene.add(hoja); // (en trozos, como la ciudad: src/trozos.js)
   mesa = new THREE.Mesh(new THREE.PlaneGeometry(120000, 120000).rotateX(-Math.PI / 2).translate(0, -150, 0), new THREE.MeshBasicMaterial({ color: tal(0x2a2521) }));
   scene.add(mesa);
 }
@@ -121,6 +127,9 @@ const SOMBRA = liviano ? 2048 : 4096;
 const sol = new THREE.DirectionalLight(0xffffff, Math.PI);
 sol.castShadow = true; sol.shadow.mapSize.set(SOMBRA, SOMBRA); sol.shadow.bias = -0.0004; sol.shadow.normalBias = 0.6; sol.shadow.radius = 2.5;
 scene.add(sol, sol.target, new THREE.AmbientLight(0xffffff, Math.PI * AMBIENTE));
+// (los ejes de la luz, como los arma la cámara de la sombra: para correrla de a puntos enteros, y cuándo se la calculó)
+const LUZ = (() => { const X = new THREE.Vector3(0, 1, 0).cross(SOL).normalize(), Y = SOL.clone().cross(X); return { xx: X.x, xz: X.z, yx: Y.x, yz: Y.z, det: X.x * Y.z - X.z * Y.x }; })();
+sol.shadow.autoUpdate = false; const sombraEn = { a: NaN, b: NaN, s: 0, ojo: new THREE.Vector3() };
 
 const FOV = 30; // (la cámara del mapa mira de lejos, con poco ángulo; a pie y en avión lo abre src/modos.js)
 const camera = new THREE.PerspectiveCamera(FOV, innerWidth / innerHeight, 5, 40000);
@@ -228,7 +237,7 @@ const EXAG = !q.has('relieve') ? 0 : Math.min(5, Math.max(0, parseFloat(q.get('r
 let relieve = null; const alto = (x, z) => (relieve ? relieve.en(x, z) * EXAG : 0);
 // (y la altura que se ve en este momento: el terreno sube con la misma ola que levanta la ciudad)
 const altoVivo = (x, z) => { if (!relieve) return 0; const k = Math.min(1, Math.max(0, (U.uFront.value - Math.hypot(x, z)) / 300)); return relieve.en(x, z) * EXAG * k * k * (3 - 2 * k); };
-let datos = null, hitos = null, ciudad = null, marcas = null, ficha = null, buscador = null, modos = null, tren = null;
+let datos = null, hitos = null, ciudad = null, marcas = null, ficha = null, buscador = null, modos = null, tren = null, juego = null;
 const FONDO = scene.background, CIELO = tal(0xe6d9bd), CELESTE = tal(0xc3d3da), cielo = new THREE.Color(); // (a pie y en avión se ve el horizonte: el cielo es papel)
 
 // --- levantar y acostar la ciudad: una ola que sale de la plaza ---
@@ -252,7 +261,7 @@ function frame(dt, si = false) {
   const pasa = tren?.actualizar(dt, camera, frente) ?? false;
   const funde = epocas.update(dt, capture); if (crece) crece.mesh.visible = U.uEpocaK.value > 0;
   if (!(si || pasa || funde || cuadros > 0 || (enModo ? anda : !cam.quieta) || frente !== f0 || hoyK !== h0 || colorK !== c0 || callesVivas)) return false;
-  cuadros = Math.max(0, cuadros - 1);
+  const pedido = cuadros > 0; cuadros = Math.max(0, cuadros - 1);
   U.uFront.value = frente;
   U.uColor.value = pagina.U.uColor.value = colorK * colorK * (3 - 2 * colorK);
   if (enModo) scene.background = cielo.copy(CIELO).lerp(CELESTE, U.uColor.value); // (el cielo: papel, o celeste si está en color)
@@ -264,12 +273,25 @@ function frame(dt, si = false) {
   patios?.detalle(camera.position, U.uColor.value);
   marcas?.update(frente, enModo ? modos.cerca : null, epocas.etapa); // (cada marca, en los años en que vale)
   callesVivas = calles.update(enModo ? 0 : U.uHoy.value, dt, capture) && !capture;
+  juego?.update(); // (los alfileres del juego de las fotos siguen a la cámara)
   // la sombra se calcula solo alrededor de lo que se mira
-  const s = Math.min(3600, Math.max(420, cam.now.dist * 0.95)), c = sol.shadow.camera, step = (2 * s) / SOMBRA * 16;
-  const tx = Math.round(cam.now.x / step) * step, tz = Math.round(cam.now.z / step) * step;
-  sol.target.position.set(tx, 0, tz); sol.position.set(tx, 0, tz).addScaledVector(SOL, s * 3 + 400);
-  if (c.right !== s) { c.left = c.bottom = -s; c.right = c.top = s; c.near = 10; c.far = s * 6 + 800; c.updateProjectionMatrix(); }
-  sol.target.updateMatrixWorld(); sol.castShadow = !!ciudad && frente > -300;
+  // (el tamaño va de a escalones —si cambiara con cada paso del acercamiento, la grilla de la sombra cambiaría en cada
+  // cuadro y los bordes titilarían— y el centro se mueve de a 16 puntos enteros de la sombra, medidos sobre los ejes
+  // de la luz y no sobre los del plano: así, al correrse, cada punto de la sombra cae donde caía y nada tiembla)
+  const s = Math.min(3600, 420 * 2 ** (Math.ceil(Math.log2(Math.max(1, (cam.now.dist * 0.95) / 420)) * 2) / 2)), c = sol.shadow.camera, step = (2 * s) / SOMBRA * 16;
+  const la = Math.round((cam.now.x * LUZ.xx + cam.now.z * LUZ.xz) / step) * step, lb = Math.round((cam.now.x * LUZ.yx + cam.now.z * LUZ.yz) / step) * step;
+  const tx = (la * LUZ.yz - lb * LUZ.xz) / LUZ.det, tz = (lb * LUZ.xx - la * LUZ.yx) / LUZ.det;
+  // La sombra se vuelve a calcular solo si cambió: si se corrió o cambió de tamaño, o si el cuadro se dibuja por algo
+  // más que la cámara (la ola, el cambio de año, el tren, algo que llegó), o a pie, en auto o en avión, donde hay cosas
+  // que se mueven. Girando o inclinando la vista sobre el mismo lugar, es la misma: la mitad del trabajo del cuadro.
+  const otra = la !== sombraEn.a || lb !== sombraEn.b || s !== sombraEn.s;
+  if (otra || si || pasa || funde || pedido || enModo || frente !== f0 || camera.position.distanceToSquared(sombraEn.ojo) > 6400) {
+    sombraEn.a = la; sombraEn.b = lb; sombraEn.s = s; sombraEn.ojo.copy(camera.position); sol.shadow.needsUpdate = true;
+    sol.target.position.set(tx, 0, tz); sol.position.set(tx, 0, tz).addScaledVector(SOL, s * 3 + 400);
+    if (c.right !== s) { c.left = c.bottom = -s; c.right = c.top = s; c.near = 10; c.far = s * 6 + 800; c.updateProjectionMatrix(); }
+    sol.target.updateMatrixWorld();
+  }
+  sol.castShadow = !!ciudad && frente > -300;
   pagina.render(scene, camera);
   return true;
 }
@@ -321,7 +343,7 @@ const niveles = (async () => {
 
 window.lab = {
   renderer, scene, camera, cam, tinta, pagina, calles, liviano, epocas, Vector3: THREE.Vector3, suelo: (x, z) => alto(x, z),
-  get ciudad() { return ciudad; }, get crece() { return crece; }, get patios() { return patios; }, get hitos() { return hitos; }, get modos() { return modos; }, get tren() { return tren; }, get datos() { return datos; }, get marcas() { return marcas; }, get buscador() { return buscador; }, get ficha() { return ficha; },
+  get ciudad() { return ciudad; }, get juego() { return juego; }, get crece() { return crece; }, get patios() { return patios; }, get hitos() { return hitos; }, get modos() { return modos; }, get tren() { return tren; }, get datos() { return datos; }, get marcas() { return marcas; }, get buscador() { return buscador; }, get ficha() { return ficha; },
   /** (para las capturas) espera a que estén las texturas de lo que se está mirando */
   finas: () => Promise.all([niveles, afinar(cam.goal, true), hoy ? mapaDeHoy() : null, hoy ? calles.cargar() : null, epocas.lista_(), color ? suelo() : null, color ? patiosPedido : null]),
   step(secs = 1 / 60, n = 1) { for (let i = 0; i < n; i++) frame(secs, true); },
@@ -411,6 +433,30 @@ try {
       },
     });
     if (crece) modos.sumar(crece.datos);
+    // «Recorrer»: en una pantalla grande, los tres modos van guardados en un botón que los despliega (index.html)
+    {
+      const rec = $('recorrer'), poner = (si) => { document.body.classList.toggle('recorrer', si); rec.setAttribute('aria-expanded', String(si)); };
+      rec.addEventListener('click', () => { const r = rec.getBoundingClientRect(); document.body.style.setProperty('--rx', `${r.left}px`); document.body.style.setProperty('--rw', `${r.width}px`); poner(!document.body.classList.contains('recorrer')); });
+      // (se guarda al elegir un modo, al tocar cualquier otra cosa, con Escape y si cambia el tamaño de la ventana)
+      addEventListener('pointerdown', (e) => { if (document.body.classList.contains('recorrer') && !e.target.closest?.('#recorrer, #modos')) poner(false); }, true);
+      $('modos').addEventListener('click', () => poner(false));
+      addEventListener('keydown', (e) => { if (e.code === 'Escape') poner(false); });
+      addEventListener('resize', () => poner(false));
+    }
+    // el juego de las fotos (src/juego.js): se baja recién al tocar «Jugar» (o con `?juego`, o desde el cartel de entrada)
+    let pJuego = null;
+    const jugar = () => (pJuego ??= import('./juego.js').then(({ createJuego }) => {
+      juego = createJuego({
+        camera, cam, lienzo: renderer.domElement, marcas, pedirCuadro,
+        lejos: () => ({ x: 0, z: -1900, dist: Math.min(ENTERO.dist, 7600) }), // (el casco viejo y sus alrededores: de ahí son casi todas las fotos)
+        alEntrar() { if (modos?.activo) $('salir').click(); ficha.cerrar(); marcas.cerrar(); info.poner(false); if (!arriba && !falla) levantar(true); },
+        alSalir() { pedirCuadro(3); },
+      });
+      return juego;
+    })).then((j) => { j.empezar(); pedirCuadro(3); return j; });
+    $('jugar').hidden = false; $('jugar').addEventListener('click', () => { if (juego?.activo) juego.salir(); else jugar(); });
+    addEventListener('jugar', jugar); lab.jugar = jugar;
+    if (quiereJugar) jugar();
     // a pie y en coche se arranca siempre en la Plaza de Mayo, de cara a la Pirámide y a la Casa de Gobierno (en el
     // plano, +y es hacia el río): a pie adentro de la plaza, del lado del Cabildo; el coche en la calle que la bordea
     // por el norte (Rivadavia), frente a la Catedral. El avión, en cambio, despega hacia lo que se estaba mirando.

@@ -15,6 +15,16 @@ const ENTERA = typeof location !== 'undefined' && new URLSearchParams(location.s
 const OCULTO = new THREE.Material(); OCULTO.visible = false;
 const PARTIDAS = []; let enteras = false;
 
+/** Una vez que la geometría está en la placa de video, la copia que queda de este lado no hace falta: se suelta
+ *  (son cientos de megas, y en un teléfono es la memoria que falta). `quedan`: los atributos que alguien vuelve a leer
+ *  o a cambiar después (los caminos de src/modos.js, las demoliciones de src/ciudad.js). Los bultos se calculan antes,
+ *  porque después ya no hay con qué. */
+export function soltar(g, quedan = []) {
+  if (!g.boundingSphere) g.computeBoundingSphere(); if (!g.boundingBox) g.computeBoundingBox();
+  for (const k in g.attributes) if (!quedan.includes(k)) g.attributes[k].onUpload(liberar);
+}
+function liberar() { this.array = null; }
+
 /** De muy lejos se ve todo, y dibujar cientos de trozos sale más caro que dibujar cada malla de una vez: ahí se
  *  vuelve a las mallas enteras (son los mismos triángulos: el índice es uno solo). `si`: si la vista es de lejos. */
 export function trozosEnteros(si) {

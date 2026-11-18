@@ -90,6 +90,13 @@ Lo que ese lugar necesita del suelo está en `src/playas-retiro.js` (lo leen tam
 de 1940 y los contornos de los parques. Si cambia algo de eso: `tools/crece.mjs` y después `node tools/costanera.mjs`
 (que reparte los árboles de los parques en `costanera-arboles.js`).
 
+`plaza-colon.js` (la Plaza Colón y el Parque Colón, detrás de la Casa de Gobierno) va después, último; lo que necesita
+del suelo está en `src/plaza-colon.js`, que lee también `tools/crece.mjs`: la zona donde no se pintan las calles de
+hoy, y las calzadas de época (el Paseo Colón, Espora, Rosales, la calle en U) con su eje, su ancho y su etapa. Salió
+de `puerto-madero.js`: para que a lo que queda ahí no le cambien los lotes ni los colores, en el lugar de cada pieza
+que se sacó quedaron repuestas a mano la tirada del archivo (`azar`) y la de los colores (`c.tirada`, que se puede
+leer y escribir). Es el recurso para sacar piezas del medio de un lugar sin mover lo que sigue.
+
 `puerto-madero.js` trabaja además en un solo marco para toda la zona (x a lo largo de los diques, z hacia el río) y
 llena las manzanas con `manzana([px0, py0, px1, py1], desde, lleno)`: lotes al azar —con una tirada fija, siempre la
 misma— sobre el rectángulo libre que dejan las calles pintadas. Los rectángulos están medidos sobre el suelo y las

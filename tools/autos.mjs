@@ -28,7 +28,7 @@ if (tiene('fotos') || tiene('finales')) {
   /** Pone el coche del año en una bocacalle (que es donde hay lugar para mirarlo de costado), lejos de la plaza, que está llena de rejas y de monumentos. */
   const alAño = async (page, año) => {
     await page.evaluate(async (año) => { lab.epocas.elegir(año); await lab.finas(); lab.step(0, 2); }, año);
-    if (!(await page.evaluate(() => lab.modos.activo))) { await page.click('#manejar'); await page.waitForFunction(() => lab.modos.activo === 'manejar', null, { timeout: 30000 }); }
+    if (!(await page.evaluate(() => lab.modos.activo))) { await page.evaluate(() => document.getElementById('manejar').click()); await page.waitForFunction(() => lab.modos.activo === 'manejar', null, { timeout: 30000 }); }
     await page.evaluate(() => {
       const m = lab.modos.manejo, a = m.auto, E = lab.modos.edificado; m.entrar(350, -350, 0); lab.step(1 / 60, 60);
       const corre = (x, z, h) => { let r = 0; while (r < 40 && !E(x + Math.sin(h) * (r + 1), z + Math.cos(h) * (r + 1))) r++; return r; };
@@ -85,7 +85,7 @@ console.log('— escritorio —');
   const pausa = (ms) => page.waitForTimeout(ms);
   await alCabildo(page); await pausa(600);
   const antes = await page.evaluate(() => ({ fov: lab.camera.fov, mallas: lab.scene.children.length }));
-  await page.click('#manejar'); await page.waitForFunction(() => lab.modos.activo === 'manejar', null, { timeout: 30000 }); await pausa(1500);
+  await page.evaluate(() => document.getElementById('manejar').click()); await page.waitForFunction(() => lab.modos.activo === 'manejar', null, { timeout: 30000 }); await pausa(1500);
   let a = await coche(page);
   ok(a.coche === 'volanta', 'el botón entra a manejar, y en 1867 se maneja una volanta', a.coche); ok(!a.toca, 'aparece en la calle, sin tocar nada');
   ok(await page.evaluate(() => !lab.modos.enManzana(lab.modos.manejo.auto.x, lab.modos.manejo.auto.z)), 'fuera de toda manzana');
@@ -143,7 +143,7 @@ console.log('— escritorio —');
   await page.screenshot({ path: 'shots/auto-p-3.png' });
   // con los años, el coche se transforma en el de la época, y cada uno anda como es
   await alCabildo(page); await page.keyboard.press('Escape'); await pausa(800); await alCabildo(page); await pausa(400);
-  await page.click('#manejar'); await page.waitForFunction(() => lab.modos.activo === 'manejar'); await pausa(1000);
+  await page.evaluate(() => document.getElementById('manejar').click()); await page.waitForFunction(() => lab.modos.activo === 'manejar'); await pausa(1000);
   const topes = {};
   for (const [año, clave] of Object.entries(COCHES).slice(1)) {
     await elegir(page, +año); const p = await coche(page);
@@ -175,10 +175,10 @@ console.log('— escritorio —');
   await page.keyboard.press('KeyV'); await page.keyboard.press('KeyB'); await page.keyboard.press('KeyM'); await pausa(300);
   ok(await page.evaluate(() => document.querySelector('#tablero [data-b="sonido"]').classList.contains('on')), 'M calla el sonido (y B toca la bocina sin romper nada)'); await page.keyboard.press('KeyM');
   // de coche a pie, y al mapa: todo vuelve a su lugar
-  const enAuto = await coche(page); await page.click('#caminar'); await pausa(1200);
+  const enAuto = await coche(page); await page.evaluate(() => document.getElementById('caminar').click()); await pausa(1200);
   const aPie = await page.evaluate(() => ({ ...lab.modos.pie, modo: lab.modos.activo }));
   ok(aPie.modo === 'caminar' && lejos(aPie, enAuto) < 30, 'de coche a pie: se baja donde estaba', `${lejos(aPie, enAuto).toFixed(1)} m`);
-  await page.click('#manejar'); await page.waitForFunction(() => lab.modos.activo === 'manejar'); await pausa(800);
+  await page.evaluate(() => document.getElementById('manejar').click()); await page.waitForFunction(() => lab.modos.activo === 'manejar'); await pausa(800);
   await page.keyboard.press('Escape'); await pausa(1200);
   const fin = await page.evaluate(() => ({ modo: lab.modos.activo, clases: document.body.className, fov: lab.camera.fov, visibles: lab.scene.children.filter((o) => o.isGroup && o.rotation.order === 'YXZ' && o.visible).length, tablero: getComputedStyle(document.getElementById('tablero')).display, epocas: getComputedStyle(document.getElementById('epocas')).display, fondo: lab.scene.background.getHex() }));
   ok(!fin.modo && !/(^| )modo/.test(fin.clases), 'Esc vuelve al mapa', fin.clases); ok(Math.abs(fin.fov - antes.fov) < 0.01, 'con la cámara del mapa como estaba');

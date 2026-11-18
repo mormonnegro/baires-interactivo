@@ -1,14 +1,14 @@
 // Puerto Madero, alrededor de los diques: lo que había entre la ciudad y el agua, y entre el agua y la Costanera.
 // (Los diques, los docks, los barcos, los elevadores y la Costanera Sur están en puerto.js; acá va lo demás.)
-//   · 1895 (etapa 2): la tierra recién ganada. Solo la Plaza Colón, detrás de la Casa de Gobierno, que el plano de
-//     Obras Públicas ya dibuja; el resto es terraplén.
+//   · 1895 (etapa 2): la tierra recién ganada: terraplén. (La Plaza Colón y el Parque Colón, detrás de la Casa de
+//     Gobierno, están en plaza-colon.js, en todas las etapas.)
 //   · 1905 (etapa 3): las vías del puerto —el plano de Ludwig las dibuja en lazo alrededor de cada dique, cruzando por
-//     los puentes giratorios—, con sus vagones; el Parque Colón (Thays, 1904); del lado del río, el embarcadero de
+//     los puentes giratorios—, con sus vagones; del lado del río, el embarcadero de
 //     animales en pie junto al Dique 1 (la tira rayada del plano) y el depósito en T del Dique 2.
 //   · 1910 (etapa 4): la Aduana (Lanús y Hary, 1910), en Azopardo y Belgrano, y los primeros depósitos y barracas de
 //     las manzanas nuevas entre Paseo Colón y la avenida del puerto (hoy Huergo); los jardines de la barranca.
 //   · 1921 (etapa 5): lo que dibuja el plano de Cannizzaro: la playa de maniobras del oeste con todas sus vías, la
-//     alameda de Huergo y Madero, las manzanas ya edificadas, el Monumento a Colón (1921) en su hemiciclo; del lado
+//     alameda de Huergo y Madero, las manzanas ya edificadas; del lado
 //     del río, la segunda hilera de galpones del Dique 4, el molino y los silos del Dique 3 (los silos siguen en pie:
 //     su planta sale de OpenStreetMap), el depósito grande del Dique 1, la playa de vías del sudeste con las dos
 //     hileras de galpones largos de la calle Florencio Sánchez, y la Plaza Mazzini; al este de Alem, las manzanas
@@ -161,9 +161,15 @@ export default function (c) {
   // La fila de afuera (de Azopardo a Huergo) y lo que la fila de adentro tiene sobre tierra ganada: el plano de 1909
   // todavía las da sin edificar y el de 1921, edificadas.
   for (const R of [[7730, 10154, 7916, 10232], [7944, 10090, 8092, 10228], [8132, 10174, 8278, 10220], [8306, 10140, 8478, 10210], [8502, 10134, 8662, 10206], [8688, 10130, 8870, 10200], [8900, 10132, 9080, 10194], [9104, 10116, 9254, 10190], [9278, 10112, 9448, 10184], [9474, 10106, 9650, 10182]]) manzana(R, 4);
-  for (const R of [[8306, 10072, 8476, 10108], [8500, 10050, 8660, 10104], [8684, 10020, 8868, 10100], [8960, 10034, 9078, 10094], [8900, 9976, 8998, 10030], [9102, 9984, 9252, 10090], [9294, 9966, 9418, 10084], [9472, 9944, 9650, 10072], [9680, 9948, 9838, 10068]]) manzana(R, 4, 0.9);
-  // (al norte del parque: detrás del Correo y sobre Madero, lo que el Peuser raya de rosa)
-  manzana([10950, 10100, 11176, 10158], 6, 0.85); manzana([11506, 10074, 11566, 10132], 5); manzana([11808, 10114, 11882, 10232], 5, 0.8);
+  for (const R of [[8306, 10072, 8476, 10108], [8500, 10050, 8660, 10104], [8684, 10020, 8868, 10100], [8960, 10034, 9078, 10094], [8900, 9976, 8998, 10030], [9102, 9984, 9252, 10090], [9294, 9966, 9418, 10084], [9472, 9944, 9650, 10072]]) manzana(R, 4, 0.9);
+  // (La manzana de enfrente de la Aduana, de Belgrano a Moreno, no va: en el plano de 1921 es verde y en la foto aérea
+  // de 1940, una plaza arbolada. La arma plaza-colon.js. Acá se reponen las dos tiradas —la de los lotes y la de los
+  // colores— como quedaban después de lotearla, para no cambiarles nada a las manzanas y a los lugares que siguen.)
+  azar = 0.7701048752087445; c.tirada = 0.41173640941790435;
+  // (al norte del parque, sobre Madero: lo que el Peuser raya de rosa. La manzana de detrás del Correo la corta la
+  // avenida Rosales: la arma plaza-colon.js; las tiradas, como arriba)
+  azar = 0.19783001424912072; c.tirada = 0.7182511535078726;
+  manzana([11506, 10074, 11566, 10132], 5); manzana([11808, 10114, 11882, 10232], 5, 0.8);
 
   // --- la Aduana (Eduardo Lanús y Pablo Hary, 1910): Azopardo entre Belgrano y Moreno. El cuerpo de cuatro pisos con
   //     su mansarda, las dos torres con cúpula sobre Azopardo y el hemiciclo que mira al puerto ---
@@ -175,44 +181,13 @@ export default function (c) {
     T.caja(30, 22, 6, 0, 0, -24.5, CASA, { floors: 4, ...SI }); T.fila(3, -9, 9, 3.4, 7, 0, -27.56, '-z');
   }
 
-  // --- el Parque Colón, detrás de la Casa de Gobierno ---
-  // (el hemiciclo: adentro de la avenida curva; el parque: entre la curva y la avenida del puerto. Los contornos, de las
-  // calles que pinta el suelo.)
+  // --- el Parque Colón, la Plaza Colón, las plazoletas de la avenida Rosales y la obra del Ministerio de Guerra están
+  //     en plaza-colon.js (con su tirada propia). Acá quedan las dos tiradas como estaban después de armarlos, para no
+  //     cambiarles los lotes ni los colores a lo que sigue. ---
   const adentroDe = (pts, x, z) => { let d = false; for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) { const [xi, zi] = pts[i], [xj, zj] = pts[j]; if ((zi > z) !== (zj > z) && x < ((xj - xi) * (z - zi)) / (zj - zi) + xi) d = !d; } return d; };
-  const PARQUE = [[9872, 9954], [10108, 9964], [10130, 9976], [10208, 10062], [10274, 10101], [10340, 10121], [10438, 10127], [10504, 10115], [10562, 10091], [10620, 10048], [10706, 9962], [10744, 9945], [10788, 9942], [10788, 10156], [10534, 10156], [9872, 10171]].map(([x, y]) => g(x, y));
-  const A0 = Math.asin(106 / 212), HEMI = Array.from({ length: 21 }, (_, i) => { const a = A0 + (i / 20) * (Math.PI - 2 * A0); return g(10379 - Math.cos(a) * 212, 9832 + Math.sin(a) * 212); });
-  c.epoca(2, 3); // 1895: la Plaza Colón, un cuadro con sus senderos en cruz
-  { const [x, z] = g(10338, 9996); G.cantero(G.recto(104, 58, x, z, 6)); G.tapete(G.recto(104, 4, x, z), PINTA.GRANZA, { y: 0.56 }); G.tapete(G.recto(4, 58, x, z), PINTA.GRANZA, { y: 0.56 }); for (const s of [-1, 1]) for (const t of [-1, 1]) for (let k = 0; k < 3; k++) G.arbol(x + s * (14 + k * 15), z + t * 17, 3.2); }
-  c.epoca(3);
-  G.tapete(c.adentro(PARQUE, 3), PINTA.CESPED, { y: 0.12, claro: 0.76 }); G.tapete(c.adentro(HEMI, 4), PINTA.CESPED, { y: 0.12, claro: 0.76 });
-  { // los senderos de granza: el paseo largo a lo largo del parque, los que lo cruzan y la rotonda del medio
-    const [, zp] = g(10330, 10140), [xa] = g(9884, 10140), [xb] = g(10776, 10140), [xm, zm] = g(10379, 10140);
-    G.tapete(G.recto(xb - xa, 7, (xa + xb) / 2, zp), PINTA.GRANZA, { y: 0.34 });
-    for (const px of [9980, 10100, 10640, 10720]) { const [x, z0] = g(px, 9972), [, z1] = g(px, 10150); G.tapete(G.recto(4, z1 - z0, x, (z0 + z1) / 2), PINTA.GRANZA, { y: 0.34 }); }
-    G.tapete(G.ovalo(xm, zm, 13, 13, 16), PINTA.GRANZA, { y: 0.34 }); G.cantero(G.ovalo(xm, zm, 6, 6, 14), { alto: 0.5, tono: PINTA.FLORES });
-    for (let x = xa + 6; x < xb - 4; x += 11) for (const s of [-1, 1]) if (Math.abs(x - xm) > 16) G.arbol(x, zp + s * 6.6, 3.5);
-    // los árboles sueltos del parque (ninguno sobre los senderos)
-    for (let i = 0; i < 230; i++) { const x = xa + al() * (xb - xa), z = zp - 118 + al() * 128; if (Math.abs(z - zp) > 11 && adentroDe(c.adentro(PARQUE, 7), x, z)) G.arbol(x, z, 3 + al() * 1.6); }
-  }
-  { // el hemiciclo: los senderos en abanico y, desde 1921, el Monumento a Colón (Arnaldo Zocchi): la escalinata, el
-    // basamento con sus grupos de mármol, la columna y, arriba, el almirante. De mármol de Carrara, unos 26 m.
-    const [x, z] = g(10379, 9992);
-    for (const a of [-0.9, 0, 0.9]) G.tapete([[x - 2 + Math.sin(a) * 4, z - 22], [x + 2 + Math.sin(a) * 4, z - 22], [x + 2 + Math.sin(a) * 62, z + 40 * Math.cos(a)], [x - 2 + Math.sin(a) * 62, z + 40 * Math.cos(a)]], PINTA.GRANZA, { y: 0.34 });
-    G.tapete(G.ovalo(x, z, 15, 15, 18), PINTA.GRANZA, { y: 0.34 });
-    for (let i = 0; i < 34; i++) { const a = A0 + 0.06 + ((i + 0.5) / 34) * (Math.PI - 2 * A0 - 0.12), [tx, tz] = g(10379 - Math.cos(a) * 198, 9832 + Math.sin(a) * 198); G.arbol(tx, tz, 3.4); }
-    c.epoca(5);
-    const T = en(10379, 9992), MAR = { tono: c.BLANCO };
-    for (let i = 0; i < 3; i++) T.caja(15 - i * 2.4, 0.5, 15 - i * 2.4, 0, i * 0.5, 0, PIEDRA, MAR);
-    T.caja(7.6, 4.6, 7.6, 0, 1.5, 0, PIEDRA, MAR); T.caja(8.4, 0.5, 8.4, 0, 6.1, 0, PIEDRA, MAR);
-    for (const s of [-1, 1]) { T.caja(2.2, 2.6, 3.4, s * 4.9, 1.5, 0, PIEDRA, MAR); T.caja(3.4, 2.6, 2.2, 0, 1.5, s * 4.9, PIEDRA, MAR); }
-    T.caja(3.4, 3, 3.4, 0, 6.6, 0, PIEDRA, MAR); T.cilindro(1.25, 11, 0, 9.6, 0, PIEDRA, 10, 1.05, MAR); T.caja(2.6, 0.8, 2.6, 0, 20.6, 0, PIEDRA, MAR);
-    T.cilindro(0.7, 3.6, 0, 21.4, 0, PIEDRA, 6, 0.45, MAR); T.cilindro(0.42, 0.8, 0, 25, 0, PIEDRA, 6, 0.36, MAR);
-  }
-  // la plazoleta del norte del parque (de Cangallo a Sarmiento) y la Plaza Mazzini (hoy Roma), frente a Lavalle
+  azar = 0.9224372931575999; c.tirada = 0.7116347595586738;
+  // la Plaza Mazzini (hoy Roma), frente a Lavalle
   c.epoca(5);
-  { const [x0, z0] = g(10838, 9962), [x1, z1] = g(10946, 10154), xm = (x0 + x1) / 2, zm = (z0 + z1) / 2;
-    G.cantero(G.recto(x1 - x0, z1 - z0, xm, zm, 5)); G.tapete(G.recto(4, z1 - z0, xm, zm), PINTA.GRANZA, { y: 0.56 }); G.tapete(G.recto(x1 - x0, 4, xm, zm), PINTA.GRANZA, { y: 0.56 });
-    for (let i = 0; i < 26; i++) { const x = x0 + 5 + al() * (x1 - x0 - 10), z = z0 + 5 + al() * (z1 - z0 - 10); if (Math.abs(x - xm) > 5 && Math.abs(z - zm) > 5) G.arbol(x, z, 3.2 + al()); } }
   { const [x0, z0] = g(11388, 9938), [x1, z1] = g(11550, 10040), xm = (x0 + x1) / 2, zm = (z0 + z1) / 2;
     G.cantero(G.recto(x1 - x0, z1 - z0, xm, zm, 5)); G.tapete(G.ovalo(xm, zm, 9, 9, 14), PINTA.GRANZA, { y: 0.56 });
     for (const [a, b] of [[1, 1], [1, -1]]) G.tapete([[xm - 48, zm - a * 30 * b - 1.6], [xm - 48, zm - a * 30 * b + 1.6], [xm + 48, zm + a * 30 * b + 1.6], [xm + 48, zm + a * 30 * b - 1.6]], PINTA.GRANZA, { y: 0.56 });

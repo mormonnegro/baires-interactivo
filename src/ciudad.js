@@ -3,7 +3,7 @@
 // en celdas de su manzana. Acá se pasan a metros del mundo: x hacia el norte, z hacia el río, con el cero en la plaza.
 import { LINEAS } from './vias.js';
 import * as THREE from 'three';
-import { trozar } from './trozos.js';
+import { trozar, soltar } from './trozos.js';
 import { mergeVertices, mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 import { pedir } from './url.js';
@@ -338,6 +338,7 @@ export function createCiudad({ meta, mz, techos, muros, arboles }, tinta, otros 
   const casas = new THREE.Mesh(g, tinta.make({ manto: 3 }));
   casas.customDepthMaterial = tinta.depth(); casas.castShadow = casas.receiveShadow = true; casas.frustumCulled = false;
   trozar(casas); // (en trozos: lo que no se ve no se dibuja, src/trozos.js)
+  soltar(casas.geometry, ['aInfo']); // (aInfo se vuelve a tocar: marcarMueren)
   group.add(casas);
 
   // --- los árboles: una copa por cada árbol dibujado en el plano ---
@@ -384,7 +385,7 @@ export function createCrece(d, meta, tinta) {
   const { g, nT, nM, manzanas } = mallaCasas(d, meta.plano, true);
   const mesh = new THREE.Mesh(g, tinta.make({ manto: 3 }));
   mesh.customDepthMaterial = tinta.depth(); mesh.castShadow = mesh.receiveShadow = true; mesh.frustumCulled = false;
-  trozar(mesh);
+  trozar(mesh); soltar(mesh.geometry);
   return { mesh, cuenta: { techos: nT, muros: nM, manzanas } };
 }
 /** Anota en la malla de 1867 lo que se demuele con los años: mueT y mueM son pares (registro, etapa) de sus techos y de

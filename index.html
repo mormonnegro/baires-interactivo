@@ -58,9 +58,31 @@
     /* en color: la misma ciudad, pintada */
     #botones #color { display: inline-flex; align-items: center; gap: 7px; }
     #color svg { width: 20px; height: 20px; flex: none; fill: currentColor; }
+    /* el juego de las fotos (src/juego.js) */
+    #botones #jugar { display: inline-flex; align-items: center; gap: 7px; }
+    #botones #jugar[hidden] { display: none; }
+    #jugar svg { width: 20px; height: 20px; flex: none; fill: currentColor; }
+    body.juego #botones #jugar { background: #2a221b; color: #f7eedb; }
+    body.modo #botones #jugar { display: none; }
+    @media (max-width: 900px) { #jugar .rot { display: none; } #botones #jugar { padding-left: 12px; padding-right: 12px; min-width: 44px; justify-content: center; } }
     #botones #color.on { background: #2a221b; color: #f7eedb; }
     #botones #color.on:hover { background: #453a30; }
-    @media (max-width: 1080px) { #color .rot { display: none; } #botones #color { padding-left: 12px; padding-right: 12px; min-width: 44px; justify-content: center; } }
+    /* (solo el dibujo: el nombre lo dice al pasar el mouse) */
+    #color .rot { display: none; } #botones #color { padding-left: 12px; padding-right: 12px; min-width: 44px; justify-content: center; }
+    /* «Recorrer»: en una pantalla grande, caminar, volar y manejar van guardados en un solo botón, que los despliega
+       hacia arriba (body.recorrer, en main.js). En el teléfono siguen en su fila, y una vez adentro de un modo vuelven
+       a la fila de abajo, para pasar de uno a otro. */
+    #botones #recorrer { display: none; align-items: center; gap: 7px; }
+    #recorrer svg { width: 20px; height: 20px; flex: none; fill: currentColor; }
+    #recorrer i { font-style: normal; font-size: 11px; opacity: .7; margin-left: 2px; }
+    @media (min-width: 641px) and (min-height: 501px) {
+      body.con-modos:not(.modo):not(.juego) #botones #recorrer { display: inline-flex; }
+      body.recorrer #botones #recorrer { background: #2a221b; color: #f7eedb; }
+      body.con-modos:not(.modo) #botones #modos { display: none; position: fixed; left: var(--rx, auto); bottom: 84px; flex-direction: column; align-items: stretch; gap: 10px; min-width: var(--rw, 0); }
+      body.con-modos.recorrer:not(.modo):not(.juego) #botones #modos { display: flex; animation: asoma .18s ease-out; }
+      body:not(.modo) #botones #modos button { justify-content: flex-start; padding: 10px 18px; min-width: 0; }
+      body:not(.modo) #botones #modos button .rot { display: inline; }
+    }
     /* la firma: quién lo hizo, arriba a la derecha. Se corre cuando ahí va otra
        cosa: la ficha abierta, el cartel de los modos de recorrer. */
     #firma { right: 26px; top: 24px; display: flex; align-items: center; gap: 9px; padding: 5px 14px 5px 6px; pointer-events: auto; text-decoration: none; font-size: 14.5px; line-height: 1; white-space: nowrap; }
@@ -136,10 +158,10 @@
       body.info #titulo { max-width: none; padding: 10px 14px 11px; }
       /* (y la leyenda de «lo de hoy» le deja el lugar, igual que a la ficha) */
       body.info.listo.hoy #leyenda, body.ficha.listo.hoy #leyenda { opacity: 0 !important; }
-      /* la nota del año (qué cambió, de qué plano sale) se muestra un rato al elegirlo y se guarda (epocas.js: `fresca`;
-         `aviso` mientras carga o si falló); tocando el año de nuevo vuelve. Con el recuadro abierto, no va. */
+      /* la nota del año (qué cambió, de qué plano sale) acá no va: tapa demasiado. Solo se muestra mientras carga o si
+         falló (epocas.js: `aviso`). Con el recuadro abierto, tampoco. */
       #epocas.otra .pie { display: none; }
-      #epocas.otra.fresca .pie, #epocas.otra.aviso .pie { display: block; }
+      #epocas.otra.aviso .pie { display: block; }
       body.info #epocas.otra .pie { display: none; }
       /* la firma: solo el retrato, redondo */
       #firma { right: calc(14px + var(--sr)); top: calc(12px + var(--st)); width: 46px; height: 46px; padding: 0; border-radius: 50%; outline: 0; justify-content: center; overflow: hidden; }
@@ -201,7 +223,7 @@
   <div id="epocas" class="panel" hidden><div class="años" role="group" aria-label="Línea de tiempo: la ciudad en cada año"></div><div class="pie"></div></div>
   <a id="firma" class="panel" href="https://x.com/mormonnegro" target="_blank" rel="noopener" title="Hecho por @mormonnegro (abre su cuenta de X)"><img alt="" width="32" height="32"><span><i>Hecho por</i><b>@mormonnegro</b></span></a>
   <div id="leyenda" class="panel"><b>La ciudad de hoy, sobre el plano</b><span class="fila"><span class="l"></span>calles, vías de tren y costa actuales</span><span class="fila"><span class="r"></span>tierra ganada al río desde 1867</span><small>Mapa actual: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a></small></div>
-  <div id="botones"><span id="modos"><button id="ritmo" class="panel" type="button" aria-pressed="false" title="Más rápido" aria-label="Más rápido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5 11.5 12 4 18.5zM12.5 5.5 20 12l-7.500 6.5z"/></svg><span class="rot">Más rápido</span></button><button id="caminar" class="panel" type="button" title="Caminar por la ciudad" aria-label="Caminar por la ciudad"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.2" cy="4.2" r="2.1"/><path d="M11 7.9 7.3 9.8v4.4h1.9v-3.2l1.5-.7-1.8 10.5h2l1.3-6.2 2.2 2.4v3.800h1.900v-5.1l-2.1-2.6.6-3c1.100 1.400 2.700 2.200 4.500 2.200V10.500c-1.500 0-2.800-.800-3.500-2.100l-.9-1.500C14.200 6 13 5.600 12 6z"/></svg><span class="rot">Caminar</span></button><button id="volar" class="panel" type="button" title="Volar en avión" aria-label="Volar en avión"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.3c.9 0 1.5 1.100 1.500 2.700v4.200l7.500 4.500v2.100l-7.500-2.500v4.300l2.300 1.700v1.600L12 19.800l-3.800 1.100v-1.600l2.300-1.700v-4.300L3 15.800v-2.100l7.500-4.500V5c0-1.600.6-2.700 1.500-2.700z"/></svg><span class="rot">Volar</span></button><button id="manejar" class="panel" type="button" title="Manejar el coche de la época" aria-label="Manejar el coche de la época"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM5.440 10.200a6.800 6.800 0 0 1 13.120 0zM5.270 13h5.630v5.710A6.800 6.800 0 0 1 5.270 13zm13.460 0a6.800 6.800 0 0 1-5.630 5.710V13z"/></svg><span class="rot">Manejar</span></button></span><button id="color" class="panel" type="button" aria-pressed="false" title="Ver en color" aria-label="Ver en color"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.600c3.700 4.400 6.100 7.700 6.100 11a6.100 6.100 0 0 1-12.200 0c0-3.300 2.400-6.600 6.100-11z"/></svg><span class="rot">Color</span></button><button id="hoy" class="panel">Ver lo de hoy</button><button id="alzar" class="panel">Levantar la ciudad</button><button id="salir" class="panel" type="button">Volver al mapa</button></div>
+  <div id="botones"><button id="jugar" class="panel" type="button" title="Jugar: ¿dónde es esta foto?" aria-label="Jugar: ¿dónde es esta foto?" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M9 4.500 7.600 6.500H4.500A1.500 1.500 0 0 0 3 8v10a1.500 1.500 0 0 0 1.500 1.500h15A1.500 1.500 0 0 0 21 18V8a1.500 1.500 0 0 0-1.500-1.500h-3.100L15 4.500zm3 4.300a4.200 4.200 0 1 1 0 8.400 4.200 4.200 0 0 1 0-8.400zm0 1.900a2.300 2.300 0 1 0 0 4.600 2.300 2.300 0 0 0 0-4.600z"/></svg><span class="rot">Jugar</span></button><button id="recorrer" class="panel" type="button" aria-haspopup="true" aria-expanded="false" title="Recorrer la ciudad: a pie, en avión o en coche"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.2" cy="4.2" r="2.1"/><path d="M11 7.9 7.3 9.8v4.4h1.9v-3.2l1.5-.7-1.8 10.5h2l1.3-6.2 2.2 2.4v3.8h1.9v-5.1l-2.1-2.6.6-3c1.1 1.4 2.7 2.2 4.5 2.2V10.500c-1.500 0-2.800-.800-3.500-2.100l-.9-1.500C14.200 6 13 5.600 12 6z"/></svg><span class="rot">Recorrer</span><i aria-hidden="true">▴</i></button><span id="modos"><button id="ritmo" class="panel" type="button" aria-pressed="false" title="Más rápido" aria-label="Más rápido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5 11.5 12 4 18.5zM12.5 5.5 20 12l-7.500 6.5z"/></svg><span class="rot">Más rápido</span></button><button id="caminar" class="panel" type="button" title="Caminar por la ciudad" aria-label="Caminar por la ciudad"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.2" cy="4.2" r="2.1"/><path d="M11 7.9 7.3 9.8v4.4h1.9v-3.2l1.5-.7-1.8 10.5h2l1.3-6.2 2.2 2.4v3.800h1.900v-5.1l-2.1-2.6.6-3c1.100 1.400 2.700 2.200 4.500 2.200V10.500c-1.500 0-2.800-.800-3.500-2.100l-.9-1.500C14.200 6 13 5.600 12 6z"/></svg><span class="rot">Caminar</span></button><button id="volar" class="panel" type="button" title="Volar en avión" aria-label="Volar en avión"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.3c.9 0 1.5 1.100 1.500 2.700v4.200l7.500 4.500v2.100l-7.500-2.500v4.300l2.300 1.700v1.600L12 19.800l-3.800 1.100v-1.600l2.300-1.700v-4.300L3 15.800v-2.100l7.500-4.500V5c0-1.600.6-2.700 1.500-2.700z"/></svg><span class="rot">Volar</span></button><button id="manejar" class="panel" type="button" title="Manejar el coche de la época" aria-label="Manejar el coche de la época"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM5.440 10.200a6.800 6.800 0 0 1 13.120 0zM5.270 13h5.630v5.710A6.800 6.800 0 0 1 5.270 13zm13.460 0a6.800 6.800 0 0 1-5.630 5.710V13z"/></svg><span class="rot">Manejar</span></button></span><button id="color" class="panel" type="button" aria-pressed="false" title="Ver en color" aria-label="Ver en color"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.600c3.700 4.400 6.100 7.700 6.100 11a6.100 6.100 0 0 1-12.200 0c0-3.300 2.400-6.600 6.100-11z"/></svg><span class="rot">Color</span></button><button id="hoy" class="panel">Ver lo de hoy</button><button id="alzar" class="panel">Levantar la ciudad</button><button id="salir" class="panel" type="button">Volver al mapa</button></div>
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>

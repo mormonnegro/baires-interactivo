@@ -215,7 +215,7 @@ export function createFicha({ camera, cam, lienzo, marcas, U = null, pedirCuadro
     lienzo.addEventListener('pointermove', (e) => { if (abajo && (e.pointerId !== abajo.id || Math.hypot(e.clientX - abajo.x, e.clientY - abajo.y) > 6)) abajo = null; });
     lienzo.addEventListener('pointerup', (e) => {
       const a = abajo; abajo = null;
-      if (!a || e.pointerId !== a.id || performance.now() - a.t > 450) return;
+      if (!a || e.pointerId !== a.id || performance.now() - a.t > 450 || document.body.classList.contains('juego')) return; // (jugando, el toque marca: src/juego.js)
       const cx = e.clientX, cy = e.clientY;
       if (conDedo) { const m = marcas.enPunto(cx, cy, 9); if (m) { m.el.querySelector('.tag')?.click(); return; } }
       if (e.pointerType === 'touch') espera = setTimeout(() => { espera = 0; elegir(cx, cy); }, 340); else elegir(cx, cy);
@@ -224,6 +224,7 @@ export function createFicha({ camera, cam, lienzo, marcas, U = null, pedirCuadro
      *  toca. Cada marca vale por un cilindro parado en su lugar, del alto del edificio: así se acierta tanto al pie
      *  como a la punta de una torre (mirando de costado, el techo tapa el suelo de más atrás). */
     function bajo(cx, cy) {
+      if (document.body.classList.contains('juego')) return null;
       camera.updateMatrixWorld();
       const r = lienzo.getBoundingClientRect();
       ndc.set(((cx - r.left) / r.width) * 2 - 1, -((cy - r.top) / r.height) * 2 + 1);

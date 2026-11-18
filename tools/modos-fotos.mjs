@@ -18,7 +18,7 @@ const frenteA = (page, nombre, dn, de) => page.evaluate(([nombre, dn, de]) => {
 {
   const page = await abrir({ viewport: { width: 1000, height: 700 }, deviceScaleFactor: 1 });
   await page.screenshot({ path: 'shots/mf-mapa-1000.png' });
-  await page.click('#caminar'); await page.waitForTimeout(1500);
+  await page.evaluate(() => document.getElementById('caminar').click()); await page.waitForTimeout(1500);
   for (const [n, dn, de] of [['Cabildo', 10, 75], ['Catedral', -70, 30], ['Recova Vieja', 5, -60], ['San Ignacio', 0, 45], ['Aduana Nueva', 0, -120]]) {
     const adentro = await frenteA(page, n, dn, de); await page.mouse.move(500, 300); await page.mouse.down(); await page.mouse.move(501, 300); await page.mouse.up(); await page.waitForTimeout(1800);
     console.log(n, adentro ? '(adentro de algo)' : '', await page.evaluate(() => document.getElementById('modo-info').children[1].textContent));

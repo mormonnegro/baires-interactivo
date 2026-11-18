@@ -140,14 +140,19 @@ export default function (c) {
     // a dos aguas («San lorenzo estadio tribunaoficial 1922»). El estadio que le dio el nombre es de 1929-1930: una
     // tribuna corrida de tablones sobre hierro, de esquinas curvas y pareja de alto por los cuatro lados, con la
     // estructura a la vista por afuera («Estadio san lorenzo gasometro 1930», «El Gasometro» —la foto aérea—).
-    const { T, L, W } = sitio('gasometro'), cx = L / 2, cz = 84;
+    // La cancha va de punta contra la avenida: las cabeceras daban a Av. La Plata y a José Mármol, y los laterales a
+    // Las Casas y a Inclán (así las nombran los epígrafes de las fotos de época: «cabecera de Av. La Plata», «cabecera
+    // sobre la calle Mármol», «tribuna lateral de la calle Las Casas»). La oficial techada estaba del lado de Las Casas.
+    // En el solar, x = 0 es Las Casas y x = L es Inclán; z = 0 es la avenida.
+    const { T, L, W } = sitio('gasometro'), cx = 76, cz = 96;
     c.epoca(5, 6); cerco(T, L, W, 2.6, TABLA, PINTADO);
-    cancha(T, cx, cz, 'x'); grada(T, [cx - 30, cz - 42], [cx + 30, cz - 42], [cx, cz], 12, 1.5, 8, MADERA, TABLA, true);
-    grada(T, [cx - 45, cz + 42], [cx + 45, cz + 42], [cx, cz], 6, 1, 3.6, MADERA, TABLA);
+    cancha(T, cx, cz, 'z'); grada(T, [cx - 42, cz - 30], [cx - 42, cz + 30], [cx, cz], 12, 1.5, 8, MADERA, TABLA, true);
+    grada(T, [cx + 42, cz - 45], [cx + 42, cz + 45], [cx, cz], 6, 1, 3.6, MADERA, TABLA);
     c.epoca(6); cerco(T, L, W, 3, CHAPA, PINTADO);
-    cancha(T, cx, cz, 'x'); anillo(T, cx, cz, 'x', { a: 60, b: 41, r: 20, hondo: 30, h0: 1.6, h1: 17, o: MADERA, muro: TABLA, hierro: true });
-    for (let i = 0; i < 4; i++) T.tapete(T.recto(16, 32, 26 + i * 22, W - 22), PINTA.GRANZA, { y: 0.12 });
-    T.cantero(T.recto(44, 16, L - 50, W - 26, 2), { tono: PINTA.AGUA, alto: 0.4 }); pab(T, L - 50, W - 8, 40, 9, 2, c.CREMA, false);
+    cancha(T, cx, cz, 'z'); anillo(T, cx, cz, 'z', { a: 60, b: 41, r: 20, hondo: 30, h0: 1.6, h1: 17, o: MADERA, muro: TABLA, hierro: true });
+    // (lo demás del club, del lado de Inclán: supuesto)
+    for (let i = 0; i < 4; i++) T.tapete(T.recto(16, 32, 174 + i * 22, 52), PINTA.GRANZA, { y: 0.12 });
+    T.cantero(T.recto(44, 16, 207, 118, 2), { tono: PINTA.AGUA, alto: 0.4 }); pab(T, 207, 140, 40, 9, 2, c.CREMA, false);
   }
   { // La cancha de Huracán en Alcorta y Luna (1924): tribunas de madera por los cuatro lados y, entre ellas y la cancha,
     // una pista peraltada de cemento para carreras de motos y bicicletas («Estadio antiguo Club Atletico Huracan»).

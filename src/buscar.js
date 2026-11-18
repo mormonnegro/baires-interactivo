@@ -37,7 +37,7 @@ body.limpio #buscar, body.limpio #buscar-msg { display: none; }
 .marca.buscada .punto { left: -6px; top: -6px; width: 10px; height: 10px; background: #a03220; }
 .marca.buscada .punto::after { content: ''; position: absolute; inset: -1px; border-radius: 50%; border: 2px solid #a03220; animation: buscada 1.8s ease-out infinite; }
 @keyframes buscada { from { transform: scale(1); opacity: .9; } to { transform: scale(4.2); opacity: 0; } }
-@media (max-width: 780px) { #buscar, #buscar-msg { width: min(400px, calc(100vw - 340px)); } }
+@media (max-width: 780px) { #buscar, #buscar-msg { width: min(400px, calc(100vw - 340px)); } }\n/* en una pantalla grande, guardado: del ancho de la firma de enfrente, así los años quedan con aire parejo a los dos lados. Se abre al escribir */\n#buscar { transition: opacity 1.2s, background .2s, width .25s; } #buscar input { text-overflow: ellipsis; }\n@media (min-width: 1101px) and (min-height: 501px) { body #buscar:not(.con):not(:focus-within) { width: min(300px, calc(50vw - 346px)); } }
 @media (pointer: coarse) { #buscar input { padding-top: 11px; padding-bottom: 12px; } #buscar .x { padding: 0 13px; font-size: 22px; } #buscar .ir { padding: 0 15px; } }
 @media (max-height: 500px) and (min-width: 641px) {
   #buscar, #buscar-msg { left: calc(14px + var(--sl)); width: min(340px, calc(100vw - 400px)); }
@@ -110,8 +110,9 @@ export function createBuscador({ hoja, marco, metro, referencias, mz, calles, al
   const msg = Object.assign(document.createElement('div'), { id: 'buscar-msg' }); msg.setAttribute('aria-live', 'polite');
   document.body.append(form, msg);
   const input = form.querySelector('input');
-  const angosto = matchMedia('(max-width: 640px)'), cartel = () => { input.placeholder = angosto.matches ? 'Una dirección de hoy: Corrientes 1234' : 'Buscá una dirección de hoy: Corrientes 1234'; };
-  cartel(); angosto.addEventListener?.('change', cartel);
+  const angosto = matchMedia('(max-width: 640px)'), ancho = matchMedia('(min-width: 1101px) and (min-height: 501px)'), cartel = () => { input.placeholder = angosto.matches ? 'Una dirección de hoy: Corrientes 1234' : ancho.matches && document.activeElement !== input ? 'Buscá una dirección de hoy' : 'Buscá una dirección de hoy: Corrientes 1234'; };
+  // (en una pantalla grande el buscador está guardado mientras no se usa: el ejemplo aparece al entrar)
+  cartel(); angosto.addEventListener?.('change', cartel); ancho.addEventListener?.('change', cartel); input.addEventListener('focus', cartel); input.addEventListener('blur', cartel);
   // (lo que se escribe acá no es un atajo: ni el espacio levanta la ciudad ni la H prende lo de hoy)
   input.addEventListener('keydown', (e) => { e.stopPropagation(); if (e.code === 'Escape') input.blur(); });
   for (const t of ['pointerdown', 'wheel', 'touchstart']) form.addEventListener(t, (e) => e.stopPropagation());

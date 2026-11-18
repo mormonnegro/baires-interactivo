@@ -1264,7 +1264,7 @@ export const FICHAS = {
     texto: [
       'Se inauguró el 7 de mayo de 1916, y en los primeros años veinte tuvo una tribuna oficial de madera, techada a dos aguas: así va en 1921.',
       'El estadio que le dio el nombre es el de 1929 y 1930: una tribuna corrida de tablones sobre hierro, de esquinas curvas y pareja de alto por los cuatro lados, con la estructura a la vista por afuera. De lejos parecía uno de los gasómetros de la ciudad. Entraban 75 mil personas, y fue la cancha de la selección hasta que estuvo el Monumental.',
-      'La forma sale de las fotos de época, entre ellas una aérea; las medidas de la tribuna y lo que hay en el fondo del club son supuestos.',
+      'La cancha iba de punta contra la avenida: una cabecera daba a Avenida La Plata y la otra a José Mármol, con los laterales sobre Las Casas e Inclán. La forma sale de las fotos de época, entre ellas una aérea; las medidas de la tribuna y lo que hay al costado del club son supuestos.',
     ],
     hoyEs: 'un supermercado desde 1985; el club recuperó el terreno y proyecta volver.',
     fotos: ['barrios-gasometro'],
