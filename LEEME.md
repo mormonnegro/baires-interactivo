@@ -776,10 +776,29 @@ los postes de un cerco): no se distingue qué son y no están.
                           las herramientas y el navegador, con los números de tools/geo.json)
     src/url.js            las direcciones con versión, y los pedidos que index.html adelanta
 
-`npm run plano` rehace todo desde `fuentes/plano-1867.jpg` (el escaneo no está en el repositorio: pesa 60 MB).
+`npm run plano` rehace todo desde `fuentes/plano-1867.jpg` (el escaneo no está en el repositorio: pesa 60 MB; ver
+«Lo que no está en el repositorio», acá abajo).
 `tools/shot.mjs` saca capturas sin ventana, `tools/vivo.mjs` prueba la página con el reloj de verdad y
 `tools/busca.mjs` prueba el buscador de punta a punta (con la red de verdad). `tools/vitrina.mjs` prueba la página de
 los edificios.
+
+## Lo que no está en el repositorio
+
+El repositorio (<https://github.com/mormonnegro/baires-interactivo>) trae todo lo que hace falta para **ver y
+compilar** el visor: el código, los datos ya generados (`public/`) y las fuentes livianas. Con `npm install` y
+`npm run build` alcanza. Lo que queda afuera (`.gitignore`) solo hace falta para **volver a generar** los datos:
+
+| Qué | Peso | Quién lo necesita | Cómo se consigue |
+|---|---|---|---|
+| `fuentes/plano-1867.jpg` | 57 MB | `tools/1-clases.mjs`, `2-ciudad.mjs`, `3-laminas.mjs`, `calce.mjs`, `hoy.mjs`, `ver.mjs` | El escaneo de la BnF, de Wikimedia Commons (la dirección está en «Fuentes»), con ese nombre. |
+| `tmp/clases.png` | 2 MB | `tools/crece.mjs`, `patios.mjs`, `hoy.mjs --suelo` y otros | Lo deja `node --max-old-space-size=8000 tools/1-clases.mjs` a partir del escaneo. |
+| `fuentes/planos/<año>.jpg` y `1925-puerto.jpg` | 100 MB | `tools/epocas.mjs` | Los baja solo `tools/epocas.mjs` la primera vez (las direcciones están en su lista `EPOCAS`). La carta del puerto se usó solo para mirar. |
+| `fuentes/dulin.jpg` | 60 MB | nadie: referencia para modelar | *Buenos-Ayres a vista de pájaro*, de Wikimedia Commons. |
+| `paper/video/assets/visor/` y `paper/video/renders/` | 500 MB | el video del artículo | Las tomas se graban del visor (`paper/video/tools/captura.mjs`) y el video se vuelve a armar. |
+| `node_modules`, `dist`, `shots`, `tmp`, `.wrangler` | | | Se instalan o se generan. |
+
+Los planos de época ya calzados (`fuentes/planos/epoca-<año>.webp` y `indice.json`, 18 MB) sí están: con ellos y
+`tmp/clases.png`, `tools/crece.mjs` corre sin bajar nada.
 
 ## Fuentes
 

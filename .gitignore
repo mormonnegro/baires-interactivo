@@ -12,7 +12,7 @@ tmp
 
 # los escaneos grandes (más de 50 MB cada uno): LEEME.md, «Lo que no está en el repositorio», dice de dónde bajarlos
 fuentes/*.jpg
-fuentes/planos/
+fuentes/planos/*.jpg
 
 # del video del artículo: las tomas grabadas del visor y los videos terminados (cientos de MB; se vuelven a hacer)
 paper/video/assets/visor/
