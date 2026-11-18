@@ -29,7 +29,7 @@ import { LINEAS } from '../src/vias.js';
 import { ZONA_PLAYAS, AVENIDAS, TIERRA_NORTE, RIO_NORTE, PARQUES_NORTE } from '../src/playas-retiro.js';
 import { PARQUES_PALERMO, LAGOS_PALERMO, AVENIDAS_PALERMO, BALDIOS_PALERMO } from '../src/palermo.js';
 import { SITIOS } from '../src/barrios.js';
-import { zonaDe, zonaDeManzana, tiron, pisosDe, claseDe, repartir, cuadro } from './alturas.mjs';
+import { zonaDe, zonaDeManzana, tiron, pisosDe, claseDe, repartir, cuadro, E_SANTA_FE } from './alturas.mjs';
 
 const ver = process.argv.includes('--ver');
 const t0 = Date.now(), lap = (s) => console.log(`${((Date.now() - t0) / 1000).toFixed(1)}s  ${s}`);
@@ -628,7 +628,8 @@ function manzana(c, Q) {
   }
   if (nLib < 90) return;
   const mx = c.sx / c.n, my = c.sy / c.n, dist = Math.hypot(mx - centro[0], my - centro[1]) * MPP;
-  const zona = zonaDeManzana((mx - centro[0]) * MPP, (my - centro[1]) * MPP);
+  // (la zona, y la que le toca desde 1921, cuando el centro y el anillo llegan hasta Santa Fe: tools/alturas.mjs)
+  const zona = zonaDeManzana((mx - centro[0]) * MPP, (my - centro[1]) * MPP), zona5 = zonaDeManzana((mx - centro[0]) * MPP, (my - centro[1]) * MPP, E_SANTA_FE), zonaEn = (e) => (e >= E_SANTA_FE ? zona5 : zona);
   const own = new Int32Array(NC).fill(-1), lots = [];
   const sides = [0, 1, 2, 3].map((s) => {
     const La = s % 2 === 0 ? nu : nv, Ld = s % 2 === 0 ? nv : nu, E = new Int16Array(La), D = new Int16Array(La);
@@ -687,9 +688,9 @@ function manzana(c, Q) {
     if (!o.e) continue;
     // los pisos: los del plan que le tocó en el reparto (nace con los de su clase; lo que se renueva va más abajo)
     hay++; o.n0 = o.n; o.ln = (x - centro[0]) * MPP; o.lr = (y - centro[1]) * MPP; o.fin = o.m;
-    if (ENSAYO) { censo.push({ clave: c.start * 4096 + li, z: zona, n: o.ln, r: o.lr, sem: o.seed * 131 + c.start, nace: o.e, muere: o.m, clase: 0, fijo: false }); continue; }
+    if (ENSAYO) { censo.push({ clave: c.start * 4096 + li, z: zona, z5: zona5, n: o.ln, r: o.lr, sem: o.seed * 131 + c.start, nace: o.e, muere: o.m, clase: 0, fijo: false }); continue; }
     o.plan = planDe.get(c.start * 4096 + li) ?? [[o.e, 1]];
-    o.floors = pisosDe(o.plan[0][1], o.e, zona, tiron(o.ln, o.lr, o.e), o.r2, o.r3); o.h = Math.round((o.floors * (o.floors > 3 ? 3.4 + o.r * 0.5 : 3.9 + o.r3 * 1.5) + 0.6 + o.r * 0.7) * 10); o.n = o.e;
+    o.floors = pisosDe(o.plan[0][1], o.e, zonaEn(o.e), tiron(o.ln, o.lr, o.e), o.r2, o.r3); o.h = Math.round((o.floors * (o.floors > 3 ? 3.4 + o.r * 0.5 : 3.9 + o.r3 * 1.5) + 0.6 + o.r * 0.7) * 10); o.n = o.e;
   }
   for (let k = 0; k < NC; k++) if (own[k] >= 0 && !lots[own[k]].e) own[k] = -1;
   if (ENSAYO) { for (let k = 0; k < NC; k++) if (own[k] >= 0 && !lots[own[k]].m) ocupa[kk[k]] = 1; return; }
@@ -706,7 +707,7 @@ function manzana(c, Q) {
     const Rr = rng(o.seed * 31 + c.start * 7 + 5), mios = []; let antes = o;
     for (let t = 1; t < o.plan.length; t++) {
       const [e, clase] = o.plan[t]; if (o.fin && e >= o.fin) break;
-      const ed = edificio(e, clase, zona, o.ln, o.lr, Rr);
+      const ed = edificio(e, clase, zonaEn(e), o.ln, o.lr, Rr);
       antes.m = e; nRenovadas[e - 1]++; mios.push(lots.length); if (!capas[t]) capas[t] = new Int32Array(NC).fill(-1);
       antes = { h: Math.max(ed.h, antes.h + 25), seed: 1 + Math.floor(Rr() * 65000), floors: ed.floors, n: e, m: o.fin, e: 0 }; lots.push(antes);
     }
@@ -759,14 +760,14 @@ const vivoS = new Uint8Array(w * h), muertoS = new Uint8Array(w * h);
 // Qué parte del patio de 1867 está edificada en cada etapa (1888 … 1940), por zona (las de tools/alturas.mjs: 0 centro
 // —y la «city»—, 1 anillo, 2 norte cercano, 4 sur cercano, 6 oeste; en las demás no se toca).
 const FONDOS = { 0: [0.15, 0.25, 0.4, 0.5, 0.6, 0.85], 1: [0.1, 0.18, 0.3, 0.4, 0.5, 0.8], 2: [0.1, 0.18, 0.3, 0.4, 0.5, 0.8], 4: [0.05, 0.09, 0.15, 0.2, 0.25, 0.4], 6: [0.05, 0.09, 0.15, 0.2, 0.25, 0.4] };
-const nFondos = [0, 0, 0, 0, 0, 0];
+const nFondos = [0, 0, 0, 0, 0, 0]; let nFondosAltos = 0;
 let nSeVan = 0; const enCity = { casas: 0, chicas: 0, otras: 0, sinCaja: 0, celdas: 0, celdasNuevas: 0, nuevas: 0 };
 function viejas() {
-nSeVan = 0; for (const k in enCity) enCity[k] = 0; nFondos.fill(0);
+nSeVan = 0; for (const k in enCity) enCity[k] = 0; nFondos.fill(0); nFondosAltos = 0;
 for (let b = 0; b < nMz67; b++) {
   if (!techosDe[b].length) continue;
   const o = b * 10, nu = mz67[o + 8], nv = mz67[o + 9], Q = [0, 1, 2, 3].map((i) => [mz67[o + i * 2] / 2, mz67[o + i * 2 + 1] / 2]), Nc = nu * nv;
-  const cx = (Q[0][0] + Q[1][0] + Q[2][0] + Q[3][0]) / 4, cy = (Q[0][1] + Q[1][1] + Q[2][1] + Q[3][1]) / 4, bn = (cx - centro[0]) * MPP, br = (cy - centro[1]) * MPP, zona = zonaDeManzana(bn, br);
+  const cx = (Q[0][0] + Q[1][0] + Q[2][0] + Q[3][0]) / 4, cy = (Q[0][1] + Q[1][1] + Q[2][1] + Q[3][1]) / 4, bn = (cx - centro[0]) * MPP, br = (cy - centro[1]) * MPP, zona = zonaDeManzana(bn, br), zona5 = zonaDeManzana(bn, br, E_SANTA_FE), zonaEn = (e) => (e >= E_SANTA_FE ? zona5 : zona);
   const at = (i, j) => { const s = (i + 0.5) / nu, t = (j + 0.5) / nv; return [(1 - s) * (1 - t) * Q[0][0] + s * (1 - t) * Q[1][0] + s * t * Q[2][0] + (1 - s) * t * Q[3][0], (1 - s) * (1 - t) * Q[0][1] + s * (1 - t) * Q[1][1] + s * t * Q[2][1] + (1 - s) * t * Q[3][1]]; };
   const kDe = (i, j) => { const [x, y] = at(i, j); return Math.min(h - 1, Math.max(0, Math.floor(y))) * w + Math.min(w - 1, Math.max(0, Math.floor(x))); };
   const v0 = new Int32Array(Nc).fill(-1), lots = [], porSemilla = new Map();
@@ -785,7 +786,7 @@ for (let b = 0; b < nMz67; b++) {
     // (para el censo cuentan las casas a la calle y las construcciones sueltas, no los cuerpos del corazón de la manzana)
     // (tarde: solo la toca una obra tardía. Se renueva como siempre, y la casa o su reemplazo se van en la etapa de la obra)
     const umbral = Math.max(3, lo.celdas * 0.04), tarde = lo.nb >= umbral && lo.nf < umbral, fin0 = tarde ? lo.et : 0;
-    const alCenso = () => { if (ENSAYO && frente) censo.push({ clave: null, z: zona, n: bn, r: br, sem: lo.seed * 131 + b, nace: 0, muere: lo.m, clase: claseDe(lo.floors), fijo: true }); };
+    const alCenso = () => { if (ENSAYO && frente) censo.push({ clave: null, z: zona, z5: zona5, n: bn, r: br, sem: lo.seed * 131 + b, nace: 0, muere: lo.m, clase: claseDe(lo.floors), fijo: true }); };
     if (lo.nb >= umbral) { lo.m = tarde ? lo.et : lo.eb; cambia = true; nSeVan++; if (!tarde) { alCenso(); continue; } }
     const adentro = city(cx, cy) > 0.5; if (adentro) { enCity.casas++; enCity.celdas += lo.celdas; if (lo.kind !== 0) enCity.otras++; if (lo.celdas < 32 || lo.celdas > 900) enCity.chicas++; }
     // (lo que no da a la calle —los cuerpos del corazón de la manzana— solo se renueva en la city, de 1921 en adelante:
@@ -820,15 +821,15 @@ for (let b = 0; b < nMz67; b++) {
         const kc = city(cx, cy); if (R() >= kc * (e === E40 ? 0.66 : 0.07)) continue; // (entre 1914 y 1921 se edificó poco: la guerra)
         if (tarde && e >= lo.et) break; // (le tocaba renovarse cuando ya está la obra: no se renueva)
         const floors = 3 + Math.floor(R() * 4.99 * kc), alto = Math.round((floors * (3.3 + R() * 0.5) + 1.2 + R()) * 10);
-        if (ENSAYO) censo.push({ clave: null, z: zona, n: bn, r: br, sem: lo.seed * 131 + b + 7, nace: e, muere: fin0, clase: claseDe(floors), fijo: true }); else levanta(lo, e, floors, alto, v1);
+        if (ENSAYO) censo.push({ clave: null, z: zona, z5: zona5, n: bn, r: br, sem: lo.seed * 131 + b + 7, nace: e, muere: fin0, clase: claseDe(floors), fijo: true }); else levanta(lo, e, floors, alto, v1);
         break;
       }
       continue;
     }
     // la casa a la calle: lo que diga su plan (a lo sumo dos renovaciones, cada una a más pisos)
-    if (ENSAYO) { censo.push({ clave: -(b * 4096 + L + 1), z: zona, n: bn, r: br, sem: lo.seed * 131 + b, nace: 0, muere: fin0, clase: claseDe(lo.floors), fijo: false }); continue; }
+    if (ENSAYO) { censo.push({ clave: -(b * 4096 + L + 1), z: zona, z5: zona5, n: bn, r: br, sem: lo.seed * 131 + b, nace: 0, muere: fin0, clase: claseDe(lo.floors), fijo: false }); continue; }
     let antes = lo, t = 0;
-    for (const [e, clase] of planDe.get(-(b * 4096 + L + 1)) ?? []) { if (tarde && e >= lo.et) break; const ed = edificio(e, clase, zona, bn, br, R); antes = levanta(antes, e, ed.floors, ed.h, t++ ? v2 : v1); if (t > 1) dos = true; }
+    for (const [e, clase] of planDe.get(-(b * 4096 + L + 1)) ?? []) { if (tarde && e >= lo.et) break; const ed = edificio(e, clase, zonaEn(e), bn, br, R); antes = levanta(antes, e, ed.floors, ed.h, t++ ? v2 : v1); if (t > 1) dos = true; }
   }
   // Los fondos que se llenan. El plano de 1867 trae el corazón de cada manzana abierto (patios, huertas, corralones) y
   // nada de lo de arriba lo toca; pero para 1940 las manzanas del centro estaban techadas de medianera a medianera,
@@ -838,10 +839,21 @@ for (let b = 0; b < nMz67; b++) {
   // de una vez, entero y con un solo techo, en la etapa que le toque: FONDOS dice qué parte de los fondos está
   // edificada en cada etapa, por zona. Queda un patio de aire y luz contra una medianera. Son alas parejas, no casas
   // nuevas: no cuentan para el censo. Todo esto es supuesto, salvo los dos extremos (1867 y 1940).
+  // El fondo es del edificio de adelante. Si en su tira, sobre la calle, hay un edificio de tres pisos o más levantado
+  // en 1921 o en 1940, el fondo tiene sus pisos, su alto y su semilla: se lee como un solo edificio que llega hasta
+  // el corazón de la manzana, y no como una torre con un galponcito de techo colorado atrás. El fondo que ya estaba
+  // edificado de antes se rehace con ese edificio, en la etapa en que se lo levanta (una sola vez: si adelante hay uno
+  // de 1921 y otro de 1940, con el de 1940). Detrás de una casa baja queda como estaba.
   const misFondos = [];
-  { const fr = city(cx, cy) > 0.5 ? FONDOS[0] : FONDOS[zona];
-    if (fr && nu >= 24 && nv >= 24 && lots.length >= 6) { // (con casas: una plaza no se lotea)
-      const Rf = rng(b * 977 + 4513), alta = fr === FONDOS[0];
+  { const enLaCity = city(cx, cy) > 0.5, frA = enLaCity ? FONDOS[0] : FONDOS[zona], frB = enLaCity ? FONDOS[0] : FONDOS[zona5]; // (hasta 1910 · desde 1921)
+    if ((frA || frB) && nu >= 24 && nv >= 24 && lots.length >= 6) { // (con casas: una plaza no se lotea)
+      const Rf = rng(b * 977 + 4513);
+      // (el edificio de adelante de una tira en la etapa s: el que más celdas ocupa entre la calle y el fondo, si es alto y nuevo)
+      const adelante = (T, d0, s) => {
+        const cu = new Map(); let mejor = -1, mx = 0;
+        for (let d = 0; d < d0; d++) for (let t = 0; t < T.an; t++) { const q = T.q(d, t); for (const cp of [v2, v1, v0]) { const L = cp[q]; if (L < 0) continue; const lo = lots[L]; if (lo.fondo || lo.n > s || (lo.m && lo.m <= s)) continue; const n = (cu.get(L) ?? 0) + 1; cu.set(L, n); if (n > mx) { mx = n; mejor = L; } break; } }
+        const lo = mejor >= 0 ? lots[mejor] : null; return lo && !lo.fija && lo.n >= E21 && lo.floors >= 3 ? lo : null;
+      };
       const libre = (q) => { if (v0[q] >= 0 || v1[q] >= 0 || v2[q] >= 0) return false; const k = kDe(q % nu, (q / nu) | 0); return !!(patio67[k] || dentro[k]) && !banda[k] && !ocupa[k] && !solar[k] && !calle[k] && !via[k] && !agua[k] && !junto[k]; };
       const largoU = nu >= nv, A = largoU ? nu : nv, C = largoU ? nv : nu, cab = Math.round(C * 0.32), medio = C >> 1;
       const q0 = (a, c) => (largoU ? c * nu + a : a * nu + c); // (a: a lo largo del lado largo · c: a lo ancho)
@@ -851,15 +863,19 @@ for (let b = 0; b < nMz67; b++) {
       corta(0, C, (t0, t1) => { tiras.push({ hondo: cab, an: t1 - t0, q: (d, t) => q0(d, t0 + t) }); tiras.push({ hondo: cab, an: t1 - t0, q: (d, t) => q0(A - 1 - d, t0 + t) }); });
       for (const T of tiras) {
         const r0 = Rf(), r1 = Rf(), r2 = Rf(), r3 = Rf(), sem = 1 + Math.floor(Rf() * 65000);
-        let e = 0; for (let k = 1; k <= N; k++) if (r0 < fr[k - 1]) { e = k; break; } if (!e) continue;
+        let e = 0; for (let k = 1; k <= N; k++) { const fr = k >= E_SANTA_FE ? frB : frA; if (fr && r0 < fr[k - 1]) { e = k; break; } } if (!e) continue;
+        const alta = (e >= E_SANTA_FE ? frB : frA) === FONDOS[0];
         // (las filas enteras libres, de la calle hacia el fondo; el cuerpo es el tramo corrido más largo)
         let d0 = 0, d1 = 0, a = -1;
         for (let d = 0; d <= T.hondo; d++) { let ok = d < T.hondo; if (ok) for (let t = 0; t < T.an; t++) if (!libre(T.q(d, t))) { ok = false; break; } if (ok) { if (a < 0) a = d; } else if (a >= 0) { if (d - a > d1 - d0) { d0 = a; d1 = d; } a = -1; } }
         if (d1 - d0 < 4) continue;
         const pat = d1 - d0 >= 9 && T.an >= 6 ? d0 + 3 + Math.floor(r3 * (d1 - d0 - 7)) : -1, lado = r3 < 0.5; // (el patio: 3 × 3 celdas)
         const base = r1 < 0.3 ? 2 : 1, floors = e < E21 ? base : e < E40 ? base + (r1 > 0.7 ? 1 : 0) : alta ? Math.max(base, 2) + Math.floor(r1 * 3) : base + Math.floor(r1 * 2);
-        const L1 = lots.length; lots.push({ h: Math.round((floors * (3.3 + r2 * 0.4) + 1 + r2 * 0.6) * 10), seed: sem, floors, n: e, m: 0 });
-        for (let d = d0; d < d1; d++) for (let t = 0; t < T.an; t++) { if (d >= pat && d < pat + 3 && pat >= 0 && (lado ? t < 3 : t >= T.an - 3)) continue; const q = T.q(d, t); v1[q] = L1; misFondos.push(kDe(q % nu, (q / nu) | 0), e); }
+        const F = ENSAYO || e < E21 ? null : adelante(T, d0, e), G = ENSAYO || e >= E40 ? null : adelante(T, d0, E40);
+        const cuerpo = F ? { h: F.h, seed: F.seed, floors: F.floors, n: e, m: 0, fondo: true } : { h: Math.round((floors * (3.3 + r2 * 0.4) + 1 + r2 * 0.6) * 10), seed: sem, floors, n: e, m: 0, fondo: true };
+        const L1 = lots.length; lots.push(cuerpo);
+        let L2 = -1; if (G && G !== F && G.n > e && G.h > cuerpo.h + 10) { cuerpo.m = G.n; L2 = lots.length; lots.push({ h: G.h, seed: G.seed, floors: G.floors, n: G.n, m: 0, fondo: true }); dos = true; nFondosAltos++; } else if (F) nFondosAltos++;
+        for (let d = d0; d < d1; d++) for (let t = 0; t < T.an; t++) { if (d >= pat && d < pat + 3 && pat >= 0 && (lado ? t < 3 : t >= T.an - 3)) continue; const q = T.q(d, t); v1[q] = L1; if (L2 >= 0) v2[q] = L2; misFondos.push(kDe(q % nu, (q / nu) | 0), e); }
         cambia = true; nFondos[e - 1]++;
       }
     }
@@ -933,7 +949,7 @@ for (const F of FRENTES_DE) {
     for (const lo of lots) {
       if (lo.celdas < 70) continue;
       const [s, t] = lo.en, n = ((1 - s) * (1 - t) * Q[0][0] + s * (1 - t) * Q[1][0] + s * t * Q[2][0] + (1 - s) * t * Q[3][0] - centro[0]) * MPP, r = ((1 - s) * (1 - t) * Q[0][1] + s * (1 - t) * Q[1][1] + s * t * Q[2][1] + (1 - s) * t * Q[3][1] - centro[1]) * MPP;
-      censo.push({ clave: null, z: zonaDe(n, r), n, r, sem: lo.seed, nace: e, muere: 0, clase: claseDe(lo.floors), fijo: true });
+      censo.push({ clave: null, z: zonaDe(n, r, 0), z5: zonaDe(n, r, E_SANTA_FE), n, r, sem: lo.seed, nace: e, muere: 0, clase: claseDe(lo.floors), fijo: true });
     }
     for (let q = 0; q < Nc; q++) if (own[q] >= 0) { oc[kk[q]] = 1; mu[kk[q]] = 0; }
     continue;
@@ -963,7 +979,7 @@ for (let i = 0; i < SE_VAN.length; i += 2) if (!muerto[SE_VAN[i]] || SE_VAN[i + 
 lap(`${manzanas.length} manzanas con casas nuevas (de ${nCuatro} de cuatro lados y ${nRaras} irregulares): ${AÑOS.map((a, i) => `${a.año}: ${cuenta[i]}`).join(' · ')} · techos ${techos.length / 8}, muros ${muros.length / 8}`);
 viejas();
 lap(`en la city: ${JSON.stringify(enCity)}`);
-lap(`fondos de manzana edificados: ${AÑOS.map((a, i) => `${a.año}: ${nFondos[i]}`).join(' · ')}`);
+lap(`fondos de manzana edificados: ${AÑOS.map((a, i) => `${a.año}: ${nFondos[i]}`).join(' · ')} · con el alto del edificio de adelante: ${nFondosAltos}`);
 lap(`lo de 1867: ${nSeVan} casas en la traza de alguna obra; casas renovadas (las de 1867 y las que vinieron después), ${AÑOS.map((a, i) => `${a.año}: ${nRenovadas[i]}`).join(' · ')}`);
 frentes();
 lap(`frentes de avenida: ${FRENTES_DE.length} líneas · en total, techos ${techos.length / 8}, muros ${muros.length / 8}, manzanas ${manzanas.length}`);

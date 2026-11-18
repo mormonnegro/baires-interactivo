@@ -262,13 +262,19 @@ Nueve, definidas con calles para que se puedan pasar a coordenadas (las del punt
 |---|---|---|---|
 | centro | Plaza de Mayo, Florida, San Martín, el arranque de la Avenida de Mayo | Independencia – Córdoba, del río a Maipú – Chacabuco | secciones 1ª y 2ª; parte este de las circunscripciones 13 y 14 |
 | anillo | lo que rodea al centro | Independencia – Córdoba, de Maipú – Chacabuco a Callao – Entre Ríos | secciones 3ª a 6ª; resto de las circunscripciones 13 y 14 |
-| norte cercano | Retiro, Socorro, plaza San Martín | al norte de Córdoba, del río a Callao | sección 13ª; circunscripción 20 |
+| norte cercano | Retiro, Socorro, plaza San Martín | al norte de Córdoba, del río a Callao (en el visor, desde 1921: al norte de Santa Fe; ver la nota de abajo) | sección 13ª; circunscripción 20 |
 | norte lejano | el Pilar, la Recoleta | al norte de Córdoba, de Callao a Bulnes | sección 15ª; circunscripción 19 |
 | sur cercano | San Telmo, Concepción, Constitución | Garay – Independencia, del río a Entre Ríos | secciones 14ª y 16ª; circunscripción 12 |
 | La Boca | La Boca y el borde del Riachuelo | al sur de Garay, del lado del río (al este de Montes de Oca) | sección 20ª; circunscripción 4 |
 | oeste | Balvanera, el Once | Independencia – Córdoba, de Callao – Entre Ríos a Pueyrredón – Jujuy | secciones 7ª y 8ª; circunscripciones 10 y 11 |
 | arrabal | Barracas, San Cristóbal, Balvanera Oeste | al sur de Garay y al oeste de Montes de Oca hasta Entre Ríos; entre Garay y Córdoba, de Pueyrredón – Jujuy (o Entre Ríos, al sur de Independencia) a Bulnes – Boedo | secciones 9ª, 10ª y 18ª; circunscripciones 3, 8 y 9 |
 | orillas | todo lo demás | | secciones 11ª, 12ª, 17ª y 19ª; circunscripciones 1, 2, 5, 6, 7 y 15 a 18 |
+
+**El corte de Córdoba vale hasta 1910.** Es el de los distritos de los censos, y con él se leyeron los cuadros. Desde
+la etapa de 1921 el visor lleva el límite norte del centro y del anillo a Santa Fe (x ≈ +1 460 m; `E_SANTA_FE`, en
+`tools/alturas.mjs`): para entonces el Retiro y la Plaza San Martín se edificaban como el centro, y con el corte en
+Córdoba la zona del Plaza Hotel y del Kavanagh quedaba con el cuadro, mucho más bajo, del norte cercano. Es un
+**supuesto**: ningún cuadro dice que el centro llegara ahí, ni que el cambio fuera en 1921.
 
 Salvedades: los distritos de censo no calzan exactos con las zonas (la circunscripción 20 es más grande que
 la sección 13ª; las secciones de 1895 se suponen iguales a las de 1887), y en `medir-visor.mjs` la zona «La
@@ -295,6 +301,10 @@ incluye el este de Barracas: ese límite está puesto a ojo.
 - **1940**: **supuesto**, sin censo que lo sostenga: las casas de 1 y 2 niveles siguen cayendo al ritmo de
   1895-1914 hasta un piso de 10 a 18 % en el centro y el anillo, las de 3 y 4 se mantienen y lo que falta pasa
   a 5 o más. Tómese como orden de magnitud, con unos diez puntos de margen para cada lado.
+  **Lo que usa el visor para el centro de 1940 ya no es la fila de la tabla de abajo** sino 8 / 12 / 20 / 10 / 50,
+  con tope de 14 niveles de corrido (`OBJETIVO[6][0]` y `TOPE[6][0]`, en `tools/alturas.mjs`): con 40 % de 5 o más
+  el centro quedaba bajo contra las fotos aéreas de esos años. Es un **supuesto** puesto a ojo, dentro de ese margen
+  de diez puntos; no sale de ningún cuadro.
 
 El promedio de cada fila cuenta las casas de 5+ como 5 niveles en 1867-1888, 5,5 en 1895-1905, 6 en 1910, 6,2
 en 1921 y 7 en 1940 (**supuesto**; en 1914, de los 393 edificios de 5 o más del centro y el anillo, 168 tienen

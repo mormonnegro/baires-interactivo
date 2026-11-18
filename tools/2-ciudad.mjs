@@ -257,7 +257,7 @@ function manzana(c, Q, suelta, lleno, todo = false) {
   if (suelta || nBuilt > N * 0.9 && N < 2600) {
     // una construcción sola: un cuerpo, o dos si es larga
     // (en La Boca la mitad de las casas era de altos —lo dice el censo de 1869—, y ahí casi todo son casillas sueltas)
-    const A = nBuilt, big = A > 500, alta = !big && zonaDeManzana(...lugar) === 5 && azar(c.start, 77) < OBJETIVO[0][5][1] / 100, f = big ? (R() < 0.35 ? 2 : 1) : alta ? 2 : 1, hh = big ? 6 + R() * 4 : 3.6 + R() * 1.8 + (A > 150 ? 1 : 0) + (alta ? 2.7 : 0);
+    const A = nBuilt, big = A > 500, alta = !big && zonaDeManzana(...lugar, 0) === 5 && azar(c.start, 77) < OBJETIVO[0][5][1] / 100, f = big ? (R() < 0.35 ? 2 : 1) : alta ? 2 : 1, hh = big ? 6 + R() * 4 : 3.6 + R() * 1.8 + (A > 150 ? 1 : 0) + (alta ? 2.7 : 0);
     const L = nuevo(2, f, hh);
     for (let k = 0; k < N; k++) if (built[k]) { own[k] = L; lots[L].n++; }
   } else {
@@ -307,7 +307,7 @@ function manzana(c, Q, suelta, lleno, todo = false) {
   for (let k = 0; k < N; k++) if (own[k] >= 0 && lots[own[k]].n < 8) own[k] = -1;
   if (censando) {
     // (para el censo cuentan las casas a la calle y las construcciones sueltas, no los cuerpos del corazón de la manzana)
-    const [qn, qr] = lugar, z = zonaDeManzana(qn, qr);
+    const [qn, qr] = lugar, z = zonaDeManzana(qn, qr, 0); // (la zona de 1867: el corte del centro cambia recién en 1921)
     lots.forEach((lo, L) => { if (lo.n >= 8 && lo.kind !== 1) censo.push({ clave: llamada * 4096 + L, z, n: qn, r: qr, sem: lo.seed, nace: 0, muere: 0, clase: lo.kind === 2 ? claseDe(lo.floors) : 0, fijo: lo.kind === 2 }); });
     if (ENSAYO) return;
   }

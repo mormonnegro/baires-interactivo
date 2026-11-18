@@ -288,6 +288,15 @@ medianera—. **Qué es supuesto**: los porcentajes de las etapas intermedias, y
 cuerpo (uno o dos hasta 1921; de dos a cuatro en el centro en 1940). No cuentan para el censo: son cuerpos de fondo,
 no casas a la calle. Suma unos 7 mil cuerpos; `crece.pak` pasa de 3,3 a 3,8 MB.
 
+**El fondo es del edificio de adelante.** Si en la misma tira, sobre la calle, hay un edificio de tres pisos o más
+levantado en 1921 o en 1940, el fondo tiene sus pisos, su alto y su semilla (el mismo color, la misma azotea): se lee
+como un solo edificio que llega hasta el corazón de la manzana, y no como una torre con un galpón de techo colorado
+atrás. El fondo que ya estaba edificado de antes se rehace con ese edificio en la etapa en que se lo levanta (una sola
+vez: si adelante hay uno de 1921 y otro de 1940, con el de 1940). Detrás de una casa baja queda como estaba. Son unos
+1.450 de los 7.100 fondos; `crece.pak` pasa de 3,80 a 3,87 MB. **Es supuesto**, como todo lo de los fondos, y sigue
+sin contar para el censo. Lo que todavía se ve colorado entre los edificios del centro de 1940 son, sobre todo, los
+cuerpos de 1867 del corazón de las manzanas, que fuera de la «city» no se renuevan.
+
 **Los barrios: canchas, hospitales, la Penitenciaría.** `src/lugares/barrios.js` arma lo que faltaba fuera del eje
 Plaza de Mayo–Retiro–Palermo, y `src/barrios.js` guarda los solares (la etapa y las cuatro esquinas de cada uno), que
 `tools/crece.mjs` despeja de casas. Son veintidós lugares, todos con su marca y su ficha: las canchas (el Gasómetro,
@@ -637,7 +646,13 @@ Inventado, con las reglas de la época (el plano no lo dice):
   oeste, arrabal y orillas) y en cada una, etapa por etapa, el porcentaje de casas de uno, dos, tres, cuatro y cinco
   o más pisos es el del censo: 1867 con el de 1869, 1888 con el de 1887, 1895 con el de 1895; 1905 y 1910 son una
   interpolación entre el de 1895 y el de 1914; 1921 es el de 1914 con un poco más; 1940 es un supuesto (no hay cuadro
-  de 1936). Los cuadros, las fuentes y las salvedades están en `fuentes/censos/LEEME.md`; el reparto, en
+  de 1936). El centro de 1940 es el más supuesto de todos: 8 % de casas de un piso, 12 de dos, 20 de tres, 10 de
+  cuatro y 50 de cinco o más, hasta catorce de corrido (antes, 10, 15, 24, 11 y 40, hasta doce: quedaba bajo contra
+  las fotos aéreas de esos años); en el reparto sale 9,6 / 12,0 / 20,0 / 10,4 / 47,9, porque las casas que no se
+  pueden tocar son más que el cupo de las de un piso. Y desde 1921 el centro y el anillo no terminan por el norte en
+  Córdoba —donde los cortan los cuadros de los censos— sino en Santa Fe: el Retiro y la Plaza San Martín ya eran
+  centro (el Plaza Hotel es de 1909, el Kavanagh de 1936). Que el corte se corra justo en 1921 es un supuesto; las
+  casas de esa franja pasan al cuadro del centro o del anillo con los pisos que ya tenían. Los cuadros, las fuentes y las salvedades están en `fuentes/censos/LEEME.md`; el reparto, en
   `tools/alturas.mjs` (lo usan `tools/2-ciudad.mjs` y `tools/crece.mjs`, que primero cuentan las casas de cada zona
   y después reparten). Dentro de cada zona las casas altas se sortean, con más suerte cerca de la plaza, de Florida,
   de la Avenida de Mayo y de las otras calles de edificios altos: ese «tirón» es un supuesto. `node
