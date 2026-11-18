@@ -54,6 +54,9 @@ export const PINTA = { MADERA: 0, VERDE: 1, BRONCE: 2, ROJO: 3, OCRE: 4, LONA: 5
 /** De dónde a dónde van los puntos de cada lugar en la malla, en la de lo que va a ras del suelo y en la lista de
  *  árboles: [malla0, raso0, árbol0, malla1, raso1, árbol1]. Lo llena createHitos; lo lee tools/revisar-lugar.mjs. */
 export const TRAMOS = {};
+/** Los árboles de cada lugar, uno por uno (la lista entera se reordena al final —los de 1950 van al fondo—, así que
+ *  el tramo de árboles de TRAMOS no alcanza para saber cuáles son de quién). Lo lee tools/revisar-lugar.mjs. */
+export const ARBOLES_DE = {};
 
 /** Parte los triángulos de una malla (sin índice) hasta que ningún lado pase de `max` metros: lo que va a ras del
  *  suelo se apoya en el terreno punto por punto, y un paño grande de pocos triángulos lo cortaría. */
@@ -576,7 +579,7 @@ export function createHitos({ meta, mz }, tinta) {
     etapaDe: (año) => ETAPAS.findIndex((a) => a >= año) + 1,
   };
   const puntos = {}; // (cuántos puntos pone cada lugar, contando los de a ras del suelo: para saber cuál pesa)
-  for (const [nombre, hacer] of Object.entries(LUGARES)) { desde = 0; hasta = 0; const n0 = P.length + RASO.P.length, t0 = [P.length / 3, RASO.P.length / 3, arboles.length]; try { hacer(ctx); } catch (e) { console.warn(`el lugar ${nombre} no se pudo armar:`, e); } puntos[nombre] = (P.length + RASO.P.length - n0) / 3; TRAMOS[nombre] = [...t0, P.length / 3, RASO.P.length / 3, arboles.length]; }
+  for (const [nombre, hacer] of Object.entries(LUGARES)) { desde = 0; hasta = 0; const n0 = P.length + RASO.P.length, t0 = [P.length / 3, RASO.P.length / 3, arboles.length]; try { hacer(ctx); } catch (e) { console.warn(`el lugar ${nombre} no se pudo armar:`, e); } puntos[nombre] = (P.length + RASO.P.length - n0) / 3; TRAMOS[nombre] = [...t0, P.length / 3, RASO.P.length / 3, arboles.length]; ARBOLES_DE[nombre] = arboles.slice(t0[2]); }
   desde = 0; hasta = 0;
 
   const g = new THREE.BufferGeometry();

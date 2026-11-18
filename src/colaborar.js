@@ -64,7 +64,7 @@ body.info #colaborar-b, body.modo #colaborar-b, body.juego #colaborar-b { displa
 const PEDIDO = `Quiero colaborar con el visor «Buenos Aires, de 1867 a 1950» (${REPO}) sumándole un lugar. Guiame vos paso a paso: no sé programar ni conozco el proyecto.
 
 Para empezar:
-1. Hacé un fork del repositorio en mi cuenta de GitHub, clonalo, entrá a la carpeta y corré npm install. Si me falta algo para eso (git, node, la cuenta de GitHub), decime qué y cómo instalarlo.
+1. Hacé un fork del repositorio en mi cuenta de GitHub, clonalo, entrá a la carpeta, trabajá desde ahí y corré npm install. Si me falta algo para eso (git, node, la cuenta de GitHub), decime qué y cómo instalarlo.
 2. Leé CLAUDE.md, CONTRIBUIR.md y COORDINAR.md y seguilos al pie de la letra: son las reglas del proyecto.
 
 Después, conmigo:

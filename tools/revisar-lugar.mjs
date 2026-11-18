@@ -117,7 +117,7 @@ async function armar(raiz, claves) {
     const raso = h.mesh.children.find((c) => !c.userData.trozo), at = (g) => Object.fromEntries(Object.entries(g.attributes).map(([k, x]) => [k, { array: x.array, n: x.itemSize }]));
     const M = await v.ssrLoadModule('/src/marcas.js'), F = await v.ssrLoadModule('/src/fichas.js'), decl = {};
     for (const k of claves) { const arch = registro(readFileSync(join(raiz, 'src/hitos.js'), 'utf8')).archivo[k]; if (arch) try { decl[k] = (await v.ssrLoadModule(`/src/lugares/${arch}.js`)).LUGAR ?? null; } catch { decl[k] = null; } }
-    return { puntos: h.puntos ?? {}, tramos: H.TRAMOS ? { ...H.TRAMOS } : null, malla: at(h.mesh.geometry), raso: raso ? at(raso.geometry) : null, arboles: h.arboles, avisos, marcas: M.LUGARES, fichas: F.FICHAS, fotos: F.FOTOS, decl };
+    return { puntos: h.puntos ?? {}, tramos: H.TRAMOS ? { ...H.TRAMOS } : null, arbolesDe: H.ARBOLES_DE ? { ...H.ARBOLES_DE } : null, malla: at(h.mesh.geometry), raso: raso ? at(raso.geometry) : null, arboles: h.arboles, avisos, marcas: M.LUGARES, fichas: F.FICHAS, fotos: F.FOTOS, decl };
   } finally { await v.close(); }
 }
 /** Lo que se mide de un lugar en las mallas: la caja que ocupa (en metros del mundo), el alto y qué hay en cada etapa. */
@@ -128,7 +128,8 @@ function medir(A, clave) {
     if (!g) continue; const p = g.position.array, I = g.aInfo.array;
     for (let i = i0; i < i1; i++) { const x = p[i * 3], y = p[i * 3 + 1], z = p[i * 3 + 2], c = Math.floor(I[i * 4 + 3] / 20000); if (x < caja[0]) caja[0] = x; if (z < caja[1]) caja[1] = z; if (x > caja[2]) caja[2] = x; if (z > caja[3]) caja[3] = z; if (y > alto) alto = y; codigos.set(c, (codigos.get(c) ?? 0) + 1); n++; }
   }
-  const arboles = A.arboles.slice(t[2], t[5]); // (en la lista de árboles van [x, z, radio, desde, hasta])
+  const arboles = A.arbolesDe?.[clave] ?? A.arboles.slice(t[2], t[5]); // (la lista se reordena al final: src/hitos.js, ARBOLES_DE)
+  // (en la lista de árboles van [x, z, radio, desde, hasta])
   for (const [x, z, r, d = 0, h = 0] of arboles) { if (x - r < caja[0]) caja[0] = x - r; if (z - r < caja[1]) caja[1] = z - r; if (x + r > caja[2]) caja[2] = x + r; if (z + r > caja[3]) caja[3] = z + r; const c = d + 8 * h; codigos.set(c, (codigos.get(c) ?? 0) + 1); }
   // por etapa: cuántos puntos hay en pie y una firma de qué piezas son (si cambia la firma, el lugar cambió)
   const etapas = []; for (let e = 0; e <= ULTIMA; e++) { const vivos = [...codigos].filter(([c]) => (c % 8) <= e && (!(c >> 3) || e < (c >> 3))).sort((x, y) => x[0] - y[0]); etapas.push({ n: vivos.reduce((s, [, k]) => s + k, 0), firma: vivos.map(([c]) => c).join(',') }); }

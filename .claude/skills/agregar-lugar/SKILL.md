@@ -313,7 +313,11 @@ Sin navegador (`--sin-navegador`) corre igual lo demás; sin red, la hoja sale s
    (`.github/PULL_REQUEST_TEMPLATE.md`) pide: qué lugar y qué años, **«Cierra #…»** con el issue de la reserva,
    las fuentes, **la hoja** (`revision/<clave>.jpg`, arrastrada al texto del pedido), el resumen
    (`revision/<clave>.md`, pegado), qué es supuesto, si hace falta despejar un solar, y **con qué modelo y qué
-   esfuerzo se hizo** (decí los de esta sesión, los de verdad).
+   esfuerzo se hizo** (decí los de esta sesión, los de verdad; el esfuerzo no lo ves desde adentro: preguntáselo a
+   la persona —lo dice `/effort`— y no lo supongas).
+   **La hoja no se puede adjuntar por línea de comandos**: abrí el pedido con `gh pr create`, pegá en el texto el
+   resumen (`revision/<clave>.md`) y decile a la persona, con la ruta del archivo, que abra el pedido en el
+   navegador y arrastre `revision/<clave>.jpg` al texto. Sin la hoja el pedido no se revisa.
 6. No publiques nada ni toques `main`. Si no tenés permiso para subir, dejá la rama lista y decile a la persona
    qué comandos correr.
 
