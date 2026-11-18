@@ -29,6 +29,7 @@ import { LINEAS } from '../src/vias.js';
 import { ZONA_PLAYAS, AVENIDAS, TIERRA_NORTE, RIO_NORTE, PARQUES_NORTE } from '../src/playas-retiro.js';
 import { PARQUES_PALERMO, LAGOS_PALERMO, AVENIDAS_PALERMO, BALDIOS_PALERMO } from '../src/palermo.js';
 import { SITIOS } from '../src/barrios.js';
+import { ZONA_COLON, CALZADAS_COLON, EXPLANADAS_COLON } from '../src/plaza-colon.js';
 import { zonaDe, zonaDeManzana, tiron, pisosDe, claseDe, repartir, cuadro, E_SANTA_FE } from './alturas.mjs';
 
 const ver = process.argv.includes('--ver');
@@ -132,6 +133,15 @@ const avMano = new Uint8Array(w * h);
     for (const [, e, medio, pts] of AVENIDAS) { if (e !== et) continue; for (let i = 0; i + 1 < pts.length; i++) { const [ax, ay] = pts[i], [bx, by] = pts[i + 1], n = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 4)); for (let j = 0; j <= n; j++) sello(m, (ax + ((bx - ax) * j) / n) / 2, (ay + ((by - ay) * j) / n) / 2, medio / MPP); } }
     for (let k = 0; k < w * h; k++) if (m[k]) avMano[k] = et;
   } }
+// (la Plaza Colón y el Parque Colón, detrás de la Casa de Gobierno —src/plaza-colon.js—: ahí las calles de hoy no son
+// las de entonces. Adentro de la zona la lámina de las calles no pinta las de hoy ni la franja de las manzanas de
+// 1867; van las calzadas calcadas de los planos de época y de la foto aérea de 1940, cada una desde su etapa
+// (calzC) y con el asfalto desde la suya (lisaC). Para todo lo demás las calles de hoy siguen contando igual.)
+const zonaC = new Uint8Array(w * h); llenar(zonaC, ZONA_COLON.map(([x, y]) => [x / 2, y / 2]));
+const calzC = new Uint8Array(w * h), lisaC = new Uint8Array(w * h);
+{ const m = new Uint8Array(w * h), pone = (e, l) => { for (let k = 0; k < w * h; k++) if (m[k] && (!calzC[k] || e < calzC[k])) { calzC[k] = e; lisaC[k] = l; } m.fill(0); };
+  for (const [, e, l, pts] of CALZADAS_COLON) { for (let i = 0; i + 1 < pts.length; i++) { const [ax, ay, ar] = pts[i], [bx, by, br] = pts[i + 1], n = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 3)); for (let j = 0; j <= n; j++) sello(m, (ax + ((bx - ax) * j) / n) / 2, (ay + ((by - ay) * j) / n) / 2, (ar + ((br - ar) * j) / n) / MPP); } pone(e, l); }
+  for (const [, e, l, Q] of EXPLANADAS_COLON) { llenar(m, Q.map(([x, y]) => [x / 2, y / 2])); pone(e, l); } }
 for (const f of ['calles', 'avenidas']) for (const e of lee(f)) {
   const m = MEDIO[e.tags?.highway]; if (!m || !e.geometry) continue;
   const n = e.tags?.name ?? '';
@@ -761,6 +771,15 @@ const vivoS = new Uint8Array(w * h), muertoS = new Uint8Array(w * h);
 // —y la «city»—, 1 anillo, 2 norte cercano, 4 sur cercano, 6 oeste; en las demás no se toca).
 const FONDOS = { 0: [0.15, 0.25, 0.4, 0.5, 0.6, 0.85], 1: [0.1, 0.18, 0.3, 0.4, 0.5, 0.8], 2: [0.1, 0.18, 0.3, 0.4, 0.5, 0.8], 4: [0.05, 0.09, 0.15, 0.2, 0.25, 0.4], 6: [0.05, 0.09, 0.15, 0.2, 0.25, 0.4] };
 const nFondos = [0, 0, 0, 0, 0, 0]; let nFondosAltos = 0;
+// Los fondos que se van con el frente (más abajo, en viejas()). P_FONDO67: la suerte de que un fondo que comparte
+// pared con un edificio alto y nuevo se vaya con él = P_FONDO67[0] + P_FONDO67[1] × (la parte del frente de la manzana
+// que ya es de cuatro pisos o más). ABSORBE: de los que se van, qué parte queda dentro del edificio (el resto, patio).
+// Son supuestos. `pulmon`: dónde se demolió uno de 1867 sin edificar. nFondos67[qué][zona][1921 · 1940], con qué =
+// 0 de 1867 absorbido · 1 de 1867 demolido · 2 fondo nuevo que nace alto · 3 fondo nuevo rehecho · 4 fondo nuevo demolido · 5 rehecho sin compartir pared.
+// CERCA67, SUELTO67: el que no comparte pared con ninguno pero tiene un edificio alto a menos de CERCA67 m se rehace
+// como él, con SUELTO67 de la suerte de los otros.
+// LARGO67, HONDO67: de un cuerpo de más de LARGO67 m² el edificio absorbe solo lo que tiene a menos de HONDO67 m.
+const P_FONDO67 = [0.25, 1.5], ABSORBE = 0.85, LARGO67 = 450, HONDO67 = 28, CERCA67 = 60, SUELTO67 = 0.6, VUELTAS67 = 8, pulmon = new Uint8Array(w * h), nFondos67 = [0, 1, 2, 3, 4, 5].map(() => [[0, 0], [0, 0]]);
 let nSeVan = 0; const enCity = { casas: 0, chicas: 0, otras: 0, sinCaja: 0, celdas: 0, celdasNuevas: 0, nuevas: 0 };
 function viejas() {
 nSeVan = 0; for (const k in enCity) enCity[k] = 0; nFondos.fill(0); nFondosAltos = 0;
@@ -781,6 +800,17 @@ for (let b = 0; b < nMz67; b++) {
   // los ranchos de alrededor— se va en 1905, como lo que toca una obra tardía)
   if ([[0, 0], [30, 0], [-30, 0], [0, 30], [0, -30], [22, 22], [-22, 22], [22, -22], [-22, -22]].some(([a, b]) => zonaPal[Math.min(h - 1, Math.max(0, Math.floor(cy + b))) * w + Math.min(w - 1, Math.max(0, Math.floor(cx + a)))]) && Math.hypot(cx - 8125, cy - 2110) < 900 && Math.hypot(cx - centro[0], cy - centro[1]) > M(1600)) for (const lo of lots) { lo.nb = lo.celdas; lo.nf = 0; lo.eb = Math.min(lo.eb, E05); lo.et = Math.min(lo.et, E05); }
   const n67 = lots.length, v1 = new Int32Array(Nc).fill(-1), v2 = new Int32Array(Nc).fill(-1); let cambia = false, dos = false;
+  /** El rectángulo más grande que entra en un lote de 1867 ([i0, j0, i1, j1]), o null si es muy chico o cubre menos del 40 % del lote. */
+  const cajaDe = (L) => {
+    const lo = lots[L]; let caja = null;
+    let i0 = nu, i1 = -1, j0 = nv, j1 = -1; for (const t of lo.rects) { i0 = Math.min(i0, te67[t + 1]); i1 = Math.max(i1, te67[t + 3]); j0 = Math.min(j0, te67[t + 2]); j1 = Math.max(j1, te67[t + 4]); }
+    const an = i1 - i0, alt = new Int32Array(an); let mejor = 0;
+    for (let j = j0; j < j1; j++) {
+      for (let i = 0; i < an; i++) alt[i] = v0[j * nu + i0 + i] === L ? alt[i] + 1 : 0;
+      for (let i = 0; i < an; i++) { if (!alt[i]) continue; let m = alt[i]; for (let k = i; k < an && alt[k]; k++) { m = Math.min(m, alt[k]); const ar = m * (k - i + 1); if (ar > mejor && m >= 5 && k - i + 1 >= 5) { mejor = ar; caja = [i0 + i, j - m + 1, i0 + k + 1, j + 1]; } } }
+    }
+    return mejor < 30 || mejor < lo.celdas * 0.4 ? null : caja;
+  };
   for (let L = 0; L < n67; L++) {
     const lo = lots[L], frente = lo.kind !== 1;
     // (para el censo cuentan las casas a la calle y las construcciones sueltas, no los cuerpos del corazón de la manzana)
@@ -796,16 +826,7 @@ for (let b = 0; b < nMz67; b++) {
     const R = rng(lo.seed * 31 + b * 7 + 5);
     // (el edificio nuevo ocupa el rectángulo más grande que entra en el lote: las casas de 1867 tienen el borde que les
     // dio el rayado del plano, con salientes de un metro que en un edificio de ocho pisos serían agujas)
-    let caja = null;
-    {
-      let i0 = nu, i1 = -1, j0 = nv, j1 = -1; for (const t of lo.rects) { i0 = Math.min(i0, te67[t + 1]); i1 = Math.max(i1, te67[t + 3]); j0 = Math.min(j0, te67[t + 2]); j1 = Math.max(j1, te67[t + 4]); }
-      const an = i1 - i0, alt = new Int32Array(an); let mejor = 0;
-      for (let j = j0; j < j1; j++) {
-        for (let i = 0; i < an; i++) alt[i] = v0[j * nu + i0 + i] === L ? alt[i] + 1 : 0;
-        for (let i = 0; i < an; i++) { if (!alt[i]) continue; let m = alt[i]; for (let k = i; k < an && alt[k]; k++) { m = Math.min(m, alt[k]); const ar = m * (k - i + 1); if (ar > mejor && m >= 5 && k - i + 1 >= 5) { mejor = ar; caja = [i0 + i, j - m + 1, i0 + k + 1, j + 1]; } } }
-      }
-      if (mejor < 30 || mejor < lo.celdas * 0.4) caja = null;
-    }
+    const caja = cajaDe(L);
     if (!caja) { if (adentro) enCity.sinCaja++; alCenso(); continue; }
     // el cuerpo nuevo, sobre la caja, en lugar del que estaba
     const levanta = (antes, e, floors, alto, capa) => {
@@ -844,7 +865,7 @@ for (let b = 0; b < nMz67; b++) {
   // el corazón de la manzana, y no como una torre con un galponcito de techo colorado atrás. El fondo que ya estaba
   // edificado de antes se rehace con ese edificio, en la etapa en que se lo levanta (una sola vez: si adelante hay uno
   // de 1921 y otro de 1940, con el de 1940). Detrás de una casa baja queda como estaba.
-  const misFondos = [];
+  const misFondos = [], tirasHechas = []; // (tirasHechas: cada fondo edificado —su cuerpo, sus celdas y si ya tiene dos cuerpos—)
   { const enLaCity = city(cx, cy) > 0.5, frA = enLaCity ? FONDOS[0] : FONDOS[zona], frB = enLaCity ? FONDOS[0] : FONDOS[zona5]; // (hasta 1910 · desde 1921)
     if ((frA || frB) && nu >= 24 && nv >= 24 && lots.length >= 6) { // (con casas: una plaza no se lotea)
       const Rf = rng(b * 977 + 4513);
@@ -875,8 +896,110 @@ for (let b = 0; b < nMz67; b++) {
         const cuerpo = F ? { h: F.h, seed: F.seed, floors: F.floors, n: e, m: 0, fondo: true } : { h: Math.round((floors * (3.3 + r2 * 0.4) + 1 + r2 * 0.6) * 10), seed: sem, floors, n: e, m: 0, fondo: true };
         const L1 = lots.length; lots.push(cuerpo);
         let L2 = -1; if (G && G !== F && G.n > e && G.h > cuerpo.h + 10) { cuerpo.m = G.n; L2 = lots.length; lots.push({ h: G.h, seed: G.seed, floors: G.floors, n: G.n, m: 0, fondo: true }); dos = true; nFondosAltos++; } else if (F) nFondosAltos++;
-        for (let d = d0; d < d1; d++) for (let t = 0; t < T.an; t++) { if (d >= pat && d < pat + 3 && pat >= 0 && (lado ? t < 3 : t >= T.an - 3)) continue; const q = T.q(d, t); v1[q] = L1; if (L2 >= 0) v2[q] = L2; misFondos.push(kDe(q % nu, (q / nu) | 0), e); }
+        const qs = []; tirasHechas.push({ cuerpo, qs, dos: L2 >= 0 });
+        for (let d = d0; d < d1; d++) for (let t = 0; t < T.an; t++) { if (d >= pat && d < pat + 3 && pat >= 0 && (lado ? t < 3 : t >= T.an - 3)) continue; const q = T.q(d, t); v1[q] = L1; if (L2 >= 0) v2[q] = L2; qs.push(q); misFondos.push(kDe(q % nu, (q / nu) | 0), e); }
         cambia = true; nFondos[e - 1]++;
+      }
+    }
+  }
+  // Los fondos se van con el frente. Arriba, lo de 1867 que no da a la calle solo se renueva en la «city», y un fondo
+  // de los que se llenan toma el alto del edificio de adelante solo si ese edificio ya estaba cuando se lo edificó: en
+  // el resto del centro el frente del lote pasaba a ser un edificio de ocho pisos con azotea y atrás le quedaba, hasta
+  // 1940, el cuerpo bajo de antes con su techo colorado. Un edificio de renta de los años veinte y treinta ocupaba
+  // casi todo el lote, con patios de aire y luz chicos: lo de atrás se tiraba con lo de adelante. Acá, en el centro y
+  // el anillo (zonas 0 y 1 de tools/alturas.mjs, como quedan desde 1921) y solo en 1921 y 1940:
+  //   - un cuerpo de fondo —de 1867, o de los que se llenaron después con uno a tres pisos— que comparte pared (3 m o
+  //     más) con un edificio de cuatro pisos o más levantado en 1921 o 1940, o con un fondo que ya es de uno de esos
+  //     edificios, puede irse con él. «Puede»: con una suerte que crece con la parte del frente de la manzana (las
+  //     casas a la calle de 1867, por superficie) que ya es edificio de cuatro pisos o más: P_FONDO67, de 25 % en una
+  //     manzana toda baja a seguro donde lo es la mitad del frente. En una manzana a medio renovar quedan fondos viejos;
+  //   - si se va, casi siempre (ABSORBE) lo absorbe el edificio con el que más pared comparte: toma sus pisos, su alto
+  //     y su semilla (misma azotea, mismo color). El de 1867, sobre el rectángulo más grande del lote: lo que sobra
+  //     queda de patio de aire y luz. Si no —o si en el lote no entra un rectángulo— se demuele y queda patio. Un fondo
+  //     que se edifica en esa misma etapa no se demuele ni se rehace: nace ya con el alto del edificio (no suma nada).
+  //     El de 1867 absorbido en 1921 se rehace en 1940 si entonces le levantan al lado uno más alto;
+  //   - de un cuerpo largo (más de LARGO67 m²: en las manzanas grandes del plano hay fondos de 10 × 120 m) el edificio
+  //     se queda solo con el tramo que tiene pegado, hasta HONDO67 m; el resto de un fondo nuevo sigue en pie, y puede
+  //     irse después con ese tramo o con otro edificio. El largo de 1867 no se puede partir: se rehace entero, como
+  //     otro edificio (su semilla) y sin pasar de seis pisos;
+  //   - el que no comparte pared con ninguno pero tiene a menos de CERCA67 m un edificio alto y nuevo de los que dan a
+  //     la calle (en las manzanas grandes del plano, que son varias cuadras de hoy, casi todo lo edificado es fondo y
+  //     las casas a la calle son pocas) se rehace con sus pisos y su alto y con semilla propia —es otro edificio—,
+  //     con menos suerte (SUELTO67 de la de los otros);
+  //   - los lotes muy grandes y lo que toca una obra quedan como estaban.
+  // Es un supuesto: no hay dato de qué se demolió lote por lote; lo que se ve en la foto aérea de 1940 es el resultado
+  // (las manzanas del centro techadas de medianera a medianera). No cuentan para el censo —son fondos— y en el ensayo
+  // no se hace (todavía no se sabe qué casas se renuevan): por eso lo de 1867 demolido se anota en `pulmon`, para que
+  // los frentes de avenida no lo tomen por lote libre y haya los mismos que se contaron.
+  if (!ENSAYO && zona5 <= 1 && n67 >= 6) {
+    const Rv = rng(b * 613 + 9001), marca = new Int32Array(Nc).fill(-1), cand = [];
+    // (los candidatos: los cuerpos de fondo de 1867 que nadie tocó y los fondos nuevos de una sola etapa)
+    for (let L = 0; L < n67; L++) { const lo = lots[L]; if (lo.kind !== 1 || lo.m || lo.celdas > 1800) continue; const qs = []; for (const t of lo.rects) for (let j = te67[t + 2]; j < te67[t + 4]; j++) for (let i = te67[t + 1]; i < te67[t + 3]; i++) qs.push(j * nu + i); cand.push({ L, lo, qs, cuerpo: null }); }
+    for (const T of tirasHechas) if (!T.dos) cand.push({ L: -1, lo: T.cuerpo, qs: T.qs, cuerpo: null });
+    cand.forEach((c, n) => { c.u = Rv(); c.u2 = Rv(); for (const q of c.qs) marca[q] = n; });
+    const enPie = (q, s) => { for (const cp of [v2, v1, v0]) { const L = cp[q]; if (L < 0) continue; const lo = lots[L]; if (lo.n <= s && !(lo.m && lo.m <= s)) return lo; } return null; };
+    const altoNuevo = (o) => !!o && !o.fija && o.n >= E21 && o.floors >= 4;
+    // (con quién comparte pared el candidato n en la etapa s: el edificio alto y nuevo que más lo toca)
+    // (`pegado`: el rectángulo de las celdas del candidato que dan a ese edificio, [i0, j0, i1, j1])
+    let pegado = null;
+    const vecino = (n, s) => {
+      const cu = new Map(); let mejor = null;
+      const toca = (i, j, i0, j0) => { if (i < 0 || j < 0 || i >= nu || j >= nv || marca[j * nu + i] === n) return; const o = enPie(j * nu + i, s); if (!altoNuevo(o)) return; let c = cu.get(o); if (!c) cu.set(o, (c = { o, k: 0, r: [i0, j0, i0 + 1, j0 + 1] })); c.k++; c.r[0] = Math.min(c.r[0], i0); c.r[1] = Math.min(c.r[1], j0); c.r[2] = Math.max(c.r[2], i0 + 1); c.r[3] = Math.max(c.r[3], j0 + 1); if (!mejor || c.k > mejor.k) mejor = c; };
+      for (const q of cand[n].qs) { const i = q % nu, j = (q / nu) | 0; toca(i - 1, j, i, j); toca(i + 1, j, i, j); toca(i, j - 1, i, j); toca(i, j + 1, i, j); }
+      if (!mejor || mejor.k < 3) return null;
+      pegado = mejor.r; return mejor.o;
+    };
+    // (el que no toca a ninguno pero tiene cerca —a menos de CERCA67 metros de su centro— un edificio alto y nuevo de
+    // los que dan a la calle: se rehace con sus pisos y su alto, y con semilla propia, que es otro edificio.
+    // `altos`: esos edificios en la etapa s, con su centro)
+    let altos = [];
+    const losAltos = (s) => { const m = new Map(); for (let q = 0; q < Nc; q++) { const o = enPie(q, s); if (!altoNuevo(o) || o.fondo) continue; let c = m.get(o); if (!c) m.set(o, (c = { o, n: 0, i: 0, j: 0 })); c.n++; c.i += q % nu; c.j += (q / nu) | 0; } altos = [...m.values()]; for (const c of altos) { c.i /= c.n; c.j /= c.n; } };
+    const cercano = (n) => {
+      const c = cand[n]; let mejor = null, dm = CERCA67, en = 0;
+      for (const q of c.qs) { const i = q % nu, j = (q / nu) | 0; for (const a of altos) { const d = Math.hypot(a.i - i, a.j - j); if (d < dm) { dm = d; mejor = a.o; en = q; } } }
+      if (!mejor) return null;
+      pegado = [en % nu, (en / nu) | 0, (en % nu) + 1, ((en / nu) | 0) + 1]; return { h: mejor.h, floors: mejor.floors, seed: c.lo.seed, n: mejor.n };
+    };
+    // (de un cuerpo largo el edificio se queda con lo que tiene pegado, hasta HONDO67 metros: ¿la celda cae en ese tramo?)
+    const cerca = (i, j) => i >= pegado[0] - HONDO67 && i < pegado[2] + HONDO67 && j >= pegado[1] - HONDO67 && j < pegado[3] + HONDO67;
+    const como = (F, s, mas) => ({ h: F.h, seed: F.seed, floors: F.floors, n: s, m: 0, fondo: true, ...mas });
+    for (const s of [E21, E40]) {
+      const alto = new Uint8Array(n67); let tot = 0, hay = 0;
+      for (let q = 0; q < Nc; q++) { const L = v0[q]; if (L < 0 || lots[L].kind !== 0 || alto[L]) continue; const o = enPie(q, s); if (o && !o.fija && o.floors >= 4) alto[L] = 1; }
+      for (let L = 0; L < n67; L++) if (lots[L].kind === 0) { tot += lots[L].celdas; if (alto[L]) hay += lots[L].celdas; }
+      const p = tot ? Math.min(1, P_FONDO67[0] + P_FONDO67[1] * (hay / tot)) : 0, cuenta = (que) => nFondos67[que][zona5][s - E21]++;
+      losAltos(s);
+      for (let vuelta = 0; vuelta < VUELTAS67; vuelta++) for (let n = 0, tope = cand.length; n < tope; n++) {
+        const c = cand[n], lo = c.lo;
+        if (c.cuerpo) { // (el de 1867 absorbido en 1921: se rehace si en 1940 tiene al lado uno más alto, de otro edificio)
+          if (s !== E40 || c.cuerpo.m || c.L < 0) continue; const G = vecino(n, s); if (!G || G.n !== E40 || G.seed === c.cuerpo.seed || G.h <= c.cuerpo.h + 10) continue;
+          c.cuerpo.m = s; const L2 = lots.length, k = c.cuerpo.caja; lots.push((c.cuerpo = como(G, s, { caja: k }))); dos = true; cuenta(0);
+          for (let j = k[1]; j < k[3]; j++) for (let i = k[0]; i < k[2]; i++) v2[j * nu + i] = L2;
+          continue;
+        }
+        if (lo.m || lo.n > s || altoNuevo(lo) || c.u >= p) continue;
+        let F = vecino(n, s), suelto = false; if (!F && c.u < p * SUELTO67) { F = cercano(n); suelto = true; }
+        if (!F || F.h <= lo.h + 10) continue;
+        cambia = true;
+        if (c.L < 0) {
+          // un fondo nuevo. Si es largo, se parte: el tramo pegado al edificio se va con él y el resto sigue como
+          // estaba (otro cuerpo igual, que más adelante puede irse con este o con otro edificio)
+          let qs = c.qs;
+          if (qs.length > LARGO67) {
+            const va = qs.filter((q) => cerca(q % nu, (q / nu) | 0));
+            if (va.length < qs.length) { const resto = qs.filter((q) => !cerca(q % nu, (q / nu) | 0)), Lr = lots.length; lots.push({ ...lo }); for (const q of resto) { v1[q] = Lr; marca[q] = cand.length; } cand.push({ L: -1, lo: lots[Lr], qs: resto, cuerpo: null, u: Rv(), u2: Rv() }); qs = c.qs = va; }
+          }
+          // el de esta misma etapa nace con el alto del edificio; el de antes se rehace o se demuele
+          if (lo.n === s) { lo.h = F.h; lo.seed = F.seed; lo.floors = F.floors; cuenta(suelto ? 5 : 2); }
+          else { lo.m = s; if (suelto || c.u2 < ABSORBE) { const L2 = lots.length; lots.push(como(F, s)); for (const q of qs) v2[q] = L2; dos = true; cuenta(suelto ? 5 : 3); } else cuenta(4); }
+          c.cuerpo = lo; continue;
+        }
+        const k = c.u2 < ABSORBE ? cajaDe(c.L) : null;
+        // (un lote largo de 1867 no se puede partir: se rehace entero, como otro edificio y sin pasar de seis pisos)
+        const E = lo.celdas > LARGO67 ? { ...F, seed: lo.seed, floors: Math.min(6, F.floors), h: F.floors > 6 ? Math.round((F.h * 6) / F.floors) : F.h } : F;
+        lo.m = s; cuenta(!k ? 1 : suelto ? 5 : 0);
+        if (k) { const L1 = lots.length; lots.push((c.cuerpo = como(E, s, { caja: k }))); for (let j = k[1]; j < k[3]; j++) for (let i = k[0]; i < k[2]; i++) v1[j * nu + i] = L1; }
+        else for (const q of c.qs) pulmon[kDe(q % nu, (q / nu) | 0)] = 1;
       }
     }
   }
@@ -916,7 +1039,7 @@ for (const F of FRENTES_DE) {
     const s = (i + 0.5) / nu, t = (j + 0.5) / nv, x = (1 - s) * (1 - t) * Q[0][0] + s * (1 - t) * Q[1][0] + s * t * Q[2][0] + (1 - s) * t * Q[3][0], y = (1 - s) * (1 - t) * Q[0][1] + s * (1 - t) * Q[1][1] + s * t * Q[2][1] + (1 - s) * t * Q[3][1];
     const k = Math.min(h - 1, Math.max(0, Math.floor(y))) * w + Math.min(w - 1, Math.max(0, Math.floor(x))), q = j * nu + i; kk[q] = k;
     tipo[q] = banda[k] || calle[k] || via[k] || agua[k] || (!F.libre && (!dentro[k] || !(lote67[k] || patio67[k] || mu[k]))) ? 1 : // (ni en las plazas: solo donde había casa o fondo)
-      oc[k] || vi[k] || (mu[k] > e) || ((cls[k] === EDIF || cls[k] === MACIZO) && !lote67[k]) ? 2 : 0;
+      oc[k] || vi[k] || pulmon[k] || (mu[k] > e) || ((cls[k] === EDIF || cls[k] === MACIZO) && !lote67[k]) ? 2 : 0;
   }
   // cuánto fondo libre hay en cada columna, desde la línea (con dos celdas de gracia)
   const D = new Int16Array(nu), E0 = new Int16Array(nu);
@@ -980,6 +1103,7 @@ lap(`${manzanas.length} manzanas con casas nuevas (de ${nCuatro} de cuatro lados
 viejas();
 lap(`en la city: ${JSON.stringify(enCity)}`);
 lap(`fondos de manzana edificados: ${AÑOS.map((a, i) => `${a.año}: ${nFondos[i]}`).join(' · ')} · con el alto del edificio de adelante: ${nFondosAltos}`);
+lap(`fondos que se van con el frente (1921 · 1940): ${['de 1867 absorbidos', 'de 1867 demolidos', 'nuevos que nacen altos', 'nuevos rehechos', 'nuevos demolidos', 'rehechos sin compartir pared'].map((t, i) => `${t}, centro ${nFondos67[i][0].join(' · ')}, anillo ${nFondos67[i][1].join(' · ')}`).join('; ')}`);
 lap(`lo de 1867: ${nSeVan} casas en la traza de alguna obra; casas renovadas (las de 1867 y las que vinieron después), ${AÑOS.map((a, i) => `${a.año}: ${nRenovadas[i]}`).join(' · ')}`);
 frentes();
 lap(`frentes de avenida: ${FRENTES_DE.length} líneas · en total, techos ${techos.length / 8}, muros ${muros.length / 8}, manzanas ${manzanas.length}`);
@@ -1279,7 +1403,7 @@ const E7 = (e) => Math.round((255 * (7 - e)) / 7);
     nTo[t]++;
     let s = -1, l = 0;
     const cz = calzada[k] && !(verde[k] && !calle[k]) ? calzada[k] : 0;
-    const en67 = calle67[k] && !dentro[k] && !baldioPal[k], hoy = calle[k] && !dentro[k] && !zonaP[k] && !zonaPal[k] && !baldioPal[k];
+    const en67 = calle67[k] && !dentro[k] && !baldioPal[k] && !zonaC[k], hoy = calle[k] && !dentro[k] && !zonaP[k] && !zonaPal[k] && !baldioPal[k] && !zonaC[k];
     if (en67 || hoy) {
       const urb = CODIGO.indexOf(lamR[t]) + 1; // (0: no es de lo que creció después)
       if (en67 ? urb || zona[k] < 4 || hoy : urb && !via[k]) {
@@ -1297,6 +1421,8 @@ const E7 = (e) => Math.round((255 * (7 - e)) / 7);
     if (s < 0 && muellePN[k] && lamR[t] > 0) s = Math.max(muellePN[k], lamR[t] >= CODIGO[E21 - 1] ? E21 : E40);
     // (las avenidas de las playas de Retiro y de la Costanera Norte, trazadas a mano: adoquín desde que están y asfalto en 1940 —lo del asfalto, supuesto—)
     if (s < 0 && avMano[k] && lamR[t] > 0) { s = Math.max(avMano[k], lamR[t] >= CODIGO[E21 - 1] ? E21 : E40); l = N; }
+    // (las calzadas de la Plaza Colón, calcadas a mano: adoquín desde su etapa y asfalto desde la que diga cada una)
+    if (calzC[k]) { s = s < 0 ? calzC[k] : Math.min(s, calzC[k]); l = l ? Math.min(l, Math.max(lisaC[k], s)) : Math.max(lisaC[k], s); }
     // (las avenidas nuevas: pavimento liso desde que se abren —de madera la de Mayo, de asfalto las demás—)
     let nuevaT = false;
     if (cz) { if ((en67 || calzadaT[k]) && s >= 0) l = l ? Math.min(l, Math.max(cz, s)) : Math.max(cz, s); else { s = cz; l = cz; nuevaT = !!calzadaT[k]; } } // (calzadaT: la de una obra tardía no le cambia el pavimento a la calle que ya estaba)
@@ -1356,6 +1482,16 @@ await sharp(lam, { raw: { width: TW, height: TH, channels: 3 } }).resize(2048, M
     const cod = CODIGO[(lamR[q] >= CODIGO[E21 - 1] ? E21 : E40) - 1]; if (cod > lamD[q]) { lamD[q] = cod; n++; }
   }
   lap(`las playas de Retiro y el Puerto Nuevo: ${n} puntos del suelo de 1867 (barcos y rótulos del río) tapados por el relleno`);
+  // (lo mismo detrás de la Casa de Gobierno, de la Aduana al Correo —src/plaza-colon.js—: las toscas, los juncos y
+  // los rótulos que el plano de 1867 dibuja en la orilla quedaban como manchas en la avenida y en el parque. Se dan
+  // por tapados desde 1895, con el relleno del puerto. Solo el dibujo del suelo: las casas no cambian.)
+  { const C = [[9690, 9896], [11190, 9896], [11190, 10172], [9690, 10172]].map(([x, y]) => [x * kx, y * ky]); let m = 0;
+    for (let y = Math.floor(C[0][1]); y <= Math.ceil(C[2][1]); y++) for (let x = Math.floor(C[0][0]); x <= Math.ceil(C[1][0]); x++) {
+      const q = y * TW + x; if (!lamR[q] || !inPoly(C, x + 0.5, y + 0.5)) continue;
+      let hay = false; for (let b = -2; b <= 2 && !hay; b++) for (let a = -2; a <= 2; a++) if (sucio(q + b * TW + a)) { hay = true; break; }
+      if (hay && CODIGO[E95 - 1] > lamD[q]) { lamD[q] = CODIGO[E95 - 1]; m++; }
+    }
+    lap(`la Plaza Colón y el bajo de la Casa de Gobierno: ${m} puntos del suelo de 1867 tapados por el relleno`); }
 }
 // (los lagos y las avenidas de los parques de Palermo: «despejados» desde su etapa, para que se vayan los árboles
 // que el plano de 1867 dibuja ahí; encima van el agua y la calzada de src/lugares/palermo.js)

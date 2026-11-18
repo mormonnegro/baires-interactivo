@@ -328,8 +328,40 @@ como un solo edificio que llega hasta el corazón de la manzana, y no como una t
 atrás. El fondo que ya estaba edificado de antes se rehace con ese edificio en la etapa en que se lo levanta (una sola
 vez: si adelante hay uno de 1921 y otro de 1940, con el de 1940). Detrás de una casa baja queda como estaba. Son unos
 1.450 de los 7.100 fondos; `crece.pak` pasa de 3,80 a 3,87 MB. **Es supuesto**, como todo lo de los fondos, y sigue
-sin contar para el censo. Lo que todavía se ve colorado entre los edificios del centro de 1940 son, sobre todo, los
-cuerpos de 1867 del corazón de las manzanas, que fuera de la «city» no se renuevan.
+sin contar para el censo.
+
+**Los fondos se van con el frente.** Con lo anterior el centro de 1940 seguía con mucho techo colorado entre los
+edificios altos: medido por superficie de techo, apenas un 37 % era azotea de edificio de cuatro pisos o más. Lo
+colorado eran dos cosas: los cuerpos de 1867 del corazón de las manzanas, que fuera de la «city» no se renovaban
+nunca, y —más todavía— los fondos de este mismo loteo edificados entre 1888 y 1910 con uno o dos pisos, que se
+quedaban así aunque después les levantaran un edificio de ocho al lado. Un edificio de renta de los años veinte y
+treinta ocupaba casi todo el lote, con patios de aire y luz chicos: lo de atrás se tiraba con lo de adelante. Ahora,
+en el centro y el anillo (las zonas 0 y 1 de `tools/alturas.mjs`) y solo en 1921 y 1940:
+
+- un cuerpo de fondo —de 1867 o de los nuevos, de uno a tres pisos— que comparte pared (3 m o más) con un edificio de
+  cuatro pisos o más levantado en 1921 o 1940, o con un fondo que ya es de uno de esos edificios, puede irse con él.
+  La suerte depende de la manzana: 25 % más una vez y media la parte de su frente (las casas a la calle de 1867, por
+  superficie) que ya es edificio de cuatro pisos o más; con medio frente alto es seguro. En una manzana a medio
+  renovar quedan fondos viejos, y detrás de una casa baja no cambia nada;
+- de los que se van, al 85 % los absorbe ese edificio (sus pisos, su alto, su semilla: la misma azotea y el mismo
+  color; el de 1867, sobre el rectángulo más grande del lote, y lo que sobra queda de patio de aire y luz) y el resto
+  se demuele y queda patio. El fondo que se edifica en esa misma etapa nace directamente con el alto del edificio;
+- de un fondo largo (más de 450 m²: en las manzanas grandes del plano, que son varias cuadras de hoy, hay tiras de
+  10 × 120 m) el edificio se queda solo con los 28 m que tiene pegados y el resto sigue su suerte; el lote largo de
+  1867 se rehace entero, sin pasar de seis pisos;
+- el que no comparte pared con ninguno pero tiene un edificio alto y nuevo a menos de 60 m se rehace con sus pisos y
+  semilla propia, con el 60 % de esa suerte. Hace falta en manzanas como la de Harrods, donde casi todo lo edificado
+  es fondo y las casas a la calle son el 5 % de la superficie.
+
+Son, sumando 1921 y 1940, unos 2.850 cuerpos: 860 de 1867 (560 absorbidos y 300 demolidos), 1.420 fondos nuevos
+(430 que nacen altos, 840 rehechos y 150 demolidos) y 580, de unos y otros, rehechos sin compartir pared; nueve de
+cada diez, en 1940. La azotea de cuatro pisos o más pasa, por superficie de techo, de un 37 a un 65 % en el centro
+de 1940 y de un 25 a un 43 % en el anillo (medido a mano mientras se ajustaba la regla: son aproximados). De 1867 a 1910 no cambia nada, y fuera del centro y el anillo tampoco.
+`crece.pak` pasa de 3,87 a 3,97 MB (4.900 techos y 12.000 muros más; en 1940 dejan de dibujarse otros tantos de
+1867). **Todo esto es supuesto**: no hay dato de qué se demolió lote por lote —lo que muestra la foto aérea de 1940 es
+el resultado—, y los números de la regla (la suerte, el 85 %, los 28 y los 60 m) están puestos a ojo. Sigue sin contar
+para el censo: el cuadro de pisos sale igual que antes. Lo que queda colorado en el centro de 1940 son las casas a la
+calle de uno a tres pisos (las que manda el censo) y los fondos de las manzanas donde el frente sigue bajo.
 
 **Los barrios: canchas, hospitales, la Penitenciaría.** `src/lugares/barrios.js` arma lo que faltaba fuera del eje
 Plaza de Mayo–Retiro–Palermo, y `src/barrios.js` guarda los solares (la etapa y las cuatro esquinas de cada uno), que
