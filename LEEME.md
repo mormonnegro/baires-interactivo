@@ -1,4 +1,4 @@
-# Buenos Aires, de 1867 a 1940
+# Buenos Aires, de 1867 a 1950
 
 El plano topográfico de la ciudad, acostado sobre la mesa. Se toca un botón y la ciudad se levanta del papel, dibujada
 con la misma tinta: cada manzana, cada casilla suelta y cada árbol que el grabador dibujó, en su lugar.
@@ -631,6 +631,51 @@ Lo que es aproximado o falta:
     node tools/edificios.mjs                # las plantas de los edificios grandes, de OpenStreetMap → src/edificios.js
     node tools/esquina.mjs "Calle A" "Calle B"   # dónde queda una esquina de hoy en el plano (para lo que se modela a mano)
     node tools/crece.mjs [--ver]            # → public/datos/crece.pak y crece.json, public/plano/crece.webp, despeje.webp, calles.webp y sus -2k
+
+### 1950, la etapa que se sumó después
+
+La línea de tiempo termina en 1950 (etapa 7). Sale del plano de Cannizzaro y Winter, de la Oficina Cartográfica
+Ludwig (1948), y de las obras abiertas hasta 1950 (`fuentes/1965/cronologia.json`, con su nivel de seguridad). Los
+años están en un solo lugar: `src/etapas.js`.
+
+- **Regla de la etapa: no cambia nada de lo anterior.** En `tools/crece.mjs` sus obras van en grillas aparte
+  (`banda50`, `junto50`), sus casas no ocupan lugar para las etapas de antes y lo que se va con ella se anota cuando
+  todo lo viejo ya se decidió, con los mismos sorteos. Los techos de 1867 a 1940 y lo de 1867 que se demuele hasta
+  1940 salen idénticos a como eran; de los muros cambia solo el tramo que tapaba un vecino que se va en 1950 (ahora va
+  entero, y hasta 1950 sigue tapado).
+- **Las láminas** conservan para las etapas 1 a 6 el código de cuando la línea terminaba en 1940; 1950 va por debajo
+  (10 de 255) y el umbral del visor (`llego` y `llego7`, en `src/tinta.js`) sabe de ese escalón. `crece.webp` y
+  `despeje.webp` solo suman puntos «de nunca a 1950». En `calles.webp` se suman las calles de lo que se urbaniza en
+  1950; donde una de esas empalma con una calle vieja, la vieja puede asomar uno o dos metros antes de 1950.
+- **La 9 de Julio**, de Belgrano a Córdoba: de Mitre a Belgrano (1944–1947, cinco manzanas; el Ministerio de Obras
+  Públicas queda en pie en la traza) y de Tucumán a Córdoba (1950, dos manzanas). El tramo de Córdoba a Paraguay es de
+  1951 y no entra. Los canteros (`src/lugares/nueve-de-julio.js`) repiten el corte del tramo de 1937: supuesto.
+- **Córdoba ensanchada**, de Callao a Alem (inaugurada en 1945): se despeja a 26 m, 13 a cada lado del eje de hoy.
+  Qué vereda cedió no está verificado; acá cae la que da el calce del plano de 1867. Supuesto, igual que los frentes
+  nuevos de 7 a 10 pisos.
+- **Los pisos** (`tools/alturas.mjs`, `OBJETIVO[7]`, `TOPE[7]`): no hay censo de edificación de 1950; el cuadro
+  sigue la pendiente de 1921–1940 con la serie de permisos de 1941–1950. Supuesto. Los edificios de cinco pisos o
+  más de esta etapa no bajan de siete (el edificio de departamentos de la ley 13.512, de 1948), y tiran más Santa Fe,
+  Callao, Las Heras, Pueyrredón, Córdoba y Rivadavia. Cabildo queda fuera del marco.
+- **Los fondos se van con el frente** también en 1950, y además en el norte cercano y en el oeste.
+- **Los lugares hechos a mano** (`src/lugares/obras-1950.js`, último en la lista de `src/hitos.js`; los solares, al
+  final de `SITIOS` en `src/barrios.js`): el Ministerio de Guerra terminado (1943; la obra de 1940 de
+  `plaza-colon.js` se va en esta etapa), el Ministerio de Hacienda, la primera etapa del Banco de la Nación de
+  Bustillo (1944: una ele, sin la cúpula ni la esquina del teatro viejo), la Facultad de Derecho de Figueroa Alcorta
+  (1949, con el fondo en esqueleto), el Automóvil Club (1942), la CGT (1950), la Casa de Moneda de Retiro (1944), el
+  Edificio Guardacostas (1949), la Facultad de Ciencias Médicas de la calle Paraguay (1944), el Mercado San Cristóbal
+  (1944), el estadio de Huracán (1947–1949, en lugar de la cancha de madera), la segunda bandeja de la cabecera norte
+  de la Bombonera (1941) y el solar en obra del Mercado del Plata (el viejo se demolió en 1947). Las plantas salen de
+  la foto aérea de 1965 (`fuentes/1965/aerea.mjs --marco`); los pisos, donde la cronología no los da, son supuesto y
+  cada edificio lo dice. No entra lo de seguridad baja (el Congreso viejo, el Arsenal) ni lo posterior a 1950.
+- **El pavimento que la lámina no alcanza a pintar** va a mano en ese mismo archivo, como paños que nacen en 1950:
+  las calles del costado de la 9 de Julio en los tramos nuevos (Lima y Bernardo de Irigoyen, Cerrito y Carlos
+  Pellegrini), con su vereda de enfrente, y la calzada y las dos veredas de Córdoba de Callao a Alem. Pendiente, y de
+  antes: la lámina de las calles tiene huecos sin ninguna calle (al norte de Tucumán entre Libertad y Suipacha, junto
+  a las dos diagonales y al oeste del Ministerio de Obras Públicas), donde las calles se ven de tierra en todas las
+  etapas.
+- Para sumar otra etapa (1965): las mallas guardan «nace + 8 × muere», o sea ocho etapas; hay que ensanchar esa
+  cuenta (`src/tinta.js`, `src/ciudad.js`, `src/hitos.js`, `src/modos.js`) y darle su código en las láminas.
 
 ## La barranca
 

@@ -82,8 +82,8 @@ export function estiloDe(x, z, nace, pisos, semilla) {
   }
   if (fabril > r && pisos < 4) return E.GALPON;
   const lejos = paso(2300, 3700, d);
-  if (nace >= 6) { // 1940
-    if (pisos >= 4) return r2 < 0.72 ? E.RACIONAL : r2 < 0.86 ? E.FRANCESA : E.COMERCIO;
+  if (nace >= 6) { // 1940 y 1950 (el edificio de departamentos de 1950, casi siempre racionalista: supuesto)
+    if (pisos >= 4) return r2 < (nace >= 7 ? 0.9 : 0.72) ? E.RACIONAL : r2 < 0.86 ? E.FRANCESA : E.COMERCIO;
     if (lejos > r) return E.ORILLA;
     return r2 < 0.45 ? E.RACIONAL : r2 < 0.75 ? E.ITALIANA : E.COMERCIO;
   }

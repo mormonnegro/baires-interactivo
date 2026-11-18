@@ -17,7 +17,7 @@ export default function (c) {
 
 ## Las medidas y los ejes
 
-- Las etapas: 0 es 1867, 1 es 1888, 2 es 1895, 3 es 1905, 4 es 1910, 5 es 1921 y 6 es 1940. `c.etapaDe(1914)` da la
+- Las etapas: 0 es 1867, 1 es 1888, 2 es 1895, 3 es 1905, 4 es 1910, 5 es 1921, 6 es 1940 y 7 es 1950. `c.etapaDe(1914)` da la
   primera etapa que ya encuentra hecho algo de ese año (5). `c.epoca(desde, hasta)`: existe si desde <= etapa < hasta
   (hasta 0: para siempre).
 - El plano: píxeles del escaneo de 1867, 0,675 m por píxel. **x crece hacia el norte, y hacia el río (el este).** La
@@ -104,6 +104,13 @@ casas que ya había: si cambian las calles del bajo en `tools/crece.mjs`, hay qu
 no van derechas (los depósitos de Alem, hacia el Retiro) se arman con `bloque(c.lugar(px, py, ux, uy), largo, fondo,
 desde, lleno)`, que es lo mismo con el marco girado. Lo que se agregue va al final del archivo: todo sale de una sola
 tirada, y una manzana nueva en el medio le cambia los lotes a las que siguen.
+
+`obras-1950.js` (lo que trae la etapa de 1950: edificios públicos, el estadio de Huracán, la obra del Mercado del
+Plata y los paños de pavimento de la 9 de Julio y de Córdoba) va después, último. Sus solares están al final de
+`SITIOS`, en `src/barrios.js`, con la etapa 7: `tools/crece.mjs` los despeja recién en 1950 y no cambia nada de las
+etapas anteriores. Lo que un lugar anterior mostraba en 1940 y cambia en 1950 se cierra en su archivo con
+`c.epoca(6, 7)` (la obra del Ministerio de Guerra en `plaza-colon.js`) o con `hasta: 7` en `SITIOS` (la cancha de
+madera de Huracán), sin sacar piezas.
 
 ## Los carteles con letras
 

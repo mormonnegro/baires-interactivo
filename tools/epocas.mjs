@@ -51,6 +51,13 @@ export const EPOCAS = [
     url: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Nuevo_plano_de_la_ciudad_de_Buenos_Aires._Guia_Peuser_del_viajero_-_btv1b531214306_%282_of_2%29.jpg',
     puntos: [[4416, 5447, 10340, 9590], [4466, 4370, 10512, 4862], [3786, 5113, 7512, 8112], [4686, 5092, 11590, 8003], [4910, 5348, 12512, 9112], [5247, 4871, 13929, 7047]],
   },
+  { // (el plano es de 1948, el último libre que se consiguió: fuentes/1965/LEEME.md. La etapa suma las obras abiertas hasta 1950.)
+    // El servidor de la AGS no da de una vez imágenes de más de 100 millones de píxeles y esta tiene 145: se baja en dos mitades (`partes`: [x, y, ancho, alto]) y se unen.
+    año: 1950, plano: 1948, titulo: 'Plano de la ciudad de Buenos Aires y alrededores',
+    autor: 'A. Cannizzaro y L. Winter; Oficina Cartográfica Ludwig', fuente: 'American Geographical Society Library, University of Wisconsin-Milwaukee Libraries', licencia: 'Dominio público en la Argentina (obra de una editorial, publicada en 1948: ley 11.723, art. 8)',
+    url: 'https://collections.lib.uwm.edu/iiif/2/agdm:36714', partes: [[0, 0, 12659, 5729], [0, 5729, 12659, 5729]],
+    puntos: [[6570, 9670, 10340, 9590], [6630, 7700, 10512, 4862], [5404, 9101, 7512, 8112], [7098, 9022, 11590, 8003], [7496, 9493, 12512, 9112], [8059, 8605, 13929, 7047]],
+  },
 ];
 
 const args = process.argv.slice(2), ver = args.includes('--ver'), pedidos = args.filter((a) => /^\d+$/.test(a)).map(Number);
@@ -89,7 +96,13 @@ const indice = [];
 for (const e of EPOCAS) {
   if (pedidos.length && !pedidos.includes(e.año)) { if (existsSync(`fuentes/planos/epoca-${e.año}.webp`)) indice.push(e); continue; }
   const archivo = `fuentes/planos/${e.año}.jpg`;
-  if (!existsSync(archivo)) { const r = await fetch(e.url, { headers: { 'User-Agent': 'mapas-historicos/1.0 (visor de planos antiguos)' } }); if (!r.ok) throw new Error(`${e.año}: ${r.status}`); writeFileSync(archivo, Buffer.from(await r.arrayBuffer())); }
+  const pedir = async (url) => { const r = await fetch(url, { headers: { 'User-Agent': 'mapas-historicos/1.0 (visor de planos antiguos)' } }); if (!r.ok) throw new Error(`${e.año}: ${r.status}`); return Buffer.from(await r.arrayBuffer()); };
+  if (!existsSync(archivo) && !e.partes) writeFileSync(archivo, await pedir(e.url));
+  if (!existsSync(archivo) && e.partes) { // un servidor IIIF que no da la imagen entera: por regiones, de a una y despacio, y se unen
+    const trozos = []; for (const [x, y, w, h] of e.partes) { trozos.push({ input: await pedir(`${e.url}/${x},${y},${w},${h}/full/0/default.jpg`), left: x, top: y, limitInputPixels: false }); await new Promise((r) => setTimeout(r, 4000)); }
+    const ancho = Math.max(...e.partes.map((p) => p[0] + p[2])), alto = Math.max(...e.partes.map((p) => p[1] + p[3]));
+    await sharp({ create: { width: ancho, height: alto, channels: 3, background: '#fff' }, limitInputPixels: false }).composite(trozos).jpeg({ quality: 92 }).toFile(archivo);
+  }
   const { data: rgb, info } = await sharp(archivo, { limitInputPixels: false, failOn: 'none' }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   const mw = info.width, mh = info.height, gris = new Float32Array(mw * mh);
   for (let q = 0; q < mw * mh; q++) gris[q] = (rgb[q * 3] * 0.3 + rgb[q * 3 + 1] * 0.5 + rgb[q * 3 + 2] * 0.2);

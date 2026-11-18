@@ -34,6 +34,7 @@
 import * as THREE from 'three';
 import { pedir } from './url.js';
 import { createMinimapa } from './minimapa.js';
+import { etapaDeCodigo } from './etapas.js';
 
 const TINTA = 7, PINTADO = 9;
 // (los tonos de PINTADO: ver «kind» 9 en src/tinta.js)
@@ -647,7 +648,7 @@ export function createManejo({ camera, scene, tinta, suelo, limites, año, etapa
   const enLamina = (m, x, z) => { const u = (x / U.uMetro.value + U.uPlaza.value.x) / U.uHoja.value.x, v = (z / U.uMetro.value + U.uPlaza.value.y) / U.uHoja.value.y; return u < 0 || v < 0 || u >= 1 || v >= 1 ? 0 : m.o[Math.floor(v * m.h) * m.w + Math.floor(u * m.w)]; };
   const agua = (x, z) => {
     if (!rio || enLamina(rio, x, z) < 128) return false;
-    const e = etapa(); if (e > 0 && ganada) { const g = enLamina(ganada, x, z), E = U.uEtapas.value; if (g > 127 / E && Math.round(E + 1 - (g / 255) * E) <= e) return false; }
+    const e = etapa(); if (e > 0 && ganada) { const eg = etapaDeCodigo(enLamina(ganada, x, z)); if (eg && eg <= e) return false; } // (tierra ganada al río: desde su etapa)
     return true;
   };
 

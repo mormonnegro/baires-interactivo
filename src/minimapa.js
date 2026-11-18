@@ -9,6 +9,7 @@
 // el redondel, punto por punto, girado y a la escala que toque. Lo carga src/autos.js, que recién se baja al tocar
 // «Manejar»: quien no maneja no paga nada de esto.
 import { pedir } from './url.js';
+import { etapaDeCodigo } from './etapas.js';
 
 const CSS = `
 #minimapa { left: calc(26px + var(--sl)); bottom: calc(172px + var(--sb)); width: 168px; height: 168px; display: none; border-radius: 50%; overflow: hidden; }
@@ -57,31 +58,35 @@ export function createMinimapa({ U, etapa }) {
     }
     bmp.close?.();
   }
-  /** La etapa en que llega lo que la lámina anota con el valor v (1 = la primera … 1/E = la última; 0: nunca). */
-  const llega = (v, E) => { const n = Math.round((v * E) / 255); return n < 1 ? 0 : E + 1 - n; };
+  // De cada punto se guardan cinco cosas en un número de 16 bits, una sobre otra (a + 9·(b + 9·(p + 9·(d + 8·v)))):
+  //   a  0 tierra · 1…7 río hasta esa etapa (tierra ganada) · 8 río siempre
+  //   b  0 nada · 1 edificado en 1867 · 2…8 edificado desde la etapa b − 1        p  lo mismo, el patio o el fondo
+  //   d  0 nada · 1…7 despejado desde esa etapa                                    v  lo mismo, el verde nuevo
+  // (con ocho etapas ya no entran de a tres bits cada una)
+  const RIO = 8, KB = 9, KP = 81, KD = 729, KV = 5832, NQUE = 9 * 9 * 9 * 8 * 8;
   const listo = (async () => {
-    await leer(`plano/suelo${sufijo}.webp`, (d, o, n) => { for (let i = 0; i < n; i++) cod[o + i] = (d[i * 4] > 127 ? 7 : 0) | (d[i * 4 + 2] > 127 ? 1 << 3 : 0) | (d[i * 4 + 1] > 127 ? 1 << 6 : 0); });
-    const E = U.uEtapas.value || 6, de = new Uint8Array(256); for (let v = 0; v < 256; v++) de[v] = llega(v, E);
+    await leer(`plano/suelo${sufijo}.webp`, (d, o, n) => { for (let i = 0; i < n; i++) cod[o + i] = (d[i * 4] > 127 ? RIO : 0) + (d[i * 4 + 2] > 127 ? KB : 0) + (d[i * 4 + 1] > 127 ? KP : 0); });
+    const de = new Uint8Array(256); for (let v = 0; v < 256; v++) de[v] = etapaDeCodigo(v); // (la etapa en que llega lo que la lámina anota con v: src/etapas.js)
     await leer(`plano/crece${sufijo}.webp`, (d, o, n) => {
       for (let i = 0; i < n; i++) {
         const r = de[d[i * 4]], f = de[d[i * 4 + 1]], b = de[d[i * 4 + 2]]; if (!(r | f | b)) continue;
         let c = cod[o + i];
-        if (r && (c & 7) === 7) c = (c & ~7) | r;
-        if (b && !((c >> 3) & 7)) c |= (b + 1) << 3;
-        if (f && !((c >> 6) & 7)) c |= (f + 1) << 6;
+        if (r && c % 9 === RIO) c += r - RIO;
+        if (b && !(((c / KB) | 0) % 9)) c += (b + 1) * KB;
+        if (f && !(((c / KP) | 0) % 9)) c += (f + 1) * KP;
         cod[o + i] = c;
       }
     }).catch(() => {});
-    await leer(`plano/despeje${sufijo}.webp`, (d, o, n) => { for (let i = 0; i < n; i++) { const r = de[d[i * 4]], v = de[d[i * 4 + 1]]; if (r | v) cod[o + i] |= (r << 9) | (v << 12); } }).catch(() => {});
+    await leer(`plano/despeje${sufijo}.webp`, (d, o, n) => { for (let i = 0; i < n; i++) { const r = de[d[i * 4]], v = de[d[i * 4 + 1]]; if (r | v) cod[o + i] += r * KD + v * KV; } }).catch(() => {});
   })().catch((e) => console.warn('el mapita no se pudo armar:', e));
 
   // qué es cada número en la etapa que se mira (se rehace al cambiar de año)
-  const que = new Uint8Array(1 << 15); let etapaVista = -1;
+  const que = new Uint8Array(NQUE); let etapaVista = -1;
   function rotular(e) {
     etapaVista = e;
     for (let c = 0; c < que.length; c++) {
-      const a = c & 7, b = (c >> 3) & 7, p = (c >> 6) & 7, d = (c >> 9) & 7, v = (c >> 12) & 7;
-      que[c] = a === 7 || (a && e < a) ? AGUA : v && e >= v ? VERDE : d && e >= d ? CALLE : b && e >= b - 1 ? CASAS : p && e >= p - 1 ? PATIO : CALLE;
+      const a = c % 9, b = ((c / KB) | 0) % 9, p = ((c / KP) | 0) % 9, d = ((c / KD) | 0) % 8, v = (c / KV) | 0;
+      que[c] = a === RIO || (a && e < a) ? AGUA : v && e >= v ? VERDE : d && e >= d ? CALLE : b && e >= b - 1 ? CASAS : p && e >= p - 1 ? PATIO : CALLE;
     }
   }
   // (los colores, como los quiere el lienzo: de a un punto de 32 bits, con el rojo en el byte más bajo)

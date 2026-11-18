@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#1d1a17">
-  <title>Buenos Aires, de 1867 a 1940</title>
+  <title>Buenos Aires, de 1867 a 1950</title>
   <meta name="author" content="@mormonnegro">
   <link rel="icon" href="data:,">
   <style>
@@ -46,11 +46,15 @@
     #epocas button:hover { background: #fff6e2; }
     #epocas button.on { background: #2a221b; color: #f7eedb; }
     #epocas .pie { display: none; margin: 5px 6px 3px; font-size: 12.5px; font-style: italic; text-align: center; opacity: .85; text-wrap: balance; }
-    #epocas.otra .pie { display: block; }
+    /* la nota viene guardada: se abre con «qué cambió» (epocas.js: `abierta`). Mientras carga o si falló (`aviso`), siempre */
+    #epocas.otra.abierta .pie, #epocas.otra.aviso .pie { display: block; }
+    #epocas button.nota { display: none; width: 100%; min-height: 0; padding: 2px 0 3px; font-size: 12.5px; font-style: italic; letter-spacing: .02em; opacity: .7; }
+    #epocas.otra button.nota { display: block; }
+    #epocas.otra.aviso:not(.abierta) button.nota { display: none; }
     body.limpio #epocas, body.modo #epocas { display: none; }
     #epocas button.andar { font-size: 13px; padding: 6px 11px; margin-left: 4px; border-left: 1px solid #2a221b33; }
     @media (max-width: 1100px) { #epocas { top: 86px; left: 26px; transform: none; } }
-    @media (max-width: 640px) { #epocas { top: calc(70px + var(--st, 0px)); left: calc(14px + var(--sl, 0px)); max-width: calc(100vw - 28px); box-sizing: border-box; } #epocas button { min-height: 44px; padding: 6px 5px; font-size: 14px; letter-spacing: 0; } #epocas button.andar { padding: 6px 9px; } }
+    @media (max-width: 640px) { #epocas { top: calc(70px + var(--st, 0px)); left: calc(14px + var(--sl, 0px)); max-width: calc(100vw - 28px); box-sizing: border-box; } #epocas .años { gap: 1px; } #epocas button { min-height: 44px; padding: 6px 3px; font-size: 14px; letter-spacing: 0; } #epocas button.andar { padding: 6px 8px; margin-left: 2px; } } /* (ocho años y el ▶ en una fila de 390 px) */
     /* lo de hoy va en rojo de sello: tinta de otra época */
     #hoy { color: #a03220; border-color: #a03220; outline-color: #a0322099; }
     #hoy.on { background: #a03220; color: #f7eedb; }
@@ -158,11 +162,9 @@
       body.info #titulo { max-width: none; padding: 10px 14px 11px; }
       /* (y la leyenda de «lo de hoy» le deja el lugar, igual que a la ficha) */
       body.info.listo.hoy #leyenda, body.ficha.listo.hoy #leyenda { opacity: 0 !important; }
-      /* la nota del año (qué cambió, de qué plano sale) acá no va: tapa demasiado. Solo se muestra mientras carga o si
-         falló (epocas.js: `aviso`). Con el recuadro abierto, tampoco. */
-      #epocas.otra .pie { display: none; }
-      #epocas.otra.aviso .pie { display: block; }
+      /* la nota del año, con el recuadro abierto, no va: tapa demasiado */
       body.info #epocas.otra .pie { display: none; }
+      #epocas button.nota { min-height: 30px; padding: 2px 0 4px; font-size: 13px; }
       /* la firma: solo el retrato, redondo */
       #firma { right: calc(14px + var(--sr)); top: calc(12px + var(--st)); width: 46px; height: 46px; padding: 0; border-radius: 50%; outline: 0; justify-content: center; overflow: hidden; }
       #firma span { display: none; }
@@ -193,7 +195,7 @@
     @media (max-width: 370px) { #botones .panel { font-size: 13px; padding: 0 9px; } #botones { gap: 6px; } }
     @media (max-width: 350px) { #epocas { padding: 5px 3px; } #epocas button { padding: 6px 1px; font-size: 13px; } #epocas button.andar { padding: 6px 5px; margin-left: 1px; } }
     /* (entre 1100 y 1440 px de ancho los años van al medio y el buscador les llegaba: se angosta) */
-    @media (min-width: 1101px) and (max-width: 1440px) { body #buscar, body #buscar-msg { width: min(400px, calc(50vw - 346px)); } #epocas { max-width: min(600px, calc(100vw - 584px)); } }
+    @media (min-width: 1101px) and (max-width: 1440px) { body #buscar, body #buscar-msg { width: min(400px, calc(50vw - 346px)); } #epocas { max-width: min(600px, calc(100vw - 584px)); } #epocas button { padding: 6px 9px; } }
     @keyframes asoma { from { opacity: 0; transform: translateY(8px); } }
     /* acostado: la leyenda abajo, al lado del botón del título (arriba a la derecha va la ficha) */
     @media (max-height: 500px) and (min-width: 641px) {

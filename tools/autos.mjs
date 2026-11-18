@@ -13,7 +13,7 @@ let server = null, url = arg('url', null);
 if (!url) { server = await createServer({ server: { port: PUERTO, strictPort: true, hmr: false, watch: null }, logLevel: 'error' }); await server.listen(); url = `http://localhost:${PUERTO}/`; }
 const browser = await chromium.launch({ executablePath: process.env.CHROME, headless: true, args: ['--ignore-gpu-blocklist', '--use-angle=metal', '--enable-gpu', '--autoplay-policy=no-user-gesture-required'] });
 mkdirSync('shots', { recursive: true });
-const COCHES = { 1867: 'volanta', 1888: 'victoria', 1895: 'cupe', 1905: 'voiturette', 1910: 'faeton', 1921: 'ford-t', 1940: 'v8' };
+const COCHES = { 1867: 'volanta', 1888: 'victoria', 1895: 'cupe', 1905: 'voiturette', 1910: 'faeton', 1921: 'ford-t', 1940: 'v8', 1950: 'v8' }; // (en 1950 se sigue manejando el V8: todavía no hay coche de esa etapa)
 const cerrar = async (c) => { await browser.close(); if (server) await server.close(); process.exit(c); };
 
 if (tiene('fotos') || tiene('finales')) {
@@ -154,7 +154,8 @@ console.log('— escritorio —');
     if (+año === 1905 || +año === 1940) await page.screenshot({ path: `shots/auto-p-${año}.png` });
   }
   ok(topes.v8 > topes['ford-t'] && topes['ford-t'] > topes.voiturette && topes.voiturette > topes.cupe, 'cada uno con su velocidad: el V8 más que el T, el T más que la voiturette, y esta más que el caballo', JSON.stringify(topes));
-  // Q vuelve un año atrás
+  // Q vuelve un año atrás (desde 1940: el recorrido de arriba termina en el último año)
+  await elegir(page, 1940); await pausa(800);
   await page.keyboard.press('KeyQ'); await page.waitForFunction(() => lab.epocas.año === 1921 && lab.epocas.etapa === 5, null, { timeout: 20000 }); await pausa(1500);
   ok((await coche(page)).coche === 'ford-t', 'Q vuelve al año anterior, y el coche con él');
   // en cada año se puede elegir, además del suyo, cualquiera de los anteriores (N, o el botón de las flechas del tablero)

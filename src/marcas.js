@@ -9,7 +9,7 @@ import * as THREE from 'three';
 /** [nombre, x, y en píxeles del plano, alto en metros (dónde se apoya la marca), nivel, nota, época]
  *  La época (si falta, la marca es de siempre) dice en qué etapas de la línea de tiempo vale: { desde, hasta }, y se
  *  ve si desde <= etapa < hasta (hasta 0: para siempre). Las etapas son las de src/epocas.js: 0 es 1867, 1 es 1888,
- *  2 es 1895, 3 es 1905, 4 es 1910, 5 es 1921 y 6 es 1940. Los edificios nuevos entran en la primera etapa que ya los
+ *  2 es 1895, 3 es 1905, 4 es 1910, 5 es 1921, 6 es 1940 y 7 es 1950. Los edificios nuevos entran en la primera etapa que ya los
  *  encuentra hechos, igual que en src/hitos.js; los de 1867 se van en la etapa en que hitos.js los saca.
  *  Además: `ficha`, la clave en src/fichas.js cuando no es el nombre (hay dos Teatro Colón); `tapa`, la marca roja «de
  *  hoy» del mismo lugar, que se calla mientras esta esté (si no, se enciman las dos); `radio`, cuántos metros alrededor
@@ -62,7 +62,7 @@ export const LUGARES = [
   ['Estación Constitución', 7219, 8219, 29, 2, 'La de 1887, del Ferrocarril del Sud.', { desde: 1, tapa: 'Estación Constitución', radio: 60 }],
   ['Avenida de Mayo', 10317, 8694, 4, 1, 'Abierta en 1894 por el medio de las manzanas.', { desde: 2, tapa: 'Avenida de Mayo' }],
   ['Puerto Madero', 10329, 10550, 4, 1, 'Los diques, de 1889 a 1898, sobre tierra ganada al río.', { desde: 2, tapa: 'Puerto Madero' }],
-  ['Banco de la Nación', 10488, 9628, 28, 2, 'En el edificio del primer Teatro Colón, reformado.', { desde: 2 }],
+  ['Banco de la Nación', 10488, 9628, 28, 2, 'En el edificio del primer Teatro Colón, reformado.', { desde: 2, hasta: 7 }],
   ['Palacio de Aguas Corrientes', 11893, 6625, 23, 2, 'De 1894: adentro, los tanques de agua de la ciudad.', { desde: 2, tapa: 'Palacio de Aguas Corrientes', radio: 56 }],
   // (la marca va sobre el arco. Desde 1938 le faltan 17 m del lado sur: src/lugares/casa-rosada.js)
   ['Casa Rosada', 10335, 9768, 27, 2, 'Las dos casas unidas por el arco de Tamburini, terminada en 1898.', { desde: 3, hasta: 6, tapa: 'Casa Rosada', radio: 62 }],
@@ -88,10 +88,12 @@ export const LUGARES = [
   ['Puente Transbordador', 5247, 11329, 52, 2, 'De 1914: una barquilla colgada de una viga de hierro cruzaba el Riachuelo.', { desde: 5, tapa: 'Puente Transbordador', radio: 50 }],
   ['Edificio Comega', 11151, 9847, 88, 2, 'De 1933, en Corrientes y Alem: 21 pisos revestidos de travertino.', { desde: 6, radio: 35 }],
   ['Edificio Safico', 11140, 9485, 92, 2, 'De 1934: una torre escalonada de 90 metros, a la manera de Nueva York.', { desde: 6, radio: 40 }],
-  ['Ministerio de Obras Públicas', 9819, 8276, 93, 2, 'De 1936: el primer rascacielos del Estado. La 9 de Julio todavía no llegaba hasta acá.', { desde: 6, radio: 45 }],
+  ['Ministerio de Obras Públicas', 9819, 8276, 93, 2, 'De 1936: el primer rascacielos del Estado. La 9 de Julio todavía no llegaba hasta acá.', { desde: 6, hasta: 7, radio: 45 }],
+  ['Ministerio de Obras Públicas', 9819, 8276, 93, 2, 'De 1936. Desde 1947 la 9 de Julio lo rodea: quedó en pie en medio de la traza.', { desde: 7, radio: 45 }],
   ['Luna Park', 11279, 10115, 19, 2, 'El estadio de Corrientes y Bouchard, de 1932; el techo es de 1934.', { desde: 6, tapa: 'Luna Park', radio: 60 }],
   ['Mercado de Abasto', 11562, 4466, 32, 2, 'De 1934: cinco bóvedas de hormigón que asoman a Corrientes.', { desde: 6, tapa: 'Abasto', radio: 75 }],
-  ['La Bombonera', 5798, 10230, 25, 2, 'Inaugurada el 25 de mayo de 1940, con dos bandejas.', { desde: 6, tapa: 'La Bombonera', radio: 75 }],
+  ['La Bombonera', 5798, 10230, 25, 2, 'Inaugurada el 25 de mayo de 1940, con dos bandejas.', { desde: 6, hasta: 7, tapa: 'La Bombonera', radio: 75 }],
+  ['La Bombonera', 5798, 10230, 25, 2, 'Desde noviembre de 1941, con la segunda bandeja también en la cabecera norte.', { desde: 7, tapa: 'La Bombonera', radio: 75 }],
   // las plazas viejas, con lo de cada época (src/lugares/plaza-lavalle.js y plaza-once.js)
   ['Parque de Artillería', 11499, 7886, 13, 2, 'El arsenal que le dio nombre a la plaza. De acá salió la Revolución de 1890.', { hasta: 3, radio: 16 }],
   ['Palacio Miró', 11835, 8058, 23, 2, 'La villa de los Miró Dorrego, de 1868: cantón de la Revolución del Parque, demolida en 1937.', { desde: 1, hasta: 6, radio: 26 }],
@@ -125,7 +127,8 @@ export const LUGARES = [
   ['Plaza Británica', 12876, 9508, 3, 2, 'La plaza de la torre, donde estuvo la fábrica de gas. Hoy, Fuerza Aérea Argentina.', { desde: 5, velo: 'suelo', radio: 60 }],
   ['Edificio Kavanagh', 12428, 9410, 121, 2, 'De 1936: 120 metros de hormigón.', { desde: 6, tapa: 'Edificio Kavanagh' }],
   ['Obelisco', 11195, 8373, 68, 2, 'De 1936, donde estaba la iglesia de San Nicolás.', { desde: 6, tapa: 'Obelisco' }],
-  ['Avenida 9 de Julio', 10900, 8370, 4, 2, 'El primer tramo, de Bartolomé Mitre a Tucumán, de 1937.', { desde: 6, velo: 'suelo' }],
+  ['Avenida 9 de Julio', 10900, 8370, 4, 2, 'El primer tramo, de Bartolomé Mitre a Tucumán, de 1937.', { desde: 6, hasta: 7, velo: 'suelo' }],
+  ['Avenida 9 de Julio', 10900, 8370, 4, 2, 'De Belgrano a Córdoba: al sur se abrió entre 1944 y 1947, y de Tucumán a Córdoba, en 1950.', { desde: 7, velo: 'suelo' }],
   // lo que rodeaba a la Plaza de la República hacia 1940, con sus carteles (src/lugares/obelisco-1940.js)
   ['El Trust Joyero Relojero', 11168, 8499, 46, 2, 'La joyería de Corrientes y Carlos Pellegrini, de 1925: la cúpula del reloj, frente al Obelisco.', { desde: 6, radio: 22 }],
   ['Edificio Díaz', 11049, 8234, 47, 2, 'La mueblería de Sarmiento 1113, con el chalet en la terraza (1927) y las torres de letras.', { desde: 6, radio: 30 }],
@@ -208,12 +211,13 @@ export const LUGARES = [
   ['Subte: Río de Janeiro', 9850, 1830, 5, 3, 'La punta de la línea de abril a julio de 1914, cuando llegó a Caballito.', { desde: 5, ficha: 'Subte A', radio: 22 }],
   // los estadios, los hospitales y los edificios sueltos de los barrios (src/lugares/barrios.js)
   ['El Gasómetro', 6521, 2372, 18, 2, 'La cancha de San Lorenzo en Avenida La Plata, de 1916.', { desde: 5, radio: 127 }],
-  ['Cancha de Huracán', 4874, 5850, 12, 2, 'En Alcorta y Luna desde 1924, todavía de tablones.', { desde: 6, radio: 91 }],
+  ['Cancha de Huracán', 4874, 5850, 12, 2, 'En Alcorta y Luna desde 1924, todavía de tablones.', { desde: 6, hasta: 7, radio: 91 }],
   ['Sportivo Barracas', 3472, 7163, 16, 2, 'El estadio de cemento de Iriarte y Luzuriaga, de 1920 a 1937.', { desde: 5, hasta: 6, radio: 73 }],
   ['Cancha de River', 6400, 11546, 8, 2, 'La de la Dársena Sur, de 1915 a 1923.', { desde: 5, hasta: 6, radio: 47, velo: 'suelo' }],
   ['Penitenciaría Nacional', 14651, 4907, 26, 2, 'El penal de Las Heras, de 1877: cinco pabellones en abanico.', { desde: 1, radio: 160 }],
   ['Hospital Rivadavia', 14479, 5874, 12, 2, 'El hospital de mujeres, en Las Heras desde 1887.', { desde: 1, radio: 118 }],
-  ['Facultad de Derecho', 13830, 6572, 30, 2, 'El gótico de Las Heras, de Arturo Prins: quedó sin terminar.', { desde: 6, radio: 35 }],
+  ['Facultad de Derecho', 13830, 6572, 30, 2, 'El gótico de Las Heras, de Arturo Prins: quedó sin terminar.', { desde: 6, hasta: 7, radio: 35 }],
+  ['Vieja Facultad de Derecho', 13830, 6572, 30, 2, 'El gótico de Las Heras: desde 1948 es de Ingeniería.', { desde: 7, ficha: 'Facultad de Derecho', radio: 35 }],
   ['Hospital de Clínicas', 12117, 6232, 12, 2, 'El hospital viejo de la Facultad de Medicina, de 1881.', { desde: 1, radio: 62 }],
   ['Facultad de Medicina', 11968, 6235, 22, 2, 'La de 1895, sobre Córdoba.', { desde: 2, radio: 62 }],
   ['Hospital Italiano', 11194, 2642, 16, 2, 'En Gascón desde 1901.', { desde: 3, radio: 58 }],
@@ -226,7 +230,22 @@ export const LUGARES = [
   ['Teatro Cervantes', 11998, 8139, 30, 2, 'De 1921: el plateresco de María Guerrero.', { desde: 5, radio: 30 }],
   ['Harrods', 12028, 9354, 36, 2, 'La tienda de Florida, de 1914 a 1920.', { desde: 5, radio: 52 }],
   ['Jockey Club', 11465, 9289, 24, 2, 'La sede de Florida 559, de 1897.', { desde: 3, radio: 30 }],
-  ['Casa de Moneda', 9226, 9626, 14, 2, 'La de Defensa y México, de 1881.', { desde: 1, radio: 30 }],
+  ['Casa de Moneda', 9226, 9626, 14, 2, 'La de Defensa y México, de 1881.', { desde: 1, hasta: 7, radio: 30 }],
+  ['Casa de Moneda vieja', 9226, 9626, 14, 3, 'La de 1881: en 1944 la Casa de Moneda se mudó a Retiro.', { desde: 7, ficha: 'Casa de Moneda', radio: 30 }],
+  // lo que trae 1950 (src/lugares/obras-1950.js; las fechas, de fuentes/1965/cronologia.json)
+  ['Ministerio de Guerra', 10070, 10122, 80, 2, 'Inaugurado en 1943: planta baja y dieciséis pisos. Desde 1950 se llama Edificio Libertador.', { desde: 7, radio: 75 }],
+  ['Ministerio de Hacienda', 10157, 9820, 55, 2, 'Terminado en 1950, con los dos lotes de los costados. La primera parte se ocupó hacia 1939.', { desde: 7, radio: 50 }],
+  ['Banco de la Nación', 10573, 9690, 43, 2, 'La casa nueva, de Bustillo: la primera etapa, de 1944. Falta la esquina del teatro viejo.', { desde: 7, ficha: 'Banco de la Nación (1944)', radio: 50 }],
+  ['Facultad de Derecho', 14721, 7215, 29, 2, 'En Figueroa Alcorta: se mudó acá el 21 de septiembre de 1949, con la obra sin terminar.', { desde: 7, ficha: 'Facultad de Derecho (1949)', radio: 70 }],
+  ['Automóvil Club Argentino', 14807, 6158, 52, 2, 'La sede central, en la avenida del Libertador: de 1942.', { desde: 7, radio: 45 }],
+  ['CGT', 8844, 10138, 33, 2, 'La Confederación General del Trabajo: inaugurada el 18 de octubre de 1950.', { desde: 7, radio: 30 }],
+  ['Casa de Moneda', 14226, 9994, 29, 2, 'La nueva, en el relleno de Retiro: inaugurada el 27 de diciembre de 1944.', { desde: 7, ficha: 'Casa de Moneda (1944)', radio: 60 }],
+  ['Edificio Guardacostas', 10892, 10211, 44, 2, 'De 1949, sobre Eduardo Madero: se proyectó para el Ministerio de Marina.', { desde: 7, radio: 45 }],
+  ['Facultad de Ciencias Médicas', 12282, 6233, 76, 2, 'La nueva, en la calle Paraguay: la obra empezó en 1939 y la primera etapa se habilitó en 1944.', { desde: 7, radio: 70 }],
+  ['Mercado San Cristóbal', 9002, 6904, 13, 2, 'El mercado nuevo, de 1944, en Independencia y Entre Ríos.', { desde: 7, radio: 35 }],
+  ['Estadio de Huracán', 4875, 5898, 24, 2, 'El de hormigón: primer partido en 1947, inauguración oficial el 11 de noviembre de 1949.', { desde: 7, radio: 100 }],
+  ['Mercado del Plata', 10907, 8483, 14, 2, 'El mercado de 1856 se demolió en 1947: en su lugar, la obra del edificio nuevo.', { desde: 7, radio: 45 }],
+  ['Avenida Córdoba', 11932, 8900, 4, 2, 'Ensanchada de Callao a Alem: se inauguró en 1945.', { desde: 7, radio: 20, velo: 'suelo' }],
   ['Sociedad Sportiva', 17270, 2494, 9, 2, 'El estadio de Palermo, de 1899 a 1914.', { desde: 3, hasta: 5, radio: 120, velo: 'suelo' }],
   ['Parque Lezama', 7200, 9740, 6, 2, 'La quinta de Lezama, parque público desde 1894.', { desde: 2, radio: 120, velo: 'suelo' }],
   ['Cancha de GEBA', 17466, 3829, 9, 2, 'La cancha de Gimnasia y Esgrima, sobre Dorrego: la de la selección.', { desde: 3, radio: 70, velo: 'suelo' }],

@@ -1,8 +1,8 @@
 // La línea de tiempo: la ciudad que crece y cambia. Al elegir un año no se cambia de plano: sobre la ciudad de 1867 se
-// levantan las casas que traen los planos que siguen, hasta 1940 (tools/crece.mjs las deja listas, con el mismo dibujo
+// levantan las casas que traen los planos que siguen, hasta 1950 (tools/crece.mjs las deja listas, con el mismo dibujo
 // que las demás), el suelo se va cubriendo de manzanas y calles, el río retrocede donde se le ganó tierra para el
 // puerto, y se demuele lo que estaba en la traza de las avenidas y las plazas nuevas (la Avenida de Mayo, las
-// diagonales, la 9 de Julio). Los datos se bajan recién la primera vez que se sale de 1867.
+// diagonales, la 9 de Julio, que en 1950 ya va de Belgrano a Córdoba). Los datos se bajan recién la primera vez que se sale de 1867.
 import { pedir } from './url.js';
 
 const BASE = { año: 1867, titulo: 'Plano topográfico de la ciudad de Buenos Aires y de todo su municipio', autor: 'Carlos Glade, Departamento Topográfico de la Provincia' };
@@ -13,6 +13,7 @@ export function createEpocas(el, U, { cargar, alCambiar, pedirCuadro }) {
   let lista = [BASE], destino = 0, k = 0, listo = false, pedido = null, falla = false, andando = false, apuro = 1;
   const pie = el.querySelector('.pie'), fila = el.querySelector('.años');
   const miles = (n) => (n >= 1000 ? `${Math.round(n / 100) / 10} mil`.replace('.', ',') : String(n));
+  const mas = Object.assign(document.createElement('button'), { type: 'button', className: 'nota' }); pie.before(mas);
   const rotular = () => {
     const e = lista[destino];
     for (const b of fila.querySelectorAll('button[data-a]')) { const on = +b.dataset.a === e.año; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }
@@ -20,7 +21,15 @@ export function createEpocas(el, U, { cargar, alCambiar, pedirCuadro }) {
     pie.textContent = destino === 0 ? '' : falla ? 'No se pudo cargar. Tocá el año otra vez para reintentar.' : !listo ? `Cargando la ciudad de ${e.año}…`
       : `${e.obras ? `${e.obras} ` : ''}Unas ${miles(lista.slice(1, destino + 1).reduce((t, x) => t + (x.casas || 0), 0))} casas nuevas desde 1867. Sale del ${e.corto ?? `«${e.titulo}», de ${e.plano ?? e.año}`}.`;
     el.classList.toggle('otra', destino !== 0); el.classList.toggle('aviso', destino !== 0 && (falla || !listo));
+    mas.textContent = abierta ? 'guardar la nota ▴' : 'qué cambió ▾'; mas.title = abierta ? 'Guardar la nota del año' : 'Qué cambió ese año y de qué plano sale'; mas.setAttribute('aria-expanded', abierta);
   };
+  // La nota del año (qué cambió, de qué plano sale) viene guardada: es larga y tapa la ciudad. Se abre con «qué cambió» y
+  // queda como la dejó cada uno. Los avisos (cargando, no se pudo) se muestran siempre.
+  let abierta = false;
+  try { abierta = localStorage.getItem('nota-del-año') === '1'; } catch { /* sin memoria: guardada */ }
+  el.classList.toggle('abierta', abierta);
+  const plegar = () => { abierta = !abierta; el.classList.toggle('abierta', abierta); try { localStorage.setItem('nota-del-año', abierta ? '1' : '0'); } catch { /* no importa */ } rotular(); pedirCuadro(1); };
+  mas.addEventListener('click', plegar);
   // (en el teléfono la nota del año se muestra un rato y se guarda, para no tapar la ciudad: index.html)
   let fresca = 0;
   const asomar = () => { el.classList.add('fresca'); clearTimeout(fresca); fresca = setTimeout(() => el.classList.remove('fresca'), 9000); };

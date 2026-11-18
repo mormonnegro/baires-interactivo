@@ -5,8 +5,8 @@
 import { LUGARES } from './marcas.js';
 import { FICHAS, FOTOS } from './fichas.js';
 import { u } from './url.js';
+import { AÑOS, ULTIMA } from './etapas.js';
 
-const AÑOS = [1867, 1888, 1895, 1905, 1910, 1921, 1940], ULTIMA = AÑOS.length - 1;
 const DE_CADA_AÑO = {
   1867: 'La ciudad del plano de Glade: la aldea grande, con el río al pie de la barranca.',
   1888: 'La capital recién federalizada: se va la Recova y las dos plazas quedan unidas.',
@@ -15,6 +15,7 @@ const DE_CADA_AÑO = {
   1910: 'El Centenario: el Congreso, el Colón nuevo, Tribunales.',
   1921: 'El subte, las diagonales, la Costanera y el Puerto Nuevo.',
   1940: 'Los rascacielos, el Obelisco y la 9 de Julio.',
+  1950: 'La 9 de Julio, de Belgrano a Córdoba, y Córdoba ensanchada.',
 };
 // lo que tiene marca pero no es un edificio (un barrio, una obra de suelo, muchas cosas sueltas), y lo que la tiene «de cerca» y sí lo es
 const FUERA = new Set(['La rada', 'Puerto Nuevo', 'Puerto Madero', 'Costanera Sur', 'Subte A', 'Fuentes de hierro', 'Diagonal Norte']);
@@ -48,7 +49,7 @@ const limpio = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': 
 // (la Pirámide está desde 1811: lo que aparece en 1921 es su lugar nuevo, y ahí recién tiene marca propia)
 const CUANDO = { 'Pirámide de Mayo': 'Desde 1921, en el centro de la plaza' };
 const cuando = (g) => CUANDO[g.clave] ?? (g.ultima === ULTIMA
-  ? (g.primera === 0 ? 'Está en el plano de 1867 y sigue en 1940' : `Aparece en ${AÑOS[g.primera]}`)
+  ? (g.primera === 0 ? `Está en el plano de 1867 y sigue en ${AÑOS[ULTIMA]}` : `Aparece en ${AÑOS[g.primera]}`)
   : g.primera === g.ultima ? `Solo en ${AÑOS[g.primera]}: en ${AÑOS[g.ultima + 1]} ya no está`
     : `De ${AÑOS[g.primera]} a ${AÑOS[g.ultima]}: en ${AÑOS[g.ultima + 1]} ya no está`);
 

@@ -816,6 +816,7 @@ export const FICHAS = {
   },
   'Ministerio de Obras Públicas': {
     era: 'El primer rascacielos del Estado. De 1936.',
+    eras: { 7: 'El primer rascacielos del Estado, de 1936: desde 1947, en medio de la 9 de Julio.' },
     texto: [
       'Lo proyectó Alberto Belgrano Blanco sobre una idea de José Hortal. La obra empezó el 15 de noviembre de 1934 y se inauguró en septiembre de 1936: planta baja y 22 pisos, 93 metros, con la planta en U.',
       'En 1940 estaba en su manzana, entre casas, con la iglesia de Monserrat a una cuadra: la 9 de Julio llegó hasta acá recién en 1947.',
@@ -843,8 +844,9 @@ export const FICHAS = {
   },
   'La Bombonera': {
     era: 'El estadio de Boca Juniors, recién inaugurado: el 25 de mayo de 1940.',
+    eras: { 7: 'El estadio de Boca Juniors, con las dos bandejas completas desde 1941.' },
     texto: [
-      'Está en Brandsen 805. El proyecto es de 1937 y 1938. En 1940 tenía dos bandejas en herradura; la segunda bandeja del sector norte se habilitó en noviembre de 1941, y por eso acá esa cabecera va con una sola. La tercera bandeja es de 1951 a 1953, y los palcos de hoy, de 1996.',
+      'Está en Brandsen 805. El proyecto es de 1937 y 1938. En 1940 tenía dos bandejas en herradura; la segunda bandeja del sector norte se habilitó el 16 de noviembre de 1941: por eso en 1940 esa cabecera va con una sola, y en 1950, con las dos. La tercera bandeja es de 1951 a 1953, y los palcos de hoy, de 1996.',
       'Las alturas de las bandejas y el cuerpo bajo del lado recto son supuestos.',
     ],
     hoyEs: 'el estadio de Boca, ya con tres bandejas.',
@@ -957,9 +959,12 @@ export const FICHAS = {
   },
   'Avenida 9 de Julio': {
     era: 'En 1940, apenas cinco cuadras a los lados del Obelisco.',
+    eras: { 7: 'En 1950, de la avenida Belgrano a la avenida Córdoba.' },
     texto: [
       'La idea de una avenida de norte a sur venía de fines del siglo XIX, y una ley de 1912 autorizó a expropiar las manzanas enteras entre Cerrito–Lima y Carlos Pellegrini–Bernardo de Irigoyen. Pasaron veinticinco años más.',
       'En marzo de 1937 el intendente Mariano de Vedia y Mitre ordenó abrirla, sobre los diseños de Carlos María della Paolera: 140 metros de ancho, con estacionamientos subterráneos. El primer tramo, de Bartolomé Mitre a Tucumán —unos 500 metros—, lo inauguró el presidente Justo el 12 de octubre de 1937.',
+      'Hacia el sur, las cinco manzanas de Bartolomé Mitre a Belgrano se demolieron entre 1944 y 1947; en la última quedó en pie el Ministerio de Obras Públicas, en medio de la traza. Hacia el norte, el tramo de Tucumán a Córdoba se habilitó en 1950 y el que sigue hasta Paraguay, en 1951. Hasta Santa Fe y hasta Independencia llegó recién en 1971.',
+      'De los tramos de 1947 y 1950 no hay acá una foto medida: los canteros repiten el corte del tramo de 1937, y es supuesto.',
     ],
     hoyEs: 'la Avenida 9 de Julio, que cruza todo el centro.',
     fotos: ['nuevedejulio-aerea', 'nuevedejulio-postal'],
@@ -1317,8 +1322,9 @@ export const FICHAS = {
   },
   'Facultad de Derecho': {
     era: 'La Facultad de Derecho de la avenida Las Heras, sin terminar.',
+    eras: { 7: 'El edificio gótico de Las Heras, sin terminar: en 1948 pasó a Ingeniería.' },
     texto: [
-      'Arturo Prins la proyectó en gótico, con una torre de 120 metros. La obra empezó en 1912 y se paró en 1938, sin la torre y con el ladrillo a la vista, que es como sigue. Derecho se mudó en 1949 al edificio de Figueroa Alcorta.',
+      'Arturo Prins la proyectó en gótico, con una torre de 120 metros. La obra empezó en 1912 y se paró en 1938, sin la torre y con el ladrillo a la vista, que es como sigue. Ingeniería lo recibió en 1948, y Derecho se mudó el 21 de septiembre de 1949 al edificio de Figueroa Alcorta.',
       'El fondo del edificio es supuesto.',
     ],
     hoyEs: 'la Facultad de Ingeniería.',
@@ -1426,6 +1432,7 @@ export const FICHAS = {
   },
   'Casa de Moneda': {
     era: 'La primera Casa de Moneda, en Defensa y México. De 1881.',
+    eras: { 7: 'El edificio de la primera Casa de Moneda, de 1881: la Casa se mudó a Retiro en 1944.' },
     texto: [
       'Ahí se acuñaron las primeras monedas nacionales. Son dos pisos alrededor de un patio.',
       'La planta es supuesta.',
@@ -1485,6 +1492,122 @@ export const FICHAS = {
     ],
     hoyEs: 'el Rosedal, con unos 18.000 rosales. Patrimonio Cultural de la Ciudad desde 2011.',
     fotos: ['rosedal-1914'],
+  },
+  // Lo que trae 1950 (src/lugares/obras-1950.js). Las fechas salen de fuentes/1965/cronologia.json, que cita cada
+  // artículo de Wikipedia en español (consultados en noviembre de 2026). Las fotos de época están listadas en
+  // fuentes/1965/fotos.json y todavía no se bajaron.
+  'Ministerio de Guerra': {
+    era: 'El Ministerio de Guerra, detrás de la Casa de Gobierno. Inaugurado en 1943.',
+    texto: [
+      'Está en Azopardo 250, sobre lo que había sido la mitad sur del Parque Colón. La obra empezó en 1938 —en 1940 era un pozo con el esqueleto a medio levantar— y se inauguró en abril de 1943. En 1950 le pusieron el nombre de Edificio Libertador.',
+      'Son dos bloques largos, uno al este y otro al oeste, unidos por un cuerpo central que deja dos patios: planta baja de doble altura y dieciséis pisos, con mansarda.',
+      'El largo sale de la foto aérea de 1965; las alturas de cada piso y los jardines son supuestos.',
+    ],
+    hoyEs: 'el Edificio Libertador.',
+  },
+  'Ministerio de Hacienda': {
+    era: 'El Palacio de Hacienda, al sur de la Casa de Gobierno. Terminado en 1950.',
+    texto: [
+      'Está en Hipólito Yrigoyen 250, entre Balcarce y Paseo Colón. Se hizo en dos etapas: la primera se autorizó el 12 de enero de 1937 y se ocupó hacia 1939; la segunda, de 1949 y 1950, sumó los dos lotes vecinos, sobre Paseo Colón y sobre Balcarce.',
+      'El 16 de junio de 1955 las bombas le dañaron los mármoles.',
+      'Acá aparece entero en 1950: en la etapa de 1940 falta la primera mitad. Los pisos son supuestos.',
+    ],
+    hoyEs: 'el Palacio de Hacienda.',
+  },
+  'Banco de la Nación (1944)': {
+    titulo: 'Banco de la Nación',
+    era: 'La casa central nueva, de Alejandro Bustillo: en 1950, hecha a medias.',
+    texto: [
+      'La piedra fundamental se puso el 17 de septiembre de 1940, ya demolida la vieja Bolsa, y la primera etapa se inauguró el 21 de julio de 1944. La segunda —el cuarenta por ciento que faltaba, sobre la esquina donde había estado el primer Teatro Colón— quedó parada hasta 1950 y llevó cinco años más: el edificio se terminó en 1955, con la manzana entera y 10.000 metros cuadrados de planta.',
+      'En 1950 se ve lo hecho hasta entonces. Qué lado se levantó primero no está en las fuentes: se dedujo de que la segunda etapa fue la de la esquina del teatro. Si ese año el edificio viejo ya estaba demolido, tampoco: acá sigue en pie. Las alturas son supuestas.',
+    ],
+    hoyEs: 'la casa central del Banco de la Nación Argentina, que ocupa toda la manzana.',
+  },
+  'Facultad de Derecho (1949)': {
+    titulo: 'Facultad de Derecho',
+    era: 'La Facultad de Derecho en la avenida Figueroa Alcorta. Se mudó en 1949, con la obra sin terminar.',
+    texto: [
+      'El concurso es de 1945. El terreno era de Obras Sanitarias: ahí había una estación de bombas, desmantelada en los años treinta. La facultad dejó el edificio gótico de Las Heras y se mudó el 21 de septiembre de 1949, pero la obra siguió dos décadas: se dio por terminada a fines de los años sesenta.',
+      'El frente, con la escalinata y las catorce columnas, es el de hoy. Qué parte estaba hecha en 1950 no está en las fuentes: acá el fondo va en esqueleto, y es supuesto, igual que las alturas.',
+    ],
+    hoyEs: 'la Facultad de Derecho de la Universidad de Buenos Aires.',
+  },
+  'Automóvil Club Argentino': {
+    era: 'La sede central del Automóvil Club Argentino, en la avenida del Libertador. De 1942.',
+    texto: [
+      'Está en Libertador 1850. El año sale del artículo de sus arquitectos; el del propio club no lo dice.',
+      'En la foto aérea de 1965 se ve una placa larga sobre la avenida y, detrás, un cuerpo bajo de planta redonda. Los pisos de cada uno son supuestos.',
+    ],
+    hoyEs: 'la sede central del Automóvil Club Argentino.',
+  },
+  'CGT': {
+    titulo: 'Confederación General del Trabajo',
+    era: 'La casa de la Confederación General del Trabajo, en Azopardo e Independencia. De 1950.',
+    texto: [
+      'Se inauguró el 18 de octubre de 1950. El edificio lo donó la Fundación Eva Perón, que al año siguiente empezó su propia sede sobre Paseo Colón.',
+      'Los pisos y el cuerpo de la entrada son supuestos.',
+    ],
+    hoyEs: 'la sede de la CGT.',
+  },
+  'Casa de Moneda (1944)': {
+    titulo: 'Casa de Moneda',
+    era: 'La Casa de Moneda nueva, en Retiro. De 1944.',
+    texto: [
+      'Se autorizó en 1939 y se inauguró el 27 de diciembre de 1944, sobre el relleno del Puerto Nuevo. Reemplazó a la casa de Defensa y México, de 1881.',
+      'La planta —un cuerpo de frente y tres alas detrás— sale de la foto aérea de 1965; los pisos son supuestos.',
+    ],
+    hoyEs: 'la Casa de Moneda.',
+  },
+  'Edificio Guardacostas': {
+    era: 'El Edificio Guardacostas, sobre la avenida Eduardo Madero. De 1949.',
+    texto: [
+      'Se proyectó para el Ministerio de Marina. La obra empezó en junio de 1945 y se terminó en 1949.',
+      'La planta sale de la foto aérea de 1965; los pisos son supuestos.',
+    ],
+    hoyEs: 'el Edificio Guardacostas.',
+  },
+  'Facultad de Ciencias Médicas': {
+    era: 'El edificio nuevo de la Facultad de Ciencias Médicas, en la calle Paraguay. En uso desde 1944.',
+    texto: [
+      'Está en Paraguay 2155, a una cuadra del edificio de 1895 y del Hospital de Clínicas viejo. La obra empezó el 3 de marzo de 1939 y la primera etapa se habilitó en 1944; después se fue ocupando por partes.',
+      'En 1949 empezó, en la manzana de al lado, la obra del Hospital de Clínicas nuevo, que recibió los primeros servicios en 1962: en 1950 era apenas una obra y acá no está.',
+      'Qué partes estaban habilitadas en 1950 y los pisos de cada cuerpo son supuestos.',
+    ],
+    hoyEs: 'la Facultad de Medicina de la Universidad de Buenos Aires.',
+  },
+  'Mercado San Cristóbal': {
+    era: 'El Mercado San Cristóbal nuevo, en Independencia y Entre Ríos. De 1944.',
+    texto: [
+      'Lo proyectó el estudio SEPRA y reemplazó al mercado anterior, en el mismo cruce.',
+      'La nave y las bóvedas del techo siguen lo que muestra la foto aérea de 1965; su forma exacta es supuesta.',
+    ],
+    hoyEs: 'el mismo mercado.',
+  },
+  'Estadio de Huracán': {
+    era: 'El estadio de hormigón de Huracán, en Parque Patricios. Inaugurado en 1949.',
+    texto: [
+      'El club compró el predio de Alcorta y Luna el 23 de abril de 1939. La obra empezó el 26 de octubre de 1941; la cancha de madera se usó hasta el 22 de noviembre de 1942, y las tribunas nuevas se empezaron el 10 de agosto de 1943.',
+      'El primer partido se jugó el 7 de septiembre de 1947, con más de 80.000 personas, y la inauguración oficial fue el 11 de noviembre de 1949. Hoy lleva el nombre de Tomás Adolfo Ducó.',
+      'El contorno sale de la foto aérea de 1965. Las alturas de las tribunas y las medidas de la sede y de la torre son supuestas.',
+    ],
+    hoyEs: 'el estadio Tomás Adolfo Ducó.',
+  },
+  'Mercado del Plata': {
+    era: 'El solar del Mercado del Plata, en obra. El mercado viejo se demolió en 1947.',
+    texto: [
+      'El mercado de 1856 ocupaba media manzana sobre Carlos Pellegrini, entre Sarmiento y Cangallo, hasta el pasaje Carabelas: desde 1937 daba a la 9 de Julio. Se demolió en 1947 y ese mismo año empezó la obra del edificio nuevo, de Crivelli y Heinzmann.',
+      'La obra se paró en 1954, con la estructura de hormigón hecha, siguió después y se inauguró el 23 de diciembre de 1962.',
+      'Cuánto había levantado en 1950 no está en las fuentes: los tres pisos de esqueleto son supuestos.',
+    ],
+    hoyEs: 'el Edificio del Plata.',
+  },
+  'Avenida Córdoba': {
+    era: 'La avenida Córdoba, ensanchada de Callao a Leandro N. Alem. Inaugurada en 1945.',
+    texto: [
+      'El ensanche se hizo por etapas, con el retiro de la línea de edificación que mandaba la ordenanza de 1904.',
+      'Qué vereda cedió no está verificado. Acá la avenida tiene 26 metros entre líneas, 13 a cada lado del eje de hoy, con una calzada de 16; todo eso es supuesto, igual que los frentes nuevos.',
+    ],
+    hoyEs: 'la avenida Córdoba.',
   },
 };
 

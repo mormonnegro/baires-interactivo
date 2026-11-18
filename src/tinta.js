@@ -17,7 +17,9 @@ const COMUN = /* glsl */ `
   uniform vec3 uPaper; uniform vec3 uInk; uniform vec3 uSombra; uniform float uColor;
   // --- la línea de tiempo: la ciudad que crece y cambia (tools/crece.mjs). uEpocaK va de 0 (1867) a uEtapas (el último
   // plano), pasando por cada uno; tCrece dice de cada punto «desde cuándo»: R lo urbanizado y la tierra ganada al río,
-  // G los fondos de las manzanas nuevas, B lo edificado (1 = la primera etapa, 1/uEtapas = la última, 0 = nunca).
+  // G los fondos de las manzanas nuevas, B lo edificado (1 = la primera etapa y de ahí para abajo; 0 = nunca. Los
+  // códigos, en src/etapas.js: las etapas 1 a 6 valen (7 − e)/6, como cuando la línea terminaba en 1940, y la 7 —1950—
+  // va por debajo de la 6, en 10/255).
   // tDespeje, con la misma cuenta, lo que se abrió: R lo demolido para una avenida o una plaza, G el verde nuevo y B
   // la calzada empedrada de las avenidas nuevas. ---
   uniform sampler2D tCrece; uniform sampler2D tDespeje; uniform float uEpocaK; uniform float uEtapas;
@@ -25,7 +27,8 @@ const COMUN = /* glsl */ `
   float epocaEn(float dist) { float k = min(uEpocaK, uEtapas - 0.0001), e = floor(k); return e + clamp((k - e) * 1.5 - 0.5 * clamp(dist / 7000.0, 0.0, 1.0), 0.0, 1.0); }
   /** Cuánto se levantó una casa de la etapa et (cada una a su tiempo, según su semilla). */
   float nacido(float et, float seed, float dist) { return smoothstep(0.1 + 0.45 * seed, 0.45 + 0.45 * seed, epocaEn(dist) - (et - 1.0)); }
-  float llego(float v, float k) { float u = (uEtapas + 0.5 - k) / uEtapas, m = 0.15 / uEtapas; return smoothstep(u - m, u + m, v); }
+  /** ¿Ya llegó, en el año k, lo que la lámina anota con v? Hasta la etapa 6 el umbral es el de siempre; de la 6 a la 7 baja hasta quedar entre «nunca» y el código de 1950. */
+  float llego(float v, float k) { float t = clamp(k - 6.0, 0.0, 1.0), u = mix((6.5 - min(k, 6.0)) / 6.0, 0.02, t), m = mix(0.025, 0.012, t); return smoothstep(u - m, u + m, v); }
   /** Lo que se despejó hasta el año que se mira: x demolido (calle o plaza donde había manzana) · y verde nuevo. */
   vec2 despejado(vec2 uv, float dist) {
     if (uEpocaK <= 0.0) return vec2(0.0);
@@ -116,8 +119,8 @@ const PLANO = /* glsl */ `
     return mix(mix(mix(h31(i), h31(i + vec3(1, 0, 0)), f.x), mix(h31(i + vec3(0, 1, 0)), h31(i + vec3(1, 1, 0)), f.x), f.y), mix(mix(h31(i + vec3(0, 0, 1)), h31(i + vec3(1, 0, 1)), f.x), mix(h31(i + vec3(0, 1, 1)), h31(i + vec3(1, 1, 1)), f.x), f.y), f.z); }
   // --- en color ---
   uniform sampler2D tSuelo; uniform sampler2D tCalles; uniform vec4 uMarco; uniform float uMatas;
-  /** Lo mismo que llego(), para la lámina de las calles (tools/crece.mjs), que cuenta desde 1867: la etapa e vale (7 − e)/7. */
-  float llego7(float v, float k) { float u = (6.5 - k) / 7.0; return smoothstep(u - 0.02, u + 0.02, v); }
+  /** Lo mismo que llego(), para la lámina de las calles (tools/crece.mjs), que cuenta desde 1867: la etapa e vale (7 − e)/7 hasta la 6, y la 7 —1950—, 10/255. */
+  float llego7(float v, float k) { float t = clamp(k - 6.0, 0.0, 1.0), u = mix((6.5 - min(k, 6.0)) / 7.0, 0.02, t), m = mix(0.02, 0.012, t); return smoothstep(u - m, u + m, v); }
   /** Cuánto color lleva un punto: todo adentro de la guarda del plano, nada afuera (ahí sigue el papel). */
   float enColor(vec2 xz) {
     if (uColor <= 0.0) return 0.0;

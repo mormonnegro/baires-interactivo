@@ -219,7 +219,7 @@ export function createJuego({ camera, cam, lienzo, marcas, pedirCuadro, alEntrar
     const fin = Object.assign(document.createElement('div'), { className: 'final' });
     fin.innerHTML = `<h3><span class="n">${cuantas}</span>${cuantas === 1 ? 'foto ubicada' : 'fotos ubicadas'}</h3><p>${todas_ ? '¡Ubicaste todas las fotos sin llegar al tope!' : `Juntaste ${metros(suma)} de error y el tope son ${metros(LIMITE)}.`} ${record ? '<b>Es tu mejor partida.</b>' : antes ? `Tu mejor partida: ${antes}.` : ''}</p><ol></ol>`;
     for (const h of hechas) { const li = document.createElement('li'); li.textContent = h.nombre; li.prepend(Object.assign(document.createElement('span'), { textContent: h.d === 0 ? 'en el lugar' : `+ ${metros(h.d)}` })); fin.querySelector('ol').append(li); }
-    const texto = `Ubiqué ${cuantas} ${cuantas === 1 ? 'foto' : 'fotos'} de la Buenos Aires de 1867 a 1940 antes de juntar ${metros(LIMITE)} de error. ¿Cuántas ubicás vos?`;
+    const texto = `Ubiqué ${cuantas} ${cuantas === 1 ? 'foto' : 'fotos'} de la Buenos Aires de 1867 a 1950 antes de juntar ${metros(LIMITE)} de error. ¿Cuántas ubicás vos?`;
     const enlace = `${location.origin}${location.pathname}?juego`;
     const compartir = boton('Compartir', async (e) => {
       try { if (navigator.share) await navigator.share({ text: texto, url: enlace }); else { await navigator.clipboard.writeText(`${texto} ${enlace}`); e.target.textContent = 'Copiado'; setTimeout(() => { e.target.textContent = 'Compartir'; }, 1800); } } catch { /* lo canceló */ }

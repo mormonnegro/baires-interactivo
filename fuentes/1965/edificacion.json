@@ -1,0 +1,266 @@
+{
+ "que_es": "Lo que hay para calibrar las alturas de la etapa de 1955, en el formato de fuentes/censos/alturas.json. NO hay cuadro de edificios por número de pisos de 1947 ni de 1960 (ver LEEME.md): lo único de primera mano es la serie de permisos de edificación de toda la ciudad.",
+ "convencion_de_pisos": "No aplica: la serie no distingue pisos. «Superficie cubierta» es la de los permisos de construcciones nuevas y ampliaciones, en toda la Capital (no solo el marco del plano).",
+ "fuentes": [
+  {
+   "id": "permisos-1935-1970",
+   "etapa_del_visor_mas_cercana": 1955,
+   "titulo": "Edificación 2006. Ciudad Autónoma de Buenos Aires (ISSN 1515-0127). Cuadro 2.1: «Evolución de los permisos y de la superficie cubierta de Construcciones nuevas y Ampliaciones. Ciudad de Buenos Aires. Años 1935/2006»",
+   "editor": "Dirección General de Estadística y Censos, Gobierno de la Ciudad de Buenos Aires (impreso en enero de 2008)",
+   "pagina": "p. 23 (hoja 17 del PDF)",
+   "enlace": "https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2015/04/edificacion_2006.pdf",
+   "nota_de_la_fuente": "Fuente: Dirección General de Estadística y Censos sobre la base de datos de la D.G.F.O.y C. (G.C.B.A)",
+   "primera_mano": "transcrito del cuadro, del texto del PDF (no de la imagen), por programa; acá van los años 1935 a 1970, el cuadro sigue hasta 2006",
+   "verificacion": "el cuadro no trae totales para cerrar; las cifras redondeadas a miles o centenas (1948, 1949, 1951, 1952, 1963 a 1975) están así en el original",
+   "columnas": [
+    "año",
+    "permisos",
+    "superficie_cubierta_m2"
+   ],
+   "filas": [
+    [
+     1935,
+     12774,
+     1368841
+    ],
+    [
+     1936,
+     12188,
+     1234445
+    ],
+    [
+     1937,
+     12580,
+     1525041
+    ],
+    [
+     1938,
+     19996,
+     1654439
+    ],
+    [
+     1939,
+     16682,
+     1756865
+    ],
+    [
+     1940,
+     15419,
+     1457059
+    ],
+    [
+     1941,
+     17583,
+     1832712
+    ],
+    [
+     1942,
+     16591,
+     1779365
+    ],
+    [
+     1943,
+     17080,
+     1851188
+    ],
+    [
+     1944,
+     21219,
+     3102805
+    ],
+    [
+     1945,
+     14798,
+     1967262
+    ],
+    [
+     1946,
+     17192,
+     2688405
+    ],
+    [
+     1947,
+     14789,
+     2345222
+    ],
+    [
+     1948,
+     17664,
+     2232000
+    ],
+    [
+     1949,
+     17153,
+     2145000
+    ],
+    [
+     1950,
+     17491,
+     2404700
+    ],
+    [
+     1951,
+     13617,
+     2115000
+    ],
+    [
+     1952,
+     12313,
+     1911100
+    ],
+    [
+     1953,
+     9977,
+     1503488
+    ],
+    [
+     1954,
+     9833,
+     1800047
+    ],
+    [
+     1955,
+     8663,
+     2296668
+    ],
+    [
+     1956,
+     8018,
+     2612983
+    ],
+    [
+     1957,
+     8785,
+     3868580
+    ],
+    [
+     1958,
+     8732,
+     4456278
+    ],
+    [
+     1959,
+     7475,
+     3010601
+    ],
+    [
+     1960,
+     7492,
+     2126829
+    ],
+    [
+     1961,
+     7350,
+     2413574
+    ],
+    [
+     1962,
+     6676,
+     2534771
+    ],
+    [
+     1963,
+     4780,
+     1623500
+    ],
+    [
+     1964,
+     4909,
+     1821300
+    ],
+    [
+     1965,
+     4825,
+     2324500
+    ],
+    [
+     1966,
+     5442,
+     2993100
+    ],
+    [
+     1967,
+     6138,
+     3400510
+    ],
+    [
+     1968,
+     6039,
+     3221900
+    ],
+    [
+     1969,
+     8032,
+     5031200
+    ],
+    [
+     1970,
+     7785,
+     5557200
+    ]
+   ]
+  }
+ ],
+ "otras_cifras": {
+  "por_tramos": {
+   "que_es": "sumas de la serie de arriba (cuenta propia)",
+   "tramos": [
+    {
+     "años": "1935-1940",
+     "permisos": 89639,
+     "superficie_cubierta_m2": 8996690,
+     "m2_por_permiso": 100,
+     "m2_por_año": 1499448
+    },
+    {
+     "años": "1941-1947",
+     "permisos": 119252,
+     "superficie_cubierta_m2": 15566959,
+     "m2_por_permiso": 131,
+     "m2_por_año": 2223851
+    },
+    {
+     "años": "1948-1955",
+     "permisos": 106711,
+     "superficie_cubierta_m2": 16408003,
+     "m2_por_permiso": 154,
+     "m2_por_año": 2051000
+    },
+    {
+     "años": "1941-1955",
+     "permisos": 225963,
+     "superficie_cubierta_m2": 31974962,
+     "m2_por_permiso": 142,
+     "m2_por_año": 2131664
+    },
+    {
+     "años": "1956-1965",
+     "permisos": 69042,
+     "superficie_cubierta_m2": 26792916,
+     "m2_por_permiso": 388,
+     "m2_por_año": 2679292
+    }
+   ]
+  },
+  "propiedad_horizontal_m2_por_habitante": {
+   "fuente": "V. Pegoraro, «Mar del Plata: el primer boom de la propiedad horizontal, 1948-1960», Estudios del Hábitat (UNLP), 2020",
+   "enlace": "https://revistas.unlp.edu.ar/Habitat/article/download/9133/8956",
+   "primera_mano": "tomado de un resumen (un buscador leyó el cuadro; no se abrió el artículo): Capital Federal, m² construidos en propiedad horizontal por habitante",
+   "filas": [
+    [
+     1948,
+     0.3
+    ],
+    [
+     1952,
+     0.5
+    ],
+    [
+     1955,
+     0.39
+    ]
+   ],
+   "seguridad": "baja: verificar en el artículo antes de usar"
+  }
+ }
+}

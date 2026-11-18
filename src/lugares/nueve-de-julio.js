@@ -19,6 +19,10 @@
 //   · «Avenida 9 de Julio 01» (el día de la inauguración, desde el norte): la rampa terminada, con su baranda blanca.
 //   · «Av 9 julio arg 1937» (la obra, Archivo General de la Nación): las columnas de alumbrado en fila sobre los dos
 //     canteritos.
+// En 1950 (al final): la avenida ya va de Belgrano a Córdoba —el tramo de Mitre a Belgrano se abrió entre 1944 y 1947
+// y el de Tucumán a Córdoba se habilitó en 1950 (fuentes/1965/cronologia.json)—. Las manzanas las tira
+// tools/crece.mjs; acá van las cuadras nuevas, con el mismo corte que las de 1937 (supuesto: de esos tramos no hay
+// foto medida), y los paños de asfalto de las bocacalles.
 // Lo que las fotos no dejan medir va simple y parejo: las cuatro islas iguales, una rampa por cantero en las cuadras
 // donde la aérea muestra algo (la de Mitre a Perón no la tiene: ahí el césped va partido en dos paños).
 export default function (c) {
@@ -76,9 +80,9 @@ export default function (c) {
   /** Una cuadra, de xa a xb: a cada lado la vereda ancha con su cantero de césped y sus plátanos, y junto a la calzada
    *  central el canterito del cerco. `rampa`: en qué punta baja al estacionamiento (1: la de xb, −1: la de xa, 0: no
    *  tiene); `partido`: el césped en dos paños, con un paso en el medio. */
-  const cuadra = (xa, xb, { rampa = 0, partido = false } = {}) => {
+  const cuadra = (xa, xb, { rampa = 0, partido = false, lados = [-1, 1] } = {}) => {
     const xm = (xa + xb) / 2, RL = 30, RA = 7, zr = Z0 + 3; // (la rampa: 30 × 7 m, del lado de adentro)
-    for (const s of [-1, 1]) {
+    for (const s of lados) {
       T.tapete(lado(redondo(xa, xb, Z0, Z1, 4), s), PINTA.BALDOSA, SOLADO);
       const zi = Z0 + VEREDA, zo = Z1 - VEREDA;
       if (partido) for (const [a, b] of [[xa + VEREDA, xm - 2], [xm + 2, xb - VEREDA]]) T.cantero(lado(redondo(a, b, zi, zo, 3), s));
@@ -142,4 +146,38 @@ export default function (c) {
   const O = c.lugar(11195, 8373), cara = (y) => 3.4 - 1.653 * (y - 0.5) / 63.5; // (media cara a esa altura)
   for (const k of ['+x', '-x', '+z', '-z']) { const d = (k[0] === '+' ? 1 : -1) * (cara(61.6) + 0.04); O.vano(0.6, 0.9, k[1] === 'x' ? d : 0, 61.6, k[1] === 'z' ? d : 0, k, false); }
   O.vano(0.9, 2, 0, 0.5, -(cara(0.5) + 0.04), '-z', false);
+
+  // ------------------------------------------------------------------------------------------------------- 1950
+  // De Belgrano a Mitre y de Tucumán a Córdoba. El eje es el mismo (las esquinas de hoy caen a menos de 3 m de la
+  // recta que pasa por el Obelisco); al sur de Rivadavia las dos calles del costado son Lima y Bernardo de Irigoyen.
+  c.epoca(7);
+  const ESQ50 = {
+    belgrano: [[9668, 8238], [9669, 8408]], moreno: [[9868, 8241], [9869, 8414]], alsina: [[10046, 8252], [10048, 8419]], yrigoyen: [[10232, 8257], [10231, 8425]],
+    mayo: [[10330, 8260], [10330, 8428]], rivadavia: [[10436, 8266], [10433, 8431]], viamonte: [[11752, 8303], [11753, 8471]], cordoba: [[11954, 8309], [11944, 8476]],
+  };
+  const BELGRANO = calle(ESQ50.belgrano), MORENO = calle(ESQ50.moreno), ALSINA = calle(ESQ50.alsina), YRIGOYEN = calle(ESQ50.yrigoyen), MAYO = calle(ESQ50.mayo), RIVADAVIA = calle(ESQ50.rivadavia), VIAMONTE = calle(ESQ50.viamonte), CORDOBA = calle(ESQ50.cordoba);
+  const ANCHA = 16, DE_MAYO = 18; // (lo que queda libre a cada lado del eje de una avenida: Belgrano y Córdoba, de 26 m; la de Mayo, de 30)
+  cuadra(TUCUMAN + BOCA, VIAMONTE - BOCA, { partido: true });
+  cuadra(VIAMONTE + BOCA, CORDOBA - ANCHA);
+  cuadra(RIVADAVIA + BOCA, MITRE - BOCA);
+  cuadra(MAYO + DE_MAYO, RIVADAVIA - BOCA); cuadra(YRIGOYEN + BOCA, MAYO - DE_MAYO); // (la Avenida de Mayo cruza por el medio de la manzana)
+  cuadra(ALSINA + BOCA, YRIGOYEN - BOCA, { partido: true });
+  cuadra(MORENO + BOCA, ALSINA - BOCA);
+  // (de Belgrano a Moreno queda en pie el Ministerio de Obras Públicas, del lado de Lima —src/lugares/modernos.js—:
+  // de ese lado el cantero llega hasta unos metros antes del edificio; del de Bernardo de Irigoyen va entero)
+  { const [mx] = T.deMundo(9819, 8276), SUR_MOP = mx - 24.3 - 8;
+    cuadra(BELGRANO + ANCHA, MORENO - BOCA, { lados: [1] });
+    if (SUR_MOP - (BELGRANO + ANCHA) > 30) cuadra(BELGRANO + ANCHA, SUR_MOP, { lados: [-1] }); }
+  // Las bocacalles. La calzada nueva no entra en la lámina de las calles donde toca una calle que ya estaba (ahí la
+  // lámina guarda una sola fecha para todas las etapas: tools/crece.mjs), así que alrededor de cada manzana demolida
+  // queda sin pintar un anillo de unos metros, con la vereda de la calle vieja. A lo largo de Cerrito y de Pellegrini
+  // lo tapan las veredas de los canteros; a lo ancho, estos paños de asfalto, que nacen con la obra.
+  { const PAÑO = { y: 0.07, claro: 1 }, Z = Z1 + 3, paño = (xa, xb) => T.tapete(T.recto(xb - xa, 2 * Z, (xa + xb) / 2, 0), PINTA.ASFALTO, PAÑO);
+    for (const x of [MORENO, ALSINA, YRIGOYEN, RIVADAVIA, MITRE, TUCUMAN, VIAMONTE]) paño(x - BOCA - 1, x + BOCA + 1);
+    paño(MAYO - DE_MAYO - 1, MAYO + DE_MAYO + 1); paño(BELGRANO - 2, BELGRANO + ANCHA + 1); paño(CORDOBA - ANCHA - 1, CORDOBA + 2); }
+  // (y los plátanos de las veredas de enfrente, como en el tramo de 1937)
+  for (const s of [-1, 1]) for (const [a, b] of [[TUCUMAN, VIAMONTE], [VIAMONTE, CORDOBA - 8], [RIVADAVIA, MITRE], [YRIGOYEN, MAYO - 10], [MAYO + 10, RIVADAVIA], [ALSINA, YRIGOYEN], [MORENO, ALSINA], [BELGRANO + 8, MORENO]]) {
+    if (s < 0 && a === BELGRANO + 8) continue; // (del lado de Lima, ahí está el Ministerio)
+    hilera(a + F, b - F, s * 63.2, false);
+  }
 }

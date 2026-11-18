@@ -21,7 +21,7 @@ const MADERA = 0, VERDE = 1, BRONCE = 2, ROJO = 3, OCRE = 4, LONA = 5, BALASTO =
 const ESCALA = 1.25; // un cuarto más grande de lo real: a tamaño justo, desde la vista del mapa casi no se lo ve
 const EMPUJE = 0.4, ESPERA = 14, POP = 1.6; // m/s², segundos parado en cada punta, y lo que tarda un tren en aparecer o irse en el andén
 // cómo se anda en cada etapa: [m/s, coches por tren, cada cuántos segundos sale uno en las líneas de dos vías]
-const EPOCA = [[8, 3, 110], [10, 4, 90], [10, 4, 90], [11, 4, 80], [11, 4, 80], [12, 5, 70], [12, 5, 60]];
+const EPOCA = [[8, 3, 110], [10, 4, 90], [10, 4, 90], [11, 4, 80], [11, 4, 80], [12, 5, 70], [12, 5, 60], [12, 5, 60]]; // (la de 1950, como la de 1940: supuesto)
 const TROCHA = 0.82 * 1.25; // medio ancho entre rieles, a la escala de los trenes
 const HUMOS = 22, CADA = 0.3; // cuántas bocanadas hay a la vez, y cada cuántos segundos sale una
 const VIENTO = [-0.9, 0.5]; // m/s, hacia donde se va el humo (x norte, z este)

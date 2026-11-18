@@ -41,12 +41,14 @@ import plazaLavalle from './lugares/plaza-lavalle.js';
 import plazaConstitucion from './lugares/plaza-constitucion.js';
 import plazaOnce from './lugares/plaza-once.js';
 import plazaBritanica from './lugares/plaza-britanica.js';
+import { AÑOS } from './etapas.js';
 import obelisco1940 from './lugares/obelisco-1940.js';
 import plazaColon from './lugares/plaza-colon.js';
+import obras1950 from './lugares/obras-1950.js';
 
 const PIEDRA = 6, TINTA = 7, PIZARRA = 8, CASA = 0, FOLLAJE = 5, PINTADO = 9;
 // Los lugares hechos a mano, cada uno en su archivo (src/lugares/LEEME.md cuenta con qué se construyen).
-const LUGARES = { nueveDeJulio, plazaCongreso, plazaDeMayo, puerto, puertoMadero, diagonalNorte, teatroColon, puertoNuevo, cabildo, casaRosada, subteA, avenidaDeMayo, retiro, modernos, viejos1867, plazaSanMartin, plazaLavalle, plazaConstitucion, plazaOnce, plazaBritanica, obelisco1940, playasRetiro, palermo, barrios, plazaColon }; // (playasRetiro va al final: cada pieza que se agrega le corre la tirada de colores a las que siguen)
+const LUGARES = { nueveDeJulio, plazaCongreso, plazaDeMayo, puerto, puertoMadero, diagonalNorte, teatroColon, puertoNuevo, cabildo, casaRosada, subteA, avenidaDeMayo, retiro, modernos, viejos1867, plazaSanMartin, plazaLavalle, plazaConstitucion, plazaOnce, plazaBritanica, obelisco1940, playasRetiro, palermo, barrios, plazaColon, obras1950 }; // (playasRetiro va al final: cada pieza que se agrega le corre la tirada de colores a las que siguen)
 /** De qué va pintado lo PINTADO (el número va en aWall.z; los colores están en src/tinta.js). */
 export const PINTA = { MADERA: 0, VERDE: 1, BRONCE: 2, ROJO: 3, OCRE: 4, LONA: 5, BALASTO: 6, CESPED: 7, AGUA: 8, BALDOSA: 9, GRANZA: 10, ADOQUIN: 11, FLORES: 12, ASFALTO: 13, CHAPA: 14, NEGRO: 15, BLANCO: 16, LADRILLO: 17, PATINA: 18, COBRE: 19 };
 
@@ -89,7 +91,8 @@ export function createHitos({ meta, mz }, tinta) {
   const RASO = { P: [], N: [], I: [], Wl: [] }; // (lo que va a ras del suelo: canteros, senderos, fuentes. Va en otra malla, que no hace sombra ni se choca)
   let seed = 0.137;
   // (la línea de tiempo, src/epocas.js: con hasta > 0, lo que se agregue desaparece al llegar esa etapa; con desde > 0,
-  // recién aparece en esa etapa. Las etapas: 1 es 1888, 2 es 1895, 3 es 1905, 4 es 1910, 5 es 1921 y 6 es 1940. Ver
+  // recién aparece en esa etapa. Las etapas: 1 es 1888, 2 es 1895, 3 es 1905, 4 es 1910, 5 es 1921, 6 es 1940 y 7 es 1950
+  // (src/etapas.js). Ver
   // alzado(), en src/tinta.js)
   let hasta = 0, desde = 0;
   /** Agrega una pieza (ya en su lugar del mundo). */
@@ -422,7 +425,7 @@ export function createHitos({ meta, mz }, tinta) {
   // tamaño salen del mapa de hoy (tools/edificios.mjs los deja en src/edificios.js); la forma es un boceto de cada
   // uno, con pocas piezas: los cuerpos, las cúpulas, las mansardas, las bóvedas de los andenes.
   const BLANCO = 0, CREMA = 1, ROSA = 2, GRIS = 3, LADRILLO = 4, SILLAR = 5;
-  const ETAPAS = [1888, 1895, 1905, 1910, 1921, 1940];
+  const ETAPAS = AÑOS.slice(1); // (los años de las etapas 1, 2, 3…: src/etapas.js)
   /** Las herramientas en el lugar de un edificio (x a lo largo, z a lo ancho) y sus datos; `tono` pinta sus paredes. */
   const obra = (clave, tono) => {
     const e = EDIFICIOS[clave], T = lugar(e.x, e.y, e.ux, e.uy);
@@ -566,7 +569,7 @@ export function createHitos({ meta, mz }, tinta) {
     get tirada() { return seed; }, set tirada(v) { seed = v; },
     /** desde qué etapa existe lo que se construya de acá en más y hasta cuál (0: desde 1867 · 0: para siempre) */
     epoca: (d = 0, h = 0) => { desde = d; hasta = h; },
-    /** la etapa de un año: la primera que ya lo encuentra hecho (1888 → 1 … 1940 → 6) */
+    /** la etapa de un año: la primera que ya lo encuentra hecho (1888 → 1 … 1950 → 7) */
     etapaDe: (año) => ETAPAS.findIndex((a) => a >= año) + 1,
   };
   const puntos = {}; // (cuántos puntos pone cada lugar, contando los de a ras del suelo: para saber cuál pesa)
@@ -616,5 +619,8 @@ export function createHitos({ meta, mz }, tinta) {
       if (celdas.get((cx + 4096) * 8192 + cz + 4096) & bit && Math.hypot((cx + 0.5) * CELDA - x, (cz + 0.5) * CELDA - z) < r) return { ancla: 0, hay: true };
     return { ancla: 0, hay: false };
   };
+  // (los árboles de la etapa 7 —1950—, al final de la lista: la forma de cada copa sale de su lugar en la lista
+  // (src/ciudad.js), y así los que ya estaban quedan como eran)
+  { const tarde = arboles.filter((a) => a[3] >= 7); if (tarde.length) { const antes = arboles.filter((a) => !(a[3] >= 7)); arboles.length = 0; arboles.push(...antes, ...tarde); } }
   return { mesh, arboles, iglesias, grilla: GRILLA, junto, puntos };
 }

@@ -1,0 +1,1264 @@
+{
+ "que_es": "Lo que cambia en Buenos Aires entre 1940 y 1955 dentro del marco del plano de 1867, para la etapa 7 del visor. Cada ítem lleva de dónde sale y cuán seguro es. Nada está completado de memoria: lo que no se pudo leer en una fuente dice «sin verificar» en la nota.",
+ "coordenadas": "plano: píxeles del escaneo de 1867 (0,675 m por píxel), uno o varios puntos (los tramos van de punta a punta; las iglesias, en el orden de la nota). mundo: [x, z] en metros desde la Plaza de Mayo, x = (px − 10335) · 0,675 hacia el norte, z = (py − 9485) · 0,675 hacia el río. Salen de tools/esquina.mjs (esquinas de hoy) o de las coordenadas de Wikipedia pasadas por tools/geo.mjs.",
+ "seguridad": {
+  "alta": "fecha leída en la fuente, coherente con el plano de 1948 o las fotos aéreas",
+  "media": "una sola fuente, o fuentes que no coinciden, o falta parte del dato",
+  "baja": "fecha vaga o leída de pasada"
+ },
+ "fuentes_generales": [
+  "Wikipedia en español (un artículo por ítem; consultados el 18-11-2026)",
+  "Plano Ludwig de 1948 (fuentes/planos/1955.jpg)",
+  "Plano del centro del Automóvil Club Argentino, 1954 (BnF, en Wikimedia Commons): una vista en perspectiva con los edificios dibujados y, al dorso, una lista de edificios y cinco circuitos comentados cuadra por cuadra, que marcan lo que estaba «en construcción» (falta leerla entera: sirve para verificar lo que acá quedó sin verificar)",
+  "Fotos aéreas de 1940 y 1965 del mapa de la Ciudad (fuentes/1955/aerea.mjs)"
+ ],
+ "items": [
+  {
+   "id": "9dejulio-1937",
+   "nombre": "Avenida 9 de Julio: tramo Bartolomé Mitre – Tucumán",
+   "que": "ya está (etapa 1940)",
+   "inicio_de_obra": "1937-03",
+   "inauguracion_o_demolicion": "1937-10-12",
+   "en_1955": "abierto",
+   "lugar": "entre Cerrito y Carlos Pellegrini, de Bartolomé Mitre a Tucumán",
+   "plano": [
+    [
+     10615,
+     8273
+    ],
+    [
+     11578,
+     8299
+    ]
+   ],
+   "mundo": [
+    [
+     189,
+     -818
+    ],
+    [
+     839,
+     -801
+    ]
+   ],
+   "en_el_marco": true,
+   "dimensiones": "500 m de largo; cinco manzanas (Mitre–Cangallo, Cangallo–Sarmiento, Sarmiento–Corrientes, Corrientes–Lavalle, Lavalle–Tucumán)",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Avenida_9_de_Julio"
+   ],
+   "seguridad": "alta",
+   "nota": "El mismo artículo dice en otro párrafo «entre Bartolomé Mitre y Viamonte»: la foto aérea de 1940 la muestra abierta hasta Tucumán. Las manzanas están contadas sobre la cuadrícula, no salen de la fuente."
+  },
+  {
+   "id": "9dejulio-sur",
+   "nombre": "Avenida 9 de Julio: tramo Bartolomé Mitre – Belgrano",
+   "que": "aparece (se demuelen las manzanas)",
+   "inicio_de_obra": "1944",
+   "inauguracion_o_demolicion": "1947",
+   "en_1955": "abierto",
+   "lugar": "entre Lima y Bernardo de Irigoyen, de Bartolomé Mitre a la avenida Belgrano",
+   "plano": [
+    [
+     10615,
+     8273
+    ],
+    [
+     9668,
+     8238
+    ]
+   ],
+   "mundo": [
+    [
+     189,
+     -818
+    ],
+    [
+     -450,
+     -842
+    ]
+   ],
+   "en_el_marco": true,
+   "dimensiones": "cinco manzanas (Mitre–Rivadavia, Rivadavia–Hipólito Yrigoyen con el cruce de la Avenida de Mayo, Yrigoyen–Alsina, Alsina–Moreno, Moreno–Belgrano); en la última queda en pie el Ministerio de Obras Públicas (1936), en medio de la traza",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Avenida_9_de_Julio",
+    "fuentes/planos/1955.jpg (plano Ludwig de 1948)"
+   ],
+   "seguridad": "alta",
+   "nota": "El plano de 1948 ya la dibuja abierta hasta Belgrano, con el M.O.P. en el medio. Las manzanas están contadas sobre la cuadrícula."
+  },
+  {
+   "id": "9dejulio-cordoba",
+   "nombre": "Avenida 9 de Julio: tramo Tucumán – Córdoba",
+   "que": "aparece (se demuelen las manzanas)",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1950",
+   "en_1955": "abierto",
+   "lugar": "entre Cerrito y Carlos Pellegrini, de Tucumán a la avenida Córdoba",
+   "plano": [
+    [
+     11578,
+     8299
+    ],
+    [
+     11954,
+     8309
+    ]
+   ],
+   "mundo": [
+    [
+     839,
+     -801
+    ],
+    [
+     1093,
+     -794
+    ]
+   ],
+   "en_el_marco": true,
+   "dimensiones": "dos manzanas (Tucumán–Viamonte, Viamonte–Córdoba)",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Avenida_9_de_Julio",
+    "fuentes/planos/1955.jpg (plano Ludwig de 1948)"
+   ],
+   "seguridad": "media",
+   "nota": "El año de habilitación (1950) sale de Wikipedia; el plano de 1948 ya dibuja las plazoletas hasta Córdoba, así que la demolición es anterior. Inicio de obra: sin verificar."
+  },
+  {
+   "id": "9dejulio-paraguay",
+   "nombre": "Avenida 9 de Julio: tramo Córdoba – Paraguay",
+   "que": "aparece (se demuele la manzana)",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1951",
+   "en_1955": "abierto",
+   "lugar": "entre Cerrito y Carlos Pellegrini, de la avenida Córdoba a Paraguay",
+   "plano": [
+    [
+     11954,
+     8309
+    ],
+    [
+     12138,
+     8311
+    ]
+   ],
+   "mundo": [
+    [
+     1093,
+     -794
+    ],
+    [
+     1217,
+     -792
+    ]
+   ],
+   "en_el_marco": true,
+   "dimensiones": "una manzana",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Avenida_9_de_Julio"
+   ],
+   "seguridad": "media",
+   "nota": "El plano de 1948 no la trae: ahí la traza termina en Córdoba. Inicio de obra: sin verificar."
+  },
+  {
+   "id": "9dejulio-despues",
+   "nombre": "Avenida 9 de Julio: lo que NO está en 1955",
+   "que": "no cambia",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": null,
+   "en_1955": "sin abrir",
+   "lugar": "de Paraguay al norte y de Belgrano al sur",
+   "plano": null,
+   "mundo": null,
+   "en_el_marco": null,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Avenida_9_de_Julio",
+    "https://es.wikipedia.org/wiki/Avenida_Independencia_(Buenos_Aires)",
+    "https://es.wikipedia.org/wiki/Avenida_San_Juan_(Buenos_Aires)"
+   ],
+   "seguridad": "alta",
+   "nota": "Hasta Santa Fe e Independencia, 1971; hasta San Juan, 1972; San Juan–Cochabamba, 1973; Santa Fe–Arenales, 1976; Arenales–Arroyo, 1979; Arroyo–Libertador, 1980. En 1955 la avenida va de Belgrano a Paraguay."
+  },
+  {
+   "id": "ministerio-guerra",
+   "nombre": "Ministerio de Guerra (desde 1950, Edificio Libertador)",
+   "que": "aparece",
+   "inicio_de_obra": "1938",
+   "inauguracion_o_demolicion": "1943-04",
+   "en_1955": "terminado",
+   "lugar": "Azopardo 250",
+   "plano": [
+    10072,
+    10144
+   ],
+   "mundo": [
+    -178,
+    445
+   ],
+   "en_el_marco": true,
+   "dimensiones": "planta baja de doble altura y 16 pisos, con mansarda; dos bloques con fachadas de 230 m al este y al oeste, unidos por un cuerpo central con dos patios",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Edificio_Libertador"
+   ],
+   "seguridad": "alta",
+   "nota": "En 1940 estaba en obra (el visor ya lo dice). El nombre «Libertador» es de 1950."
+  },
+  {
+   "id": "hacienda",
+   "nombre": "Palacio de Hacienda: segunda etapa",
+   "que": "cambia (se amplía)",
+   "inicio_de_obra": "1949",
+   "inauguracion_o_demolicion": "1950",
+   "en_1955": "terminado",
+   "lugar": "Hipólito Yrigoyen 250, entre Balcarce y Paseo Colón",
+   "plano": [
+    10211,
+    9837
+   ],
+   "mundo": [
+    -84,
+    238
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Palacio_de_Hacienda"
+   ],
+   "seguridad": "alta",
+   "nota": "La primera etapa se autorizó el 12-1-1937 y se ocupó hacia 1939 (ya está en la etapa 1940). La segunda sumó los dos lotes vecinos, sobre Paseo Colón y sobre Balcarce. El 16-6-1955 las bombas le dañaron los mármoles."
+  },
+  {
+   "id": "banco-nacion",
+   "nombre": "Banco de la Nación, casa central (Bustillo)",
+   "que": "aparece, en dos etapas",
+   "inicio_de_obra": "1940-09-17",
+   "inauguracion_o_demolicion": "1944-07-21 (primera etapa); 1955 (segunda)",
+   "en_1955": "terminado en 1955",
+   "lugar": "la manzana entera al norte de la Plaza de Mayo",
+   "plano": [
+    10518,
+    9692
+   ],
+   "mundo": [
+    124,
+    140
+   ],
+   "en_el_marco": true,
+   "dimensiones": "manzana entera, 10 000 m² de planta; la segunda etapa era el 40 % del edificio",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Banco_de_la_Naci%C3%B3n_Argentina_(casa_central)"
+   ],
+   "seguridad": "alta",
+   "nota": "Piedra fundamental el 17-9-1940, ya demolida la vieja Bolsa. La segunda etapa quedó parada hasta 1950 y llevó cinco años. Qué mitad se hizo primero: sin verificar."
+  },
+  {
+   "id": "congreso-viejo",
+   "nombre": "Antiguo Congreso (Balcarce e Hipólito Yrigoyen)",
+   "que": "desaparece (en parte)",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1942",
+   "en_1955": "demolido",
+   "lugar": "Balcarce e Hipólito Yrigoyen, frente a la Plaza de Mayo",
+   "plano": [
+    10250,
+    9760
+   ],
+   "mundo": [
+    -57,
+    186
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Banco_de_la_Naci%C3%B3n_Argentina_(casa_central)"
+   ],
+   "seguridad": "baja",
+   "nota": "Solo se leyó de pasada («existió entre 1854 y 1942»). Qué se levantó en el lugar (el Banco Hipotecario) y cuándo: sin verificar. Los píxeles son aproximados."
+  },
+  {
+   "id": "derecho",
+   "nombre": "Facultad de Derecho, en Figueroa Alcorta",
+   "que": "aparece",
+   "inicio_de_obra": "1945 (concurso)",
+   "inauguracion_o_demolicion": "1949-09-21",
+   "en_1955": "en uso y todavía en obra",
+   "lugar": "avenida Figueroa Alcorta 2263",
+   "plano": [
+    14764,
+    7250
+   ],
+   "mundo": [
+    2990,
+    -1509
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Facultad_de_Derecho_(Universidad_de_Buenos_Aires)"
+   ],
+   "seguridad": "alta",
+   "nota": "La mudanza fue el 21-9-1949, pero la obra siguió dos décadas: se terminó a fines de los años sesenta. El terreno era de Obras Sanitarias (una estación de bombas desmantelada en los años treinta). Inicio de obra: sin verificar (entre 1945 y 1949)."
+  },
+  {
+   "id": "derecho-lasheras",
+   "nombre": "Vieja Facultad de Derecho de Las Heras (gótica, inconclusa)",
+   "que": "cambia de dueño",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1948",
+   "en_1955": "pasa a ser Facultad de Ingeniería",
+   "lugar": "avenida Las Heras 2214",
+   "plano": [
+    13817,
+    6650
+   ],
+   "mundo": [
+    2350,
+    -1914
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Facultad_de_Ingenier%C3%ADa_(Universidad_de_Buenos_Aires)"
+   ],
+   "seguridad": "alta",
+   "nota": "El edificio no cambia: Ingeniería lo recibe en 1948 (la facultad se llama así desde 1952)."
+  },
+  {
+   "id": "fundacion-eva-peron",
+   "nombre": "Fundación Eva Perón (hoy Facultad de Ingeniería)",
+   "que": "aparece",
+   "inicio_de_obra": "1951",
+   "inauguracion_o_demolicion": "1956 (pasa a Ingeniería); 1966 (terminado)",
+   "en_1955": "sin terminar; atacado después del golpe de septiembre",
+   "lugar": "avenida Paseo Colón 850",
+   "plano": [
+    8774,
+    10021
+   ],
+   "mundo": [
+    -1054,
+    362
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Facultad_de_Ingenier%C3%ADa_(Universidad_de_Buenos_Aires)",
+    "https://commons.wikimedia.org/wiki/File:Fundacion_Eva_Peron_-Ca_1950-HIA-T8-235.jpg"
+   ],
+   "seguridad": "alta",
+   "nota": "Proyecto de 1950 (Ministerio de Obras Públicas), obra desde 1951. En 1955 NO es facultad: se la destinan en 1956, la habilitación parcial es de 1957 y se da por terminado en 1966."
+  },
+  {
+   "id": "aca",
+   "nombre": "Automóvil Club Argentino, sede central",
+   "que": "aparece",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1942",
+   "en_1955": "terminado",
+   "lugar": "avenida del Libertador 1850",
+   "plano": [
+    14807,
+    6254
+   ],
+   "mundo": [
+    3019,
+    -2181
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/S%C3%A1nchez,_Lagos_y_de_la_Torre"
+   ],
+   "seguridad": "media",
+   "nota": "El año sale del artículo de los arquitectos; el del propio ACA no lo dice. Inicio de obra, pisos y fecha exacta: sin verificar. (Los píxeles son los de Libertador y Tagle; las coordenadas de Wikipedia están redondeadas.)"
+  },
+  {
+   "id": "cgt",
+   "nombre": "Confederación General del Trabajo",
+   "que": "aparece",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1950-10-18",
+   "en_1955": "terminado",
+   "lugar": "Azopardo 820, según Wikipedia (la esquina de Independencia; el número, sin verificar)",
+   "plano": [
+    8885,
+    10111
+   ],
+   "mundo": [
+    -979,
+    423
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Fundaci%C3%B3n_Eva_Per%C3%B3n",
+    "https://es.wikipedia.org/wiki/Edificio_Uni%C3%B3n_Ferroviaria"
+   ],
+   "seguridad": "alta",
+   "nota": "Donado por la Fundación Eva Perón. Los píxeles son los de Azopardo e Independencia. Inicio de obra y pisos: sin verificar."
+  },
+  {
+   "id": "alas",
+   "nombre": "Edificio Atlas (después Alas)",
+   "que": "aparece",
+   "inicio_de_obra": "1950 o 1951",
+   "inauguracion_o_demolicion": "1957",
+   "en_1955": "en obra, casi a su altura",
+   "lugar": "avenida Leandro N. Alem 719",
+   "plano": [
+    11804,
+    9905
+   ],
+   "mundo": [
+    992,
+    284
+   ],
+   "en_el_marco": true,
+   "dimensiones": "unos 141 m y 41 o 42 pisos (La Nación y Billiken dan 132 m)",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Edificio_Alas",
+    "https://en.wikipedia.org/wiki/Alas_Building",
+    "https://www.skyscrapercenter.com/building/edificio-alas/4293"
+   ],
+   "seguridad": "media",
+   "nota": "Las fuentes no coinciden: encargo en 1950, obra 1951–1955 según una, terminado en 1957 según Wikipedia en español («el más alto entre 1957 y 1994»). La Fuerza Aérea lo terminó después del golpe. Para 1955 conviene mostrarlo como estructura en obra."
+  },
+  {
+   "id": "mercado-del-plata",
+   "nombre": "Mercado del Plata",
+   "que": "desaparece el viejo; el nuevo, en obra",
+   "inicio_de_obra": "1947 (demolición y obra nueva)",
+   "inauguracion_o_demolicion": "1962-12-23",
+   "en_1955": "estructura de hormigón, obra parada desde 1954",
+   "lugar": "Carlos Pellegrini, entre Sarmiento y Cangallo (hoy Perón)",
+   "plano": [
+    10890,
+    8489
+   ],
+   "mundo": [
+    375,
+    -672
+   ],
+   "en_el_marco": true,
+   "dimensiones": "media manzana (Sarmiento, Cangallo, Carlos Pellegrini y el pasaje Carabelas)",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Edificio_del_Plata",
+    "https://es.wikipedia.org/wiki/Mercado_del_Plata",
+    "https://commons.wikimedia.org/wiki/File:Edificio_del_Plata_(MCBA,_9-Jun-1954).jpg"
+   ],
+   "seguridad": "alta",
+   "nota": "El mercado de 1856 se demolió en 1947. El Edificio del Plata (Crivelli y Heinzmann) se paralizó en 1954 y siguió hasta 1961. El plano de 1948 todavía parece dibujar el mercado viejo (una «M» en la media manzana). Pisos: sin verificar."
+  },
+  {
+   "id": "teatro-san-martin",
+   "nombre": "Teatro Municipal General San Martín",
+   "que": "desaparece el teatro viejo; el nuevo, en obra",
+   "inicio_de_obra": "1954-06-24",
+   "inauguracion_o_demolicion": "1960-05-25",
+   "en_1955": "en obra (primer año)",
+   "lugar": "avenida Corrientes 1530",
+   "plano": [
+    11162,
+    7428
+   ],
+   "mundo": [
+    558,
+    -1388
+   ],
+   "en_el_marco": true,
+   "dimensiones": "13 pisos y 4 subsuelos, 30 000 m² (el edificio terminado)",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Teatro_General_San_Mart%C3%ADn"
+   ],
+   "seguridad": "alta",
+   "nota": "Sí: en 1955 estaba en obra. Antes funcionaba ahí el Teatro Municipal (el viejo Teatro Nuevo de 1911). Cuándo se demolió el viejo: sin verificar (antes de junio de 1954)."
+  },
+  {
+   "id": "clinicas",
+   "nombre": "Hospital de Clínicas nuevo",
+   "que": "aparece",
+   "inicio_de_obra": "1949",
+   "inauguracion_o_demolicion": "1962 (primeros servicios)",
+   "en_1955": "en obra",
+   "lugar": "avenida Córdoba 2351: la manzana de Córdoba, Uriburu, Paraguay y Azcuénaga",
+   "plano": [
+    12202,
+    5989
+   ],
+   "mundo": [
+    1260,
+    -2360
+   ],
+   "en_el_marco": true,
+   "dimensiones": "manzana entera",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Hospital_de_Cl%C3%ADnicas_Jos%C3%A9_de_San_Mart%C3%ADn"
+   ],
+   "seguridad": "alta",
+   "nota": "En 1955 es una obra. El hospital viejo siguió en pie: en 1971 recién se preparaba su demolición. Qué había antes en la manzana nueva: sin verificar."
+  },
+  {
+   "id": "medicina",
+   "nombre": "Facultad de Ciencias Médicas nueva",
+   "que": "aparece",
+   "inicio_de_obra": "1939-03-03",
+   "inauguracion_o_demolicion": "1944 (primera etapa)",
+   "en_1955": "en uso",
+   "lugar": "Paraguay 2155",
+   "plano": [
+    12275,
+    6199
+   ],
+   "mundo": [
+    1310,
+    -2218
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Facultad_de_Ciencias_M%C3%A9dicas_(Universidad_de_Buenos_Aires)"
+   ],
+   "seguridad": "alta",
+   "nota": "El edificio anterior, de Tamburini, se demolió en 1937. Se habilitó por etapas. Pisos: sin verificar."
+  },
+  {
+   "id": "casa-de-moneda",
+   "nombre": "Casa de Moneda",
+   "que": "aparece",
+   "inicio_de_obra": "1939 (autorización)",
+   "inauguracion_o_demolicion": "1944-12-27",
+   "en_1955": "terminado",
+   "lugar": "en el relleno del Puerto Nuevo, Retiro",
+   "plano": [
+    14354,
+    9932
+   ],
+   "mundo": [
+    2713,
+    302
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Casa_de_Moneda_(Argentina)"
+   ],
+   "seguridad": "alta",
+   "nota": null
+  },
+  {
+   "id": "guardacostas",
+   "nombre": "Edificio Guardacostas (proyectado para el Ministerio de Marina)",
+   "que": "aparece",
+   "inicio_de_obra": "1945-06",
+   "inauguracion_o_demolicion": "1949",
+   "en_1955": "terminado",
+   "lugar": "avenida Eduardo Madero",
+   "plano": [
+    10907,
+    10237
+   ],
+   "mundo": [
+    386,
+    508
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Edificio_Guardacostas"
+   ],
+   "seguridad": "alta",
+   "nota": null
+  },
+  {
+   "id": "policlinico-ferroviario",
+   "nombre": "Policlínico Ferroviario Central",
+   "que": "aparece",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1954-04-20",
+   "en_1955": "terminado",
+   "lugar": "Puerto Nuevo, cerca de Retiro",
+   "plano": null,
+   "mundo": null,
+   "en_el_marco": null,
+   "dimensiones": "660 camas",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Policl%C3%ADnico_Ferroviario_Central"
+   ],
+   "seguridad": "media",
+   "nota": "Consultorios desde 1952. Sin ubicar en el plano: el artículo no trae coordenadas. Inicio de obra: sin verificar."
+  },
+  {
+   "id": "hospital-naval-central",
+   "nombre": "Hospital Naval Central (hoy Edificio Libertad)",
+   "que": "aparece",
+   "inicio_de_obra": "1951 (piedra fundamental, 3-11-1947)",
+   "inauguracion_o_demolicion": null,
+   "en_1955": "en obra",
+   "lugar": "Retiro, junto al puerto",
+   "plano": [
+    13780,
+    10445
+   ],
+   "mundo": [
+    2325,
+    648
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Edificio_Libertad_(Buenos_Aires)"
+   ],
+   "seguridad": "media",
+   "nota": "No se avanzó hasta 1951 y no se terminó como hospital. Cuánto había levantado en 1955: sin verificar."
+  },
+  {
+   "id": "mercado-san-cristobal",
+   "nombre": "Mercado San Cristóbal nuevo",
+   "que": "cambia (se reemplaza)",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1944",
+   "en_1955": "terminado",
+   "lugar": "avenidas Independencia y Entre Ríos",
+   "plano": [
+    8940,
+    6843
+   ],
+   "mundo": [
+    -942,
+    -1783
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Avenida_Independencia_(Buenos_Aires)",
+    "https://commons.wikimedia.org/wiki/File:Mercado_San_Cristóbal_(1945).JPG"
+   ],
+   "seguridad": "media",
+   "nota": "Del estudio SEPRA."
+  },
+  {
+   "id": "arsenal",
+   "nombre": "Arsenal de Guerra Esteban de Luca",
+   "que": "desaparece",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "década de 1940",
+   "en_1955": "demolido, baldío",
+   "lugar": "avenida Garay y Pichincha",
+   "plano": [
+    7399,
+    6040
+   ],
+   "mundo": [
+    -1982,
+    -2325
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Avenida_Juan_de_Garay",
+    "fuentes/planos/1955.jpg (plano Ludwig de 1948)"
+   ],
+   "seguridad": "baja",
+   "nota": "Año exacto: sin verificar. El plano de 1948 todavía lo dibuja («Arsenal de Guerra», con el cuartel de infantería y los talleres)."
+  },
+  {
+   "id": "palacio-unzue",
+   "nombre": "Palacio Unzué (residencia presidencial)",
+   "que": "no cambia hasta 1955",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "demolido después de 1955",
+   "en_1955": "en pie",
+   "lugar": "avenida del Libertador y Agüero",
+   "plano": [
+    14516,
+    6406
+   ],
+   "mundo": [
+    2822,
+    -2078
+   ],
+   "en_el_marco": true,
+   "dimensiones": "parque de 21 154 m²",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Palacio_Unzu%C3%A9"
+   ],
+   "seguridad": "media",
+   "nota": "Residencia de Perón de 1946 a 1955. La demolición la ordenó el gobierno que lo derrocó: queda fuera de esta etapa. Año de la demolición: sin verificar."
+  },
+  {
+   "id": "aeroparque",
+   "nombre": "Aeroparque",
+   "que": "aparece (fuera del marco)",
+   "inicio_de_obra": "1946 (decisión municipal)",
+   "inauguracion_o_demolicion": "1947",
+   "en_1955": "en uso",
+   "lugar": "Costanera Norte",
+   "plano": [
+    18885,
+    4262
+   ],
+   "mundo": [
+    5771,
+    -3526
+   ],
+   "en_el_marco": false,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Aeroparque_Jorge_Newbery",
+    "https://es.wikipedia.org/wiki/Costanera_Norte_(Buenos_Aires)"
+   ],
+   "seguridad": "alta",
+   "nota": "NO entra: el punto de Wikipedia cae 500 m al norte del borde del marco (x = 18 148). Si la cabecera sur de la pista de 1947 asoma dentro: sin verificar."
+  },
+  {
+   "id": "bombonera",
+   "nombre": "La Bombonera",
+   "que": "aparece y se amplía",
+   "inicio_de_obra": "1938-02-18",
+   "inauguracion_o_demolicion": "1940-05-25",
+   "en_1955": "con la tercera bandeja",
+   "lugar": "Brandsen 805",
+   "plano": [
+    5800,
+    10256
+   ],
+   "mundo": [
+    -3061,
+    520
+   ],
+   "en_el_marco": true,
+   "dimensiones": "terreno de 21 471 m²",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/La_Bombonera"
+   ],
+   "seguridad": "alta",
+   "nota": "Ampliaciones: 16-11-1941, segunda bandeja del sector norte; 1951–1953, tercera bandeja y luz artificial."
+  },
+  {
+   "id": "duco",
+   "nombre": "Estadio de Huracán (Tomás A. Ducó)",
+   "que": "aparece",
+   "inicio_de_obra": "1941-10-26",
+   "inauguracion_o_demolicion": "1947-09-07 (primer partido); 1949-11-11 (inauguración oficial)",
+   "en_1955": "terminado",
+   "lugar": "Parque Patricios",
+   "plano": [
+    4878,
+    5900
+   ],
+   "mundo": [
+    -3683,
+    -2420
+   ],
+   "en_el_marco": true,
+   "dimensiones": "más de 80 000 espectadores el primer día",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Estadio_Tom%C3%A1s_Adolfo_Duc%C3%B3"
+   ],
+   "seguridad": "alta",
+   "nota": "La cancha de madera se usó hasta el 22-11-1942, en el mismo predio (comprado el 23-4-1939). Las tribunas se empezaron el 10-8-1943."
+  },
+  {
+   "id": "gasometro",
+   "nombre": "Gasómetro de San Lorenzo (avenida La Plata)",
+   "que": "no cambia",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": null,
+   "en_1955": "en uso",
+   "lugar": "Boedo",
+   "plano": [
+    6561,
+    2390
+   ],
+   "mundo": [
+    -2547,
+    -4789
+   ],
+   "en_el_marco": true,
+   "dimensiones": "75 000 espectadores",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Viejo_Gas%C3%B3metro"
+   ],
+   "seguridad": "media",
+   "nota": "No se encontró ninguna obra entre 1940 y 1955: sin verificar."
+  },
+  {
+   "id": "racing",
+   "nombre": "Estadio de Racing (Presidente Perón), Avellaneda",
+   "que": "aparece (fuera del marco)",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1950",
+   "en_1955": "terminado",
+   "lugar": "Avellaneda",
+   "plano": [
+    622,
+    9341
+   ],
+   "mundo": [
+    -6556,
+    -97
+   ],
+   "en_el_marco": false,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Viejo_Gas%C3%B3metro"
+   ],
+   "seguridad": "media",
+   "nota": "Cae 120 m fuera del borde sur del marco (x = 805). Coordenadas aproximadas."
+  },
+  {
+   "id": "jockey-club",
+   "nombre": "Jockey Club de la calle Florida",
+   "que": "desaparece (incendio)",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1953-04-15",
+   "en_1955": "ruina o baldío",
+   "lugar": "calle Florida (la cuadra entre Lavalle y Tucumán, puesta de memoria: verificar)",
+   "plano": [
+    11464,
+    9242
+   ],
+   "mundo": [
+    762,
+    -164
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Jockey_Club_(Buenos_Aires)"
+   ],
+   "seguridad": "alta",
+   "nota": "Incendiado hacia la medianoche del 15-4-1953, después del atentado en la Plaza de Mayo. Qué quedó en pie y cuándo se demolió lo que quedaba: sin verificar. Esa noche se atacaron también otros locales opositores (cuáles: sin verificar)."
+  },
+  {
+   "id": "bombardeo",
+   "nombre": "Bombardeo de la Plaza de Mayo",
+   "que": "daña",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1955-06-16",
+   "en_1955": "daños en la plaza y alrededores",
+   "lugar": "Plaza de Mayo, Casa Rosada, Paseo Colón e Hipólito Yrigoyen",
+   "plano": [
+    10344,
+    9604
+   ],
+   "mundo": [
+    6,
+    80
+   ],
+   "en_el_marco": true,
+   "dimensiones": "unas 13,8 toneladas de bombas (estimación)",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Bombardeo_de_la_Plaza_de_Mayo",
+    "https://es.wikipedia.org/wiki/Palacio_de_Hacienda",
+    "https://commons.wikimedia.org/wiki/File:Cráter_bombardeo_a_Plaza_de_Mayo.jpg"
+   ],
+   "seguridad": "media",
+   "nota": "No cambia la planta de la ciudad. Lo que se vería desde arriba: cráteres en la plaza y en la calzada (hay foto policial), un trolebús y autos destruidos en Paseo Colón e Hipólito Yrigoyen, impactos en la Casa Rosada (una bomba en el centro del edificio) y en el Palacio de Hacienda (mármoles dañados). El artículo habla de «dos pisos del ala sur» destruidos sin dejar claro de qué edificio: sin verificar."
+  },
+  {
+   "id": "iglesias-1955",
+   "nombre": "Iglesias incendiadas el 16 de junio de 1955",
+   "que": "daña",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1955-06-16",
+   "en_1955": "incendiadas por dentro, en pie",
+   "lugar": "el centro",
+   "plano": [
+    [
+     10497,
+     9445
+    ],
+    [
+     9575,
+     9585
+    ],
+    [
+     9952,
+     9591
+    ],
+    [
+     10024,
+     9312
+    ],
+    [
+     10840,
+     9659
+    ],
+    [
+     10616,
+     8638
+    ],
+    [
+     10619,
+     7504
+    ],
+    [
+     12134,
+     8109
+    ],
+    [
+     12837,
+     8742
+    ],
+    [
+     12550,
+     7729
+    ],
+    [
+     9986,
+     8777
+    ]
+   ],
+   "mundo": [
+    [
+     109,
+     -27
+    ],
+    [
+     -513,
+     68
+    ],
+    [
+     -259,
+     72
+    ],
+    [
+     -210,
+     -117
+    ],
+    [
+     341,
+     117
+    ],
+    [
+     190,
+     -572
+    ],
+    [
+     192,
+     -1337
+    ],
+    [
+     1214,
+     -929
+    ],
+    [
+     1689,
+     -502
+    ],
+    [
+     1495,
+     -1185
+    ],
+    [
+     -236,
+     -478
+    ]
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Quema_de_iglesias_del_16_de_junio_de_1955",
+    "https://commons.wikimedia.org/wiki/File:Iglesia_de_San_Ignacio_1955.jpg"
+   ],
+   "seguridad": "media",
+   "nota": "En el orden de los píxeles: la Curia y la Catedral, Santo Domingo, San Francisco (con la capilla de San Roque), San Ignacio, La Merced, San Miguel, La Piedad, Las Victorias, El Socorro, San Nicolás de Bari (la nueva, en Santa Fe) y San Juan Bautista. Las esquinas de San Miguel, La Piedad, Las Victorias y San Nicolás están puestas de memoria: verificarlas antes de usarlas (las demás salen de tools/geo.mjs). Fueron saqueos e incendios de interiores: desde arriba no cambia la silueta. Si algún techo o cúpula se vino abajo, y qué pasó con el edificio de la Curia: sin verificar."
+  },
+  {
+   "id": "cordoba-ensanche",
+   "nombre": "Avenida Córdoba: ensanche de Callao a Alem",
+   "que": "cambia (se ensancha)",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1945",
+   "en_1955": "ensanchada",
+   "lugar": "avenida Córdoba, de Callao a Leandro N. Alem",
+   "plano": [
+    [
+     11979,
+     6905
+    ],
+    [
+     11933,
+     9864
+    ]
+   ],
+   "mundo": [
+    [
+     1110,
+     -1742
+    ],
+    [
+     1079,
+     256
+    ]
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Avenida_C%C3%B3rdoba"
+   ],
+   "seguridad": "media",
+   "nota": "Hecho por etapas con el retiro de la ordenanza de 1904; inaugurado en 1945. Qué vereda cedió y cuánto se demolió de golpe: sin verificar."
+  },
+  {
+   "id": "belgrano-ensanche",
+   "nombre": "Avenida Belgrano: ensanche de Entre Ríos a Paseo Colón",
+   "que": "ya está (etapa 1940)",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "fines de la década de 1930",
+   "en_1955": "ensanchada",
+   "lugar": "avenida Belgrano",
+   "plano": [
+    9660,
+    6156
+   ],
+   "mundo": [
+    -456,
+    -2247
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Avenida_Belgrano_(Buenos_Aires)"
+   ],
+   "seguridad": "baja",
+   "nota": "Wikipedia dice solo «a fines de la década de 1930». Año exacto: sin verificar."
+  },
+  {
+   "id": "independencia-sanjuan",
+   "nombre": "Avenidas Independencia, San Juan y Garay: ensanches",
+   "que": "no cambia",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "hacia 1978 (Independencia y San Juan); hacia 1980 (Garay)",
+   "en_1955": "angostas al este de Entre Ríos",
+   "lugar": "de Entre Ríos al Bajo",
+   "plano": [
+    [
+     8965,
+     6064
+    ],
+    [
+     8235,
+     6167
+    ],
+    [
+     7445,
+     6214
+    ]
+   ],
+   "mundo": [
+    [
+     -925,
+     -2309
+    ],
+    [
+     -1417,
+     -2240
+    ],
+    [
+     -1951,
+     -2208
+    ]
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Avenida_Independencia_(Buenos_Aires)",
+    "https://es.wikipedia.org/wiki/Avenida_San_Juan_(Buenos_Aires)",
+    "https://es.wikipedia.org/wiki/Avenida_Juan_de_Garay"
+   ],
+   "seguridad": "alta",
+   "nota": "No son de esta etapa: en 1955 siguen siendo calles angostas en el tramo céntrico."
+  },
+  {
+   "id": "subte-e",
+   "nombre": "Subte, línea E",
+   "que": "aparece",
+   "inicio_de_obra": "1938",
+   "inauguracion_o_demolicion": "1944-06-20 (Constitución – General Urquiza); 1944-12-16 (hasta Boedo)",
+   "en_1955": "en servicio de Constitución a Boedo",
+   "lugar": "bajo la avenida San Juan, de Plaza Constitución a Boedo",
+   "plano": [
+    [
+     7512,
+     8112
+    ],
+    [
+     8043,
+     3498
+    ]
+   ],
+   "mundo": [
+    [
+     -1906,
+     -927
+    ],
+    [
+     -1547,
+     -4041
+    ]
+   ],
+   "en_el_marco": true,
+   "dimensiones": "3,08 km y seis estaciones el primer tramo",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/L%C3%ADnea_E_(Subte_de_Buenos_Aires)",
+    "fuentes/planos/1955.jpg (plano Ludwig de 1948)"
+   ],
+   "seguridad": "alta",
+   "nota": "En 1955 termina en Constitución: las obras para llevarla al centro empezaron en 1957. El plano de 1948 la dibuja."
+  },
+  {
+   "id": "trolebuses",
+   "nombre": "Trolebuses",
+   "que": "aparece",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1948-06-04",
+   "en_1955": "en servicio",
+   "lugar": "línea A, de Plaza Italia a Puente Saavedra (fuera del marco); línea 310 (1954), desde Eduardo Madero y Córdoba",
+   "plano": [
+    11936,
+    10056
+   ],
+   "mundo": [
+    1081,
+    385
+   ],
+   "en_el_marco": true,
+   "dimensiones": "80 coches en 1951 y 130 a fin de ese año; 120 Mercedes-Benz más en septiembre de 1952",
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Trolebuses_en_Argentina"
+   ],
+   "seguridad": "alta",
+   "nota": "Dentro del marco, lo seguro es la cabecera de la 310 en Madero y Córdoba (1954). El recorrido de las demás líneas dentro del marco: sin verificar. Duraron hasta 1966."
+  },
+  {
+   "id": "tranvias",
+   "nombre": "Tranvías",
+   "que": "no cambia",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "se levantan entre 1959 y 1963",
+   "en_1955": "en servicio en toda la red",
+   "lugar": "toda la ciudad",
+   "plano": null,
+   "mundo": null,
+   "en_el_marco": null,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Tranv%C3%ADas_de_Buenos_Aires"
+   ],
+   "seguridad": "alta",
+   "nota": "En 1955 siguen todos. Qué líneas se habían reemplazado ya por trolebuses o colectivos: sin verificar."
+  },
+  {
+   "id": "ferrocarriles",
+   "nombre": "Ferrocarriles: nacionalización y nombres nuevos",
+   "que": "cambia (los nombres)",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1948-03-01",
+   "en_1955": "con los nombres nuevos (cuáles, uno por uno: sin verificar)",
+   "lugar": "Retiro, Constitución, Once",
+   "plano": null,
+   "mundo": null,
+   "en_el_marco": null,
+   "dimensiones": null,
+   "fuentes": [
+    "https://commons.wikimedia.org/wiki/File:Festejos_nacionalizacion_fc_argentinos_en_retiro.jpg"
+   ],
+   "seguridad": "media",
+   "nota": "La fecha sale del epígrafe de una foto de Commons (festejos en Retiro, 1-3-1948). Las vías no cambian; cambian los carteles de las estaciones."
+  },
+  {
+   "id": "villa-retiro",
+   "nombre": "Villa de Retiro",
+   "que": "aparece",
+   "inicio_de_obra": "década de 1940",
+   "inauguracion_o_demolicion": null,
+   "en_1955": "casillas entre las vías y el puerto",
+   "lugar": "detrás de la estación Retiro, hacia el Puerto Nuevo",
+   "plano": [
+    14310,
+    9135
+   ],
+   "mundo": [
+    2683,
+    -236
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Villa_31"
+   ],
+   "seguridad": "media",
+   "nota": "Resurge en los años cuarenta, con viviendas precarias que dio el Gobierno a inmigrantes italianos. Tamaño en 1955: sin verificar (el censo de abril de 1956 cuenta 21 villas y 33 920 personas en toda la ciudad; entre 1955 y 1959 la de Retiro se cuadruplicó)."
+  },
+  {
+   "id": "costanera-norte",
+   "nombre": "Costanera Norte y relleno del Aeroparque",
+   "que": "cambia",
+   "inicio_de_obra": "1938 (Parque de la Raza)",
+   "inauguracion_o_demolicion": "1947",
+   "en_1955": "paseo en uso",
+   "lugar": "la costa, del Puerto Nuevo al norte",
+   "plano": [
+    18636,
+    5371
+   ],
+   "mundo": [
+    5603,
+    -2777
+   ],
+   "en_el_marco": false,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Costanera_Norte_(Buenos_Aires)",
+    "https://es.wikipedia.org/wiki/Costanera_Sur_(Buenos_Aires)"
+   ],
+   "seguridad": "media",
+   "nota": "La mayor parte cae fuera del marco. Qué tramo de costa cambió dentro del marco entre 1940 y 1955: sin verificar."
+  },
+  {
+   "id": "costanera-sur",
+   "nombre": "Costanera Sur",
+   "que": "no cambia",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": null,
+   "en_1955": "paseo en uso",
+   "lugar": "frente a los diques",
+   "plano": null,
+   "mundo": null,
+   "en_el_marco": null,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Costanera_Sur_(Buenos_Aires)"
+   ],
+   "seguridad": "media",
+   "nota": "Sin obras en el período; empieza a decaer cuando se abre la Costanera Norte."
+  },
+  {
+   "id": "puerto-nuevo",
+   "nombre": "Puerto Nuevo",
+   "que": "cambia poco",
+   "inicio_de_obra": null,
+   "inauguracion_o_demolicion": "1946–1949",
+   "en_1955": "en uso",
+   "lugar": "dársenas A a F",
+   "plano": [
+    14000,
+    11163
+   ],
+   "mundo": [
+    2474,
+    1133
+   ],
+   "en_el_marco": true,
+   "dimensiones": null,
+   "fuentes": [
+    "https://es.wikipedia.org/wiki/Puerto_de_Buenos_Aires",
+    "fuentes/planos/1955.jpg (plano Ludwig de 1948)"
+   ],
+   "seguridad": "baja",
+   "nota": "Lo único encontrado: grúas Ansaldo nuevas entre 1946 y 1949. Obras de muelles o rellenos entre 1940 y 1955: sin verificar. El plano de 1948 lo dibuja con las seis dársenas."
+  }
+ ]
+}

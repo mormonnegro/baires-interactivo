@@ -159,7 +159,7 @@ export default function (c) {
     hilera(Q([[9886, yEspora(9886) + 25], [10100, yEspora(10100) + 25]]), 9, 3.8);
     hilera(Q(corrida(CALLE_U, 22)).filter(([x, z]) => x < -30 && z > q(0, 9975)[1] && z < q(0, 10150)[1]), 9, 3.6);
     const [, zs] = q(0, 10136); siembra(SUR, 60, 3, 1.5, (x, z) => Math.abs(z - zs) > 6); }
-  c.epoca(6);
+  c.epoca(6, 7); // (en 1950 ya está el edificio: src/lugares/obras-1950.js, y al final de este archivo sus jardines)
   { // El Ministerio de Guerra en obra (1938–1943): el terreno pelado, la valla, el pozo con el esqueleto de hormigón a
     // medio levantar —la planta, de la foto aérea: unos 142 × 58 m—, los obradores y una grúa.
     const OBRA = c.adentro(SUR, 2.5);
@@ -210,5 +210,16 @@ export default function (c) {
   { const [x0, z0] = q(9694, 9952), [x1, z1] = q(9836, 10064), xm = (x0 + x1) / 2, zm = (z0 + z1) / 2, PL = G.recto(x1 - x0, z1 - z0, xm, zm, 5);
     G.cantero(PL); G.tapete(G.recto(3.6, z1 - z0, xm, zm), PINTA.GRANZA, { y: 0.56 }); G.tapete(G.recto(x1 - x0, 3.6, xm, zm), PINTA.GRANZA, { y: 0.56 });
     siembra(PL, 44, 3.2, 1.6, (x, z) => Math.abs(x - xm) > 5 && Math.abs(z - zm) > 5); }
+  // ================================= desde 1950: el Ministerio de Guerra terminado (1943), con su plaza de frente
+  // El edificio está en src/lugares/obras-1950.js. Acá, lo que queda del trapecio del sur: la foto aérea de 1965 lo
+  // muestra arbolado del lado del Paseo Colón (la que después fue la Plaza de las Armas) y con una explanada delante
+  // de la entrada. El dibujo de los canteros y el lugar de cada árbol: supuesto. (Va al final para no correrles la
+  // tirada a los árboles de más arriba.)
+  c.epoca(7);
+  { const [x0, z0] = q(9956, 10072), [x1, z1] = q(10184, 10172), fuera = (x, z) => x < x0 || x > x1 || z < z0 || z > z1, [ex, ez] = q(10070, 10040);
+    G.tapete(SUR, PINTA.CESPED, { y: 0.12, claro: 0.76 });
+    G.tapete([[x0 - 3, z0 - 3], [x1 + 3, z0 - 3], [x1 + 3, z1 + 3], [x0 - 3, z1 + 3]], PINTA.BALDOSA, { y: 0.34, claro: 0.93 }); // la vereda alrededor del edificio
+    G.tapete(G.recto(40, 30, ex, ez + 6), PINTA.BALDOSA, { y: 0.34, claro: 0.93 }); // la explanada de la entrada
+    siembra(SUR, 90, 3.2, 1.6, (x, z) => fuera(x - 8 * Math.sign(x - (x0 + x1) / 2), z - 8 * Math.sign(z - (z0 + z1) / 2)) && !(Math.abs(x - ex) < 24 && z > ez - 14)); }
   c.epoca(0);
 }
