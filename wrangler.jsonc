@@ -1,0 +1,7 @@
+// Publicación en Cloudflare (Workers, solo archivos estáticos):  npx vite build && npx wrangler deploy
+{
+  "name": "baires-1867",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./dist" },
+  "routes": [{ "pattern": "baires.mormon.garden", "custom_domain": true }]
+}

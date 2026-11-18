@@ -1,0 +1,19 @@
+# lo que se instala o se genera
+node_modules
+dist
+shots
+tmp
+.wrangler
+.env
+.env.*
+.dev.vars
+.DS_Store
+*.log
+
+# los escaneos grandes (más de 50 MB cada uno): LEEME.md, «Lo que no está en el repositorio», dice de dónde bajarlos
+fuentes/*.jpg
+fuentes/planos/
+
+# del video del artículo: las tomas grabadas del visor y los videos terminados (cientos de MB; se vuelven a hacer)
+paper/video/assets/visor/
+paper/video/renders/

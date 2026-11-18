@@ -1,0 +1,208 @@
+{
+ "años": [
+  1867,
+  1888,
+  1895,
+  1905,
+  1910,
+  1921,
+  1940
+ ],
+ "c67": {
+  "manzanas": 3633,
+  "manzanasGrandes": 459,
+  "lotes": 17143,
+  "cuerpos": 16599,
+  "techos": 52521,
+  "muros": 146487,
+  "arboles": 35658,
+  "iglesias": 16
+ },
+ "crece": {
+  "manzanas": 3513,
+  "techos": 78371,
+  "muros": 292736,
+  "techos67queSeVan": 14060,
+  "muros67queSeVan": 38934
+ },
+ "porEtapa": [
+  {
+   "año": 1867,
+   "techos": 52521,
+   "techos67": 52521,
+   "techosNuevos": 0,
+   "muros": 146487,
+   "cuerpos67": 16599,
+   "cuerposNuevos": 0,
+   "cuerpos": 16599,
+   "casasNuevasSegunCreceJson": 0,
+   "renovadasSegunCreceJson": 0,
+   "edificadoHa": 275.1296133214932,
+   "pisosMedios": 1.108709807018771,
+   "altoMaxNuevo": 0,
+   "casasAcumuladas": 0
+  },
+  {
+   "año": 1888,
+   "techos": 83956,
+   "techos67": 51147,
+   "techosNuevos": 32809,
+   "muros": 258781,
+   "cuerpos67": 16055,
+   "cuerposNuevos": 21557,
+   "cuerpos": 37612,
+   "casasNuevasSegunCreceJson": 21467,
+   "renovadasSegunCreceJson": 96,
+   "edificadoHa": 677.0781471399054,
+   "pisosMedios": 1.200376940964607,
+   "altoMaxNuevo": 17.4,
+   "casasAcumuladas": 21467
+  },
+  {
+   "año": 1895,
+   "techos": 98144,
+   "techos67": 50539,
+   "techosNuevos": 47605,
+   "muros": 311799,
+   "cuerpos67": 15837,
+   "cuerposNuevos": 30987,
+   "cuerpos": 46824,
+   "casasNuevasSegunCreceJson": 9350,
+   "renovadasSegunCreceJson": 81,
+   "edificadoHa": 853.8953804447098,
+   "pisosMedios": 1.2121000971527842,
+   "altoMaxNuevo": 25.3,
+   "casasAcumuladas": 30817
+  },
+  {
+   "año": 1905,
+   "techos": 103060,
+   "techos67": 50265,
+   "techosNuevos": 52795,
+   "muros": 329820,
+   "cuerpos67": 15712,
+   "cuerposNuevos": 34213,
+   "cuerpos": 49925,
+   "casasNuevasSegunCreceJson": 3142,
+   "renovadasSegunCreceJson": 84,
+   "edificadoHa": 912.3496603116861,
+   "pisosMedios": 1.2126287158524023,
+   "altoMaxNuevo": 25.3,
+   "casasAcumuladas": 33959
+  },
+  {
+   "año": 1910,
+   "techos": 110982,
+   "techos67": 49645,
+   "techosNuevos": 61337,
+   "muros": 359604,
+   "cuerpos67": 15482,
+   "cuerposNuevos": 39824,
+   "cuerpos": 55306,
+   "casasNuevasSegunCreceJson": 5526,
+   "renovadasSegunCreceJson": 87,
+   "edificadoHa": 1016.8675755370939,
+   "pisosMedios": 1.2152100200491323,
+   "altoMaxNuevo": 25.3,
+   "casasAcumuladas": 39485
+  },
+  {
+   "año": 1921,
+   "techos": 112726,
+   "techos67": 46326,
+   "techosNuevos": 66400,
+   "muros": 372237,
+   "cuerpos67": 14483,
+   "cuerposNuevos": 43327,
+   "cuerpos": 57810,
+   "casasNuevasSegunCreceJson": 2647,
+   "renovadasSegunCreceJson": 857,
+   "edificadoHa": 1062.969864942937,
+   "pisosMedios": 1.2927274855932918,
+   "altoMaxNuevo": 35.9,
+   "casasAcumuladas": 42132
+  },
+  {
+   "año": 1940,
+   "techos": 116832,
+   "techos67": 38461,
+   "techosNuevos": 78371,
+   "muros": 399731,
+   "cuerpos67": 12148,
+   "cuerposNuevos": 51859,
+   "cuerpos": 64007,
+   "casasNuevasSegunCreceJson": 6589,
+   "renovadasSegunCreceJson": 1945,
+   "edificadoHa": 1172.562693938951,
+   "pisosMedios": 1.4705210565675066,
+   "altoMaxNuevo": 54,
+   "casasAcumuladas": 48721
+  }
+ ],
+ "patios": {
+  "arboles": 15382,
+  "aljibes": 322
+ },
+ "suelo": {
+  "pxM": 3.117755126953125,
+  "guardaKm2": 93.11173176808865,
+  "rio67Km2": 21.088158350222606,
+  "patio67Km2": 4.2025261730573495,
+  "edif67Km2": 2.693006836425459,
+  "porEtapa": [
+   {
+    "año": 1888,
+    "ganadaKm2": 0.005851679013048784,
+    "urbanizadoKm2": 21.31860952304879,
+    "fondosKm2": 7.623542145167673,
+    "edificadoLaminaKm2": 4.960017272939186
+   },
+   {
+    "año": 1895,
+    "ganadaKm2": 3.73151461449208,
+    "urbanizadoKm2": 30.86764567542046,
+    "fondosKm2": 12.125641234343211,
+    "edificadoLaminaKm2": 7.1730989467213595
+   },
+   {
+    "año": 1905,
+    "ganadaKm2": 3.744258055000563,
+    "urbanizadoKm2": 33.069354484675614,
+    "fondosKm2": 13.420699451265973,
+    "edificadoLaminaKm2": 7.883718292116617
+   },
+   {
+    "año": 1910,
+    "ganadaKm2": 3.757361150199218,
+    "urbanizadoKm2": 36.03024574289611,
+    "fondosKm2": 16.23194519718433,
+    "edificadoLaminaKm2": 9.157615204701493
+   },
+   {
+    "año": 1921,
+    "ganadaKm2": 6.23597490969477,
+    "urbanizadoKm2": 40.343535840129015,
+    "fondosKm2": 18.243688287250095,
+    "edificadoLaminaKm2": 9.79798524074907
+   },
+   {
+    "año": 1940,
+    "ganadaKm2": 7.755292406534556,
+    "urbanizadoKm2": 44.91155866197315,
+    "fondosKm2": 22.167122420734923,
+    "edificadoLaminaKm2": 11.330969615815343
+   }
+  ]
+ },
+ "ganadaHoyKm2": {
+  "umbral": 11.570888455350342,
+  "cobertura": 11.56804110328508
+ },
+ "relieve": {
+  "W": 512,
+  "H": 359,
+  "celdaM": 24.942041015625,
+  "maxM": 25,
+  "plazaM": 18.2
+ }
+}

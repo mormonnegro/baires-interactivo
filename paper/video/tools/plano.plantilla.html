@@ -1,0 +1,223 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #e8dcc4; color: #1f1b17; font-family: "Lato", sans-serif; }
+    #pl-mundo { position: absolute; inset: 0; overflow: hidden; }
+    .pl-nivel { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+    .pl-nivel > img, .pl-nivel > svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; display: block; }
+    #pl-n4 > img { image-rendering: pixelated; }
+    .pl-disp { font-family: "League Gothic", sans-serif; text-transform: uppercase; line-height: 0.92; letter-spacing: 0.01em; font-weight: 400; }
+    .pl-placa { background: #1f1b17; color: #f1e7d2; padding: 22px 32px 24px; display: inline-block; }
+    .pl-sub { font-size: 40px; line-height: 1.2; font-weight: 700; }
+    #pl-titulo { position: absolute; left: 96px; top: 640px; width: 1100px; height: 344px; }
+    #pl-titulo .pl-carta { position: absolute; left: 0; bottom: 0; background: #f1e7d2; color: #1f1b17; border: 5px solid #1f1b17; padding: 26px 44px 30px; box-shadow: 14px 14px 0 #1f1b17; }
+    #pl-titulo h1 { font-size: 190px; white-space: nowrap; }
+    #pl-titulo h1 span { display: inline-block; }
+    #pl-t-anio { color: #c2321c; }
+    #pl-t-sub { font-size: 38px; font-weight: 700; margin-top: 10px; white-space: nowrap; }
+    #pl-cruz { position: absolute; left: 1010px; top: 236px; width: 760px; height: 190px; }
+    #pl-simple { position: absolute; left: 1090px; top: 640px; width: 760px; height: 190px; }
+    #pl-cruz .pl-disp, #pl-simple .pl-disp { font-size: 92px; white-space: nowrap; }
+    #pl-px { position: absolute; left: 1180px; top: 470px; width: 660px; height: 200px; }
+    #pl-px svg { position: absolute; left: 0; top: 60px; width: 110px; height: 110px; overflow: visible; }
+    #pl-px .pl-placa { position: absolute; left: 124px; top: 0; white-space: nowrap; }
+    #pl-px .pl-disp { font-size: 92px; }
+    #pl-vent { position: absolute; left: 336px; top: 643px; width: 116px; height: 116px; }
+    #pl-vent-in { position: absolute; inset: 0; }
+    #pl-vent-caja { position: absolute; inset: 0; border: 7px solid #f1e7d2; outline: 5px solid #c2321c; outline-offset: -1px; }
+    #pl-vent svg { position: absolute; inset: 0; width: 116px; height: 116px; overflow: visible; }
+    #pl-vent-rot { position: absolute; left: -92px; top: 132px; width: 300px; text-align: center; }
+    #pl-vent-rot span { background: #1f1b17; color: #f1e7d2; font-size: 34px; font-weight: 700; padding: 6px 16px 8px; white-space: nowrap; }
+    #pl-lect { position: absolute; left: 600px; top: 596px; width: 720px; height: 330px; }
+    #pl-lect .pl-placa { position: absolute; inset: 0; padding: 26px 34px; }
+    .pl-fila { display: flex; align-items: center; gap: 18px; height: 76px; }
+    .pl-fila svg { width: 54px; height: 54px; flex: none; }
+    .pl-barra { width: 408px; height: 30px; background: #f1e7d2; transform-origin: 0 50%; flex: none; }
+    .pl-val { font-size: 64px; width: 150px; text-align: right; margin-left: auto; }
+    #pl-veredicto { position: relative; height: 96px; margin-top: 12px; border-top: 3px solid #5b5247; padding-top: 12px; }
+    #pl-veredicto div { position: absolute; left: 0; top: 14px; font-size: 80px; white-space: nowrap; }
+    #pl-v-edif { color: #f0674c; }
+    #pl-v-patio { color: #a9c784; }
+    .pl-ley { position: absolute; padding: 8px 22px 10px; font-size: 62px; white-space: nowrap; color: #fff6e6; }
+    #pl-ley1 { left: 826px; top: 291px; background: #c2321c; }
+    #pl-ley2 { left: 780px; top: 504px; background: #55713a; }
+    #pl-osm { position: absolute; left: 96px; top: 96px; width: 900px; height: 230px; }
+    #pl-osm .pl-disp { font-size: 100px; white-space: nowrap; }
+    #pl-osm-subs { position: relative; height: 54px; width: 760px; }
+    #pl-osm-subs div { position: absolute; left: 0; top: 4px; white-space: nowrap; }
+    #pl-osm-a b { color: #7fb2f5; } #pl-osm-f b { color: #f0674c; }
+    #pl-corr { position: absolute; left: 1180px; top: 650px; width: 644px; height: 334px; }
+    #pl-corr .pl-placa { position: absolute; right: 0; bottom: 0; text-align: right; padding: 18px 36px 26px; }
+    #pl-corr-n { font-size: 230px; white-space: nowrap; min-width: 520px; }
+    #pl-cred { position: absolute; left: 96px; top: 936px; width: 700px; height: 48px; }
+    #pl-cred span { background: #f1e7d2; color: #1f1b17; font-size: 28px; padding: 5px 14px 7px; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="plano" data-width="1920" data-height="1080">
+    <div id="pl-mundo" class="clip" data-start="0" data-duration="49.4" data-track-index="0" data-layout-ignore data-hold>
+      <div class="pl-nivel" id="pl-n0"><img src="assets/plano/n0.jpg" alt="" /></div>
+      <div class="pl-nivel" id="pl-n1"><img src="assets/plano/n1.jpg" alt="" /></div>
+      <div class="pl-nivel" id="pl-n5"><img src="assets/plano/n5.jpg" alt="" /></div>
+      <div class="pl-nivel" id="pl-n2"><img src="assets/plano/n2.jpg" alt="" /></div>
+      <div class="pl-nivel" id="pl-n6">
+        <img src="assets/plano/n6.jpg" alt="" />
+        <svg id="pl-calles" viewBox="0 0 1920 1080" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path id="pl-afin" d="%%AFIN%%" stroke="#1d5fb4" stroke-width="8" />
+          <path id="pl-fino" d="%%FINO%%" stroke="#c2321c" stroke-width="8" />
+        </svg>
+      </div>
+      <div class="pl-nivel" id="pl-n3">
+        <img src="assets/plano/n3.jpg" alt="" />
+        <img id="pl-clases" src="assets/plano/clases.png" alt="" />
+        <div class="pl-ley pl-disp" id="pl-ley1">Edificado</div>
+        <div class="pl-ley pl-disp" id="pl-ley2">Patio o fondo</div>
+        <svg id="pl-techos" viewBox="0 0 1920 1080"><path d="%%TECHOS%%" fill="#c2321c" fill-opacity="0.28" stroke="#c2321c" stroke-width="2.4" /></svg>
+      </div>
+      <div class="pl-nivel" id="pl-n4"><img src="assets/plano/n4.png" alt="" /></div>
+    </div>
+
+    <div id="pl-titulo" class="clip" data-start="0" data-duration="10.4" data-track-index="1">
+      <div class="pl-carta" id="pl-carta">
+        <h1 class="pl-disp"><span>Buenos Aires,</span> <span id="pl-t-anio">1867</span></h1>
+        <div id="pl-t-sub">Plano topográfico · Departamento Topográfico · 1 : 8000</div>
+      </div>
+    </div>
+
+    <div id="pl-cruz" class="clip" data-start="16.3" data-duration="5.2" data-track-index="2">
+      <div class="pl-placa" id="pl-cruz-in"><div class="pl-disp">Rayado en cruz</div><div class="pl-sub" id="pl-cruz-sub">= lo edificado</div></div>
+    </div>
+    <div id="pl-simple" class="clip" data-start="18.4" data-duration="3.1" data-track-index="3">
+      <div class="pl-placa" id="pl-simple-in"><div class="pl-disp">Rayado simple</div><div class="pl-sub" id="pl-simple-sub">= patios y fondos</div></div>
+    </div>
+
+    <div id="pl-px" class="clip" data-start="23.2" data-duration="3.5" data-track-index="2">
+      <div id="pl-px-in">
+        <svg viewBox="0 0 110 110"><g stroke-linecap="square" fill="none"><path d="M34 76 L76 34 M24 66 L44 86 M66 24 L86 44" stroke="#f1e7d2" stroke-width="15" /><path d="M34 76 L76 34 M24 66 L44 86 M66 24 L86 44" stroke="#c2321c" stroke-width="8" /></g></svg>
+        <div class="pl-placa"><div class="pl-disp">4,3 px</div><div class="pl-sub">entre raya y raya</div></div>
+      </div>
+    </div>
+
+    <div id="pl-vent" class="clip" data-start="26.8" data-duration="5.7" data-track-index="3" data-layout-allow-overflow>
+      <div id="pl-vent-in">
+        <div id="pl-vent-caja"></div>
+        <svg viewBox="0 0 116 116" fill="none" stroke-linecap="round"><path id="pl-d-a" d="M14 102 L102 14" stroke="#f1e7d2" stroke-width="7" /><path id="pl-d-b" d="M14 14 L102 102" stroke="#f1e7d2" stroke-width="7" /></svg>
+        <div id="pl-vent-rot"><span>ventana de 12 px</span></div>
+      </div>
+    </div>
+    <div id="pl-lect" class="clip" data-start="28.6" data-duration="4.3" data-track-index="4">
+      <div class="pl-placa" id="pl-lect-in">
+        <div class="pl-fila"><svg viewBox="0 0 54 54"><path d="M8 46 L46 8" stroke="#f1e7d2" stroke-width="7" stroke-linecap="round" /></svg><div class="pl-barra" id="pl-b-a"></div><div class="pl-val pl-disp" id="pl-v-a">17,3</div></div>
+        <div class="pl-fila"><svg viewBox="0 0 54 54"><path d="M8 8 L46 46" stroke="#f1e7d2" stroke-width="7" stroke-linecap="round" /></svg><div class="pl-barra" id="pl-b-b"></div><div class="pl-val pl-disp" id="pl-v-b">24,1</div></div>
+        <div id="pl-veredicto"><div class="pl-disp" id="pl-v-edif">→ edificado</div><div class="pl-disp" id="pl-v-patio">→ patio o fondo</div></div>
+      </div>
+    </div>
+
+
+    <div id="pl-osm" class="clip" data-start="37.4" data-duration="9.4" data-track-index="2">
+      <div class="pl-placa" id="pl-osm-in">
+        <div class="pl-disp">Calles de hoy</div>
+        <div class="pl-sub" id="pl-osm-subs"><div id="pl-osm-a"><b>■</b> afín con 14 edificios de referencia</div><div id="pl-osm-f"><b>■</b> ajuste fino, en 104 ventanas</div></div>
+      </div>
+    </div>
+    <div id="pl-corr" class="clip" data-start="43.3" data-duration="3.5" data-track-index="3">
+      <div class="pl-placa" id="pl-corr-in"><div class="pl-disp" id="pl-corr-n">9,7 m</div><div class="pl-sub">corrimiento medio</div></div>
+    </div>
+    <div id="pl-cred" class="clip" data-start="37.4" data-duration="9.4" data-track-index="5" data-layout-ignore><span id="pl-cred-in">calles: © colaboradores de OpenStreetMap</span></div>
+  </div>
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+      // --- la cámara sobre el plano: centro (cx, cy) y ancho visible, en píxeles del escaneo ---
+      const N = %%NIVELES%%; // [x, y, ancho, alto] de cada nivel, en el orden de las capas
+      const CAPAS = ["#pl-n0", "#pl-n1", "#pl-n2", "#pl-n3", "#pl-n4", "#pl-n5", "#pl-n6"].map((s) => document.querySelector(s));
+      const st = { cx: 9459.5, cy: 7951, lw: Math.log(18919), arc: 0, bump: 0 };
+      function aplicar() {
+        const w = Math.exp(st.lw + st.bump * Math.sin(Math.PI * st.arc)), h = (w * 9) / 16, x0 = st.cx - w / 2, y0 = st.cy - h / 2;
+        N.forEach((n, i) => {
+          const m = Math.min(x0 - n[0], n[0] + n[2] - (x0 + w), y0 - n[1], n[1] + n[3] - (y0 + h));
+          const op = i === 0 ? 1 : Math.max(0, Math.min(1, m / (0.05 * w)));
+          gsap.set(CAPAS[i], { x: ((n[0] - x0) / w) * 1920, y: ((n[1] - y0) / h) * 1080, scale: n[2] / w, autoAlpha: op });
+        });
+      }
+      // (los valores se asignan por propiedades con «setter»: así la cámara se recalcula en cada cuadro buscado)
+      const cam = {};
+      Object.keys(st).forEach((k) => Object.defineProperty(cam, k, { get: () => st[k], set: (v) => { st[k] = v; aplicar(); } }));
+      const K = (cx, cy, w, arc = 0, bump = 0) => ({ cx, cy, lw: Math.log(w), arc, bump });
+      const vuela = (t, dur, de, a, ease) => tl.fromTo(cam, de, { ...a, duration: dur, ease, immediateRender: false }, t);
+      vuela(0, 10.9, K(9459.5, 7951, 18919), K(9700, 8560, 12800), "none");
+      vuela(10.9, 3.3, K(9700, 8560, 12800), K(9966, 9474, 440), "power3.inOut");
+      vuela(15.2, 1.5, K(9966, 9474, 440), K(9904, 9420, 200), "power2.inOut");
+      vuela(32.3, 2.3, K(9904, 9420, 200), K(9966, 9474, 700), "power2.inOut");
+      vuela(34.9, 2.4, K(9966, 9474, 700, 0, 1.8), K(12170, 7191, 1000, 1, 1.8), "power2.inOut");
+      vuela(46.7, 1.7, K(12170, 7191, 1000, 0, 2.0), K(9966, 9474, 487, 1, 2.0), "power3.inOut");
+      aplicar();
+
+      // un número que se escribe solo (también por «setter»)
+      const numero = (sel, fmt, v0) => { const el = document.querySelector(sel), o = {}; let v = v0; Object.defineProperty(o, "v", { get: () => v, set: (x) => { v = x; el.textContent = fmt(x); } }); return o; };
+      const coma = (x) => x.toFixed(1).replace(".", ",");
+
+      // --- 1. el título ---
+      tl.fromTo("#pl-t-anio", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.75);
+      tl.fromTo("#pl-t-sub", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 4.1);
+      tl.fromTo("#pl-carta", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(10px)", duration: 0.25, ease: "power2.in", immediateRender: false }, 10.0);
+
+      // --- 2. el rayado es un código ---
+      const pasa = (sel, t) => tl.fromTo(sel, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.32, ease: "power3.out" }, t);
+      const sale = (sel, t, d = 0.2) => tl.fromTo(sel, { opacity: 1 }, { opacity: 0, duration: d, ease: "power2.in", immediateRender: false }, t);
+      pasa("#pl-cruz-in", 16.4); tl.fromTo("#pl-cruz-sub", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 17.15);
+      pasa("#pl-simple-in", 18.55); tl.fromTo("#pl-simple-sub", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 19.55);
+      sale("#pl-cruz-in", 21.2); sale("#pl-simple-in", 21.25);
+
+      // --- 3. medir la textura ---
+      tl.fromTo("#pl-px-in", { opacity: 0, scale: 0.9, transformOrigin: "55px 115px" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 23.3);
+      sale("#pl-px-in", 26.4);
+      tl.fromTo("#pl-vent-caja", { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power4.out" }, 26.9);
+      tl.fromTo("#pl-d-a", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 28.8);
+      tl.fromTo("#pl-d-b", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 29.05);
+      tl.fromTo("#pl-vent-rot", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 30.3);
+      tl.fromTo("#pl-vent-in", { x: 0, y: 0 }, { x: 1094, y: 77, duration: 0.7, ease: "power3.inOut", immediateRender: false }, 30.5);
+      sale("#pl-vent-in", 32.15);
+      tl.fromTo("#pl-lect-in", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, 28.65);
+      tl.fromTo("#pl-b-a", { scaleX: 0 }, { scaleX: 17.3 / 34, duration: 0.45, ease: "power3.out" }, 28.8);
+      tl.fromTo("#pl-b-b", { scaleX: 0 }, { scaleX: 24.1 / 34, duration: 0.45, ease: "power3.out" }, 29.05);
+      tl.fromTo("#pl-v-a", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 28.8);
+      tl.fromTo("#pl-v-b", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 29.05);
+      tl.fromTo("#pl-v-edif", { opacity: 0 }, { opacity: 1, duration: 0.18 }, 29.4);
+      tl.fromTo("#pl-v-patio", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 28.6);
+      // la ventana se corre al rayado simple: una diagonal se apaga
+      tl.fromTo("#pl-v-edif", { opacity: 1 }, { opacity: 0, duration: 0.15, immediateRender: false }, 30.55);
+      tl.fromTo("#pl-b-a", { scaleX: 17.3 / 34 }, { scaleX: 3.1 / 34, duration: 0.7, ease: "power3.inOut", immediateRender: false }, 30.5);
+      tl.fromTo("#pl-b-b", { scaleX: 24.1 / 34 }, { scaleX: 1, duration: 0.7, ease: "power3.inOut", immediateRender: false }, 30.5);
+      tl.fromTo(numero("#pl-v-a", coma, 17.3), { v: 17.3 }, { v: 3.1, duration: 0.7, ease: "power3.inOut", immediateRender: false }, 30.5);
+      tl.fromTo(numero("#pl-v-b", coma, 24.1), { v: 24.1 }, { v: 34, duration: 0.7, ease: "power3.inOut", immediateRender: false }, 30.5);
+      tl.fromTo("#pl-d-a", { opacity: 1 }, { opacity: 0.22, duration: 0.4, immediateRender: false }, 30.8);
+      tl.fromTo("#pl-v-patio", { opacity: 0 }, { opacity: 1, duration: 0.18, immediateRender: false }, 31.2);
+      sale("#pl-lect-in", 32.65);
+      // y clasifica cada punto
+      tl.fromTo("#pl-clases", { clipPath: "inset(0% 100% 0% 0%)", opacity: 1 }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.9, ease: "power1.inOut" }, 32.4);
+      tl.fromTo("#pl-ley1", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 33.35);
+      tl.fromTo("#pl-ley2", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 33.55);
+      sale("#pl-ley1", 34.8, 0.15); sale("#pl-ley2", 34.8, 0.15);
+      tl.fromTo("#pl-clases", { opacity: 1 }, { opacity: 0, duration: 0.5, ease: "power2.in", immediateRender: false }, 34.8);
+
+      // --- 4. el calce de calles ---
+      tl.fromTo("#pl-fino", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#pl-calles", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "power2.inOut" }, 37.3);
+      tl.fromTo("#pl-osm-in", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 37.5);
+      tl.fromTo("#pl-osm-f", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 37.4);
+      tl.fromTo("#pl-cred-in", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 37.6);
+      // ventana por ventana: las calles se corren a su lugar
+      tl.fromTo("#pl-afin", { x: 0, y: 0, stroke: "#1d5fb4" }, { x: %%DX%%, y: %%DY%%, stroke: "#c2321c", duration: 1.1, ease: "power3.inOut", immediateRender: false }, 40.4);
+      tl.fromTo("#pl-fino", { opacity: 0 }, { opacity: 1, duration: 0.25, immediateRender: false }, 41.5);
+      tl.fromTo("#pl-afin", { opacity: 1 }, { opacity: 0, duration: 0.25, immediateRender: false }, 41.6);
+      tl.fromTo("#pl-osm-a", { opacity: 1 }, { opacity: 0, duration: 0.2, immediateRender: false }, 41.1);
+      tl.fromTo("#pl-osm-f", { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, 41.3);
+      tl.fromTo("#pl-corr-in", { opacity: 0, scale: 1.25, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "power4.out" }, 43.45);
+      tl.fromTo(numero("#pl-corr-n", (x) => coma(x) + " m", 9.7), { v: 9.7 }, { v: 2.4, duration: 0.85, ease: "power2.inOut", immediateRender: false }, 44.95);
+      sale("#pl-osm-in", 46.45, 0.25); sale("#pl-corr-in", 46.45, 0.25); sale("#pl-cred-in", 46.45, 0.25);
+      tl.fromTo("#pl-calles", { opacity: 1 }, { opacity: 0, duration: 0.3, immediateRender: false }, 46.5);
+
+      // --- 5. de la lectura, los techos ---
+      tl.fromTo("#pl-techos", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 48.15);
+      window.__timelines["plano"] = tl;
+    })();
+  </script>
+</template>

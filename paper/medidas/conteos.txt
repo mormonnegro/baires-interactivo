@@ -1,0 +1,73 @@
+== Código ==
+tools/*.mjs                     31 archivos    4093 líneas
+src/*.js                        25 archivos    6516 líneas
+src/lugares/*.js                18 archivos    4585 líneas
+index.html + edificios.html      2 archivos     369 líneas
+dependencias: {"three":"0.186.1","vite":"8.3.5","playwright-core":"^1.64.1","sharp":"^0.34.5"}
+
+== Marcas (src/marcas.js, LUGARES) ==
+marcas de época: 149 · por nivel {"1":19,"2":78,"3":52} · por etapa en que aparecen {"1867":27,"1888":14,"1895":14,"1905":14,"1910":14,"1921":37,"1940":29} · con fecha de salida 40
+marcas vigentes por etapa: 1867: 27 · 1888: 30 · 1895: 36 · 1905: 47 · 1910: 57 · 1921: 89 · 1940: 109
+marcas «de hoy» (public/datos/hoy.json): 51 (de ellas 8 caen en lo que en 1867 era río)
+
+== Fichas y fotos (src/fichas.js, src/fotos.json, fuentes/fotos/) ==
+fichas: 114 · con al menos una foto: 95
+fotos catalogadas (src/fotos.json): 146 · con pie en src/fichas.js (FOTOS): 146 · citadas por alguna ficha: 146
+licencias en src/fotos.json: {"Public domain":146} · con dirección de Wikimedia Commons: 146
+fuentes/fotos/*.json: 146 · licencias: {"Public domain":146} · sin autor anotado: 0
+peso: public/fotos/*.webp 22.4 MB · public/fotos/m/*.webp 8.4 MB
+autores: 39 rótulos distintos; los más frecuentes: (autor desconocido) 69 · Esteban Gonnet 20 · Christiano Junior 9 · Benito Panunzi 5 · National Photo Company Collection 3 · Archivo General de la Nación Argentina 2 · Archivo Casa Witcomb 2 · Bourquin & Kohlmann 2
+
+== Lugares modelados a mano ==
+archivos en src/lugares/: 18 (4585 líneas) · plantas de edificios tomadas de OpenStreetMap (src/edificios.js): 33
+  src/lugares/avenida-de-mayo.js          396 líneas ·   4 llamadas a c.epoca()
+  src/lugares/cabildo.js                  197 líneas ·   8 llamadas a c.epoca()
+  src/lugares/casa-rosada.js              164 líneas ·   5 llamadas a c.epoca()
+  src/lugares/diagonal-norte.js           207 líneas ·   0 llamadas a c.epoca()
+  src/lugares/modernos.js                 296 líneas ·   2 llamadas a c.epoca()
+  src/lugares/nueve-de-julio.js           146 líneas ·   1 llamadas a c.epoca()
+  src/lugares/plaza-congreso.js           242 líneas ·  23 llamadas a c.epoca()
+  src/lugares/plaza-constitucion.js       293 líneas ·  24 llamadas a c.epoca()
+  src/lugares/plaza-de-mayo.js            268 líneas ·  16 llamadas a c.epoca()
+  src/lugares/plaza-lavalle.js            262 líneas ·  26 llamadas a c.epoca()
+  src/lugares/plaza-once.js               244 líneas ·  15 llamadas a c.epoca()
+  src/lugares/plaza-san-martin.js         289 líneas ·  23 llamadas a c.epoca()
+  src/lugares/puerto-nuevo.js             302 líneas ·   7 llamadas a c.epoca()
+  src/lugares/puerto.js                   367 líneas ·  15 llamadas a c.epoca()
+  src/lugares/retiro.js                   406 líneas ·   4 llamadas a c.epoca()
+  src/lugares/subte-a.js                  110 líneas ·   1 llamadas a c.epoca()
+  src/lugares/teatro-colon.js             121 líneas ·   0 llamadas a c.epoca()
+  src/lugares/viejos-1867.js              275 líneas ·   4 llamadas a c.epoca()
+iglesias levantadas desde las cruces del plano (public/datos/ciudad.json): 16
+
+== Lo que baja el navegador (bytes en disco de public/; el servidor los manda tal cual: ya vienen comprimidos) ==
+1. el plano tendido                                          0.13 MB   primero.webp 131 kB · laminas.json 0 kB · ciudad.json 1 kB
+2. la ciudad de 1867                                         1.35 MB   ciudad.pak 1346 kB
+   (alternativa sin DecompressionStream: los cuatro .bin)    3.76 MB   manzanas.bin 145 kB · techos.bin 840 kB · muros.bin 2344 kB · arboles.bin 428 kB
+3a. lámina entera, pantalla grande                           8.99 MB   medio.webp 8994 kB
+3b. lámina entera, teléfono                                  1.98 MB   medio-4k.webp 1984 kB
+4. al salir de 1867 (línea de tiempo)                        2.95 MB   crece.pak 2225 kB · crece.json 3 kB · crece.webp 691 kB · despeje.webp 30 kB
+   (lo mismo, en teléfono: láminas -2k)                      2.55 MB   crece.pak 2225 kB · crece.json 3 kB · crece-2k.webp 306 kB · despeje-2k.webp 13 kB
+5. al prender el color                                       1.28 MB   suelo.webp 629 kB · calles.webp 589 kB · patios.pak 60 kB
+   (lo mismo, en teléfono)                                   0.74 MB   suelo-2k.webp 213 kB · calles-2k.webp 467 kB · patios.pak 60 kB
+6. «lo de hoy»                                               2.60 MB   hoy-cerca.webp 2194 kB · hoy-lejos.webp 272 kB · hoy.json 5 kB · calles.bin 112 kB · calles.json 20 kB
+7. relieve (apagado por defecto)                             0.37 MB   relieve.bin 368 kB
+teselas a tamaño del escaneo (public/plano/f): 35,  38.22 MB en total; cada una 0.01–3.29 MB, mediana 1.00 MB
+todo public/:  94.24 MB
+
+== Código construido (dist/assets; solo lectura) ==
+autos-BXDTw1_I.js                      49 kB   gzip    19 kB   brotli    16 kB
+buscar-B6me7RzX.js                     15 kB   gzip     7 kB   brotli     6 kB
+edificios-CWb1FzlH.js                   7 kB   gzip     3 kB   brotli     3 kB
+ficha-D5Z1Ko9C.js                      14 kB   gzip     5 kB   brotli     5 kB
+fichas-DO4ZNUBe.js                    134 kB   gzip    38 kB   brotli    32 kB
+index-vtwRoFqN.js                     684 kB   gzip   207 kB   brotli   173 kB
+marcas-BMOCMv1w.js                     23 kB   gzip     9 kB   brotli     7 kB
+modos-BC_AHSIo.js                      20 kB   gzip     8 kB   brotli     8 kB
+preload-helper-CRzLMJPS.js              2 kB   gzip     1 kB   brotli     1 kB
+three.core-CVy_Bt7O.js                377 kB   gzip    99 kB   brotli    81 kB
+url-DHlbwLtx.js                         0 kB   gzip     0 kB   brotli     0 kB
+vitrina-CP6zCPWb.js                     2 kB   gzip     1 kB   brotli     1 kB
+index.html                             16 kB   gzip     5 kB
+edificios.html                         11 kB   gzip     4 kB
+dist/ construido el 2026-11-17T16:04:36.483Z

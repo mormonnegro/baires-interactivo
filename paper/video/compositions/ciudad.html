@@ -1,0 +1,61 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; color: #f1e7d2; font-family: "Lato", sans-serif; }
+    .ci-capa { position: absolute; inset: 0; }
+    .ci-capa video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    .ci-disp { font-family: "League Gothic", sans-serif; text-transform: uppercase; line-height: 0.92; letter-spacing: 0.01em; font-weight: 400; }
+    .ci-placa { position: absolute; left: 0; bottom: 0; background: #1f1b17; padding: 26px 40px 30px; }
+    #ci-cuenta { position: absolute; left: 96px; top: 520px; width: 780px; height: 464px; }
+    .ci-fila { display: flex; align-items: baseline; gap: 22px; height: 132px; white-space: nowrap; }
+    .ci-fila .ci-disp { font-size: 140px; width: 400px; text-align: right; }
+    .ci-fila span { font-size: 50px; font-weight: 700; }
+    #ci-inv { position: absolute; left: 96px; top: 600px; width: 1000px; height: 384px; }
+    #ci-inv .ci-disp { font-size: 124px; white-space: nowrap; }
+    #ci-inv .ci-disp span { display: inline-block; margin-right: 34px; }
+    #ci-inv-pie { font-size: 50px; font-weight: 700; margin-top: 14px; white-space: nowrap; }
+    #ci-inv-a { color: #f0674c; }
+  </style>
+  <div id="root" data-composition-id="ciudad" data-width="1920" data-height="1080">
+    <div class="ci-capa" id="ci-capa-tinta"><video id="ci-tinta" class="clip" src="assets/visor/sube-tinta.mp4" muted playsinline data-start="0" data-duration="7.5" data-track-index="0"></video></div>
+    <div class="ci-capa" id="ci-capa-color"><video id="ci-color" class="clip" src="assets/visor/sube-color.mp4" muted playsinline data-start="5.5" data-duration="9.1" data-track-index="1"></video></div>
+
+    <div id="ci-cuenta" class="clip" data-start="1.8" data-duration="6.9" data-track-index="2">
+      <div class="ci-placa" id="ci-cuenta-in">
+        <div class="ci-fila" id="ci-f1"><div class="ci-disp" id="ci-n1">52.521</div><span>techos</span></div>
+        <div class="ci-fila" id="ci-f2"><div class="ci-disp" id="ci-n2">146.487</div><span>muros</span></div>
+        <div class="ci-fila" id="ci-f3"><div class="ci-disp" id="ci-n3">35.658</div><span>árboles</span></div>
+      </div>
+    </div>
+    <div id="ci-inv" class="clip" data-start="8.5" data-duration="6.1" data-track-index="3">
+      <div class="ci-placa" id="ci-inv-in">
+        <div class="ci-disp"><span id="ci-w1">Lotes</span><span id="ci-w2">alturas</span><span id="ci-w3">aberturas</span></div>
+        <div id="ci-inv-pie"><span id="ci-inv-a">inventados</span> <span id="ci-inv-b">con reglas declaradas</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+      const miles = (x) => Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      const numero = (sel, v0) => { const el = document.querySelector(sel), o = {}; let v = v0; Object.defineProperty(o, "v", { get: () => v, set: (x) => { v = x; el.textContent = miles(x); } }); return o; };
+      // el plano se vuelve ciudad: primero en tinta, con el propio grabado; después entra el color
+      tl.fromTo("#ci-capa-tinta", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.inOut" }, 0);
+      tl.fromTo("#ci-capa-color", { opacity: 0 }, { opacity: 1, duration: 1.0, ease: "power1.inOut" }, 6.0);
+      // los tres números, cada uno cuando se nombra
+      tl.fromTo("#ci-cuenta-in", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 1.85);
+      [["#ci-f1", "#ci-n1", 52521, 1.9], ["#ci-f2", "#ci-n2", 146487, 4.05], ["#ci-f3", "#ci-n3", 35658, 6.45]].forEach(([f, n, v, t]) => {
+        tl.fromTo(f, { opacity: 0 }, { opacity: 1, duration: 0.15 }, t);
+        tl.fromTo(numero(n, v), { v: v * 0.6 }, { v, duration: 0.7, ease: "power3.out" }, t);
+      });
+      tl.fromTo("#ci-cuenta-in", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power2.in", immediateRender: false }, 8.4);
+      // lo inventado
+      tl.fromTo("#ci-inv-in", { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 8.6);
+      tl.fromTo("#ci-w1", { opacity: 0.18 }, { opacity: 1, duration: 0.12 }, 8.65);
+      tl.fromTo("#ci-w2", { opacity: 0.18 }, { opacity: 1, duration: 0.12 }, 9.65);
+      tl.fromTo("#ci-w3", { opacity: 0.18 }, { opacity: 1, duration: 0.12 }, 10.6);
+      tl.fromTo("#ci-inv-a", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 11.35);
+      tl.fromTo("#ci-inv-b", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 12.6);
+      window.__timelines["ciudad"] = tl;
+    })();
+  </script>
+</template>

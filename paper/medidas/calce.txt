@@ -1,0 +1,4 @@
+ventanas: 104; corrimiento medio respecto del afín de referencias 9.7 m
+recorte (a): ventana en este -1716 m, norte 1103 m de la Plaza de Mayo; corrimiento 9.8 m; píxeles [11860, 6881] de 620 px (419 m)
+calles angostas de hoy que pasan por el recorte: 14
+fig04-calce.png · (b) 104 flechas, exageración ×40

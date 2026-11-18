@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d1a17">
+  <title>Buenos Aires, edificio por edificio · 1867–1940</title>
+  <meta name="description" content="Los edificios de Buenos Aires levantados en 3D sobre el plano de 1867, cada uno en el año en que estuvo en pie: del Cabildo de once arcos al Kavanagh.">
+  <meta name="author" content="@mormonnegro">
+  <link rel="icon" href="data:,">
+  <style>
+    :root { --mesa: #1d1a17; --papel: #f1e6cd; --papel-claro: #fff6e2; --tinta: #2a221b; --crema: #efe4cd; --rojo: #a8442f; --sl: env(safe-area-inset-left, 0px); --sr: env(safe-area-inset-right, 0px); --sb: env(safe-area-inset-bottom, 0px); --col: min(540px, 44vw); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--mesa); color: var(--crema); font: 17px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: inherit; }
+    button { font: inherit; color: inherit; }
+    :focus-visible { outline: 2px solid var(--rojo); outline-offset: 2px; }
+
+    /* dos columnas: la ciudad, quieta a la izquierda, y la lista que baja a la derecha */
+    #recorrido { display: grid; grid-template-columns: minmax(0, 1fr) var(--col); align-items: start; }
+    #escena { position: sticky; top: 0; height: 100vh; height: 100dvh; background: #2a2521; overflow: hidden; }
+    #ciudad { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; pointer-events: none; opacity: 0; transition: opacity 1.4s; }
+    body.con-ciudad #ciudad { opacity: 1; }
+    body.libre #ciudad { pointer-events: auto; }
+    #espera { position: absolute; inset: 0; display: grid; place-items: center; font-style: italic; letter-spacing: .08em; opacity: .7; transition: opacity .8s; }
+    body.con-ciudad #espera { opacity: 0; pointer-events: none; }
+    /* las etiquetas de papel, con doble filete, como la cartela de un plano */
+    .papel { color: var(--tinta); background: var(--papel); border: 1px solid var(--tinta); outline: 1px solid #2a221b99; outline-offset: 2px; box-shadow: 0 5px 24px #0007; }
+    #cartel { position: absolute; left: calc(24px + var(--sl)); bottom: calc(24px + var(--sb)); max-width: min(420px, 70%); padding: 9px 16px 10px; display: flex; align-items: baseline; gap: 12px; }
+    #cartel[hidden] { display: none; }
+    #cartel b { font-weight: 500; font-size: 21px; letter-spacing: .02em; line-height: 1.2; }
+    #cartel i { font-style: normal; font-size: 15px; font-variant-numeric: lining-nums; letter-spacing: .06em; opacity: .75; }
+    #mover { position: absolute; right: calc(24px + var(--sr)); bottom: calc(24px + var(--sb)); padding: 9px 16px; cursor: pointer; font-size: 15px; letter-spacing: .02em; border-radius: 0; opacity: 0; transition: opacity 1s; }
+    body.con-ciudad #mover { opacity: 1; }
+    #mover:hover { background: var(--papel-claro); }
+    #ayuda { position: absolute; right: calc(24px + var(--sr)); bottom: calc(76px + var(--sb)); margin: 0; padding: 6px 12px; font-size: 13px; font-style: italic; text-align: right; opacity: 0; transition: opacity .5s; pointer-events: none; }
+    body.libre #ayuda { opacity: 1; }
+    body.libre.tocada #ayuda { opacity: 0; }
+
+    #lista { min-width: 0; padding: 0 calc(30px + var(--sr)) 40px 30px; }
+    #portada { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; padding: 56px 0 40px; }
+    #portada .sobre { margin: 0 0 18px; font-size: 14px; letter-spacing: .22em; text-transform: uppercase; font-variant-numeric: lining-nums; opacity: .7; }
+    #portada h1 { margin: 0; font-weight: 500; font-size: clamp(38px, 4.6vw, 62px); line-height: 1.04; letter-spacing: .005em; text-wrap: balance; }
+    #portada h1 em { font-style: italic; }
+    #portada .dice { margin: 22px 0 0; font-size: 18.5px; max-width: 30em; opacity: .9; text-wrap: pretty; }
+    #portada .dice b { font-weight: 600; font-variant-numeric: lining-nums; }
+    #portada .hacer { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .boton { display: inline-block; padding: 10px 18px; font-size: 16px; letter-spacing: .02em; text-decoration: none; cursor: pointer; }
+    .boton:hover { background: var(--papel-claro); }
+    .boton.hueco { background: none; color: var(--crema); border: 1px solid #efe4cd88; outline: 0; box-shadow: none; }
+    .boton.hueco:hover { background: #efe4cd14; }
+    /* quién lo hizo */
+    .autor { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; text-decoration: none; line-height: 1.2; width: fit-content; }
+    .autor img { display: block; width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 1px solid #efe4cd; outline: 1px solid #efe4cd66; outline-offset: 2px; background: #2a2521; }
+    .autor i { display: block; font-style: normal; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; opacity: .65; }
+    .autor b { font-weight: 500; font-size: 18px; letter-spacing: .01em; }
+    .autor:hover b { text-decoration: underline; text-underline-offset: 3px; }
+    #portada .fuente { margin: 26px 0 0; font-size: 13.5px; font-style: italic; opacity: .6; max-width: 34em; }
+
+    /* el índice de los años: queda arriba mientras se baja */
+    #indice { position: sticky; top: 0; z-index: 3; display: flex; gap: 1px; overflow-x: auto; scrollbar-width: none; margin: 0 -8px; padding: 10px 8px; background: linear-gradient(var(--mesa) 78%, #1d1a1700); font-variant-numeric: lining-nums; }
+    #indice::-webkit-scrollbar { display: none; }
+    #indice a { padding: 4px 8px; font-size: 14.5px; letter-spacing: .04em; text-decoration: none; opacity: .62; white-space: nowrap; }
+    #indice a i { font-style: normal; font-size: 11px; margin-left: 4px; opacity: .7; vertical-align: 2px; }
+    #indice a:hover { opacity: 1; }
+    #indice a.on { opacity: 1; background: var(--papel); color: var(--tinta); }
+
+    .año { padding-top: 26px; scroll-margin-top: 44px; }
+    .año h2 { margin: 0; font-weight: 500; font-size: clamp(54px, 6.2vw, 84px); line-height: 1; letter-spacing: .01em; font-variant-numeric: lining-nums; }
+    #iglesias h2 { font-size: clamp(38px, 4.4vw, 58px); }
+    .año .bajada { margin: 8px 0 26px; font-style: italic; opacity: .78; max-width: 28em; text-wrap: pretty; }
+    .edif { position: relative; margin: 0 0 26px; padding: 18px 22px 16px; color: var(--tinta); background: var(--papel); border: 1px solid var(--tinta); outline: 1px solid #2a221b99; outline-offset: 2px; opacity: .5; transition: opacity .45s, box-shadow .45s, transform .45s; scroll-margin-top: 70px; }
+    .edif.activa { opacity: 1; box-shadow: 0 10px 34px #000a; }
+    .edif .cuando { margin: 0 0 3px; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; font-variant-numeric: lining-nums; color: var(--rojo); }
+    .edif h3 { margin: 0; font-weight: 500; font-size: 27px; line-height: 1.15; letter-spacing: .01em; text-wrap: balance; }
+    .edif .era { margin: 5px 0 0; font-style: italic; opacity: .82; line-height: 1.4; }
+    .edif p { margin: 12px 0 0; text-wrap: pretty; hyphens: auto; }
+    .edif figure { margin: 14px 0 0; }
+    .edif img { display: block; width: 100%; height: auto; max-height: 300px; object-fit: cover; border: 1px solid var(--tinta); background: #d9cdb2; filter: sepia(.18); }
+    .edif figcaption { margin-top: 5px; font-size: 13px; line-height: 1.35; font-style: italic; opacity: .8; }
+    .edif figcaption span { font-style: normal; opacity: .8; white-space: nowrap; }
+    .edif details { margin-top: 10px; }
+    .edif summary { cursor: pointer; font-size: 14.5px; font-style: italic; opacity: .8; width: fit-content; }
+    .edif summary:hover { opacity: 1; }
+    .edif .hoy b { font-weight: 600; letter-spacing: .04em; }
+    .edif .pie { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 14px; margin-top: 16px; padding-top: 12px; border-top: 1px solid #2a221b44; }
+    .edif .años { display: flex; flex-wrap: wrap; gap: 2px; font-variant-numeric: lining-nums; }
+    .edif .años button { background: none; border: 0; padding: 4px 9px; min-height: 32px; font-size: 15px; letter-spacing: .04em; cursor: pointer; }
+    .edif .años button:hover { background: var(--papel-claro); }
+    .edif .años button.on { background: var(--tinta); color: #f7eedb; }
+    .edif .ver { font-size: 14.5px; font-style: italic; white-space: nowrap; text-underline-offset: 3px; }
+    .edif .ver::after { content: " →"; font-style: normal; }
+    .edif .nota { margin: 10px 0 0; font-size: 14.5px; line-height: 1.4; opacity: .9; }
+    .edif .nota b { font-weight: 600; font-variant-numeric: lining-nums; }
+
+    #cierre { padding: 40px 0 60px; border-top: 1px solid #efe4cd33; margin-top: 30px; }
+    #cierre h2 { margin: 0 0 10px; font-weight: 500; font-size: 30px; }
+    #cierre p { margin: 0 0 20px; opacity: .85; max-width: 30em; }
+    #cierre small { display: block; margin-top: 26px; font-size: 13px; font-style: italic; opacity: .6; max-width: 36em; line-height: 1.5; }
+
+    /* la ventana angosta y el teléfono: la ciudad arriba, fija, y la lista por debajo */
+    @media (max-width: 860px) {
+      body { font-size: 16px; }
+      #recorrido { display: block; }
+      #escena { height: 44svh; z-index: 4; box-shadow: 0 8px 22px #000a; }
+      #lista { padding: 0 calc(16px + var(--sr)) 30px calc(16px + var(--sl)); }
+      #portada { min-height: 0; padding: 30px 0 26px; }
+      #portada h1 { font-size: clamp(34px, 9.4vw, 46px); }
+      #portada .dice { font-size: 17px; margin-top: 16px; }
+      #portada .hacer { margin-top: 22px; }
+      #portada .fuente { margin-top: 24px; }
+      #indice { top: 44svh; margin: 0 -6px; padding: 8px 6px 10px; }
+      #indice a { padding: 4px 8px; font-size: 14px; }
+      .año { scroll-margin-top: calc(44svh + 36px); }
+      .edif { padding: 15px 16px 13px; margin-bottom: 22px; scroll-margin-top: calc(44svh + 60px); }
+      .edif h3 { font-size: 23px; }
+      .edif img { max-height: 230px; }
+      #cartel { left: calc(12px + var(--sl)); bottom: 12px; padding: 6px 11px 7px; gap: 9px; max-width: 62%; }
+      #cartel b { font-size: 16px; } #cartel i { font-size: 13px; }
+      #mover { right: calc(12px + var(--sr)); bottom: 12px; padding: 7px 11px; font-size: 13.5px; }
+      #ayuda { right: calc(12px + var(--sr)); bottom: 54px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .edif, #ciudad { transition: none; } }
+  </style>
+</head>
+<body>
+  <main id="recorrido">
+    <div id="escena">
+      <div id="espera">Desplegando el plano…</div>
+      <iframe id="ciudad" src="./?limpio&color&vitrina" title="La ciudad en tres dimensiones" tabindex="-1"></iframe>
+      <div id="cartel" class="papel" hidden aria-live="polite"><b></b><i></i></div>
+      <p id="ayuda" class="papel">arrastrá para moverte · rueda o dos dedos para acercarte</p>
+      <button id="mover" class="papel" type="button" aria-pressed="false">Mover la cámara</button>
+    </div>
+    <div id="lista">
+      <header id="portada">
+        <p class="sobre">Buenos Aires · 1867 — 1940</p>
+        <h1>La ciudad, <em>edificio por edificio</em></h1>
+        <p class="dice"><b id="cuantos">Los</b> edificios levantados en tres dimensiones sobre el plano de 1867, cada uno en el año en que estuvo en pie. Bajá por la lista: la ciudad de al lado va hasta cada uno y le da la vuelta.</p>
+        <div class="hacer">
+          <a class="boton papel" href="#a1867">Empezar por 1867</a>
+          <a class="boton papel hueco" href="./">Abrir el visor entero</a>
+        </div>
+        <a class="autor" href="https://x.com/mormonnegro" target="_blank" rel="noopener" title="@mormonnegro en X"><img data-de="autor.webp" alt="" width="48" height="48"><span><i>Hecho por</i><b>@mormonnegro</b></span></a>
+        <p class="fuente">Sobre el plano de Carlos Glade para el Departamento Topográfico (1867). Las formas salen de fotos de época; lo que no se pudo confirmar, cada ficha lo dice.</p>
+      </header>
+      <nav id="indice" aria-label="Los años"></nav>
+      <footer id="cierre">
+        <h2>Ahora, caminala</h2>
+        <p>En el visor entero se puede recorrer la ciudad a pie, en auto o en avión, cambiar de año y abrir la ficha de cada lugar, con sus fotos.</p>
+        <a class="boton papel" href="./">Abrir el visor</a>
+        <div><a class="autor" href="https://x.com/mormonnegro" target="_blank" rel="noopener" title="@mormonnegro en X"><img data-de="autor.webp" alt="" width="48" height="48"><span><i>Hecho por</i><b>@mormonnegro</b></span></a></div>
+        <small>Las fotos son de dominio público, de Wikimedia Commons; el autor y la fecha de cada una están en su pie. Los textos resumen lo que se pudo confirmar de cada edificio.</small>
+      </footer>
+    </div>
+  </main>
+  <script type="module" src="/src/catalogo.js"></script>
+</body>
+</html>

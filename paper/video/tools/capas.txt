@@ -1,0 +1,19 @@
+nivel 0: [0, 2630] 18919 × 10642 px (12770 m de ancho)
+nivel 1: [6766, 7674] 6400 × 3600 px (4320 m de ancho)
+nivel 2: [8899, 8874] 2134 × 1200 px (1440 m de ancho)
+nivel 3: [9610, 9274] 712 × 400 px (481 m de ancho)
+nivel 4: [9776, 9348] 256 × 144 px (173 m de ancho)
+nivel 5: [10170, 6066] 4000 × 2250 px (2700 m de ancho)
+nivel 6: [11514, 6822] 1312 × 738 px (886 m de ancho)
+ventana en rayado cruzado: {"x":9845,"y":9437,"d":5,"a":17.3,"b":24.1,"tono":105} · en rayado simple: {"x":9959,"y":9445,"d":0,"a":3.1,"b":34,"tono":111}
+techos del visor en el nivel 3: 756
+calles de hoy en el recorte: 45; corrimiento medio local entre el afín y el fino: 10.9 m (-8.12,-14.02 px)
+muestra 0.5 km: píxeles [10112, 8522] · techos 487 · árboles 3
+muestra 3.5 km: píxeles [10112, 4078] · techos 94 · árboles 17
+plano 1888: 6970 × 5428
+plano 1895: 11488 × 11075
+plano 1905: 9582 × 8233
+plano 1910: 7768 × 8272
+plano 1921: 10073 × 9554
+plano 1940: 8782 × 6586
+capas.json

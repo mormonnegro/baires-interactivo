@@ -1,0 +1,29 @@
+ciudad.pak coincide byte a byte con los cuatro .bin sueltos
+1867 · ciudad.json: manzanas 3633, lotes 17143, techos 52521, muros 146487, árboles 35658, iglesias 16
+1867 · leído de los datos: registros de manzana 3633 (de ellos 459 con los dos lados ≥ 45 m; el resto, construcciones sueltas y casillas), techos 52521, muros 146487, árboles 35658, cuerpos distintos (manzana, semilla) 16599
+crece.pak: registros de manzana 3513, techos 78371, muros 292736; de 1867 se van 14060 techos y 38934 muros
+
+año   cuerpos en pie  (de 1867 / nuevos)   techos    muros   +casas (crece.json)  acumuladas  renovadas  edificado (ha)  pisos medios (por superficie)
+1867     16599   ( 16599 /      0)    52521   146487          0                0         0        275.1       1.11
+1888     37612   ( 16055 /  21557)    83956   258781      21467            21467        96        677.1       1.20
+1895     46824   ( 15837 /  30987)    98144   311799       9350            30817        81        853.9       1.21
+1905     49925   ( 15712 /  34213)   103060   329820       3142            33959        84        912.3       1.21
+1910     55306   ( 15482 /  39824)   110982   359604       5526            39485        87       1016.9       1.22
+1921     57810   ( 14483 /  43327)   112726   372237       2647            42132       857       1063.0       1.29
+1940     64007   ( 12148 /  51859)   116832   399731       6589            48721      1945       1172.6       1.47
+
+patios.pak (solo en color): 15704 registros = 15382 árboles + 322 aljibes
+
+lámina del suelo (4096 × 2874, 3.12 m por punto), dentro de la guarda: 93.1 km²
+1867: río y cauces 21.09 km² · rayado de fondo 4.20 km² · rayado edificado y negro 2.69 km²
+año   tierra ganada al río, acumulada (km²)   suelo urbanizado nuevo (km²)   fondos nuevos (km²)   edificado nuevo en la lámina (km²)
+1888        0.01                              21.32                       7.62                     4.96
+1895        3.73                              30.87                      12.13                     7.17
+1905        3.74                              33.07                      13.42                     7.88
+1910        3.76                              36.03                      16.23                     9.16
+1921        6.24                              40.34                      18.24                     9.80
+1940        7.76                              44.91                      22.17                    11.33
+
+tierra ganada al río hasta hoy (hoy-lejos.webp, canal G, 2048 px): 11.57 km² con umbral 0,5; 11.57 km² sumando la cobertura
+
+relieve.bin: 512 × 359 celdas de 24.9 m, alturas en decímetros; máximo 25.0 m; en la Plaza de Mayo (centro de la plaza de 1867) 18.2 m

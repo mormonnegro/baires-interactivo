@@ -1,0 +1,9 @@
+// El artículo, publicado aparte del visor (Cloudflare Workers, solo archivos estáticos) en baires.mormon.garden/paper:
+//   cp paper.html sitio/paper/index.html && cp paper.pdf sitio/paper/paper.pdf && npx wrangler deploy   (desde paper/)
+// Es otro Worker, con una ruta sobre el mismo dominio: publicar el visor no lo toca, y al revés.
+{
+  "name": "baires-paper",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./sitio" },
+  "routes": [{ "pattern": "baires.mormon.garden/paper*", "zone_name": "mormon.garden" }]
+}

@@ -1,0 +1,70 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; color: #1f1b17; font-family: "Lato", sans-serif; }
+    .ag-disp { font-family: "League Gothic", sans-serif; text-transform: uppercase; line-height: 0.92; letter-spacing: 0.01em; font-weight: 400; }
+    #ag-fondo { position: absolute; inset: 0; }
+    #ag-fondo-in { position: absolute; inset: 0; background: #e8dcc4; }
+    #ag-l1 { position: absolute; left: 100px; top: 270px; width: 760px; height: 60px; font-size: 44px; font-weight: 700; }
+    #ag-nombre { position: absolute; left: 96px; top: 320px; width: 800px; height: 210px; font-size: 204px; white-space: nowrap; }
+    #ag-nombre span { display: inline-block; }
+    #ag-l2 { position: absolute; left: 100px; top: 580px; width: 780px; height: 120px; font-size: 44px; line-height: 1.25; }
+    #ag-l2 b { color: #c2321c; }
+    #ag-l3 { position: absolute; left: 100px; top: 740px; width: 780px; height: 100px; font-size: 34px; line-height: 1.3; font-weight: 700; }
+    #ag-t1 { position: absolute; left: 960px; top: 84px; width: 860px; height: 150px; }
+    #ag-t2 { position: absolute; left: 960px; top: 304px; width: 860px; height: 150px; }
+    .ag-tit { display: flex; align-items: baseline; gap: 24px; white-space: nowrap; }
+    .ag-tit .ag-disp { font-size: 156px; }
+    .ag-tit span { font-size: 46px; font-weight: 700; }
+    #ag-n2 { color: #c2321c; min-width: 300px; }
+    #ag-p1 { position: absolute; left: 960px; top: 246px; width: 858px; height: 22px; }
+    #ag-p2 { position: absolute; left: 960px; top: 468px; width: 858px; height: 495px; }
+    #ag-p1 canvas, #ag-p2 canvas { display: block; }
+  </style>
+  <div id="root" data-composition-id="agente" data-width="1920" data-height="1080">
+    <div id="ag-fondo" class="clip" data-start="0" data-duration="14.3" data-track-index="0"><div id="ag-fondo-in"></div></div>
+    <div id="ag-l1" class="clip" data-start="0.5" data-duration="13.8" data-track-index="1"><div class="ag-sale" id="ag-l1-in">Todo lo programó un agente:</div></div>
+    <div id="ag-nombre" class="clip ag-disp" data-start="2.4" data-duration="11.9" data-track-index="2"><div class="ag-sale" id="ag-nombre-in"><span>C</span><span>l</span><span>a</span><span>u</span><span>d</span><span>e</span>&nbsp;<span>C</span><span>o</span><span>d</span><span>e</span></div></div>
+    <div id="ag-l2" class="clip" data-start="3.9" data-duration="10.4" data-track-index="3"><div class="ag-sale" id="ag-l2-in">dirigido por una persona,<br /><b>@mormonnegro</b> («meat proxy»)</div></div>
+    <div id="ag-l3" class="clip" data-start="5.4" data-duration="8.9" data-track-index="4"><div class="ag-sale" id="ag-l3-in">16 y 17 de noviembre de 2026<br />20 sesiones registradas</div></div>
+
+    <div id="ag-t1" class="clip" data-start="8.1" data-duration="6.2" data-track-index="5"><div class="ag-tit ag-sale" id="ag-t1-in"><div class="ag-disp" id="ag-n1">113</div><span>mensajes humanos</span></div></div>
+    <div id="ag-p1" class="clip" data-start="5.4" data-duration="8.9" data-track-index="6"><canvas class="ag-sale" id="ag-c1" width="858" height="22"></canvas></div>
+    <div id="ag-t2" class="clip" data-start="10.2" data-duration="4.1" data-track-index="7"><div class="ag-tit ag-sale" id="ag-t2-in"><div class="ag-disp" id="ag-n2">3.473</div><span>llamadas a herramientas</span></div></div>
+    <div id="ag-p2" class="clip" data-start="5.4" data-duration="8.9" data-track-index="8"><canvas class="ag-sale" id="ag-c2" width="858" height="495"></canvas></div>
+  </div>
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+      const miles = (x) => Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      // un punto por mensaje y un punto por llamada: 78 por fila, 11 px de paso
+      const puntos = (sel, total, color) => {
+        const c = document.querySelector(sel), g = c.getContext("2d"), o = {}; let v = 0, f = 0;
+        const cuadro = (i) => g.fillRect((i % 78) * 11, Math.floor(i / 78) * 11, 8, 8);
+        // primero los casilleros vacíos (uno por mensaje o por llamada), después se llenan
+        const dibuja = () => {
+          g.clearRect(0, 0, c.width, c.height); const n = Math.round(v);
+          g.globalAlpha = 0.13 * f; g.fillStyle = "#1f1b17"; for (let i = n; i < total; i++) cuadro(i);
+          g.globalAlpha = 1; g.fillStyle = color; for (let i = 0; i < n; i++) cuadro(i);
+        };
+        Object.defineProperty(o, "v", { get: () => v, set: (x) => { v = x; dibuja(); } });
+        Object.defineProperty(o, "f", { get: () => f, set: (x) => { f = x; dibuja(); } }); return o;
+      };
+      const escribe = (sel, v0) => { const el = document.querySelector(sel), o = {}; let v = v0; Object.defineProperty(o, "v", { get: () => v, set: (x) => { v = x; el.textContent = miles(x); } }); return o; };
+      tl.fromTo("#ag-fondo-in", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 0);
+      tl.fromTo("#ag-l1-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 0.6);
+      tl.fromTo("#ag-nombre-in span", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, stagger: 0.055, ease: "power2.out" }, 2.5);
+      tl.fromTo("#ag-l2-in", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 4.0);
+      tl.fromTo("#ag-l3-in", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 5.5);
+      tl.fromTo("#ag-t1-in", { opacity: 0, scale: 1.2, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "power4.out" }, 8.2);
+      const p1 = puntos("#ag-c1", 113, "#1f1b17"), p2 = puntos("#ag-c2", 3473, "#c2321c");
+      tl.fromTo([p1, p2], { f: 0 }, { f: 1, duration: 0.6, ease: "power1.out" }, 5.6);
+      tl.fromTo(p1, { v: 0 }, { v: 113, duration: 0.9, ease: "power1.out" }, 8.3);
+      tl.fromTo("#ag-t2-in", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 10.3);
+      tl.fromTo(escribe("#ag-n2", 0), { v: 0 }, { v: 3473, duration: 2.0, ease: "power1.inOut" }, 10.3);
+      tl.fromTo(p2, { v: 0 }, { v: 3473, duration: 2.0, ease: "power1.inOut" }, 10.3);
+      // todo se va junto; el papel queda para la escena que sigue
+      tl.fromTo(".ag-sale", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(10px)", duration: 0.25, ease: "power2.in", immediateRender: false }, 13.95);
+      window.__timelines["agente"] = tl;
+    })();
+  </script>
+</template>

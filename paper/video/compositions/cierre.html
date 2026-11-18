@@ -1,0 +1,69 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; color: #f1e7d2; font-family: "Lato", sans-serif; }
+    .fi-disp { font-family: "League Gothic", sans-serif; text-transform: uppercase; line-height: 0.92; letter-spacing: 0.01em; font-weight: 400; }
+    #fi-foto { position: absolute; inset: 0; overflow: hidden; }
+    #fi-foto-in { position: absolute; inset: 0; }
+    #fi-foto img { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 50% 40%; }
+    #fi-lista { position: absolute; left: 96px; top: 150px; width: 1240px; height: 700px; }
+    #fi-lista-in { position: absolute; left: 0; top: 0; background: #1f1b17; padding: 30px 48px 22px; }
+    #fi-como { font-size: 44px; font-weight: 700; color: #d6cab4; border-bottom: 3px solid #5b5247; padding-bottom: 14px; margin-bottom: 22px; white-space: nowrap; }
+    .fi-fila { margin-bottom: 22px; }
+    .fi-fila .fi-disp { font-size: 104px; white-space: nowrap; }
+    .fi-fila p { font-size: 38px; font-weight: 700; line-height: 1.2; white-space: nowrap; }
+    #fi-f2 .fi-disp { color: #f0674c; }
+    #fi-fin { position: absolute; left: 0; top: 560px; width: 1920px; height: 520px; }
+    #fi-fin-in { position: absolute; inset: 0; background: #1f1b17; padding: 36px 96px 0; }
+    #fi-titulo { font-size: 150px; white-space: nowrap; }
+    #fi-titulo span { display: inline-block; }
+    #fi-url { font-size: 112px; font-weight: 700; line-height: 1.2; color: #f0674c; margin-top: 14px; white-space: nowrap; }
+    #fi-url span { display: inline-block; }
+    #fi-articulo { font-size: 44px; font-weight: 700; line-height: 1.2; margin-top: 14px; white-space: nowrap; }
+    #fi-articulo b { color: #f0674c; }
+    #fi-autores { font-size: 34px; font-weight: 700; line-height: 1.2; margin-top: 12px; color: #d6cab4; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="cierre" data-width="1920" data-height="1080">
+    <div id="fi-foto" class="clip" data-start="0" data-duration="23.6" data-track-index="0" data-layout-ignore data-hold>
+      <div id="fi-foto-in"><img id="fi-img" src="assets/visor/fin-1940.jpg" alt="" /></div>
+    </div>
+    <div id="fi-lista" class="clip" data-start="0.65" data-duration="7.85" data-track-index="1">
+      <div id="fi-lista-in">
+        <div id="fi-como">Así se hizo</div>
+        <div class="fi-fila" id="fi-f1"><div class="fi-disp">Leer el rayado</div><p>en cruz, lo edificado; simple, los patios y los fondos</p></div>
+        <div class="fi-fila" id="fi-f2"><div class="fi-disp">Calzar con las calles de hoy</div><p>corrimiento medio: de 9,7 m a 2,4 m</p></div>
+        <div class="fi-fila" id="fi-f3"><div class="fi-disp">Crecer por etapas</div><p>seis planos posteriores, de 1888 a 1936</p></div>
+      </div>
+    </div>
+    <div id="fi-fin" class="clip" data-start="8.4" data-duration="15.2" data-track-index="2">
+      <div id="fi-fin-in">
+        <div class="fi-disp" id="fi-titulo"><span id="fi-t1">Buenos Aires,</span> <span id="fi-t2">de 1867</span> <span id="fi-t3">a 1940</span></div>
+        <div id="fi-url"><span id="fi-u1">baires</span><span id="fi-u2">.mormon</span><span id="fi-u3">.garden</span></div>
+        <div id="fi-articulo">El artículo completo: <b>baires.mormon.garden/paper</b></div>
+        <div id="fi-autores">Claude Code · @mormonnegro («meat proxy»)</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#fi-foto-in", { clipPath: "inset(0% 0% 0% 100%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.inOut" }, 0);
+      tl.fromTo("#fi-img", { scale: 1.12 }, { scale: 1, duration: 23.6, ease: "none" }, 0);
+      // cómo se hizo: tres pasos, cada uno cuando se nombra
+      tl.fromTo("#fi-lista-in", { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 0.7);
+      tl.fromTo("#fi-f1", { opacity: 0.15 }, { opacity: 1, duration: 0.15 }, 2.1);
+      tl.fromTo("#fi-f2", { opacity: 0.15 }, { opacity: 1, duration: 0.15 }, 4.25);
+      tl.fromTo("#fi-f3", { opacity: 0.15 }, { opacity: 1, duration: 0.15 }, 6.2);
+      tl.fromTo("#fi-lista-in", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(10px)", duration: 0.25, ease: "power2.in", immediateRender: false }, 8.15);
+      // la invitación: la franja sube y empuja la ciudad hacia arriba
+      tl.fromTo("#fi-fin-in", { y: 540 }, { y: 0, duration: 0.55, ease: "expo.out" }, 8.45);
+      tl.fromTo("#fi-foto-in", { y: 0 }, { y: -150, duration: 0.55, ease: "expo.out", immediateRender: false }, 8.45);
+      tl.fromTo("#fi-t1", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 8.8);
+      [["#fi-u1", 11.4], ["#fi-u2", 11.9], ["#fi-u3", 12.65]].forEach(([s, t]) => tl.fromTo(s, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.22, ease: "power4.out" }, t));
+      tl.fromTo("#fi-t2", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 14.6);
+      tl.fromTo("#fi-t3", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 16.6);
+      tl.fromTo("#fi-articulo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 18.6);
+      tl.fromTo("#fi-autores", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 19.9);
+      window.__timelines["cierre"] = tl;
+    })();
+  </script>
+</template>

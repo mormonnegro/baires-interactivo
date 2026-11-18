@@ -1,0 +1,72 @@
+<!doctype html>
+<html
+  lang="es"
+  data-composition-variables='[
+    {"id":"color-papel","type":"color","label":"Papel","default":"#e8dcc4"},
+    {"id":"color-tinta","type":"color","label":"Tinta","default":"#1f1b17"},
+    {"id":"color-acento","type":"color","label":"Acento (lo edificado)","default":"#c2321c"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --color-papel: #e8dcc4;
+        --color-tinta: #1f1b17;
+        --color-acento: #c2321c;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--color-papel);
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="131.5" data-width="1920" data-height="1080">
+      <!-- 1 a 4: una sola toma sobre el plano de 1867 (título, rayado, lectura, calce de calles) -->
+      <div id="plano" data-composition-id="plano" data-composition-src="compositions/plano.html" data-start="0" data-duration="49.4" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <!-- 5: la ciudad se levanta (tomas del visor) -->
+      <div id="ciudad" data-composition-id="ciudad" data-composition-src="compositions/ciudad.html" data-start="48.7" data-duration="14.6" data-track-index="2" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 2"></div>
+      <!-- 6: los seis planos posteriores y el crecimiento -->
+      <div id="crece" data-composition-id="crece" data-composition-src="compositions/crece.html" data-start="62.9" data-duration="17.1" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 3"></div>
+      <!-- 7: quién lo hizo -->
+      <div id="agente" data-composition-id="agente" data-composition-src="compositions/agente.html" data-start="79.7" data-duration="14.3" data-track-index="2" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 4"></div>
+      <!-- 8: cuánto acierta -->
+      <div id="muestra" data-composition-id="muestra" data-composition-src="compositions/muestra.html" data-start="94" data-duration="14.2" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 5"></div>
+      <!-- 9: cierre -->
+      <div id="cierre" data-composition-id="cierre" data-composition-src="compositions/cierre.html" data-start="107.9" data-duration="23.6" data-track-index="2" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 6"></div>
+
+      <!-- la narración (ElevenLabs, Eleven v4, voz «George», en español) -->
+      <audio id="voz-1" class="clip" src="assets/voz/v1.mp3" data-start="0.6" data-duration="10.03" data-track-index="10" data-volume="1"></audio>
+      <audio id="voz-2" class="clip" src="assets/voz/v2.mp3" data-start="11.3" data-duration="9.87" data-track-index="10" data-volume="1"></audio>
+      <audio id="voz-3" class="clip" src="assets/voz/v3.mp3" data-start="21.9" data-duration="12.43" data-track-index="10" data-volume="1"></audio>
+      <audio id="voz-4" class="clip" src="assets/voz/v4.mp3" data-start="35.2" data-duration="10.99" data-track-index="10" data-volume="1"></audio>
+      <audio id="voz-5" class="clip" src="assets/voz/v5.mp3" data-start="47" data-duration="15.64" data-track-index="10" data-volume="1"></audio>
+      <audio id="voz-6" class="clip" src="assets/voz/v6.mp3" data-start="63.7" data-duration="15.8" data-track-index="10" data-volume="1"></audio>
+      <audio id="voz-7" class="clip" src="assets/voz/v7.mp3" data-start="80.4" data-duration="13.16" data-track-index="10" data-volume="1"></audio>
+      <audio id="voz-8" class="clip" src="assets/voz/v8.mp3" data-start="94.4" data-duration="13.32" data-track-index="10" data-volume="1"></audio>
+      <audio id="voz-9" class="clip" src="assets/voz/v9.mp3" data-start="108.7" data-duration="20.12" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

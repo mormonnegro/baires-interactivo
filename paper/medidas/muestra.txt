@@ -1,0 +1,3 @@
+oeste-0.5km: píxeles [10112, 8522] de 444 px · clases (%): papel 9.1; edificado (rayado cruzado) 41.3; patio o fondo (rayado simple) 42.0; negro lleno 0.6; otra tinta 6.9 · techos 487 en 134 lotes · árboles 3
+oeste-2.0km: píxeles [10112, 6300] de 444 px · clases (%): papel 31.4; edificado (rayado cruzado) 20.0; patio o fondo (rayado simple) 39.5; negro lleno 0.2; otra tinta 8.8 · techos 408 en 149 lotes · árboles 31
+oeste-3.5km: píxeles [10112, 4078] de 444 px · clases (%): papel 80.1; edificado (rayado cruzado) 4.9; patio o fondo (rayado simple) 12.4; negro lleno 0.0; otra tinta 2.5 · techos 94 en 41 lotes · árboles 17

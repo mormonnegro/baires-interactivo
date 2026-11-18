@@ -1,0 +1,11 @@
+fig01-plano.jpg · pliego 18919 × 13272 px; recorte de 608 × 432 m; detalle de 203 × 144 m (cada píxel del escaneo, 2.47 puntos)
+fig03-clases.png · recorte [9760, 9320] de 400 px (270 m)
+reimplementación del paso 1 vs. tmp/clases.png en ese recorte: 40000 de 40000 píxeles iguales (100.00 %)
+período que más responde en lo edificado del recorte (4,2 / 5,05 / 6,1 px): 4 / 448 / 13135
+
+clases de tmp/clases.png (9459 × 6636, 1 px = 1.35 m), dentro de la guarda (86.6 km²), antes de las correcciones del paso 2:
+  papel                             41334847 px    7533 ha   86.99 %
+  edificado (rayado cruzado)         1495113 px     272 ha    3.15 %
+  patio o fondo (rayado simple)      2426326 px     442 ha    5.11 %
+  negro lleno                         128487 px      23 ha    0.27 %
+  otra tinta                         2132427 px     389 ha    4.49 %

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#1d1a17">
+  <title>Buenos Aires, de 1867 a 1940</title>
+  <meta name="author" content="@mormonnegro">
+  <link rel="icon" href="data:,">
+  <style>
+    /* (los bordes que el teléfono se guarda: la muesca, las esquinas redondas, la barra de abajo) */
+    :root { --sl: env(safe-area-inset-left, 0px); --sr: env(safe-area-inset-right, 0px); --st: env(safe-area-inset-top, 0px); --sb: env(safe-area-inset-bottom, 0px); }
+    html, body { margin: 0; height: 100%; background: #1d1a17; overflow: hidden; overscroll-behavior: none; touch-action: manipulation; color: #efe4cd; font: 15px/1.4 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    #view, #view canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+    #loading { position: fixed; inset: 0; display: grid; place-items: center; font-size: 19px; letter-spacing: .08em; font-style: italic; }
+    /* los carteles: etiquetas de papel con doble filete, como la cartela de un plano */
+    .panel { position: fixed; opacity: 0; transition: opacity 1.2s; pointer-events: none; color: #2a221b; background: #f1e6cd; border: 1px solid #2a221b; outline: 1px solid #2a221b99; outline-offset: 2px; box-shadow: 0 5px 24px #0007; }
+    body.listo .panel { opacity: 1; }
+    /* el recuadro de información (qué es y cómo se maneja): arranca guardado en un botón «?», que lo abre y lo cierra
+       (body.info, en main.js) */
+    #titulo { left: 26px; bottom: 26px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; box-sizing: border-box; pointer-events: auto; cursor: pointer; }
+    #titulo > * { display: none; }
+    #titulo::before { content: '?'; font-size: 22px; font-style: italic; line-height: 1; }
+    body.info #titulo { display: block; place-items: normal; box-sizing: content-box; width: auto; height: auto; max-width: min(430px, 62vw); padding: 11px 18px 12px; animation: asoma .3s ease-out; }
+    body.info #titulo > * { display: block; }
+    body.info #titulo::before { content: none; }
+    #titulo h1 { margin: 0 0 3px; font-size: 27px; font-weight: 500; letter-spacing: .03em; }
+    #titulo p { margin: 0; opacity: .82; font-size: 13.5px; font-style: italic; }
+    /* (debajo, cómo se maneja —lo que antes era un cartel aparte, arriba—) */
+    #titulo .como { margin-top: 9px; padding-top: 8px; border-top: 1px solid #2a221b44; font-size: 12.5px; line-height: 1.55; }
+    #titulo .como span { white-space: nowrap; }
+    /* (en la ventana angosta los botones de abajo llegan hasta la izquierda: el recuadro sube por encima de ellos) */
+    @media (min-width: 641px) and (max-width: 1080px) and (min-height: 501px) { body.info #titulo { bottom: 88px; max-width: min(430px, calc(100vw - 380px)); } }
+    /* (más angosta todavía: abierto, el recuadro va a lo ancho y la leyenda de «lo de hoy» le deja el lugar) */
+    @media (min-width: 641px) and (max-width: 860px) and (min-height: 501px) { body.info #titulo { max-width: min(430px, calc(100vw - 90px)); } body.info.listo.hoy #leyenda { opacity: 0 !important; } }
+    @media (min-width: 641px) and (max-width: 720px) and (min-height: 501px) { body #titulo { bottom: 88px; } }
+    #botones { position: fixed; right: 26px; bottom: 26px; display: flex; gap: 12px; align-items: stretch; z-index: 5; }
+    #botones .panel { position: static; pointer-events: auto; cursor: pointer; font: inherit; font-size: 16px; border-radius: 0; padding: 10px 18px; letter-spacing: .02em; }
+    #botones .panel:hover { background: #fff6e2; }
+    #botones .panel:active { transform: translateY(1px); }
+    /* la línea de tiempo: los planos de otros años, arriba y al medio */
+    #epocas { left: 50%; top: 26px; transform: translateX(-50%); pointer-events: auto; padding: 5px 6px; max-width: min(600px, calc(100vw - 52px)); z-index: 4; }
+    #epocas[hidden] { display: none; }
+    #epocas .años { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; }
+    #epocas button { font: inherit; font-size: 16px; letter-spacing: .04em; color: inherit; background: none; border: 0; padding: 6px 13px; min-height: 36px; cursor: pointer; font-variant-numeric: lining-nums; }
+    #epocas button:hover { background: #fff6e2; }
+    #epocas button.on { background: #2a221b; color: #f7eedb; }
+    #epocas .pie { display: none; margin: 5px 6px 3px; font-size: 12.5px; font-style: italic; text-align: center; opacity: .85; text-wrap: balance; }
+    #epocas.otra .pie { display: block; }
+    body.limpio #epocas, body.modo #epocas { display: none; }
+    #epocas button.andar { font-size: 13px; padding: 6px 11px; margin-left: 4px; border-left: 1px solid #2a221b33; }
+    @media (max-width: 1100px) { #epocas { top: 86px; left: 26px; transform: none; } }
+    @media (max-width: 640px) { #epocas { top: calc(70px + var(--st, 0px)); left: calc(14px + var(--sl, 0px)); max-width: calc(100vw - 28px); box-sizing: border-box; } #epocas button { min-height: 44px; padding: 6px 5px; font-size: 14px; letter-spacing: 0; } #epocas button.andar { padding: 6px 9px; } }
+    /* lo de hoy va en rojo de sello: tinta de otra época */
+    #hoy { color: #a03220; border-color: #a03220; outline-color: #a0322099; }
+    #hoy.on { background: #a03220; color: #f7eedb; }
+    #hoy.on:hover { background: #b23a26; }
+    /* en color: la misma ciudad, pintada */
+    #botones #color { display: inline-flex; align-items: center; gap: 7px; }
+    #color svg { width: 20px; height: 20px; flex: none; fill: currentColor; }
+    #botones #color.on { background: #2a221b; color: #f7eedb; }
+    #botones #color.on:hover { background: #453a30; }
+    @media (max-width: 1080px) { #color .rot { display: none; } #botones #color { padding-left: 12px; padding-right: 12px; min-width: 44px; justify-content: center; } }
+    /* la firma: quién lo hizo, arriba a la derecha. Se corre cuando ahí va otra
+       cosa: la ficha abierta, el cartel de los modos de recorrer. */
+    #firma { right: 26px; top: 24px; display: flex; align-items: center; gap: 9px; padding: 5px 14px 5px 6px; pointer-events: auto; text-decoration: none; font-size: 14.5px; line-height: 1; white-space: nowrap; }
+    #firma:hover { background: #fff6e2; }
+    #firma img { display: block; width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid #2a221b; background: #d9cdb2; }
+    #firma i { font-style: italic; opacity: .78; margin-right: 4px; }
+    #firma b { font-weight: 600; letter-spacing: .01em; }
+    body.modo #firma { display: none; }
+    @media (min-width: 641px) { body.ficha #firma { opacity: 0 !important; pointer-events: none; } }
+    /* la leyenda de lo de hoy: aparece con el botón */
+    #leyenda { right: 26px; bottom: 84px; max-width: 300px; padding: 8px 12px 9px; font-size: 12.5px; line-height: 1.45; color: #a03220; border-color: #a03220; outline-color: #a0322099; opacity: 0 !important; transition: opacity .5s; }
+    body.listo.hoy #leyenda { opacity: 1 !important; }
+    #leyenda b { display: block; font-weight: 500; font-size: 13.5px; letter-spacing: .03em; }
+    #leyenda .fila { display: block; }
+    #leyenda .l { display: inline-block; width: 22px; height: 0; border-top: 2px solid #a03220; vertical-align: middle; margin-right: 7px; }
+    #leyenda .r { display: inline-block; width: 22px; height: 9px; vertical-align: middle; margin-right: 7px; background: repeating-linear-gradient(135deg, #a03220 0 1.5px, #a0322022 1.5px 5px); }
+    #leyenda small { display: block; margin-top: 3px; font-size: 11px; opacity: .8; font-style: italic; }
+    #leyenda a { color: inherit; pointer-events: none; }
+    body.hoy #leyenda a { pointer-events: auto; }
+    /* las marcas: una etiqueta de papel, un hilo y un punto sobre el lugar */
+    #marcas { position: fixed; inset: 0; overflow: hidden; pointer-events: none; opacity: 0; transition: opacity 1.2s; }
+    body.listo #marcas { opacity: 1; }
+    .marca { position: absolute; left: 0; top: 0; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; will-change: transform; }
+    .marca.ver { opacity: 1; visibility: visible; }
+    .marca .punto { position: absolute; left: -4px; top: -4px; width: 6px; height: 6px; border-radius: 50%; background: #2a221b; border: 1px solid #f1e6cd; }
+    .marca .hilo { position: absolute; left: -0.5px; bottom: 3px; width: 1px; height: 23px; background: #2a221b; box-shadow: 0 0 0 .5px #f1e6cd99; }
+    .marca .tag { position: absolute; left: 0; bottom: 26px; transform: translateX(-50%); pointer-events: auto; cursor: pointer; font: inherit; color: #2a221b; background: #f1e6cd; border: 1px solid #2a221b; border-radius: 0; padding: 2px 8px 3px; white-space: nowrap; text-align: center; box-shadow: 0 2px 10px #0005; }
+    .marca .tag b { display: block; font-weight: 500; font-size: 12.5px; letter-spacing: .06em; font-variant: small-caps; }
+    .marca.n1 .tag b { font-size: 14.5px; letter-spacing: .09em; }
+    .marca.n3 .tag b { font-size: 11.5px; font-style: italic; font-variant: normal; letter-spacing: .02em; }
+    .marca .tag i { display: none; font-size: 12.5px; line-height: 1.3; white-space: normal; width: max-content; max-width: 230px; margin: 2px auto 1px; opacity: .85; }
+    /* se puede tocar: la etiqueta se aclara y gana su segundo filete, y el punto crece, al pasar el mouse por ella o por
+       su edificio (.sobre, lo pone src/ficha.js) */
+    .marca .punto { transition: transform .18s; }
+    .marca .tag:hover, .marca.sobre .tag { background: #fff6e2; outline: 1px solid #2a221b99; outline-offset: 2px; }
+    .marca .tag:hover ~ .punto, .marca.sobre .punto { transform: scale(1.7); }
+    .marca.sobre { z-index: 2; }
+    .marca .tag:active { transform: translateX(-50%) translateY(1px); }
+    /* lo que acaba de aparecer al cambiar de año se anuncia un par de segundos: dos ondas de tinta que salen del punto
+       y el segundo filete de la etiqueta, que late (src/marcas.js pone y saca .nueva) */
+    @keyframes marca-onda { from { transform: scale(1); opacity: .95; } to { transform: scale(6); opacity: 0; } }
+    @keyframes marca-filete { 0%, 100% { outline-color: #2a221b00; outline-offset: 1px; background: #f1e6cd; } 18%, 62% { outline-color: #2a221b; outline-offset: 3px; background: #fff6e2; } 40% { outline-color: #2a221b66; outline-offset: 2px; background: #fff6e2; } }
+    .marca.nueva { z-index: 2; }
+    .marca.nueva .tag { outline: 1px solid #2a221b00; animation: marca-filete 2.6s ease-in-out both; }
+    .marca.nueva .punto::before, .marca.nueva .punto::after { content: ''; position: absolute; inset: -2px; border-radius: 50%; border: 1.5px solid #2a221b; box-shadow: 0 0 0 1px #f1e6cd88; animation: marca-onda 1.25s ease-out 2 both; }
+    .marca.nueva .punto::after { animation-delay: .4s; }
+    @media (prefers-reduced-motion: reduce) { .marca.nueva .punto::before, .marca.nueva .punto::after { animation: none; opacity: 0; } }
+    .marca.abierta { z-index: 3; }
+    .marca.abierta .tag { background: #fff6e2; outline: 1px solid #2a221b99; outline-offset: 2px; padding: 5px 11px 6px; }
+    .marca.abierta .tag i { display: block; }
+    .marca.hoy .tag { color: #a03220; border-color: #a03220; }
+    .marca.hoy .tag b { font-variant: normal; letter-spacing: .03em; }
+    .marca.hoy .punto { background: #a03220; }
+    .marca.hoy .hilo { background: #a03220; }
+    .marca.hoy.abierta .tag, .marca.hoy .tag:hover, .marca.hoy.sobre .tag { outline-color: #a0322099; }
+    .panel { z-index: 5; }
+    body.limpio .panel, body.limpio #marcas, body.limpio #botones { display: none; }
+    /* (el recuadro de información y la firma se muestran por su id: en la vista limpia hay que decirlo aparte) */
+    body.limpio #titulo, body.limpio #firma { display: none !important; }
+    /* --- con el dedo: los blancos, de 44 px por lo menos; y las etiquetas de las marcas no atajan el toque (si no, no
+       se podría arrastrar ni pellizcar el plano desde arriba de una): el toque se resuelve en el lienzo (ficha.js) --- */
+    @media (pointer: coarse) {
+      #botones .panel { min-height: 44px; }
+      .marca .tag { pointer-events: none; padding: 4px 9px 5px; }
+      .marca.abierta .tag { padding: 6px 11px 7px; }
+    }
+    /* --- el teléfono, parado (angosto) o acostado (bajo). El título ya se leyó en el cartel de entrada: queda un
+       botón para volver a abrirlo, y todo el alto es para el plano. (El recuadro de información es un «?» en toda
+       pantalla: acá solo cambia de lugar y de tamaño.) --- */
+    @media (max-width: 640px), (max-height: 500px) {
+      #titulo { left: calc(14px + var(--sl)); bottom: calc(16px + var(--sb)); }
+      /* el recuadro abierto: por encima de los botones. (Al abrirse una ficha, que acá sube desde abajo, main.js lo guarda) */
+      body.info #titulo { max-width: none; padding: 10px 14px 11px; }
+      /* (y la leyenda de «lo de hoy» le deja el lugar, igual que a la ficha) */
+      body.info.listo.hoy #leyenda, body.ficha.listo.hoy #leyenda { opacity: 0 !important; }
+      /* la nota del año (qué cambió, de qué plano sale) se muestra un rato al elegirlo y se guarda (epocas.js: `fresca`;
+         `aviso` mientras carga o si falló); tocando el año de nuevo vuelve. Con el recuadro abierto, no va. */
+      #epocas.otra .pie { display: none; }
+      #epocas.otra.fresca .pie, #epocas.otra.aviso .pie { display: block; }
+      body.info #epocas.otra .pie { display: none; }
+      /* la firma: solo el retrato, redondo */
+      #firma { right: calc(14px + var(--sr)); top: calc(12px + var(--st)); width: 46px; height: 46px; padding: 0; border-radius: 50%; outline: 0; justify-content: center; overflow: hidden; }
+      #firma span { display: none; }
+      #firma img { width: 100%; height: 100%; border: 0; }
+      #titulo h1 { font-size: 21px; margin-bottom: 2px; }
+      #titulo p { font-size: 13px; line-height: 1.4; }
+      #titulo .como { margin-top: 7px; padding-top: 7px; font-size: 12.5px; line-height: 1.5; }
+      #titulo .acerca { padding: 4px 0 2px; }
+      #botones { right: calc(14px + var(--sr)); bottom: calc(16px + var(--sb)); gap: 8px; }
+      #botones .panel { font-size: 14.5px; padding: 0 13px; min-height: 44px; }
+      #leyenda { padding: 6px 10px 7px; font-size: 12px; line-height: 1.45; }
+      #leyenda b { display: none; }
+      #leyenda .fila { display: inline-block; margin-right: 12px; }
+      #leyenda small { display: inline-block; margin: 0; }
+    }
+    @media (max-width: 640px) {
+      /* (cerrado, el «?» va en la fila de los modos, que a la izquierda está libre: la de abajo se llena con «Ocultar lo de hoy») */
+      #titulo { bottom: calc(68px + var(--sb)); }
+      /* abierto, ocupa esa misma fila: los modos se guardan mientras tanto. Con una ficha (que sube desde abajo), ni el «?» */
+      body.info #titulo { right: calc(14px + var(--sr)); }
+      body.info #modos, body.ficha #titulo { display: none; }
+      #titulo h1 { font-size: 19px; }
+      /* (el retrato de la firma va al lado del buscador, que le hace lugar) */
+      body #buscar { right: calc(70px + var(--sr)); }
+      /* (la leyenda de «lo de hoy», abajo, encima de los botones: arriba están el buscador y los años) */
+      #leyenda { right: calc(14px + var(--sr)); left: calc(14px + var(--sl)); top: auto; bottom: calc(124px + var(--sb)); max-width: none; }
+    }
+    @media (max-width: 370px) { #botones .panel { font-size: 13px; padding: 0 9px; } #botones { gap: 6px; } }
+    @media (max-width: 350px) { #epocas { padding: 5px 3px; } #epocas button { padding: 6px 1px; font-size: 13px; } #epocas button.andar { padding: 6px 5px; margin-left: 1px; } }
+    /* (entre 1100 y 1440 px de ancho los años van al medio y el buscador les llegaba: se angosta) */
+    @media (min-width: 1101px) and (max-width: 1440px) { body #buscar, body #buscar-msg { width: min(400px, calc(50vw - 346px)); } #epocas { max-width: min(600px, calc(100vw - 584px)); } }
+    @keyframes asoma { from { opacity: 0; transform: translateY(8px); } }
+    /* acostado: la leyenda abajo, al lado del botón del título (arriba a la derecha va la ficha) */
+    @media (max-height: 500px) and (min-width: 641px) {
+      /* (abierto, a la altura de los modos: la fila de abajo llega hasta la izquierda en un teléfono corto) */
+      body.info #titulo { bottom: calc(68px + var(--sb)); max-width: min(400px, calc(100vw - 250px - var(--sl) - var(--sr))); }
+      /* (con una ficha, que va arriba a la derecha, los años se guardan: quedaban a medio tapar) */
+      body.ficha:not(.modo) #epocas { display: none; }
+      /* arriba, una sola fila: el buscador, los años y el retrato de la firma (el alto acá es lo que falta) */
+      body #buscar, body #buscar-msg { width: min(340px, calc(100vw - 470px - var(--sl) - var(--sr))); }
+      body:not(.modo) #epocas { top: calc(12px + var(--st)); left: calc(24px + var(--sl) + min(340px, calc(100vw - 470px - var(--sl) - var(--sr)))); padding: 0 6px; }
+      #epocas button { min-height: 44px; padding: 6px 5px; font-size: 14px; letter-spacing: 0; }
+      #epocas button.andar { padding: 6px 9px; }
+      #epocas .pie { width: 0; min-width: 100%; box-sizing: border-box; margin: 2px 0 5px; padding: 0 6px; }
+      #leyenda { left: calc(68px + var(--sl)); right: auto; top: auto; bottom: calc(16px + var(--sb)); max-width: min(300px, calc(100vw - 466px - var(--sl) - var(--sr))); }
+    }
+  </style>
+</head>
+<body>
+  <div id="view"></div>
+  <div id="marcas"></div>
+  <div id="loading">Desplegando el plano…</div>
+  <div id="titulo" class="panel" role="button" aria-label="Información: qué es esto y cómo se maneja" aria-expanded="false">
+    <h1>Buenos Aires, 1867</h1>
+    <p>El plano de Carlos Glade para el Departamento Topográfico, levantado manzana por manzana.</p>
+    <p class="como"><span>arrastrá para moverte</span> · <span>rueda para acercarte</span> · <span>botón derecho para girar</span> · <span>tocá un nombre para ir</span> · <span>espacio: plano ⇄ ciudad</span> · <span>H: lo de hoy</span> · <span>C: color ⇄ tinta</span></p>
+  </div>
+  <div id="epocas" class="panel" hidden><div class="años" role="group" aria-label="Línea de tiempo: la ciudad en cada año"></div><div class="pie"></div></div>
+  <a id="firma" class="panel" href="https://x.com/mormonnegro" target="_blank" rel="noopener" title="Hecho por @mormonnegro (abre su cuenta de X)"><img alt="" width="32" height="32"><span><i>Hecho por</i><b>@mormonnegro</b></span></a>
+  <div id="leyenda" class="panel"><b>La ciudad de hoy, sobre el plano</b><span class="fila"><span class="l"></span>calles, vías de tren y costa actuales</span><span class="fila"><span class="r"></span>tierra ganada al río desde 1867</span><small>Mapa actual: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a></small></div>
+  <div id="botones"><span id="modos"><button id="ritmo" class="panel" type="button" aria-pressed="false" title="Más rápido" aria-label="Más rápido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5 11.5 12 4 18.5zM12.5 5.5 20 12l-7.500 6.5z"/></svg><span class="rot">Más rápido</span></button><button id="caminar" class="panel" type="button" title="Caminar por la ciudad" aria-label="Caminar por la ciudad"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.2" cy="4.2" r="2.1"/><path d="M11 7.9 7.3 9.8v4.4h1.9v-3.2l1.5-.7-1.8 10.5h2l1.3-6.2 2.2 2.4v3.800h1.900v-5.1l-2.1-2.6.6-3c1.100 1.400 2.700 2.200 4.500 2.200V10.500c-1.500 0-2.800-.800-3.500-2.100l-.9-1.500C14.200 6 13 5.600 12 6z"/></svg><span class="rot">Caminar</span></button><button id="volar" class="panel" type="button" title="Volar en avión" aria-label="Volar en avión"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.3c.9 0 1.5 1.100 1.500 2.700v4.200l7.500 4.500v2.100l-7.500-2.500v4.300l2.300 1.700v1.600L12 19.800l-3.800 1.100v-1.600l2.300-1.700v-4.300L3 15.800v-2.100l7.500-4.500V5c0-1.600.6-2.700 1.500-2.700z"/></svg><span class="rot">Volar</span></button><button id="manejar" class="panel" type="button" title="Manejar el coche de la época" aria-label="Manejar el coche de la época"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM5.440 10.200a6.800 6.800 0 0 1 13.120 0zM5.270 13h5.630v5.710A6.800 6.800 0 0 1 5.270 13zm13.460 0a6.800 6.800 0 0 1-5.630 5.710V13z"/></svg><span class="rot">Manejar</span></button></span><button id="color" class="panel" type="button" aria-pressed="false" title="Ver en color" aria-label="Ver en color"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.600c3.700 4.400 6.100 7.700 6.100 11a6.100 6.100 0 0 1-12.200 0c0-3.300 2.400-6.600 6.100-11z"/></svg><span class="rot">Color</span></button><button id="hoy" class="panel">Ver lo de hoy</button><button id="alzar" class="panel">Levantar la ciudad</button><button id="salir" class="panel" type="button">Volver al mapa</button></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

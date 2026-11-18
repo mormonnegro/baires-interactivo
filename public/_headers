@@ -1,0 +1,10 @@
+# Todo lo que no es la página se pide con su versión en la dirección (?v=…, ver src/url.js) o con su huella en el
+# nombre (assets/): se puede guardar para siempre. La página misma (index.html) se revalida en cada visita.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/plano/*
+  Cache-Control: public, max-age=31536000, immutable
+/datos/*
+  Cache-Control: public, max-age=31536000, immutable
+/fotos/*
+  Cache-Control: public, max-age=31536000, immutable

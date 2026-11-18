@@ -1,0 +1,5 @@
+relieve.bin: 512 × 359; alturas en metros (interpolación bilineal)
+Plaza de Mayo (Pirámide)                   lat -34.60837, lon -58.37223 → plano [10341, 9565] → 17.6 m   (el LEEME dice 17.6 m)
+Plaza del Congreso (frente al Palacio)     lat -34.60975, lon -58.39155 → plano [10326, 6969] → 21.5 m   (el LEEME dice 21 m)
+Corrientes y 9 de Julio (Obelisco)         lat -34.60374, lon -58.38157 → plano [11194, 8376] → 16.8 m   (el LEEME dice 16.6 m)
+Corrientes y Leandro N. Alem               lat -34.60318, lon -58.37032 → plano [11160, 9887] → 5.8 m   (el LEEME dice 3.6 m)

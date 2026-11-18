@@ -1,0 +1,472 @@
+{
+ "codigo": {
+  "tools/*.mjs": {
+   "archivos": 31,
+   "lineas": 4093
+  },
+  "src/*.js": {
+   "archivos": 25,
+   "lineas": 6516
+  },
+  "src/lugares/*.js": {
+   "archivos": 18,
+   "lineas": 4585
+  },
+  "index.html + edificios.html": {
+   "archivos": 2,
+   "lineas": 369
+  }
+ },
+ "dependencias": {
+  "three": "0.186.1",
+  "vite": "8.3.5",
+  "playwright-core": "^1.64.1",
+  "sharp": "^0.34.5"
+ },
+ "marcas": {
+  "epoca": 149,
+  "porNivel": {
+   "1": 19,
+   "2": 78,
+   "3": 52
+  },
+  "porDesde": {
+   "1867": 27,
+   "1888": 14,
+   "1895": 14,
+   "1905": 14,
+   "1910": 14,
+   "1921": 37,
+   "1940": 29
+  },
+  "conFin": 40,
+  "vigentes": {
+   "1867": 27,
+   "1888": 30,
+   "1895": 36,
+   "1905": 47,
+   "1910": 57,
+   "1921": 89,
+   "1940": 109
+  },
+  "hoy": 51,
+  "hoyEnRio": 8
+ },
+ "fichas": {
+  "fichas": 114,
+  "conFoto": 95,
+  "fotos": 146,
+  "fotosConPie": 146,
+  "fotosCitadas": 146,
+  "licencias": {
+   "Public domain": 146
+  },
+  "commons": 146,
+  "fuentes": 146,
+  "licFuentes": {
+   "Public domain": 146
+  },
+  "mbGrandes": 22.385712,
+  "mbFicha": 8.41529,
+  "autoresTop": [
+   [
+    "(autor desconocido)",
+    69
+   ],
+   [
+    "Esteban Gonnet",
+    20
+   ],
+   [
+    "Christiano Junior",
+    9
+   ],
+   [
+    "Benito Panunzi",
+    5
+   ],
+   [
+    "National Photo Company Collection",
+    3
+   ],
+   [
+    "Archivo General de la Nación Argentina",
+    2
+   ],
+   [
+    "Archivo Casa Witcomb",
+    2
+   ],
+   [
+    "Bourquin & Kohlmann",
+    2
+   ]
+  ]
+ },
+ "lugares": {
+  "archivos": 18,
+  "edificiosOSM": 33,
+  "detalle": [
+   {
+    "archivo": "src/lugares/avenida-de-mayo.js",
+    "lineas": 396,
+    "cambiosDeEpoca": 4
+   },
+   {
+    "archivo": "src/lugares/cabildo.js",
+    "lineas": 197,
+    "cambiosDeEpoca": 8
+   },
+   {
+    "archivo": "src/lugares/casa-rosada.js",
+    "lineas": 164,
+    "cambiosDeEpoca": 5
+   },
+   {
+    "archivo": "src/lugares/diagonal-norte.js",
+    "lineas": 207,
+    "cambiosDeEpoca": 0
+   },
+   {
+    "archivo": "src/lugares/modernos.js",
+    "lineas": 296,
+    "cambiosDeEpoca": 2
+   },
+   {
+    "archivo": "src/lugares/nueve-de-julio.js",
+    "lineas": 146,
+    "cambiosDeEpoca": 1
+   },
+   {
+    "archivo": "src/lugares/plaza-congreso.js",
+    "lineas": 242,
+    "cambiosDeEpoca": 23
+   },
+   {
+    "archivo": "src/lugares/plaza-constitucion.js",
+    "lineas": 293,
+    "cambiosDeEpoca": 24
+   },
+   {
+    "archivo": "src/lugares/plaza-de-mayo.js",
+    "lineas": 268,
+    "cambiosDeEpoca": 16
+   },
+   {
+    "archivo": "src/lugares/plaza-lavalle.js",
+    "lineas": 262,
+    "cambiosDeEpoca": 26
+   },
+   {
+    "archivo": "src/lugares/plaza-once.js",
+    "lineas": 244,
+    "cambiosDeEpoca": 15
+   },
+   {
+    "archivo": "src/lugares/plaza-san-martin.js",
+    "lineas": 289,
+    "cambiosDeEpoca": 23
+   },
+   {
+    "archivo": "src/lugares/puerto-nuevo.js",
+    "lineas": 302,
+    "cambiosDeEpoca": 7
+   },
+   {
+    "archivo": "src/lugares/puerto.js",
+    "lineas": 367,
+    "cambiosDeEpoca": 15
+   },
+   {
+    "archivo": "src/lugares/retiro.js",
+    "lineas": 406,
+    "cambiosDeEpoca": 4
+   },
+   {
+    "archivo": "src/lugares/subte-a.js",
+    "lineas": 110,
+    "cambiosDeEpoca": 1
+   },
+   {
+    "archivo": "src/lugares/teatro-colon.js",
+    "lineas": 121,
+    "cambiosDeEpoca": 0
+   },
+   {
+    "archivo": "src/lugares/viejos-1867.js",
+    "lineas": 275,
+    "cambiosDeEpoca": 4
+   }
+  ]
+ },
+ "descarga": {
+  "1. el plano tendido": {
+   "bytes": 132655,
+   "archivos": [
+    [
+     "public/plano/primero.webp",
+     131212
+    ],
+    [
+     "public/plano/laminas.json",
+     60
+    ],
+    [
+     "public/datos/ciudad.json",
+     1383
+    ]
+   ]
+  },
+  "2. la ciudad de 1867": {
+   "bytes": 1345989,
+   "archivos": [
+    [
+     "public/datos/ciudad.pak",
+     1345989
+    ]
+   ]
+  },
+  "(alternativa sin DecompressionStream: los cuatro .bin)": {
+   "bytes": 3757344,
+   "archivos": [
+    [
+     "public/datos/manzanas.bin",
+     145320
+    ],
+    [
+     "public/datos/techos.bin",
+     840336
+    ],
+    [
+     "public/datos/muros.bin",
+     2343792
+    ],
+    [
+     "public/datos/arboles.bin",
+     427896
+    ]
+   ]
+  },
+  "3a. lámina entera, pantalla grande": {
+   "bytes": 8994292,
+   "archivos": [
+    [
+     "public/plano/medio.webp",
+     8994292
+    ]
+   ]
+  },
+  "3b. lámina entera, teléfono": {
+   "bytes": 1984332,
+   "archivos": [
+    [
+     "public/plano/medio-4k.webp",
+     1984332
+    ]
+   ]
+  },
+  "4. al salir de 1867 (línea de tiempo)": {
+   "bytes": 2948591,
+   "archivos": [
+    [
+     "public/datos/crece.pak",
+     2225357
+    ],
+    [
+     "public/datos/crece.json",
+     2542
+    ],
+    [
+     "public/plano/crece.webp",
+     691184
+    ],
+    [
+     "public/plano/despeje.webp",
+     29508
+    ]
+   ]
+  },
+  "(lo mismo, en teléfono: láminas -2k)": {
+   "bytes": 2547655,
+   "archivos": [
+    [
+     "public/datos/crece.pak",
+     2225357
+    ],
+    [
+     "public/datos/crece.json",
+     2542
+    ],
+    [
+     "public/plano/crece-2k.webp",
+     306328
+    ],
+    [
+     "public/plano/despeje-2k.webp",
+     13428
+    ]
+   ]
+  },
+  "5. al prender el color": {
+   "bytes": 1277979,
+   "archivos": [
+    [
+     "public/plano/suelo.webp",
+     628630
+    ],
+    [
+     "public/plano/calles.webp",
+     589076
+    ],
+    [
+     "public/datos/patios.pak",
+     60273
+    ]
+   ]
+  },
+  "(lo mismo, en teléfono)": {
+   "bytes": 740455,
+   "archivos": [
+    [
+     "public/plano/suelo-2k.webp",
+     212794
+    ],
+    [
+     "public/plano/calles-2k.webp",
+     467388
+    ],
+    [
+     "public/datos/patios.pak",
+     60273
+    ]
+   ]
+  },
+  "6. «lo de hoy»": {
+   "bytes": 2602478,
+   "archivos": [
+    [
+     "public/plano/hoy-cerca.webp",
+     2193912
+    ],
+    [
+     "public/plano/hoy-lejos.webp",
+     271698
+    ],
+    [
+     "public/datos/hoy.json",
+     4980
+    ],
+    [
+     "public/datos/calles.bin",
+     111516
+    ],
+    [
+     "public/datos/calles.json",
+     20372
+    ]
+   ]
+  },
+  "7. relieve (apagado por defecto)": {
+   "bytes": 367620,
+   "archivos": [
+    [
+     "public/datos/relieve.bin",
+     367620
+    ]
+   ]
+  }
+ },
+ "teselas": {
+  "n": 35,
+  "bytes": 38215876,
+  "min": 11782,
+  "max": 3291536
+ },
+ "publicBytes": 94241499,
+ "js": [
+  {
+   "archivo": "autos-*.js",
+   "bytes": 48607,
+   "gzip": 19412,
+   "brotli": 16421
+  },
+  {
+   "archivo": "buscar-*.js",
+   "bytes": 14944,
+   "gzip": 6895,
+   "brotli": 6051
+  },
+  {
+   "archivo": "edificios-*.js",
+   "bytes": 7105,
+   "gzip": 3447,
+   "brotli": 3093
+  },
+  {
+   "archivo": "ficha-*.js",
+   "bytes": 14003,
+   "gzip": 5189,
+   "brotli": 4611
+  },
+  {
+   "archivo": "fichas-*.js",
+   "bytes": 134448,
+   "gzip": 37657,
+   "brotli": 32364
+  },
+  {
+   "archivo": "index-*.js",
+   "bytes": 684084,
+   "gzip": 206830,
+   "brotli": 172862
+  },
+  {
+   "archivo": "marcas-*.js",
+   "bytes": 22823,
+   "gzip": 8711,
+   "brotli": 7496
+  },
+  {
+   "archivo": "modos-*.js",
+   "bytes": 20086,
+   "gzip": 8336,
+   "brotli": 7503
+  },
+  {
+   "archivo": "preload-helper-*.js",
+   "bytes": 1534,
+   "gzip": 802,
+   "brotli": 682
+  },
+  {
+   "archivo": "three.core-*.js",
+   "bytes": 377282,
+   "gzip": 99011,
+   "brotli": 80768
+  },
+  {
+   "archivo": "url-*.js",
+   "bytes": 178,
+   "gzip": 158,
+   "brotli": 135
+  },
+  {
+   "archivo": "vitrina-*.js",
+   "bytes": 2319,
+   "gzip": 1266,
+   "brotli": 1162
+  },
+  {
+   "archivo": "index.html",
+   "bytes": 15863,
+   "gzip": 4921,
+   "brotli": 4219
+  },
+  {
+   "archivo": "edificios.html",
+   "bytes": 11412,
+   "gzip": 3853,
+   "brotli": 3283
+  }
+ ]
+}

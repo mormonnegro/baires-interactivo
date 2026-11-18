@@ -1,0 +1,28 @@
+sesión 0a8951b3: 0 pedidos humanos, 86 llamadas a herramientas, 0 subagentes
+sesión 18408caa: 0 pedidos humanos, 97 llamadas a herramientas, 0 subagentes
+sesión 27482437: 103 pedidos humanos, 1440 llamadas a herramientas, 6 subagentes
+sesión 5846dfa4: 0 pedidos humanos, 85 llamadas a herramientas, 0 subagentes
+sesión 5f8bb10d: 0 pedidos humanos, 152 llamadas a herramientas, 0 subagentes
+sesión 678fe21d: 0 pedidos humanos, 147 llamadas a herramientas, 0 subagentes
+sesión 6afe304f: 0 pedidos humanos, 38 llamadas a herramientas, 0 subagentes
+sesión 76587675: 0 pedidos humanos, 67 llamadas a herramientas, 0 subagentes
+sesión 7d956641: 1 pedidos humanos, 124 llamadas a herramientas, 0 subagentes
+sesión 992ec639: 0 pedidos humanos, 153 llamadas a herramientas, 0 subagentes
+sesión b4ff3405: 0 pedidos humanos, 162 llamadas a herramientas, 0 subagentes
+sesión cf710cfb: 0 pedidos humanos, 66 llamadas a herramientas, 0 subagentes
+sesión d4516174: 0 pedidos humanos, 32 llamadas a herramientas, 0 subagentes
+sesión da1fe90c: 0 pedidos humanos, 113 llamadas a herramientas, 0 subagentes
+sesión de1ce2e0: 0 pedidos humanos, 79 llamadas a herramientas, 0 subagentes
+sesión df4cae84: 1 pedidos humanos, 177 llamadas a herramientas, 0 subagentes
+sesión e3c4799b: 0 pedidos humanos, 141 llamadas a herramientas, 0 subagentes
+sesión f1059cb0: 1 pedidos humanos, 143 llamadas a herramientas, 0 subagentes
+sesión faebf887: 5 pedidos humanos, 73 llamadas a herramientas, 0 subagentes
+sesión fc97849d: 2 pedidos humanos, 98 llamadas a herramientas, 1 subagentes
+
+sesiones: 20 (sin contar la que escribe este artículo) · de 2026-11-16 a 2026-11-17
+sesiones delegadas (abren con un encargo escrito por el agente principal): 19 · avisos de coordinación entre agentes: 3 · avisos de tarea terminada: 21
+pedidos humanos (mensajes escritos por la persona): 113, con 12 imágenes adjuntas; largo medio 137 caracteres
+turnos del agente: 6012 · llamadas a herramientas: 3473
+modelo que firma cada turno: claude-fable-5-2 6012
+por herramienta: Bash 1953, Read 1320, ToolSearch 35, Write 33, Edit 26, mcp__t3-code__t3_background_wait 22, WebSearch 22, mcp__t3-code__delegate_task 21, TaskStop 11, Agent 7, mcp__t3-code__t3_thread_send 5, mcp__t3-code__html_preview 3, mcp__claude_ai_Fogon__search_pieces 2, mcp__t3-code__t3_thread_read 2
+subagentes lanzados: 7 · corridas de tools/shot.mjs (capturas): 232 · corridas de las pruebas automáticas: 129

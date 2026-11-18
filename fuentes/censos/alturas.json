@@ -1,0 +1,3138 @@
+{
+ "que_es": "Casas por número de pisos, habitantes y superficie por distrito de Buenos Aires, 1869-1914, transcritos de los censos, y lo que se sabe de 1904, 1909 y 1936. Los números van tal como están en la fuente (la coma decimal de los originales se escribe acá con punto); lo que la fuente no trae va en null; un guion del original (ninguna casa) va en 0. Las claves «derivado_…» no están en la fuente: son sumas de columnas hechas acá. Ver LEEME.md.",
+ "convencion_de_pisos": {
+  "1887": "«pisos» = niveles: «1 piso» es la casa baja; la clasificación llega a 4 pisos; el censo cuenta como pisos los entrepisos y las bohardillas habitables.",
+  "1914": "«planta baja», «1 piso», «2 pisos»… = pisos ALTOS sobre la planta baja: «planta baja» = 1 nivel, «1 piso» = 2 niveles, «6 y más» = 7 niveles o más.",
+  "1869 y 1895": "«cuerpos»: cuerpos superpuestos, o sea niveles (1 cuerpo = casa baja). La columna más alta es «3 ó más cuerpos»."
+ },
+ "fuentes": [
+  {
+   "id": "censo-1869",
+   "año": 1869,
+   "etapa_del_visor_mas_cercana": 1867,
+   "titulo": "Primer Censo de la República Argentina, verificado en los días 15, 16 y 17 de setiembre de 1869 (Buenos Aires, 1872). Ciudad de Buenos Aires, Tabla N.º 9: «Resumen de casas, individuos y familias»",
+   "enlace": "http://www.santafe.gov.ar/archivos/estadisticas/censos/C1869-TU.pdf",
+   "pagina": "pp. 80-81 del tomo (páginas 135-136 del PDF)",
+   "primera_mano": "transcrito del cuadro, leyendo la imagen de la página",
+   "verificacion": "cierran las sumas de las 20 filas y de todas las columnas de casas, cuadras y familias con los totales impresos; la de individuos no (ver advertencias)",
+   "division": "20 secciones de policía (el antiguo municipio, sin Flores ni Belgrano)",
+   "advertencias": [
+    "Individuos: las 20 secciones suman 171 394 y el total impreso dice 171 404 (diez más). Las cifras por sección son las mismas que repite el censo de 1887 (t. II, p. 7), así que la diferencia está en el total impreso; se anotan las dos.",
+    "El cuadro trae dos columnas más a la derecha (relaciones por casa), que no se transcribieron.",
+    "El censo de 1887 (t. II, pp. 71-72) avisa que en 1869 se contaron como casas los departamentos de las secciones céntricas: la sección 1ª da 1 209 «casas» en 1869 y 919 en 1887 sobre las mismas manzanas. El total de casas del centro está inflado y la mezcla de pisos puede estar corrida, no se sabe hacia dónde.",
+    "Sección 5ª: 43 casas de «3 ó más cuerpos» contra 60 de 2 cuerpos es raro (en 1887 la misma sección tiene 16 de 3 pisos y 290 de 2); es lo que dice el cuadro y lo que hace cerrar fila y columna.",
+    "La superficie de cada sección de este cuadro (62,88 ha las de 40 manzanas) no coincide con la que usa el censo de 1887 para calcular la densidad de 1869 (68 ha la sección 1ª): se anotan las dos, cada una en su fuente.",
+    "El censo de 1887 resume 1869 con Flores (993 casas) y Belgrano (556): 20 858 casas = 18 597 de 1 piso, 2 078 de 2, 183 de 3 y ninguna de 4; para la ciudad sola, por techo: 16 688 de azotea, 232 de teja, 1 514 de madera y 875 de paja = 19 309."
+   ],
+   "columnas_de_casas": [
+    "azotea_3_o_mas_cuerpos",
+    "azotea_2_cuerpos",
+    "azotea_1_cuerpo",
+    "teja_2_cuerpos",
+    "teja_1_cuerpo",
+    "madera_2_cuerpos",
+    "madera_1_cuerpo",
+    "paja_1_cuerpo"
+   ],
+   "distritos": [
+    {
+     "numero": 1,
+     "nombre": "sección 1ª de policía",
+     "limites": "Rivadavia – Córdoba, del Paseo de Julio (el río) a Maipú: 8 × 5 = 40 manzanas",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 68,
+      "azotea_2_cuerpos": 292,
+      "azotea_1_cuerpo": 825,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 2,
+      "madera_1_cuerpo": 22,
+      "paja_1_cuerpo": 0
+     },
+     "total_casas": 1209,
+     "habitantes": 13543,
+     "familias": 1715,
+     "cuadras_cuadradas": 40,
+     "superficie_ha": 62.88,
+     "habitantes_por_cuadra": 338.57,
+     "habitantes_por_ha": 215.37,
+     "derivado_por_niveles": {
+      "1": 847,
+      "2": 294,
+      "3+": 68
+     }
+    },
+    {
+     "numero": 2,
+     "nombre": "sección 2ª de policía",
+     "limites": "Rivadavia – Independencia, del río (Balcarce / Paseo Colón) hacia el oeste unas cinco manzanas (hasta Chacabuco o Piedras: el pliegue del plano no deja decidir)",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 21,
+      "azotea_2_cuerpos": 280,
+      "azotea_1_cuerpo": 599,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 1,
+      "madera_1_cuerpo": 2,
+      "paja_1_cuerpo": 0
+     },
+     "total_casas": 903,
+     "habitantes": 11155,
+     "familias": 1198,
+     "cuadras_cuadradas": 40,
+     "superficie_ha": 62.88,
+     "habitantes_por_cuadra": 278.87,
+     "habitantes_por_ha": 177.4,
+     "derivado_por_niveles": {
+      "1": 601,
+      "2": 281,
+      "3+": 21
+     }
+    },
+    {
+     "numero": 3,
+     "nombre": "sección 3ª de policía",
+     "limites": "Rivadavia – Córdoba, de Maipú a Libertad",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 18,
+      "azotea_2_cuerpos": 279,
+      "azotea_1_cuerpo": 1402,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 6,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 3,
+      "paja_1_cuerpo": 0
+     },
+     "total_casas": 1708,
+     "habitantes": 17134,
+     "familias": 2584,
+     "cuadras_cuadradas": 40,
+     "superficie_ha": 62.88,
+     "habitantes_por_cuadra": 428.35,
+     "habitantes_por_ha": 272.49,
+     "derivado_por_niveles": {
+      "1": 1411,
+      "2": 279,
+      "3+": 18
+     }
+    },
+    {
+     "numero": 4,
+     "nombre": "sección 4ª de policía",
+     "limites": "Rivadavia – Independencia, al oeste de la 2ª, hasta Salta o Santiago del Estero",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 8,
+      "azotea_2_cuerpos": 162,
+      "azotea_1_cuerpo": 1005,
+      "teja_2_cuerpos": 12,
+      "teja_1_cuerpo": 85,
+      "madera_2_cuerpos": 13,
+      "madera_1_cuerpo": 57,
+      "paja_1_cuerpo": 6
+     },
+     "total_casas": 1348,
+     "habitantes": 14128,
+     "familias": 1803,
+     "cuadras_cuadradas": 40,
+     "superficie_ha": 62.88,
+     "habitantes_por_cuadra": 353.2,
+     "habitantes_por_ha": 224.68,
+     "derivado_por_niveles": {
+      "1": 1153,
+      "2": 187,
+      "3+": 8
+     }
+    },
+    {
+     "numero": 5,
+     "nombre": "sección 5ª de policía",
+     "limites": "Rivadavia – Córdoba, de Libertad a Callao (con la plaza Lavalle)",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 43,
+      "azotea_2_cuerpos": 60,
+      "azotea_1_cuerpo": 1330,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 10,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 14,
+      "paja_1_cuerpo": 13
+     },
+     "total_casas": 1470,
+     "habitantes": 14522,
+     "familias": 1927,
+     "cuadras_cuadradas": 44,
+     "superficie_ha": 69.17,
+     "habitantes_por_cuadra": 330.05,
+     "habitantes_por_ha": 209.95,
+     "derivado_por_niveles": {
+      "1": 1367,
+      "2": 60,
+      "3+": 43
+     }
+    },
+    {
+     "numero": 6,
+     "nombre": "sección 6ª de policía",
+     "limites": "Rivadavia – Independencia, al oeste de la 4ª, hasta Entre Ríos o poco más",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 4,
+      "azotea_2_cuerpos": 57,
+      "azotea_1_cuerpo": 1295,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 6,
+      "madera_2_cuerpos": 2,
+      "madera_1_cuerpo": 12,
+      "paja_1_cuerpo": 44
+     },
+     "total_casas": 1420,
+     "habitantes": 12978,
+     "familias": 2020,
+     "cuadras_cuadradas": 50,
+     "superficie_ha": 78.6,
+     "habitantes_por_cuadra": 259.4,
+     "habitantes_por_ha": 165.11,
+     "derivado_por_niveles": {
+      "1": 1357,
+      "2": 59,
+      "3+": 4
+     }
+    },
+    {
+     "numero": 7,
+     "nombre": "sección 7ª de policía",
+     "limites": "al norte de Rivadavia, al oeste de Callao (hasta cerca de Larrea)",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 34,
+      "azotea_1_cuerpo": 934,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 4,
+      "madera_1_cuerpo": 24,
+      "paja_1_cuerpo": 35
+     },
+     "total_casas": 1031,
+     "habitantes": 7540,
+     "familias": 1134,
+     "cuadras_cuadradas": 60,
+     "superficie_ha": 94.32,
+     "habitantes_por_cuadra": 125.67,
+     "habitantes_por_ha": 79.94,
+     "derivado_por_niveles": {
+      "1": 993,
+      "2": 38,
+      "3+": 0
+     }
+    },
+    {
+     "numero": 8,
+     "nombre": "sección 8ª de policía",
+     "limites": "al sur de Rivadavia, al oeste de Entre Ríos (Balvanera sur)",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 12,
+      "azotea_1_cuerpo": 703,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 49,
+      "paja_1_cuerpo": 67
+     },
+     "total_casas": 831,
+     "habitantes": 6574,
+     "familias": 972,
+     "cuadras_cuadradas": 40,
+     "superficie_ha": 62.88,
+     "habitantes_por_cuadra": 164.35,
+     "habitantes_por_ha": 104.55,
+     "derivado_por_niveles": {
+      "1": 819,
+      "2": 12,
+      "3+": 0
+     }
+    },
+    {
+     "numero": 9,
+     "nombre": "sección 9ª de policía",
+     "limites": "al norte de Rivadavia, al oeste de la 7ª, hasta Centro América (hoy Pueyrredón) y algo más",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 1,
+      "azotea_2_cuerpos": 28,
+      "azotea_1_cuerpo": 347,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 14,
+      "paja_1_cuerpo": 19
+     },
+     "total_casas": 409,
+     "habitantes": 4600,
+     "familias": 432,
+     "cuadras_cuadradas": 40,
+     "superficie_ha": 62.88,
+     "habitantes_por_cuadra": 115,
+     "habitantes_por_ha": 73.15,
+     "derivado_por_niveles": {
+      "1": 380,
+      "2": 28,
+      "3+": 1
+     }
+    },
+    {
+     "numero": 10,
+     "nombre": "sección 10ª de policía",
+     "limites": "al sur de Rivadavia, al oeste de la 8ª (Balvanera sur y oeste, Once)",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 11,
+      "azotea_2_cuerpos": 20,
+      "azotea_1_cuerpo": 322,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 4,
+      "madera_1_cuerpo": 7,
+      "paja_1_cuerpo": 28
+     },
+     "total_casas": 392,
+     "habitantes": 3171,
+     "familias": 470,
+     "cuadras_cuadradas": 40,
+     "superficie_ha": 62.88,
+     "habitantes_por_cuadra": 79.27,
+     "habitantes_por_ha": 50.43,
+     "derivado_por_niveles": {
+      "1": 357,
+      "2": 24,
+      "3+": 11
+     }
+    },
+    {
+     "numero": 11,
+     "nombre": "sección 11ª de policía",
+     "limites": "al oeste y noroeste de la 9ª (Almagro)",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 9,
+      "azotea_1_cuerpo": 322,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 17,
+      "paja_1_cuerpo": 27
+     },
+     "total_casas": 375,
+     "habitantes": 1423,
+     "familias": 478,
+     "cuadras_cuadradas": 40,
+     "superficie_ha": 62.88,
+     "habitantes_por_cuadra": 35.57,
+     "habitantes_por_ha": 22.63,
+     "derivado_por_niveles": {
+      "1": 366,
+      "2": 9,
+      "3+": 0
+     }
+    },
+    {
+     "numero": 12,
+     "nombre": "sección 12ª de policía",
+     "limites": "sudoeste (San Cristóbal, Parque de los Patricios)",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 5,
+      "azotea_1_cuerpo": 89,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 10,
+      "paja_1_cuerpo": 14
+     },
+     "total_casas": 118,
+     "habitantes": 815,
+     "familias": 135,
+     "cuadras_cuadradas": 160,
+     "superficie_ha": 251.53,
+     "habitantes_por_cuadra": 5.09,
+     "habitantes_por_ha": 3.24,
+     "derivado_por_niveles": {
+      "1": 113,
+      "2": 5,
+      "3+": 0
+     }
+    },
+    {
+     "numero": 13,
+     "nombre": "sección 13ª de policía",
+     "limites": "al norte de Córdoba, del río a cerca de Libertad (Retiro)",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 1,
+      "azotea_2_cuerpos": 74,
+      "azotea_1_cuerpo": 1101,
+      "teja_2_cuerpos": 3,
+      "teja_1_cuerpo": 19,
+      "madera_2_cuerpos": 6,
+      "madera_1_cuerpo": 23,
+      "paja_1_cuerpo": 3
+     },
+     "total_casas": 1230,
+     "habitantes": 12782,
+     "familias": 3087,
+     "cuadras_cuadradas": 80,
+     "superficie_ha": 125.76,
+     "habitantes_por_cuadra": 159.77,
+     "habitantes_por_ha": 101.64,
+     "derivado_por_niveles": {
+      "1": 1146,
+      "2": 83,
+      "3+": 1
+     }
+    },
+    {
+     "numero": 14,
+     "nombre": "sección 14ª de policía",
+     "limites": "al sur de Independencia, del lado del río (San Telmo)",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 4,
+      "azotea_2_cuerpos": 79,
+      "azotea_1_cuerpo": 1131,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 11,
+      "madera_2_cuerpos": 2,
+      "madera_1_cuerpo": 37,
+      "paja_1_cuerpo": 19
+     },
+     "total_casas": 1283,
+     "habitantes": 12329,
+     "familias": 2235,
+     "cuadras_cuadradas": 55,
+     "superficie_ha": 86.46,
+     "habitantes_por_cuadra": 224.16,
+     "habitantes_por_ha": 142.6,
+     "derivado_por_niveles": {
+      "1": 1198,
+      "2": 81,
+      "3+": 4
+     }
+    },
+    {
+     "numero": 15,
+     "nombre": "sección 15ª de policía",
+     "limites": "al norte de Córdoba, al oeste de la 13ª (Recoleta, el Pilar)",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 18,
+      "azotea_1_cuerpo": 942,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 5,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 44,
+      "paja_1_cuerpo": 152
+     },
+     "total_casas": 1161,
+     "habitantes": 8519,
+     "familias": 1897,
+     "cuadras_cuadradas": 95,
+     "superficie_ha": 149.34,
+     "habitantes_por_cuadra": 89.67,
+     "habitantes_por_ha": 57.04,
+     "derivado_por_niveles": {
+      "1": 1143,
+      "2": 18,
+      "3+": 0
+     }
+    },
+    {
+     "numero": 16,
+     "nombre": "sección 16ª de policía",
+     "limites": "al sur de Independencia, al oeste de la 14ª",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 53,
+      "azotea_1_cuerpo": 1110,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 16,
+      "madera_2_cuerpos": 18,
+      "madera_1_cuerpo": 53,
+      "paja_1_cuerpo": 25
+     },
+     "total_casas": 1275,
+     "habitantes": 9595,
+     "familias": 1915,
+     "cuadras_cuadradas": 220,
+     "superficie_ha": 345.85,
+     "habitantes_por_cuadra": 43.61,
+     "habitantes_por_ha": 27.74,
+     "derivado_por_niveles": {
+      "1": 1204,
+      "2": 71,
+      "3+": 0
+     }
+    },
+    {
+     "numero": 17,
+     "nombre": "sección 17ª de policía",
+     "limites": "Palermo",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 3,
+      "azotea_1_cuerpo": 305,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 59,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 48,
+      "paja_1_cuerpo": 65
+     },
+     "total_casas": 480,
+     "habitantes": 1908,
+     "familias": 465,
+     "cuadras_cuadradas": 500,
+     "superficie_ha": 786.03,
+     "habitantes_por_cuadra": 3.82,
+     "habitantes_por_ha": 2.43,
+     "derivado_por_niveles": {
+      "1": 477,
+      "2": 3,
+      "3+": 0
+     }
+    },
+    {
+     "numero": 18,
+     "nombre": "sección 18ª de policía",
+     "limites": "Constitución",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 11,
+      "azotea_1_cuerpo": 808,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 124,
+      "paja_1_cuerpo": 154
+     },
+     "total_casas": 1097,
+     "habitantes": 7135,
+     "familias": 1456,
+     "cuadras_cuadradas": 310,
+     "superficie_ha": 487.34,
+     "habitantes_por_cuadra": 23.02,
+     "habitantes_por_ha": 14.64,
+     "derivado_por_niveles": {
+      "1": 1086,
+      "2": 11,
+      "3+": 0
+     }
+    },
+    {
+     "numero": 19,
+     "nombre": "sección 19ª de policía",
+     "limites": "Barracas al oeste",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 2,
+      "azotea_2_cuerpos": 21,
+      "azotea_1_cuerpo": 304,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 6,
+      "madera_1_cuerpo": 220,
+      "paja_1_cuerpo": 148
+     },
+     "total_casas": 701,
+     "habitantes": 5300,
+     "familias": 776,
+     "cuadras_cuadradas": 400,
+     "superficie_ha": 628.83,
+     "habitantes_por_cuadra": 13.25,
+     "habitantes_por_ha": 8.43,
+     "derivado_por_niveles": {
+      "1": 672,
+      "2": 27,
+      "3+": 2
+     }
+    },
+    {
+     "numero": 20,
+     "nombre": "sección 20ª de policía",
+     "limites": "La Boca y Barracas sobre el Riachuelo",
+     "limites_primera_mano": "leído del plano de las 20 secciones del censo de 1887 y del número de manzanas; aproximado, no verificado con un texto",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 44,
+      "azotea_1_cuerpo": 92,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 0,
+      "madera_2_cuerpos": 382,
+      "madera_1_cuerpo": 294,
+      "paja_1_cuerpo": 56
+     },
+     "total_casas": 868,
+     "habitantes": 6243,
+     "familias": 1286,
+     "cuadras_cuadradas": 210,
+     "superficie_ha": 330.13,
+     "habitantes_por_cuadra": 29.73,
+     "habitantes_por_ha": 18.91,
+     "derivado_por_niveles": {
+      "1": 442,
+      "2": 426,
+      "3+": 0
+     }
+    }
+   ],
+   "totales": {
+    "casas": {
+     "azotea_3_o_mas_cuerpos": 181,
+     "azotea_2_cuerpos": 1541,
+     "azotea_1_cuerpo": 14966,
+     "teja_2_cuerpos": 15,
+     "teja_1_cuerpo": 217,
+     "madera_2_cuerpos": 440,
+     "madera_1_cuerpo": 1074,
+     "paja_1_cuerpo": 875
+    },
+    "total_casas": 19309,
+    "habitantes": 171404,
+    "derivado_suma_de_habitantes_de_las_secciones": 171394,
+    "familias": 27985,
+    "cuadras_cuadradas": 2504,
+    "superficie_ha": 3936.47,
+    "habitantes_por_cuadra": 68.45,
+    "habitantes_por_ha": 43.54,
+    "derivado_por_niveles": {
+     "1": 17132,
+     "2": 1996,
+     "3+": 181
+    }
+   }
+  },
+  {
+   "id": "censo-1887",
+   "año": 1887,
+   "etapa_del_visor_mas_cercana": 1888,
+   "titulo": "Censo general de población, edificación, comercio e industrias de la ciudad de Buenos Aires, levantado en los días 17 de agosto, 15 y 30 de setiembre de 1887 (Buenos Aires, 1889), tomo II. Cuadro «Pisos, sótanos, seguro y alumbrado á gas»",
+   "enlace": "https://archive.org/details/censogeneraldela02buen",
+   "pagina": "t. II, p. 109 (hoja n122 del ejemplar digital). Habitantes por sección: t. II, p. 7 (hoja n10). Hectáreas y habitantes por hectárea: t. II, p. 8 (hoja n11)",
+   "primera_mano": "transcrito del cuadro, leyendo la imagen de la página",
+   "verificacion": "cierran las sumas de las 22 filas y de las 8 columnas con los totales impresos; en la tabla de habitantes, 1887 − 1869 da el aumento impreso en las 20 secciones, y la columna de 1869 coincide con la del censo de 1869",
+   "division": "20 secciones de policía del antiguo municipio, más Flores y Belgrano",
+   "plano_de_las_secciones": {
+    "titulo": "«La antigua división de la ciudad de Buenos Aires en veinte secciones de policía», grabado por P. Ludwig",
+    "enlace": "https://archive.org/details/censogeneraldela01buen",
+    "pagina": "t. I, lámina junto a las pp. 188-189 (hojas n245 y n246)",
+    "nota": "el censo no describe los límites por escrito; el centro de la lámina cae en el pliegue del libro"
+   },
+   "advertencias": [
+    "El censo cuenta 33 804 casas; dice que contando los departamentos como casas serían 51 181. La Memoria de la Comisión Nacional de Casas Baratas (1921-22) da para 1887 33 561 casas y 261 456 piezas: no coincide con 33 804 y se anotan las dos.",
+    "Según el texto (t. II, p. 8): 40 habitantes por hectárea en 1869 y 90 en 1887 en el antiguo municipio; el 27 % de la población terrestre vive en conventillos.",
+    "Sección 20ª (La Boca): 754 casas de 2 pisos sobre 1 296; son las casas de madera de alto."
+   ],
+   "columnas_de_casas": [
+    "1_piso",
+    "2_pisos",
+    "3_pisos",
+    "4_pisos"
+   ],
+   "distritos": [
+    {
+     "numero": 1,
+     "nombre": "sección 1ª de policía",
+     "limites": "Rivadavia – Córdoba, del Paseo de Julio (el río) a Maipú: 8 × 5 = 40 manzanas",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 420,
+      "2_pisos": 392,
+      "3_pisos": 92,
+      "4_pisos": 15
+     },
+     "total_casas": 919,
+     "con_sotanos": 284,
+     "aseguradas": 122,
+     "alumbradas_a_gas": 774,
+     "habitantes": 15497,
+     "habitantes_en_1869": 13543,
+     "superficie_ha": 68,
+     "habitantes_por_ha": 228,
+     "habitantes_por_ha_en_1869": 199
+    },
+    {
+     "numero": 2,
+     "nombre": "sección 2ª de policía",
+     "limites": "Rivadavia – Independencia, del río (Balcarce / Paseo Colón) hacia el oeste unas cinco manzanas (hasta Chacabuco o Piedras: el pliegue del plano no deja decidir)",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 356,
+      "2_pisos": 352,
+      "3_pisos": 51,
+      "4_pisos": 3
+     },
+     "total_casas": 762,
+     "con_sotanos": 156,
+     "aseguradas": 87,
+     "alumbradas_a_gas": 551,
+     "habitantes": 15001,
+     "habitantes_en_1869": 11155,
+     "superficie_ha": 64,
+     "habitantes_por_ha": 234,
+     "habitantes_por_ha_en_1869": 174
+    },
+    {
+     "numero": 3,
+     "nombre": "sección 3ª de policía",
+     "limites": "Rivadavia – Córdoba, de Maipú a Libertad",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 758,
+      "2_pisos": 465,
+      "3_pisos": 93,
+      "4_pisos": 5
+     },
+     "total_casas": 1321,
+     "con_sotanos": 391,
+     "aseguradas": 209,
+     "alumbradas_a_gas": 1179,
+     "habitantes": 18948,
+     "habitantes_en_1869": 17134,
+     "superficie_ha": 65,
+     "habitantes_por_ha": 293,
+     "habitantes_por_ha_en_1869": 264
+    },
+    {
+     "numero": 4,
+     "nombre": "sección 4ª de policía",
+     "limites": "Rivadavia – Independencia, al oeste de la 2ª, hasta Salta o Santiago del Estero",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 757,
+      "2_pisos": 367,
+      "3_pisos": 47,
+      "4_pisos": 3
+     },
+     "total_casas": 1174,
+     "con_sotanos": 273,
+     "aseguradas": 157,
+     "alumbradas_a_gas": 939,
+     "habitantes": 17845,
+     "habitantes_en_1869": 14128,
+     "superficie_ha": 62,
+     "habitantes_por_ha": 288,
+     "habitantes_por_ha_en_1869": 228
+    },
+    {
+     "numero": 5,
+     "nombre": "sección 5ª de policía",
+     "limites": "Rivadavia – Córdoba, de Libertad a Callao (con la plaza Lavalle)",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 1087,
+      "2_pisos": 290,
+      "3_pisos": 16,
+      "4_pisos": 0
+     },
+     "total_casas": 1393,
+     "con_sotanos": 346,
+     "aseguradas": 113,
+     "alumbradas_a_gas": 979,
+     "habitantes": 20411,
+     "habitantes_en_1869": 14522,
+     "superficie_ha": 67,
+     "habitantes_por_ha": 305,
+     "habitantes_por_ha_en_1869": 217
+    },
+    {
+     "numero": 6,
+     "nombre": "sección 6ª de policía",
+     "limites": "Rivadavia – Independencia, al oeste de la 4ª, hasta Entre Ríos o poco más",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 1085,
+      "2_pisos": 257,
+      "3_pisos": 25,
+      "4_pisos": 2
+     },
+     "total_casas": 1369,
+     "con_sotanos": 276,
+     "aseguradas": 82,
+     "alumbradas_a_gas": 872,
+     "habitantes": 20624,
+     "habitantes_en_1869": 12978,
+     "superficie_ha": 62,
+     "habitantes_por_ha": 333,
+     "habitantes_por_ha_en_1869": 209
+    },
+    {
+     "numero": 7,
+     "nombre": "sección 7ª de policía",
+     "limites": "al norte de Rivadavia, al oeste de Callao (hasta cerca de Larrea)",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 1085,
+      "2_pisos": 168,
+      "3_pisos": 10,
+      "4_pisos": 0
+     },
+     "total_casas": 1263,
+     "con_sotanos": 273,
+     "aseguradas": 89,
+     "alumbradas_a_gas": 627,
+     "habitantes": 14586,
+     "habitantes_en_1869": 7540,
+     "superficie_ha": 69,
+     "habitantes_por_ha": 211,
+     "habitantes_por_ha_en_1869": 109
+    },
+    {
+     "numero": 8,
+     "nombre": "sección 8ª de policía",
+     "limites": "al sur de Rivadavia, al oeste de Entre Ríos (Balvanera sur)",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 1262,
+      "2_pisos": 134,
+      "3_pisos": 6,
+      "4_pisos": 0
+     },
+     "total_casas": 1402,
+     "con_sotanos": 315,
+     "aseguradas": 85,
+     "alumbradas_a_gas": 559,
+     "habitantes": 17942,
+     "habitantes_en_1869": 6574,
+     "superficie_ha": 64,
+     "habitantes_por_ha": 280,
+     "habitantes_por_ha_en_1869": 103
+    },
+    {
+     "numero": 9,
+     "nombre": "sección 9ª de policía",
+     "limites": "al norte de Rivadavia, al oeste de la 7ª, hasta Centro América (hoy Pueyrredón) y algo más",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 1472,
+      "2_pisos": 104,
+      "3_pisos": 5,
+      "4_pisos": 2
+     },
+     "total_casas": 1583,
+     "con_sotanos": 437,
+     "aseguradas": 120,
+     "alumbradas_a_gas": 397,
+     "habitantes": 18934,
+     "habitantes_en_1869": 4600,
+     "superficie_ha": 115,
+     "habitantes_por_ha": 165,
+     "habitantes_por_ha_en_1869": 40
+    },
+    {
+     "numero": 10,
+     "nombre": "sección 10ª de policía",
+     "limites": "al sur de Rivadavia, al oeste de la 8ª (Balvanera sur y oeste, Once)",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 3089,
+      "2_pisos": 164,
+      "3_pisos": 7,
+      "4_pisos": 0
+     },
+     "total_casas": 3260,
+     "con_sotanos": 788,
+     "aseguradas": 152,
+     "alumbradas_a_gas": 457,
+     "habitantes": 37765,
+     "habitantes_en_1869": 3171,
+     "superficie_ha": 383,
+     "habitantes_por_ha": 98,
+     "habitantes_por_ha_en_1869": 8
+    },
+    {
+     "numero": 11,
+     "nombre": "sección 11ª de policía",
+     "limites": "al oeste y noroeste de la 9ª (Almagro)",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 997,
+      "2_pisos": 65,
+      "3_pisos": 2,
+      "4_pisos": 1
+     },
+     "total_casas": 1065,
+     "con_sotanos": 359,
+     "aseguradas": 62,
+     "alumbradas_a_gas": 159,
+     "habitantes": 11349,
+     "habitantes_en_1869": 1423,
+     "superficie_ha": 154,
+     "habitantes_por_ha": 74,
+     "habitantes_por_ha_en_1869": 9
+    },
+    {
+     "numero": 12,
+     "nombre": "sección 12ª de policía",
+     "limites": "sudoeste (San Cristóbal, Parque de los Patricios)",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 590,
+      "2_pisos": 14,
+      "3_pisos": 0,
+      "4_pisos": 0
+     },
+     "total_casas": 604,
+     "con_sotanos": 134,
+     "aseguradas": 24,
+     "alumbradas_a_gas": 6,
+     "habitantes": 4982,
+     "habitantes_en_1869": 815,
+     "superficie_ha": 565,
+     "habitantes_por_ha": 9,
+     "habitantes_por_ha_en_1869": 1
+    },
+    {
+     "numero": 13,
+     "nombre": "sección 13ª de policía",
+     "limites": "al norte de Córdoba, del río a cerca de Libertad (Retiro)",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 1068,
+      "2_pisos": 268,
+      "3_pisos": 10,
+      "4_pisos": 1
+     },
+     "total_casas": 1347,
+     "con_sotanos": 325,
+     "aseguradas": 73,
+     "alumbradas_a_gas": 816,
+     "habitantes": 23914,
+     "habitantes_en_1869": 12782,
+     "superficie_ha": 115,
+     "habitantes_por_ha": 208,
+     "habitantes_por_ha_en_1869": 111
+    },
+    {
+     "numero": 14,
+     "nombre": "sección 14ª de policía",
+     "limites": "al sur de Independencia, del lado del río (San Telmo)",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 1072,
+      "2_pisos": 178,
+      "3_pisos": 6,
+      "4_pisos": 0
+     },
+     "total_casas": 1256,
+     "con_sotanos": 218,
+     "aseguradas": 53,
+     "alumbradas_a_gas": 498,
+     "habitantes": 19514,
+     "habitantes_en_1869": 12329,
+     "superficie_ha": 98,
+     "habitantes_por_ha": 199,
+     "habitantes_por_ha_en_1869": 126
+    },
+    {
+     "numero": 15,
+     "nombre": "sección 15ª de policía",
+     "limites": "al norte de Córdoba, al oeste de la 13ª (Recoleta, el Pilar)",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 2909,
+      "2_pisos": 280,
+      "3_pisos": 26,
+      "4_pisos": 0
+     },
+     "total_casas": 3215,
+     "con_sotanos": 812,
+     "aseguradas": 196,
+     "alumbradas_a_gas": 1331,
+     "habitantes": 39267,
+     "habitantes_en_1869": 8519,
+     "superficie_ha": 279,
+     "habitantes_por_ha": 141,
+     "habitantes_por_ha_en_1869": 31
+    },
+    {
+     "numero": 16,
+     "nombre": "sección 16ª de policía",
+     "limites": "al sur de Independencia, al oeste de la 14ª",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 1116,
+      "2_pisos": 171,
+      "3_pisos": 5,
+      "4_pisos": 0
+     },
+     "total_casas": 1292,
+     "con_sotanos": 269,
+     "aseguradas": 118,
+     "alumbradas_a_gas": 617,
+     "habitantes": 17660,
+     "habitantes_en_1869": 9595,
+     "superficie_ha": 90,
+     "habitantes_por_ha": 196,
+     "habitantes_por_ha_en_1869": 106
+    },
+    {
+     "numero": 17,
+     "nombre": "sección 17ª de policía",
+     "limites": "Palermo",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 1479,
+      "2_pisos": 63,
+      "3_pisos": 1,
+      "4_pisos": 0
+     },
+     "total_casas": 1543,
+     "con_sotanos": 369,
+     "aseguradas": 47,
+     "alumbradas_a_gas": 237,
+     "habitantes": 14515,
+     "habitantes_en_1869": 1908,
+     "superficie_ha": 954,
+     "habitantes_por_ha": 15,
+     "habitantes_por_ha_en_1869": 2
+    },
+    {
+     "numero": 18,
+     "nombre": "sección 18ª de policía",
+     "limites": "Constitución",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 2489,
+      "2_pisos": 157,
+      "3_pisos": 9,
+      "4_pisos": 0
+     },
+     "total_casas": 2655,
+     "con_sotanos": 445,
+     "aseguradas": 180,
+     "alumbradas_a_gas": 343,
+     "habitantes": 32564,
+     "habitantes_en_1869": 7135,
+     "superficie_ha": 179,
+     "habitantes_por_ha": 182,
+     "habitantes_por_ha_en_1869": 40
+    },
+    {
+     "numero": 19,
+     "nombre": "sección 19ª de policía",
+     "limites": "Barracas al oeste",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 1467,
+      "2_pisos": 122,
+      "3_pisos": 5,
+      "4_pisos": 0
+     },
+     "total_casas": 1594,
+     "con_sotanos": 208,
+     "aseguradas": 82,
+     "alumbradas_a_gas": 147,
+     "habitantes": 18357,
+     "habitantes_en_1869": 5300,
+     "superficie_ha": 899,
+     "habitantes_por_ha": 20,
+     "habitantes_por_ha_en_1869": 6
+    },
+    {
+     "numero": 20,
+     "nombre": "sección 20ª de policía",
+     "limites": "La Boca y Barracas sobre el Riachuelo",
+     "limites_primera_mano": "leído del plano de las 20 secciones (t. I) y del número de manzanas de 1869; aproximado, no verificado con un texto",
+     "casas": {
+      "1_piso": 526,
+      "2_pisos": 754,
+      "3_pisos": 12,
+      "4_pisos": 4
+     },
+     "total_casas": 1296,
+     "con_sotanos": 92,
+     "aseguradas": 281,
+     "alumbradas_a_gas": 121,
+     "habitantes": 24498,
+     "habitantes_en_1869": 6243,
+     "superficie_ha": 240,
+     "habitantes_por_ha": 102,
+     "habitantes_por_ha_en_1869": 26
+    },
+    {
+     "numero": null,
+     "nombre": "Flores",
+     "limites": "el partido de Flores, anexado en 1887",
+     "limites_primera_mano": "no se buscó",
+     "casas": {
+      "1_piso": 2088,
+      "2_pisos": 129,
+      "3_pisos": 7,
+      "4_pisos": 0
+     },
+     "total_casas": 2224,
+     "con_sotanos": 535,
+     "aseguradas": 72,
+     "alumbradas_a_gas": 328,
+     "habitantes": null,
+     "habitantes_en_1869": null,
+     "superficie_ha": null,
+     "habitantes_por_ha": null,
+     "habitantes_por_ha_en_1869": null
+    },
+    {
+     "numero": null,
+     "nombre": "Belgrano",
+     "limites": "el partido de Belgrano, anexado en 1887",
+     "limites_primera_mano": "no se buscó",
+     "casas": {
+      "1_piso": 1181,
+      "2_pisos": 85,
+      "3_pisos": 1,
+      "4_pisos": 0
+     },
+     "total_casas": 1267,
+     "con_sotanos": 318,
+     "aseguradas": 32,
+     "alumbradas_a_gas": 274,
+     "habitantes": null,
+     "habitantes_en_1869": null,
+     "superficie_ha": null,
+     "habitantes_por_ha": null,
+     "habitantes_por_ha_en_1869": null
+    }
+   ],
+   "totales": {
+    "casas": {
+     "1_piso": 28353,
+     "2_pisos": 4979,
+     "3_pisos": 436,
+     "4_pisos": 36
+    },
+    "total_casas": 33804,
+    "con_sotanos": 7623,
+    "aseguradas": 2436,
+    "alumbradas_a_gas": 12211,
+    "habitantes_de_la_rada": 3817,
+    "habitantes_de_la_rada_en_1869": 5810
+   },
+   "parroquias_superficie_ha": {
+    "nota": "t. II, p. 85 (hoja n96); con el 15 % deducido por calles y plazas",
+    "Catedral al Norte": 77.7,
+    "Catedral al Sud": 66.6,
+    "San Miguel": 49.76,
+    "San Nicolás": 59.37,
+    "La Piedad": 114.7,
+    "Socorro": 143.1,
+    "Monserrat": 73.72,
+    "San Telmo": 112,
+    "Concepción": 219.95,
+    "Balvanera": 501.4,
+    "San Juan Evangelista": 450.45,
+    "Santa Lucía": 690,
+    "Pilar": 1132.15,
+    "San Cristóbal": 849.1,
+    "total": 4540,
+    "Flores": 12100,
+    "Belgrano": 4900
+   }
+  },
+  {
+   "id": "censo-1895",
+   "año": 1895,
+   "etapa_del_visor_mas_cercana": 1895,
+   "titulo": "Segundo Censo de la República Argentina, mayo 10 de 1895 (Buenos Aires, 1898), tomo III, capítulo IV (edificación), cuadro I: «Capital Federal. Número de casas, según su clase de construcción y número de cuerpos»",
+   "enlace": "http://www.santafe.gov.ar/archivos/estadisticas/censos/C1895-T3.pdf",
+   "pagina": "t. III, cap. IV, p. 3 (página 269 del PDF)",
+   "primera_mano": "transcrito del cuadro, leyendo la imagen de la página (escaneo borroso)",
+   "verificacion": "con esta lectura cierran las 30 filas y las 12 columnas con los totales impresos; una cifra está corregida por suma (ver advertencias)",
+   "division": "29 secciones policiales y la isla Martín García",
+   "advertencias": [
+    "El escaneo es borroso y varios 3 y 8 se confunden; se tomó la lectura que hace cerrar a la vez la fila y la columna.",
+    "Sección 21ª, azotea de 3 ó más cuerpos: en la imagen se lee «6», pero fila y columna solo cierran con 16; va 16.",
+    "No se encontraron los límites de las 29 secciones de 1895. Por la cantidad de casas, las secciones 1ª a 20ª parecen seguir a las de 1887 con ajustes (cambian mucho la 4ª y la 15ª) y las 21ª a 29ª son nuevas (Flores, Belgrano y ensanches): es una conjetura, no un dato.",
+    "El cuadro no trae habitantes ni superficie por sección."
+   ],
+   "columnas_de_casas": [
+    "azotea_3_o_mas_cuerpos",
+    "azotea_2_cuerpos",
+    "azotea_1_cuerpo",
+    "teja_2_cuerpos",
+    "teja_1_cuerpo",
+    "fierro_o_zinc_2_cuerpos",
+    "fierro_o_zinc_1_cuerpo",
+    "madera_2_cuerpos",
+    "madera_1_cuerpo",
+    "de_un_cuerpo_fierro",
+    "de_un_cuerpo_adobe_o_paja"
+   ],
+   "distritos": [
+    {
+     "numero": 1,
+     "nombre": "sección 1ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 158,
+      "azotea_2_cuerpos": 388,
+      "azotea_1_cuerpo": 304,
+      "teja_2_cuerpos": 4,
+      "teja_1_cuerpo": 2,
+      "fierro_o_zinc_2_cuerpos": 8,
+      "fierro_o_zinc_1_cuerpo": 1,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 3,
+      "de_un_cuerpo_fierro": 0,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 868,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 310,
+      "2": 400,
+      "3+": 158
+     }
+    },
+    {
+     "numero": 2,
+     "nombre": "sección 2ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 63,
+      "azotea_2_cuerpos": 346,
+      "azotea_1_cuerpo": 321,
+      "teja_2_cuerpos": 11,
+      "teja_1_cuerpo": 44,
+      "fierro_o_zinc_2_cuerpos": 8,
+      "fierro_o_zinc_1_cuerpo": 18,
+      "madera_2_cuerpos": 1,
+      "madera_1_cuerpo": 5,
+      "de_un_cuerpo_fierro": 3,
+      "de_un_cuerpo_adobe_o_paja": 4
+     },
+     "total_casas": 824,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 395,
+      "2": 366,
+      "3+": 63
+     }
+    },
+    {
+     "numero": 3,
+     "nombre": "sección 3ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 207,
+      "azotea_2_cuerpos": 580,
+      "azotea_1_cuerpo": 742,
+      "teja_2_cuerpos": 9,
+      "teja_1_cuerpo": 1,
+      "fierro_o_zinc_2_cuerpos": 2,
+      "fierro_o_zinc_1_cuerpo": 10,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 0,
+      "de_un_cuerpo_fierro": 1,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 1552,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 754,
+      "2": 591,
+      "3+": 207
+     }
+    },
+    {
+     "numero": 4,
+     "nombre": "sección 4ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 85,
+      "azotea_2_cuerpos": 424,
+      "azotea_1_cuerpo": 1248,
+      "teja_2_cuerpos": 6,
+      "teja_1_cuerpo": 13,
+      "fierro_o_zinc_2_cuerpos": 1,
+      "fierro_o_zinc_1_cuerpo": 14,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 1,
+      "de_un_cuerpo_fierro": 0,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 1792,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1276,
+      "2": 431,
+      "3+": 85
+     }
+    },
+    {
+     "numero": 5,
+     "nombre": "sección 5ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 33,
+      "azotea_2_cuerpos": 326,
+      "azotea_1_cuerpo": 1028,
+      "teja_2_cuerpos": 10,
+      "teja_1_cuerpo": 27,
+      "fierro_o_zinc_2_cuerpos": 5,
+      "fierro_o_zinc_1_cuerpo": 11,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 1,
+      "de_un_cuerpo_fierro": 0,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 1441,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1067,
+      "2": 341,
+      "3+": 33
+     }
+    },
+    {
+     "numero": 6,
+     "nombre": "sección 6ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 21,
+      "azotea_2_cuerpos": 288,
+      "azotea_1_cuerpo": 918,
+      "teja_2_cuerpos": 9,
+      "teja_1_cuerpo": 42,
+      "fierro_o_zinc_2_cuerpos": 6,
+      "fierro_o_zinc_1_cuerpo": 30,
+      "madera_2_cuerpos": 2,
+      "madera_1_cuerpo": 1,
+      "de_un_cuerpo_fierro": 10,
+      "de_un_cuerpo_adobe_o_paja": 1
+     },
+     "total_casas": 1328,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1002,
+      "2": 305,
+      "3+": 21
+     }
+    },
+    {
+     "numero": 7,
+     "nombre": "sección 7ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 45,
+      "azotea_2_cuerpos": 242,
+      "azotea_1_cuerpo": 1054,
+      "teja_2_cuerpos": 2,
+      "teja_1_cuerpo": 29,
+      "fierro_o_zinc_2_cuerpos": 6,
+      "fierro_o_zinc_1_cuerpo": 33,
+      "madera_2_cuerpos": 1,
+      "madera_1_cuerpo": 11,
+      "de_un_cuerpo_fierro": 4,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 1427,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1131,
+      "2": 251,
+      "3+": 45
+     }
+    },
+    {
+     "numero": 8,
+     "nombre": "sección 8ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 16,
+      "azotea_2_cuerpos": 146,
+      "azotea_1_cuerpo": 1237,
+      "teja_2_cuerpos": 5,
+      "teja_1_cuerpo": 40,
+      "fierro_o_zinc_2_cuerpos": 4,
+      "fierro_o_zinc_1_cuerpo": 58,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 15,
+      "de_un_cuerpo_fierro": 5,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 1526,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1355,
+      "2": 155,
+      "3+": 16
+     }
+    },
+    {
+     "numero": 9,
+     "nombre": "sección 9ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 10,
+      "azotea_2_cuerpos": 212,
+      "azotea_1_cuerpo": 1394,
+      "teja_2_cuerpos": 13,
+      "teja_1_cuerpo": 125,
+      "fierro_o_zinc_2_cuerpos": 19,
+      "fierro_o_zinc_1_cuerpo": 259,
+      "madera_2_cuerpos": 6,
+      "madera_1_cuerpo": 85,
+      "de_un_cuerpo_fierro": 10,
+      "de_un_cuerpo_adobe_o_paja": 2
+     },
+     "total_casas": 2135,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1875,
+      "2": 250,
+      "3+": 10
+     }
+    },
+    {
+     "numero": 10,
+     "nombre": "sección 10ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 14,
+      "azotea_2_cuerpos": 290,
+      "azotea_1_cuerpo": 2292,
+      "teja_2_cuerpos": 8,
+      "teja_1_cuerpo": 116,
+      "fierro_o_zinc_2_cuerpos": 35,
+      "fierro_o_zinc_1_cuerpo": 681,
+      "madera_2_cuerpos": 7,
+      "madera_1_cuerpo": 80,
+      "de_un_cuerpo_fierro": 43,
+      "de_un_cuerpo_adobe_o_paja": 1
+     },
+     "total_casas": 3567,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 3213,
+      "2": 340,
+      "3+": 14
+     }
+    },
+    {
+     "numero": 11,
+     "nombre": "sección 11ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 11,
+      "azotea_2_cuerpos": 159,
+      "azotea_1_cuerpo": 1092,
+      "teja_2_cuerpos": 6,
+      "teja_1_cuerpo": 98,
+      "fierro_o_zinc_2_cuerpos": 53,
+      "fierro_o_zinc_1_cuerpo": 491,
+      "madera_2_cuerpos": 6,
+      "madera_1_cuerpo": 63,
+      "de_un_cuerpo_fierro": 16,
+      "de_un_cuerpo_adobe_o_paja": 7
+     },
+     "total_casas": 2002,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1767,
+      "2": 224,
+      "3+": 11
+     }
+    },
+    {
+     "numero": 12,
+     "nombre": "sección 12ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 34,
+      "azotea_1_cuerpo": 517,
+      "teja_2_cuerpos": 2,
+      "teja_1_cuerpo": 58,
+      "fierro_o_zinc_2_cuerpos": 4,
+      "fierro_o_zinc_1_cuerpo": 493,
+      "madera_2_cuerpos": 1,
+      "madera_1_cuerpo": 148,
+      "de_un_cuerpo_fierro": 56,
+      "de_un_cuerpo_adobe_o_paja": 3
+     },
+     "total_casas": 1316,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1275,
+      "2": 41,
+      "3+": 0
+     }
+    },
+    {
+     "numero": 13,
+     "nombre": "sección 13ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 61,
+      "azotea_2_cuerpos": 369,
+      "azotea_1_cuerpo": 939,
+      "teja_2_cuerpos": 7,
+      "teja_1_cuerpo": 36,
+      "fierro_o_zinc_2_cuerpos": 5,
+      "fierro_o_zinc_1_cuerpo": 32,
+      "madera_2_cuerpos": 7,
+      "madera_1_cuerpo": 7,
+      "de_un_cuerpo_fierro": 12,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 1475,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1026,
+      "2": 388,
+      "3+": 61
+     }
+    },
+    {
+     "numero": 14,
+     "nombre": "sección 14ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 17,
+      "azotea_2_cuerpos": 200,
+      "azotea_1_cuerpo": 953,
+      "teja_2_cuerpos": 4,
+      "teja_1_cuerpo": 40,
+      "fierro_o_zinc_2_cuerpos": 9,
+      "fierro_o_zinc_1_cuerpo": 37,
+      "madera_2_cuerpos": 2,
+      "madera_1_cuerpo": 3,
+      "de_un_cuerpo_fierro": 4,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 1269,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1037,
+      "2": 215,
+      "3+": 17
+     }
+    },
+    {
+     "numero": 15,
+     "nombre": "sección 15ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 62,
+      "azotea_2_cuerpos": 438,
+      "azotea_1_cuerpo": 1713,
+      "teja_2_cuerpos": 10,
+      "teja_1_cuerpo": 44,
+      "fierro_o_zinc_2_cuerpos": 9,
+      "fierro_o_zinc_1_cuerpo": 39,
+      "madera_2_cuerpos": 1,
+      "madera_1_cuerpo": 9,
+      "de_un_cuerpo_fierro": 2,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 2327,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1807,
+      "2": 458,
+      "3+": 62
+     }
+    },
+    {
+     "numero": 16,
+     "nombre": "sección 16ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 14,
+      "azotea_2_cuerpos": 229,
+      "azotea_1_cuerpo": 975,
+      "teja_2_cuerpos": 3,
+      "teja_1_cuerpo": 37,
+      "fierro_o_zinc_2_cuerpos": 7,
+      "fierro_o_zinc_1_cuerpo": 56,
+      "madera_2_cuerpos": 2,
+      "madera_1_cuerpo": 7,
+      "de_un_cuerpo_fierro": 5,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 1335,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1080,
+      "2": 241,
+      "3+": 14
+     }
+    },
+    {
+     "numero": 17,
+     "nombre": "sección 17ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 18,
+      "azotea_2_cuerpos": 198,
+      "azotea_1_cuerpo": 1765,
+      "teja_2_cuerpos": 7,
+      "teja_1_cuerpo": 151,
+      "fierro_o_zinc_2_cuerpos": 30,
+      "fierro_o_zinc_1_cuerpo": 1511,
+      "madera_2_cuerpos": 1,
+      "madera_1_cuerpo": 131,
+      "de_un_cuerpo_fierro": 61,
+      "de_un_cuerpo_adobe_o_paja": 6
+     },
+     "total_casas": 3879,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 3625,
+      "2": 236,
+      "3+": 18
+     }
+    },
+    {
+     "numero": 18,
+     "nombre": "sección 18ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 3,
+      "azotea_2_cuerpos": 208,
+      "azotea_1_cuerpo": 1868,
+      "teja_2_cuerpos": 9,
+      "teja_1_cuerpo": 87,
+      "fierro_o_zinc_2_cuerpos": 29,
+      "fierro_o_zinc_1_cuerpo": 212,
+      "madera_2_cuerpos": 5,
+      "madera_1_cuerpo": 30,
+      "de_un_cuerpo_fierro": 12,
+      "de_un_cuerpo_adobe_o_paja": 1
+     },
+     "total_casas": 2464,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 2210,
+      "2": 251,
+      "3+": 3
+     }
+    },
+    {
+     "numero": 19,
+     "nombre": "sección 19ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 4,
+      "azotea_2_cuerpos": 203,
+      "azotea_1_cuerpo": 1502,
+      "teja_2_cuerpos": 10,
+      "teja_1_cuerpo": 87,
+      "fierro_o_zinc_2_cuerpos": 60,
+      "fierro_o_zinc_1_cuerpo": 890,
+      "madera_2_cuerpos": 45,
+      "madera_1_cuerpo": 419,
+      "de_un_cuerpo_fierro": 52,
+      "de_un_cuerpo_adobe_o_paja": 7
+     },
+     "total_casas": 3279,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 2957,
+      "2": 318,
+      "3+": 4
+     }
+    },
+    {
+     "numero": 20,
+     "nombre": "sección 20ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 19,
+      "azotea_2_cuerpos": 201,
+      "azotea_1_cuerpo": 292,
+      "teja_2_cuerpos": 13,
+      "teja_1_cuerpo": 18,
+      "fierro_o_zinc_2_cuerpos": 328,
+      "fierro_o_zinc_1_cuerpo": 287,
+      "madera_2_cuerpos": 417,
+      "madera_1_cuerpo": 231,
+      "de_un_cuerpo_fierro": 79,
+      "de_un_cuerpo_adobe_o_paja": 2
+     },
+     "total_casas": 1887,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 909,
+      "2": 959,
+      "3+": 19
+     }
+    },
+    {
+     "numero": 21,
+     "nombre": "sección 21ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 16,
+      "azotea_2_cuerpos": 240,
+      "azotea_1_cuerpo": 1760,
+      "teja_2_cuerpos": 5,
+      "teja_1_cuerpo": 132,
+      "fierro_o_zinc_2_cuerpos": 8,
+      "fierro_o_zinc_1_cuerpo": 245,
+      "madera_2_cuerpos": 3,
+      "madera_1_cuerpo": 45,
+      "de_un_cuerpo_fierro": 15,
+      "de_un_cuerpo_adobe_o_paja": 4
+     },
+     "total_casas": 2473,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 2201,
+      "2": 256,
+      "3+": 16
+     }
+    },
+    {
+     "numero": 22,
+     "nombre": "sección 22ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 3,
+      "azotea_2_cuerpos": 34,
+      "azotea_1_cuerpo": 391,
+      "teja_2_cuerpos": 22,
+      "teja_1_cuerpo": 95,
+      "fierro_o_zinc_2_cuerpos": 20,
+      "fierro_o_zinc_1_cuerpo": 378,
+      "madera_2_cuerpos": 2,
+      "madera_1_cuerpo": 40,
+      "de_un_cuerpo_fierro": 10,
+      "de_un_cuerpo_adobe_o_paja": 3
+     },
+     "total_casas": 998,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 917,
+      "2": 78,
+      "3+": 3
+     }
+    },
+    {
+     "numero": 23,
+     "nombre": "sección 23ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 3,
+      "azotea_2_cuerpos": 98,
+      "azotea_1_cuerpo": 986,
+      "teja_2_cuerpos": 25,
+      "teja_1_cuerpo": 269,
+      "fierro_o_zinc_2_cuerpos": 37,
+      "fierro_o_zinc_1_cuerpo": 1268,
+      "madera_2_cuerpos": 4,
+      "madera_1_cuerpo": 95,
+      "de_un_cuerpo_fierro": 41,
+      "de_un_cuerpo_adobe_o_paja": 27
+     },
+     "total_casas": 2853,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 2686,
+      "2": 164,
+      "3+": 3
+     }
+    },
+    {
+     "numero": 24,
+     "nombre": "sección 24ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 11,
+      "azotea_2_cuerpos": 169,
+      "azotea_1_cuerpo": 1340,
+      "teja_2_cuerpos": 10,
+      "teja_1_cuerpo": 132,
+      "fierro_o_zinc_2_cuerpos": 27,
+      "fierro_o_zinc_1_cuerpo": 1752,
+      "madera_2_cuerpos": 2,
+      "madera_1_cuerpo": 91,
+      "de_un_cuerpo_fierro": 60,
+      "de_un_cuerpo_adobe_o_paja": 1
+     },
+     "total_casas": 3595,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 3376,
+      "2": 208,
+      "3+": 11
+     }
+    },
+    {
+     "numero": 25,
+     "nombre": "sección 25ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 2,
+      "azotea_2_cuerpos": 74,
+      "azotea_1_cuerpo": 927,
+      "teja_2_cuerpos": 12,
+      "teja_1_cuerpo": 260,
+      "fierro_o_zinc_2_cuerpos": 9,
+      "fierro_o_zinc_1_cuerpo": 300,
+      "madera_2_cuerpos": 1,
+      "madera_1_cuerpo": 39,
+      "de_un_cuerpo_fierro": 6,
+      "de_un_cuerpo_adobe_o_paja": 11
+     },
+     "total_casas": 1641,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1543,
+      "2": 96,
+      "3+": 2
+     }
+    },
+    {
+     "numero": 26,
+     "nombre": "sección 26ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 5,
+      "azotea_2_cuerpos": 11,
+      "azotea_1_cuerpo": 256,
+      "teja_2_cuerpos": 7,
+      "teja_1_cuerpo": 113,
+      "fierro_o_zinc_2_cuerpos": 10,
+      "fierro_o_zinc_1_cuerpo": 452,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 3,
+      "de_un_cuerpo_fierro": 0,
+      "de_un_cuerpo_adobe_o_paja": 2
+     },
+     "total_casas": 859,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 826,
+      "2": 28,
+      "3+": 5
+     }
+    },
+    {
+     "numero": 27,
+     "nombre": "sección 27ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 83,
+      "azotea_1_cuerpo": 659,
+      "teja_2_cuerpos": 7,
+      "teja_1_cuerpo": 84,
+      "fierro_o_zinc_2_cuerpos": 18,
+      "fierro_o_zinc_1_cuerpo": 393,
+      "madera_2_cuerpos": 2,
+      "madera_1_cuerpo": 46,
+      "de_un_cuerpo_fierro": 9,
+      "de_un_cuerpo_adobe_o_paja": 0
+     },
+     "total_casas": 1301,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1191,
+      "2": 110,
+      "3+": 0
+     }
+    },
+    {
+     "numero": 28,
+     "nombre": "sección 28ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 6,
+      "azotea_2_cuerpos": 136,
+      "azotea_1_cuerpo": 1597,
+      "teja_2_cuerpos": 4,
+      "teja_1_cuerpo": 72,
+      "fierro_o_zinc_2_cuerpos": 29,
+      "fierro_o_zinc_1_cuerpo": 823,
+      "madera_2_cuerpos": 3,
+      "madera_1_cuerpo": 82,
+      "de_un_cuerpo_fierro": 46,
+      "de_un_cuerpo_adobe_o_paja": 1
+     },
+     "total_casas": 2799,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 2621,
+      "2": 172,
+      "3+": 6
+     }
+    },
+    {
+     "numero": 29,
+     "nombre": "sección 29ª policial",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 5,
+      "azotea_2_cuerpos": 6,
+      "azotea_1_cuerpo": 9,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 2,
+      "fierro_o_zinc_2_cuerpos": 0,
+      "fierro_o_zinc_1_cuerpo": 3,
+      "madera_2_cuerpos": 3,
+      "madera_1_cuerpo": 448,
+      "de_un_cuerpo_fierro": 31,
+      "de_un_cuerpo_adobe_o_paja": 1
+     },
+     "total_casas": 508,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 494,
+      "2": 9,
+      "3+": 5
+     }
+    },
+    {
+     "numero": null,
+     "nombre": "Martín García",
+     "limites": null,
+     "limites_primera_mano": "no se encontraron",
+     "casas": {
+      "azotea_3_o_mas_cuerpos": 0,
+      "azotea_2_cuerpos": 0,
+      "azotea_1_cuerpo": 4,
+      "teja_2_cuerpos": 0,
+      "teja_1_cuerpo": 4,
+      "fierro_o_zinc_2_cuerpos": 0,
+      "fierro_o_zinc_1_cuerpo": 2,
+      "madera_2_cuerpos": 0,
+      "madera_1_cuerpo": 12,
+      "de_un_cuerpo_fierro": 1,
+      "de_un_cuerpo_adobe_o_paja": 52
+     },
+     "total_casas": 75,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 75,
+      "2": 0,
+      "3+": 0
+     }
+    }
+   ],
+   "totales": {
+    "casas": {
+     "azotea_3_o_mas_cuerpos": 912,
+     "azotea_2_cuerpos": 6332,
+     "azotea_1_cuerpo": 30083,
+     "teja_2_cuerpos": 240,
+     "teja_1_cuerpo": 2258,
+     "fierro_o_zinc_2_cuerpos": 786,
+     "fierro_o_zinc_1_cuerpo": 10779,
+     "madera_2_cuerpos": 524,
+     "madera_1_cuerpo": 2151,
+     "de_un_cuerpo_fierro": 594,
+     "de_un_cuerpo_adobe_o_paja": 136
+    },
+    "total_casas": 54795,
+    "derivado_por_niveles": {
+     "1": 46001,
+     "2": 7882,
+     "3+": 912
+    }
+   }
+  },
+  {
+   "id": "censo-1904",
+   "año": 1904,
+   "etapa_del_visor_mas_cercana": 1905,
+   "titulo": "Censo general de población, edificación, comercio e industrias de la ciudad de Buenos Aires, levantado el 18 de setiembre de 1904 (Buenos Aires, 1906). Leyenda del mapa «Población específica» (p. XXXI) y cuadro de población en conventillos (p. 6), en facsímil",
+   "enlace": "https://www.redalyc.org/pdf/740/74040610.pdf",
+   "pagina": "facsímiles en «El Censo de 1904 de la Ciudad de Buenos Aires», Población de Buenos Aires, vol. 4, n.º 6 (octubre de 2007), pp. 89-98",
+   "primera_mano": "transcrito de los facsímiles del censo reproducidos en la revista (no del tomo original)",
+   "verificacion": "en las 20 circunscripciones, conventillos + casas de familia = habitantes; los totales cierran con los impresos (138 188, 812 703 y 950 891, con 6 149 de población fluvial)",
+   "division": "20 circunscripciones (Ley 4161 y decreto de 1903)",
+   "advertencias": [
+    "NO se consiguió el cuadro de casas por número de pisos de 1904: el tomo no está en ninguno de los sitios que respondieron. Las casas por pisos van en null.",
+    "Totales de 1904 tomados de un resumen (Memoria de la Comisión Nacional de Casas Baratas, 1921-22): 82 540 casas y 476 935 piezas.",
+    "Circunscripción 2ª: el primer dígito de la superficie se lee «3» u «8»; con 43 habitantes por hectárea tiene que ser 8 523 512 m².",
+    "Circunscripción 19ª: se lee 4 476 756 m², pero con 71 105 habitantes y 161 por hectárea saldrían unos 4 416 756 m²: queda la duda."
+   ],
+   "distritos": [
+    {
+     "numero": 1,
+     "nombre": "Vélez Sársfield",
+     "limites": "S: Riachuelo; O: avenida límite del municipio; N: camino de Campana, Alberdi, Asamblea y Palma; E: avenida Sáenz",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 17275,
+     "superficie_m2": 52197789,
+     "manzanas": 277,
+     "habitantes_por_manzana": 62,
+     "habitantes_por_ha": 3,
+     "habitantes_en_conventillos_e_inquilinatos": 22,
+     "habitantes_en_casas_de_familia": 17253
+    },
+    {
+     "numero": 2,
+     "nombre": "San Cristóbal Sud",
+     "limites": "S: Riachuelo; O: avenida Sáenz; N: Garay; E: avenida Vélez Sarsfield",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 36985,
+     "superficie_m2": 8523512,
+     "manzanas": 152,
+     "habitantes_por_manzana": 243,
+     "habitantes_por_ha": 43,
+     "habitantes_en_conventillos_e_inquilinatos": 1288,
+     "habitantes_en_casas_de_familia": 35697
+    },
+    {
+     "numero": 3,
+     "nombre": "Santa Lucía",
+     "limites": "S: Riachuelo; O: avenida Vélez Sarsfield; N: Garay; E: Garibaldi hasta Pinzón, Pinzón hasta Montes de Oca y ésta hasta el Riachuelo",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 84792,
+     "superficie_m2": 6083134,
+     "manzanas": 262,
+     "habitantes_por_manzana": 324,
+     "habitantes_por_ha": 139,
+     "habitantes_en_conventillos_e_inquilinatos": 11891,
+     "habitantes_en_casas_de_familia": 72901
+    },
+    {
+     "numero": 4,
+     "nombre": "San Juan Evangelista",
+     "limites": "S: Riachuelo; O: Montes de Oca hasta Pinzón, Pinzón hasta Garibaldi, Garibaldi hasta Garay; N: Garay; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 60878,
+     "superficie_m2": 3879587,
+     "manzanas": 192,
+     "habitantes_por_manzana": 317,
+     "habitantes_por_ha": 157,
+     "habitantes_en_conventillos_e_inquilinatos": 16249,
+     "habitantes_en_casas_de_familia": 44629
+    },
+    {
+     "numero": 5,
+     "nombre": "Flores",
+     "limites": "S: Palma, Asamblea y camino de Campana; O: avenida límite; N: Gaona; E: Caballito hasta Rivadavia, Rivadavia hasta Polvorín y Polvorín hasta Palma",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 24046,
+     "superficie_m2": 8043323,
+     "manzanas": 280,
+     "habitantes_por_manzana": 86,
+     "habitantes_por_ha": 30,
+     "habitantes_en_conventillos_e_inquilinatos": 264,
+     "habitantes_en_casas_de_familia": 23782
+    },
+    {
+     "numero": 6,
+     "nombre": "San Carlos Sud",
+     "limites": "S: Palma; O: Polvorín; N: Rivadavia; E: Boedo",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 36820,
+     "superficie_m2": 4714756,
+     "manzanas": 181,
+     "habitantes_por_manzana": 203,
+     "habitantes_por_ha": 78,
+     "habitantes_en_conventillos_e_inquilinatos": 532,
+     "habitantes_en_casas_de_familia": 36288
+    },
+    {
+     "numero": 7,
+     "nombre": "San Carlos Norte",
+     "limites": "S: Rivadavia; O: Caballito; N: Chubut y Río de Janeiro; E: Bulnes",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 33489,
+     "superficie_m2": 4091756,
+     "manzanas": 171,
+     "habitantes_por_manzana": 196,
+     "habitantes_por_ha": 82,
+     "habitantes_en_conventillos_e_inquilinatos": 757,
+     "habitantes_en_casas_de_familia": 32732
+    },
+    {
+     "numero": 8,
+     "nombre": "San Cristóbal",
+     "limites": "S: Garay; O: Boedo; N: Independencia; E: Entre Ríos",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 67449,
+     "superficie_m2": 2475378,
+     "manzanas": 163,
+     "habitantes_por_manzana": 414,
+     "habitantes_por_ha": 273,
+     "habitantes_en_conventillos_e_inquilinatos": 8903,
+     "habitantes_en_casas_de_familia": 58546
+    },
+    {
+     "numero": 9,
+     "nombre": "Balvanera Oeste",
+     "limites": "S: Independencia; O: Boedo y Bulnes; N: Córdoba; E: Centro América (hoy Pueyrredón) y Jujuy",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 65959,
+     "superficie_m2": 2896378,
+     "manzanas": 161,
+     "habitantes_por_manzana": 409,
+     "habitantes_por_ha": 227,
+     "habitantes_en_conventillos_e_inquilinatos": 6994,
+     "habitantes_en_casas_de_familia": 58965
+    },
+    {
+     "numero": 10,
+     "nombre": "Balvanera Sud",
+     "limites": "S: Independencia; O: Jujuy; N: Rivadavia; E: Entre Ríos",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 37687,
+     "superficie_m2": 1176689,
+     "manzanas": 73,
+     "habitantes_por_manzana": 516,
+     "habitantes_por_ha": 319,
+     "habitantes_en_conventillos_e_inquilinatos": 9648,
+     "habitantes_en_casas_de_familia": 28039
+    },
+    {
+     "numero": 11,
+     "nombre": "Balvanera Norte",
+     "limites": "S: Rivadavia; O: Centro América (hoy Pueyrredón); N: Córdoba; E: Callao",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 37304,
+     "superficie_m2": 1282189,
+     "manzanas": 82,
+     "habitantes_por_manzana": 455,
+     "habitantes_por_ha": 291,
+     "habitantes_en_conventillos_e_inquilinatos": 6235,
+     "habitantes_en_casas_de_familia": 31069
+    },
+    {
+     "numero": 12,
+     "nombre": "Concepción",
+     "limites": "S: Garay; O: Entre Ríos; N: Independencia; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 63728,
+     "superficie_m2": 2744378,
+     "manzanas": 119,
+     "habitantes_por_manzana": 535,
+     "habitantes_por_ha": 232,
+     "habitantes_en_conventillos_e_inquilinatos": 17500,
+     "habitantes_en_casas_de_familia": 46228
+    },
+    {
+     "numero": 13,
+     "nombre": "Monserrat",
+     "limites": "S: Independencia; O: Entre Ríos; N: Rivadavia; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 67144,
+     "superficie_m2": 3477587,
+     "manzanas": 145,
+     "habitantes_por_manzana": 463,
+     "habitantes_por_ha": 193,
+     "habitantes_en_conventillos_e_inquilinatos": 19474,
+     "habitantes_en_casas_de_familia": 47670
+    },
+    {
+     "numero": 14,
+     "nombre": "San Nicolás",
+     "limites": "S: Rivadavia; O: Callao; N: Córdoba; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 62578,
+     "superficie_m2": 2763378,
+     "manzanas": 132,
+     "habitantes_por_manzana": 474,
+     "habitantes_por_ha": 227,
+     "habitantes_en_conventillos_e_inquilinatos": 15316,
+     "habitantes_en_casas_de_familia": 47262
+    },
+    {
+     "numero": 15,
+     "nombre": "San Bernardo",
+     "limites": "S: Chubut y Gaona; O: avenida límite; N: Cuenca hasta avenida Nacional, ésta y Pampa hasta Forest; E: Forest y Triunvirato",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 16176,
+     "superficie_m2": 35405615,
+     "manzanas": 735,
+     "habitantes_por_manzana": 25,
+     "habitantes_por_ha": 5,
+     "habitantes_en_conventillos_e_inquilinatos": 483,
+     "habitantes_en_casas_de_familia": 15693
+    },
+    {
+     "numero": 16,
+     "nombre": "Belgrano",
+     "limites": "S: Pampa y avenida Nacional; O: Cuenca; N: avenida límite; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 29447,
+     "superficie_m2": 23957347,
+     "manzanas": 777,
+     "habitantes_por_manzana": 38,
+     "habitantes_por_ha": 12,
+     "habitantes_en_conventillos_e_inquilinatos": 190,
+     "habitantes_en_casas_de_familia": 29257
+    },
+    {
+     "numero": 17,
+     "nombre": "Palermo",
+     "limites": "S: arroyo Maldonado y Darwin; O: Triunvirato y Forest; N: Pampa; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 19515,
+     "superficie_m2": 11019890,
+     "manzanas": 252,
+     "habitantes_por_manzana": 77,
+     "habitantes_por_ha": 18,
+     "habitantes_en_conventillos_e_inquilinatos": 0,
+     "habitantes_en_casas_de_familia": 19515
+    },
+    {
+     "numero": 18,
+     "nombre": "Las Heras",
+     "limites": "S: Coronel Díaz, Bulnes y Río de Janeiro; O: Triunvirato; N: Darwin y arroyo Maldonado; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 63773,
+     "superficie_m2": 8002323,
+     "manzanas": 366,
+     "habitantes_por_manzana": 174,
+     "habitantes_por_ha": 79,
+     "habitantes_en_conventillos_e_inquilinatos": 1796,
+     "habitantes_en_casas_de_familia": 61977
+    },
+    {
+     "numero": 19,
+     "nombre": "Pilar",
+     "limites": "S: Córdoba; O: Bulnes y Coronel Díaz; N: Río de la Plata; E: Callao",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 71105,
+     "superficie_m2": 4476756,
+     "manzanas": 204,
+     "habitantes_por_manzana": 348,
+     "habitantes_por_ha": 161,
+     "habitantes_en_conventillos_e_inquilinatos": 6248,
+     "habitantes_en_casas_de_familia": 64857
+    },
+    {
+     "numero": 20,
+     "nombre": "Socorro",
+     "limites": "S: Córdoba; O: Callao; N y E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903)",
+     "casas": null,
+     "total_casas": null,
+     "habitantes": 48592,
+     "superficie_m2": 2811378,
+     "manzanas": 105,
+     "habitantes_por_manzana": 462,
+     "habitantes_por_ha": 173,
+     "habitantes_en_conventillos_e_inquilinatos": 14398,
+     "habitantes_en_casas_de_familia": 34194
+    }
+   ],
+   "totales": {
+    "total_casas": 82540,
+    "total_casas_primera_mano": "tomado de un resumen",
+    "piezas": 476935,
+    "habitantes": 950891,
+    "poblacion_fluvial": 6149,
+    "habitantes_en_conventillos_e_inquilinatos": 138188,
+    "habitantes_en_casas_de_familia": 812703
+   }
+  },
+  {
+   "id": "censo-1909",
+   "año": 1909,
+   "etapa_del_visor_mas_cercana": 1910,
+   "titulo": "Censo general de población, edificación, comercio e industrias de la ciudad de Buenos Aires, levantado en los días 16 al 24 de octubre de 1909 (Buenos Aires, 1910)",
+   "enlace": "https://archive.org/details/censogeneraldep00martgoog",
+   "pagina": null,
+   "primera_mano": "no se consiguió",
+   "advertencias": [
+    "El ejemplar digital que respondió es el tomo II, que no trae la edificación; el tomo con las casas por pisos no se consiguió. Todo en null."
+   ],
+   "distritos": null
+  },
+  {
+   "id": "censo-1914",
+   "año": 1914,
+   "etapa_del_visor_mas_cercana": 1910,
+   "sirve_tambien_para": [
+    1905,
+    1921
+   ],
+   "titulo": "Tercer Censo Nacional, levantado el 1.º de junio de 1914 (Buenos Aires, 1917), tomo X, «Censo de edificación»: «Capital Federal. Número de edificios, con especificación del número de pisos»",
+   "enlace": "http://www.santafe.gov.ar/archivos/estadisticas/censos/C1914-T10.pdf",
+   "pagina": "t. X, p. 485 (página 517 del PDF)",
+   "primera_mano": "transcrito del cuadro, leyendo la imagen de la página",
+   "verificacion": "cierran las sumas de las 20 filas y de las 9 columnas con los totales impresos",
+   "division": "20 circunscripciones",
+   "advertencias": [
+    "Los «pisos» de este cuadro son pisos altos: para pasar a niveles hay que sumar uno (ver convencion_de_pisos).",
+    "Otra fuente secundaria cita 131 432 casas; el cuadro dice 131 742 y es lo que suma.",
+    "El mismo tomo trae piezas por edificio (pp. 486-495) y casas y departamentos por edificio (pp. 496-499) por circunscripción; no se transcribieron.",
+    "El cuadro no trae habitantes ni superficie; la ciudad tenía 1 575 814 habitantes en 1914."
+   ],
+   "columnas_de_casas": [
+    "planta_baja",
+    "1_piso",
+    "2_pisos",
+    "3_pisos",
+    "4_pisos",
+    "5_pisos",
+    "6_y_mas_pisos",
+    "sin_especificar"
+   ],
+   "distritos": [
+    {
+     "numero": 1,
+     "nombre": "Vélez Sársfield",
+     "limites": "S: Riachuelo; O: avenida límite del municipio; N: camino de Campana, Alberdi, Asamblea y Palma; E: avenida Sáenz",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 13730,
+      "1_piso": 112,
+      "2_pisos": 25,
+      "3_pisos": 0,
+      "4_pisos": 0,
+      "5_pisos": 1,
+      "6_y_mas_pisos": 0,
+      "sin_especificar": 0
+     },
+     "total_casas": 13868,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 13730,
+      "2": 112,
+      "3": 25,
+      "4": 0,
+      "5+": 1,
+      "sin_especificar": 0
+     }
+    },
+    {
+     "numero": 2,
+     "nombre": "San Cristóbal Sud",
+     "limites": "S: Riachuelo; O: avenida Sáenz; N: Garay; E: avenida Vélez Sarsfield",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 5159,
+      "1_piso": 154,
+      "2_pisos": 36,
+      "3_pisos": 3,
+      "4_pisos": 1,
+      "5_pisos": 1,
+      "6_y_mas_pisos": 0,
+      "sin_especificar": 0
+     },
+     "total_casas": 5354,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 5159,
+      "2": 154,
+      "3": 36,
+      "4": 3,
+      "5+": 2,
+      "sin_especificar": 0
+     }
+    },
+    {
+     "numero": 3,
+     "nombre": "Santa Lucía",
+     "limites": "S: Riachuelo; O: avenida Vélez Sarsfield; N: Garay; E: Garibaldi hasta Pinzón, Pinzón hasta Montes de Oca y ésta hasta el Riachuelo",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 4971,
+      "1_piso": 1316,
+      "2_pisos": 160,
+      "3_pisos": 38,
+      "4_pisos": 10,
+      "5_pisos": 3,
+      "6_y_mas_pisos": 1,
+      "sin_especificar": 2
+     },
+     "total_casas": 6501,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 4971,
+      "2": 1316,
+      "3": 160,
+      "4": 38,
+      "5+": 14,
+      "sin_especificar": 2
+     }
+    },
+    {
+     "numero": 4,
+     "nombre": "San Juan Evangelista",
+     "limites": "S: Riachuelo; O: Montes de Oca hasta Pinzón, Pinzón hasta Garibaldi, Garibaldi hasta Garay; N: Garay; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 2035,
+      "1_piso": 1506,
+      "2_pisos": 158,
+      "3_pisos": 11,
+      "4_pisos": 0,
+      "5_pisos": 0,
+      "6_y_mas_pisos": 0,
+      "sin_especificar": 0
+     },
+     "total_casas": 3710,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 2035,
+      "2": 1506,
+      "3": 158,
+      "4": 11,
+      "5+": 0,
+      "sin_especificar": 0
+     }
+    },
+    {
+     "numero": 5,
+     "nombre": "Flores",
+     "limites": "S: Palma, Asamblea y camino de Campana; O: avenida límite; N: Gaona; E: Caballito hasta Rivadavia, Rivadavia hasta Polvorín y Polvorín hasta Palma",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 9320,
+      "1_piso": 503,
+      "2_pisos": 44,
+      "3_pisos": 3,
+      "4_pisos": 0,
+      "5_pisos": 0,
+      "6_y_mas_pisos": 0,
+      "sin_especificar": 1
+     },
+     "total_casas": 9871,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 9320,
+      "2": 503,
+      "3": 44,
+      "4": 3,
+      "5+": 0,
+      "sin_especificar": 1
+     }
+    },
+    {
+     "numero": 6,
+     "nombre": "San Carlos Sud",
+     "limites": "S: Palma; O: Polvorín; N: Rivadavia; E: Boedo",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 6404,
+      "1_piso": 521,
+      "2_pisos": 64,
+      "3_pisos": 2,
+      "4_pisos": 2,
+      "5_pisos": 1,
+      "6_y_mas_pisos": 0,
+      "sin_especificar": 0
+     },
+     "total_casas": 6994,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 6404,
+      "2": 521,
+      "3": 64,
+      "4": 2,
+      "5+": 3,
+      "sin_especificar": 0
+     }
+    },
+    {
+     "numero": 7,
+     "nombre": "San Carlos Norte",
+     "limites": "S: Rivadavia; O: Caballito; N: Chubut y Río de Janeiro; E: Bulnes",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 5049,
+      "1_piso": 1003,
+      "2_pisos": 81,
+      "3_pisos": 15,
+      "4_pisos": 4,
+      "5_pisos": 4,
+      "6_y_mas_pisos": 0,
+      "sin_especificar": 0
+     },
+     "total_casas": 6156,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 5049,
+      "2": 1003,
+      "3": 81,
+      "4": 15,
+      "5+": 8,
+      "sin_especificar": 0
+     }
+    },
+    {
+     "numero": 8,
+     "nombre": "San Cristóbal",
+     "limites": "S: Garay; O: Boedo; N: Independencia; E: Entre Ríos",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 4263,
+      "1_piso": 916,
+      "2_pisos": 101,
+      "3_pisos": 9,
+      "4_pisos": 0,
+      "5_pisos": 5,
+      "6_y_mas_pisos": 4,
+      "sin_especificar": 0
+     },
+     "total_casas": 5298,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 4263,
+      "2": 916,
+      "3": 101,
+      "4": 9,
+      "5+": 9,
+      "sin_especificar": 0
+     }
+    },
+    {
+     "numero": 9,
+     "nombre": "Balvanera Oeste",
+     "limites": "S: Independencia; O: Boedo y Bulnes; N: Córdoba; E: Centro América (hoy Pueyrredón) y Jujuy",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 3967,
+      "1_piso": 1081,
+      "2_pisos": 134,
+      "3_pisos": 21,
+      "4_pisos": 11,
+      "5_pisos": 4,
+      "6_y_mas_pisos": 2,
+      "sin_especificar": 0
+     },
+     "total_casas": 5220,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 3967,
+      "2": 1081,
+      "3": 134,
+      "4": 21,
+      "5+": 17,
+      "sin_especificar": 0
+     }
+    },
+    {
+     "numero": 10,
+     "nombre": "Balvanera Sud",
+     "limites": "S: Independencia; O: Jujuy; N: Rivadavia; E: Entre Ríos",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 1683,
+      "1_piso": 582,
+      "2_pisos": 105,
+      "3_pisos": 19,
+      "4_pisos": 17,
+      "5_pisos": 5,
+      "6_y_mas_pisos": 4,
+      "sin_especificar": 1
+     },
+     "total_casas": 2416,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1683,
+      "2": 582,
+      "3": 105,
+      "4": 19,
+      "5+": 26,
+      "sin_especificar": 1
+     }
+    },
+    {
+     "numero": 11,
+     "nombre": "Balvanera Norte",
+     "limites": "S: Rivadavia; O: Centro América (hoy Pueyrredón); N: Córdoba; E: Callao",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 1505,
+      "1_piso": 722,
+      "2_pisos": 204,
+      "3_pisos": 51,
+      "4_pisos": 23,
+      "5_pisos": 18,
+      "6_y_mas_pisos": 10,
+      "sin_especificar": 12
+     },
+     "total_casas": 2545,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1505,
+      "2": 722,
+      "3": 204,
+      "4": 51,
+      "5+": 51,
+      "sin_especificar": 12
+     }
+    },
+    {
+     "numero": 12,
+     "nombre": "Concepción",
+     "limites": "S: Garay; O: Entre Ríos; N: Independencia; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 2536,
+      "1_piso": 1109,
+      "2_pisos": 198,
+      "3_pisos": 48,
+      "4_pisos": 15,
+      "5_pisos": 7,
+      "6_y_mas_pisos": 4,
+      "sin_especificar": 3
+     },
+     "total_casas": 3920,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 2536,
+      "2": 1109,
+      "3": 198,
+      "4": 48,
+      "5+": 26,
+      "sin_especificar": 3
+     }
+    },
+    {
+     "numero": 13,
+     "nombre": "Monserrat",
+     "limites": "S: Independencia; O: Entre Ríos; N: Rivadavia; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 1490,
+      "1_piso": 1214,
+      "2_pisos": 348,
+      "3_pisos": 96,
+      "4_pisos": 76,
+      "5_pisos": 50,
+      "6_y_mas_pisos": 27,
+      "sin_especificar": 12
+     },
+     "total_casas": 3313,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1490,
+      "2": 1214,
+      "3": 348,
+      "4": 96,
+      "5+": 153,
+      "sin_especificar": 12
+     }
+    },
+    {
+     "numero": 14,
+     "nombre": "San Nicolás",
+     "limites": "S: Rivadavia; O: Callao; N: Córdoba; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 1261,
+      "1_piso": 1404,
+      "2_pisos": 638,
+      "3_pisos": 203,
+      "4_pisos": 92,
+      "5_pisos": 90,
+      "6_y_mas_pisos": 58,
+      "sin_especificar": 4
+     },
+     "total_casas": 3750,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1261,
+      "2": 1404,
+      "3": 638,
+      "4": 203,
+      "5+": 240,
+      "sin_especificar": 4
+     }
+    },
+    {
+     "numero": 15,
+     "nombre": "San Bernardo",
+     "limites": "S: Chubut y Gaona; O: avenida límite; N: Cuenca hasta avenida Nacional, ésta y Pampa hasta Forest; E: Forest y Triunvirato",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 11404,
+      "1_piso": 1770,
+      "2_pisos": 115,
+      "3_pisos": 8,
+      "4_pisos": 7,
+      "5_pisos": 2,
+      "6_y_mas_pisos": 3,
+      "sin_especificar": 3
+     },
+     "total_casas": 13312,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 11404,
+      "2": 1770,
+      "3": 115,
+      "4": 8,
+      "5+": 12,
+      "sin_especificar": 3
+     }
+    },
+    {
+     "numero": 16,
+     "nombre": "Belgrano",
+     "limites": "S: Pampa y avenida Nacional; O: Cuenca; N: avenida límite; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 10809,
+      "1_piso": 1194,
+      "2_pisos": 119,
+      "3_pisos": 10,
+      "4_pisos": 5,
+      "5_pisos": 0,
+      "6_y_mas_pisos": 0,
+      "sin_especificar": 0
+     },
+     "total_casas": 12137,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 10809,
+      "2": 1194,
+      "3": 119,
+      "4": 10,
+      "5+": 5,
+      "sin_especificar": 0
+     }
+    },
+    {
+     "numero": 17,
+     "nombre": "Palermo",
+     "limites": "S: arroyo Maldonado y Darwin; O: Triunvirato y Forest; N: Pampa; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 6355,
+      "1_piso": 1638,
+      "2_pisos": 181,
+      "3_pisos": 16,
+      "4_pisos": 5,
+      "5_pisos": 0,
+      "6_y_mas_pisos": 4,
+      "sin_especificar": 7
+     },
+     "total_casas": 8206,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 6355,
+      "2": 1638,
+      "3": 181,
+      "4": 16,
+      "5+": 9,
+      "sin_especificar": 7
+     }
+    },
+    {
+     "numero": 18,
+     "nombre": "Las Heras",
+     "limites": "S: Coronel Díaz, Bulnes y Río de Janeiro; O: Triunvirato; N: Darwin y arroyo Maldonado; E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 8593,
+      "1_piso": 1322,
+      "2_pisos": 160,
+      "3_pisos": 34,
+      "4_pisos": 10,
+      "5_pisos": 1,
+      "6_y_mas_pisos": 1,
+      "sin_especificar": 0
+     },
+     "total_casas": 10121,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 8593,
+      "2": 1322,
+      "3": 160,
+      "4": 34,
+      "5+": 12,
+      "sin_especificar": 0
+     }
+    },
+    {
+     "numero": 19,
+     "nombre": "Pilar",
+     "limites": "S: Córdoba; O: Bulnes y Coronel Díaz; N: Río de la Plata; E: Callao",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 3948,
+      "1_piso": 1690,
+      "2_pisos": 371,
+      "3_pisos": 102,
+      "4_pisos": 33,
+      "5_pisos": 13,
+      "6_y_mas_pisos": 5,
+      "sin_especificar": 2
+     },
+     "total_casas": 6164,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 3948,
+      "2": 1690,
+      "3": 371,
+      "4": 102,
+      "5+": 51,
+      "sin_especificar": 2
+     }
+    },
+    {
+     "numero": 20,
+     "nombre": "Socorro",
+     "limites": "S: Córdoba; O: Callao; N y E: Río de la Plata",
+     "limites_primera_mano": "tomado de un resumen (artículo «Ley N.º 4161» de Wikipedia, que copia el decreto de 1903); los nombres son los del censo de 1904",
+     "casas": {
+      "planta_baja": 1088,
+      "1_piso": 995,
+      "2_pisos": 495,
+      "3_pisos": 217,
+      "4_pisos": 57,
+      "5_pisos": 19,
+      "6_y_mas_pisos": 15,
+      "sin_especificar": 0
+     },
+     "total_casas": 2886,
+     "habitantes": null,
+     "superficie_ha": null,
+     "derivado_por_niveles": {
+      "1": 1088,
+      "2": 995,
+      "3": 495,
+      "4": 217,
+      "5+": 91,
+      "sin_especificar": 0
+     }
+    }
+   ],
+   "totales": {
+    "casas": {
+     "planta_baja": 105570,
+     "1_piso": 20752,
+     "2_pisos": 3737,
+     "3_pisos": 906,
+     "4_pisos": 368,
+     "5_pisos": 224,
+     "6_y_mas_pisos": 138,
+     "sin_especificar": 47
+    },
+    "total_casas": 131742,
+    "habitantes": 1575814
+   }
+  },
+  {
+   "id": "censo-1936",
+   "año": 1936,
+   "etapa_del_visor_mas_cercana": 1940,
+   "titulo": "Cuarto Censo General de la Ciudad de Buenos Aires, 22 de octubre de 1936 (Buenos Aires, 1938-1940)",
+   "enlace": "https://www.redalyc.org/articulo.oa?id=74011912008",
+   "pagina": null,
+   "primera_mano": "no se consiguió",
+   "advertencias": [
+    "No se encontró en línea ningún cuadro de edificios por número de pisos de 1936: el artículo de Población de Buenos Aires (vol. 6, n.º 9, 2009) reproduce solo población, y los catálogos que lo listan no dan el tomo. Todo en null. La etapa de 1940 queda como extrapolación."
+   ],
+   "distritos": null
+  }
+ ],
+ "otras_cifras": {
+  "permisos_de_edificacion_1910_1919": {
+   "fuente": "Memoria de la Comisión Nacional de Casas Baratas, 1921-1922",
+   "enlace": "https://archive.org/details/1921_1922_Memoria_de_la_Comision_Nacional_de_Casas_Baratas_VI",
+   "primera_mano": "tomado de un resumen (cuadro de la Memoria, sobre el texto reconocido automáticamente: los absolutos ilegibles van en null)",
+   "columnas": [
+    "año",
+    "casas_bajas",
+    "porcentaje_bajas",
+    "casas_de_1_o_mas_pisos_altos",
+    "porcentaje_de_altos"
+   ],
+   "filas": [
+    [
+     1910,
+     5654,
+     78.8,
+     1514,
+     21.2
+    ],
+    [
+     1911,
+     9180,
+     83.6,
+     1792,
+     16.4
+    ],
+    [
+     1912,
+     6786,
+     81.3,
+     1561,
+     18.7
+    ],
+    [
+     1913,
+     8496,
+     88.4,
+     1360,
+     11.6
+    ],
+    [
+     1914,
+     2357,
+     85.3,
+     405,
+     14.7
+    ],
+    [
+     1915,
+     null,
+     89.4,
+     269,
+     10.6
+    ],
+    [
+     1916,
+     1739,
+     87.1,
+     256,
+     12.9
+    ],
+    [
+     1917,
+     1754,
+     85.6,
+     null,
+     14.4
+    ],
+    [
+     1918,
+     1633,
+     86,
+     266,
+     14
+    ],
+    [
+     1919,
+     2439,
+     85.1,
+     496,
+     14.9
+    ]
+   ],
+   "otras": {
+    "casas_y_piezas": {
+     "1887": [
+      33561,
+      261456
+     ],
+     "1904": [
+      82540,
+      476935
+     ],
+     "1914": [
+      131742,
+      916432
+     ]
+    },
+    "a_fines_de_1919": {
+     "edificios": 144481,
+     "casas_de_vivienda": 104413,
+     "habitantes": 1658269,
+     "personas_por_casa": 15.7
+    }
+   }
+  },
+  "edificios_altos_con_permiso_especial": {
+   "fuente": "V. Bonicatto, «La inserción urbana del rascacielos en el Río de la Plata (1900-1930)», XII Jornadas Interescuelas, 2009; J. Gutman y J. E. Hardoy, Buenos Aires (MAPFRE, 1992)",
+   "enlaces": [
+    "https://www.aacademica.org/000-008/454.pdf",
+    "https://archive.org/details/gutman-hardoy.-buenos-aires-mapfre-1492-1992"
+   ],
+   "primera_mano": "tomado de un resumen",
+   "edificios": [
+    {
+     "nombre": "Plaza Hotel",
+     "lugar": "Florida y Charcas",
+     "años": "1907-1909",
+     "pisos": 14,
+     "altura_m": 63
+    },
+    {
+     "nombre": "Railway Building",
+     "lugar": "Paseo Colón y Alsina",
+     "años": "hacia 1910",
+     "pisos": null,
+     "altura_m": 80
+    },
+    {
+     "nombre": "Galería Güemes",
+     "lugar": "Florida y San Martín, entre Mitre y Perón",
+     "años": "1913-1915",
+     "pisos": 15,
+     "altura_m": 80
+    },
+    {
+     "nombre": "edificio Otto Wulff",
+     "lugar": "Belgrano y Perú",
+     "años": "permiso de 1915",
+     "pisos": null,
+     "altura_m": 60
+    },
+    {
+     "nombre": "Pasaje Barolo",
+     "lugar": "Avenida de Mayo al 1300",
+     "años": "permiso del 3-I-1921",
+     "pisos": null,
+     "altura_m": 100,
+     "nota": "«casi 100 metros»; la torre, «alrededor de 20 pisos»"
+    },
+    {
+     "nombre": "edificio Mihanovich",
+     "lugar": "Arroyo 845",
+     "años": "década de 1920",
+     "pisos": null,
+     "altura_m": 80
+    },
+    {
+     "nombre": "Comega",
+     "lugar": "Corrientes y Leandro N. Alem",
+     "años": "1932",
+     "pisos": null,
+     "altura_m": null
+    },
+    {
+     "nombre": "Safico",
+     "lugar": "Corrientes al 400",
+     "años": "1933",
+     "pisos": null,
+     "altura_m": null
+    },
+    {
+     "nombre": "Kavanagh",
+     "lugar": "plaza San Martín",
+     "años": "1934-1936",
+     "pisos": null,
+     "altura_m": null
+    }
+   ]
+  }
+ }
+}

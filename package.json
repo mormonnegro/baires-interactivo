@@ -1,0 +1,18 @@
+{
+  "name": "buenos-aires-1867",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5430",
+    "build": "vite build",
+    "serve": "vite preview --port 5430",
+    "plano": "node --max-old-space-size=8000 tools/1-clases.mjs && node --max-old-space-size=8000 tools/2-ciudad.mjs && node tools/empacar.mjs && node --max-old-space-size=8000 tools/3-laminas.mjs && node tools/osm.mjs && node --max-old-space-size=6000 tools/calce.mjs && node --max-old-space-size=8000 tools/hoy.mjs && node tools/calles.mjs",
+    "shot": "node tools/shot.mjs",
+    "empacar": "node tools/empacar.mjs",
+    "carga": "node tools/carga.mjs",
+    "telefono": "node tools/telefono.mjs",
+    "modos": "node tools/modos.mjs"
+  },
+  "dependencies": { "three": "0.186.1" },
+  "devDependencies": { "vite": "8.3.5", "playwright-core": "^1.64.1", "sharp": "^0.34.5" }
+}

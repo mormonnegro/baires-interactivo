@@ -1,0 +1,46 @@
+== 1. Ajuste afín con edificios de referencia (tools/geo.mjs) ==
+referencias declaradas: 16 · usadas tras el descarte (< 60 m): 14
+referencia                                  afín     LOO    fino  (m)
+  San Ignacio                               13.8    15.3     8.7
+  San Francisco                             39.9    45.4    38.5
+  Santo Domingo                              8.2     9.3     3.9
+  La Merced                                 23.2    26.7    25.1
+  Catedral                                   4.7     5.3     9.6
+  San Telmo                                 16.2    20.4     3.9
+  El Socorro                                41.5    52.6    22.3
+  San Juan                                  13.3    14.4    14.8
+  El Pilar                                  29.0    43.4    21.1
+  San Nicolás (hoy, el Obelisco)            28.9    31.3    32.6
+  Cabildo                                   19.5    21.6    18.7
+× Plaza del Parque (Lavalle)                64.6       —    67.8
+  Mercado Constitución                      33.7    52.9    37.1
+  Mercado 11 de Septiembre (Miserere)       11.1    42.2    11.5
+  Cementerio de la Recoleta                 32.3    47.2    41.6
+× Plaza de Marte (San Martín)              200.8       —   188.6
+afín, residuo en las referencias usadas                        n= 14  media  22.5  mediana  21.3  p90  39.9  máx  41.5  RMS  25.2  (m)
+afín, dejando una afuera (LOO) entre las usadas                n= 14  media  30.6  mediana  29.0  p90  52.6  máx  52.9  RMS  34.5  (m)
+afín, en las 16 declaradas (incluye las descartadas)           n= 16  media  36.3  mediana  26.0  p90  64.6  máx 200.8  RMS  57.8  (m)
+ajuste fino, en las referencias usadas (entran con peso 0,25)  n= 14  media  20.7  mediana  19.9  p90  38.5  máx  41.6  RMS  24.1  (m)
+ajuste fino, en las 16 declaradas                              n= 16  media  34.1  mediana  21.7  p90  67.8  máx 188.6  RMS  54.9  (m)
+escala del afín de referencias: 0.6846 m/px (eje este), 0.6767 m/px (eje norte); el norte del mundo apunta a 4.52° del eje x del escaneo
+escala nominal usada por el visor (tools/plano.mjs): 0.675 m/px
+
+== 2. Ajuste fino por calce de calles (tools/geo.json) ==
+ventanas que calzaron: 104 · sigma 350 m · freno 0.35 · anotado por tools/calce.mjs: lo que falta correr, media 2.5 m, máximo 7.1 m
+escala del afín fino: 0.6827 m/px (este), 0.6790 m/px (norte); giro 4.24°
+ventanas vs. el afín de referencias (paso 1 solo)              n=104  media   9.7  mediana   7.5  p90  18.1  máx  26.2  RMS  11.1  (m)
+ventanas vs. el afín fino (sin campo)                          n=104  media   7.3  mediana   6.6  p90  14.0  máx  21.5  RMS   8.6  (m)
+ventanas vs. afín + campo (residuo dentro de la muestra)       n=104  media   2.4  mediana   2.1  p90   4.8  máx   8.3  RMS   2.9  (m)
+reajuste propio (afín+campo) dentro de la muestra              n=104  media   2.4  mediana   2.1  p90   4.8  máx   8.3  RMS   2.9  (m)
+cruzada por zonas de 300 m, afín + campo                       n=104  media   3.1  mediana   2.4  p90   5.9  máx  13.3  RMS   3.9  (m)
+cruzada por zonas de 700 m, afín + campo                       n=104  media   3.9  mediana   3.3  p90   8.0  máx  13.2  RMS   4.7  (m)
+cruzada por zonas de 700 m, solo afín                          n=104  media   8.2  mediana   7.2  p90  15.8  máx  23.0  RMS   9.7  (m)
+dejando una ventana afuera (LOO), afín + campo                 n=104  media   2.8  mediana   2.4  p90   5.9  máx  10.3  RMS   3.5  (m)
+dejando una ventana afuera (LOO), solo afín                    n=104  media   7.5  mediana   6.8  p90  14.4  máx  22.1  RMS   8.9  (m)
+extensión de las ventanas (m desde la Plaza de Mayo): este -3106…227, norte -1968…1597; la más lejana, a 3126 m
+  fino − grueso en esquina x0,y0          35 m
+  fino − grueso en esquina x1,y0          40 m
+  fino − grueso en esquina x0,y1          40 m
+  fino − grueso en esquina x1,y1          33 m
+  fino − grueso en centro de la guarda    5 m
+  fino − grueso en Plaza de Mayo          5 m

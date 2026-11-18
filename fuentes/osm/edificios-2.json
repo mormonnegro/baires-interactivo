@@ -1,0 +1,309 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-16T18:33:54Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "relation",
+  "id": 1376292,
+  "bounds": {
+    "minlat": -34.6007950,
+    "minlon": -58.3955389,
+    "maxlat": -34.5998649,
+    "maxlon": -58.3944191
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 39950308,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.5998946, "lon": -58.3955389 },
+         { "lat": -34.5998649, "lon": -58.3944691 },
+         { "lat": -34.6007663, "lon": -58.3944191 },
+         { "lat": -34.6007950, "lon": -58.3955038 },
+         { "lat": -34.5998946, "lon": -58.3955389 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 95159636,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6002456, "lon": -58.3950933 },
+         { "lat": -34.6002398, "lon": -58.3949142 },
+         { "lat": -34.6003784, "lon": -58.3949074 },
+         { "lat": -34.6003843, "lon": -58.3950865 },
+         { "lat": -34.6002456, "lon": -58.3950933 }
+      ]
+    }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "1950",
+    "addr:province": "Buenos Aires",
+    "addr:street": "Avenida Córdoba",
+    "building": "public",
+    "building:levels": "2",
+    "name": "Palacio de Aguas Corrientes",
+    "official_name": "Gran Depósito Ingeniero Guillermo Villanueva",
+    "operator": "aysa",
+    "roof:levels": "1",
+    "type": "multipolygon",
+    "wikidata": "Q3361112",
+    "wikipedia": "es:Palacio de Aguas Corrientes"
+  }
+},
+{
+  "type": "relation",
+  "id": 2337969,
+  "bounds": {
+    "minlat": -34.6086616,
+    "minlon": -58.3707259,
+    "maxlat": -34.6076781,
+    "maxlon": -58.3698130
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 185738988,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.6086616, "lon": -58.3705145 },
+         { "lat": -34.6086429, "lon": -58.3705153 },
+         { "lat": -34.6086479, "lon": -58.3706906 },
+         { "lat": -34.6083252, "lon": -58.3707043 },
+         { "lat": -34.6078133, "lon": -58.3707259 },
+         { "lat": -34.6078113, "lon": -58.3706537 },
+         { "lat": -34.6077490, "lon": -58.3706563 },
+         { "lat": -34.6077419, "lon": -58.3704085 },
+         { "lat": -34.6077089, "lon": -58.3704099 },
+         { "lat": -34.6076845, "lon": -58.3704110 },
+         { "lat": -34.6076815, "lon": -58.3703076 },
+         { "lat": -34.6076781, "lon": -58.3701877 },
+         { "lat": -34.6077043, "lon": -58.3701866 },
+         { "lat": -34.6077297, "lon": -58.3701855 },
+         { "lat": -34.6077226, "lon": -58.3699397 },
+         { "lat": -34.6077911, "lon": -58.3699368 },
+         { "lat": -34.6077885, "lon": -58.3698491 },
+         { "lat": -34.6086415, "lon": -58.3698130 },
+         { "lat": -34.6086616, "lon": -58.3705145 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 174971129,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6079727, "lon": -58.3704001 },
+         { "lat": -34.6081033, "lon": -58.3703905 },
+         { "lat": -34.6080876, "lon": -58.3700802 },
+         { "lat": -34.6079571, "lon": -58.3700897 },
+         { "lat": -34.6079727, "lon": -58.3704001 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 185738969,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6086406, "lon": -58.3704588 },
+         { "lat": -34.6086370, "lon": -58.3703257 },
+         { "lat": -34.6084109, "lon": -58.3703348 },
+         { "lat": -34.6084146, "lon": -58.3704699 },
+         { "lat": -34.6085539, "lon": -58.3704643 },
+         { "lat": -34.6085535, "lon": -58.3704472 },
+         { "lat": -34.6086128, "lon": -58.3704448 },
+         { "lat": -34.6086132, "lon": -58.3704599 },
+         { "lat": -34.6086406, "lon": -58.3704588 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 185738967,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6085003, "lon": -58.3700264 },
+         { "lat": -34.6085063, "lon": -58.3701449 },
+         { "lat": -34.6086286, "lon": -58.3701357 },
+         { "lat": -34.6086226, "lon": -58.3700172 },
+         { "lat": -34.6085003, "lon": -58.3700264 }
+      ]
+    }
+  ],
+  "tags": {
+    "building": "government",
+    "building:colour": "#D5A798",
+    "building:levels": "4",
+    "height": "25",
+    "historic": "building",
+    "name": "Casa Rosada",
+    "roof:colour": "#D5A798",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 2468981,
+  "bounds": {
+    "minlat": -34.6103198,
+    "minlon": -58.3932092,
+    "maxlat": -34.6092928,
+    "maxlon": -58.3921141
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 185207770,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.6098757, "lon": -58.3922472 },
+         { "lat": -34.6098761, "lon": -58.3922276 },
+         { "lat": -34.6098763, "lon": -58.3922070 },
+         { "lat": -34.6098615, "lon": -58.3922079 },
+         { "lat": -34.6097745, "lon": -58.3922153 },
+         { "lat": -34.6096586, "lon": -58.3922250 },
+         { "lat": -34.6096581, "lon": -58.3922472 },
+         { "lat": -34.6096583, "lon": -58.3922782 },
+         { "lat": -34.6094501, "lon": -58.3922907 },
+         { "lat": -34.6094478, "lon": -58.3922016 },
+         { "lat": -34.6092928, "lon": -58.3922153 },
+         { "lat": -34.6093616, "lon": -58.3931403 },
+         { "lat": -34.6095895, "lon": -58.3931212 },
+         { "lat": -34.6095851, "lon": -58.3930036 },
+         { "lat": -34.6096388, "lon": -58.3930016 },
+         { "lat": -34.6096397, "lon": -58.3930390 },
+         { "lat": -34.6096482, "lon": -58.3930701 },
+         { "lat": -34.6096595, "lon": -58.3930989 },
+         { "lat": -34.6096721, "lon": -58.3931217 },
+         { "lat": -34.6096866, "lon": -58.3931425 },
+         { "lat": -34.6097063, "lon": -58.3931635 },
+         { "lat": -34.6097294, "lon": -58.3931825 },
+         { "lat": -34.6097489, "lon": -58.3931941 },
+         { "lat": -34.6097705, "lon": -58.3932030 },
+         { "lat": -34.6097877, "lon": -58.3932066 },
+         { "lat": -34.6098066, "lon": -58.3932077 },
+         { "lat": -34.6098441, "lon": -58.3932092 },
+         { "lat": -34.6098660, "lon": -58.3932040 },
+         { "lat": -34.6098876, "lon": -58.3931955 },
+         { "lat": -34.6099136, "lon": -58.3931812 },
+         { "lat": -34.6099329, "lon": -58.3931644 },
+         { "lat": -34.6099504, "lon": -58.3931483 },
+         { "lat": -34.6099643, "lon": -58.3931269 },
+         { "lat": -34.6099792, "lon": -58.3931043 },
+         { "lat": -34.6099887, "lon": -58.3930788 },
+         { "lat": -34.6099985, "lon": -58.3930483 },
+         { "lat": -34.6100039, "lon": -58.3930122 },
+         { "lat": -34.6100026, "lon": -58.3929483 },
+         { "lat": -34.6100735, "lon": -58.3929417 },
+         { "lat": -34.6100777, "lon": -58.3930841 },
+         { "lat": -34.6103090, "lon": -58.3930733 },
+         { "lat": -34.6102945, "lon": -58.3928599 },
+         { "lat": -34.6102548, "lon": -58.3928610 },
+         { "lat": -34.6102520, "lon": -58.3927511 },
+         { "lat": -34.6103198, "lon": -58.3927505 },
+         { "lat": -34.6103063, "lon": -58.3924057 },
+         { "lat": -34.6102580, "lon": -58.3924062 },
+         { "lat": -34.6102429, "lon": -58.3921141 },
+         { "lat": -34.6100847, "lon": -58.3921211 },
+         { "lat": -34.6100849, "lon": -58.3922347 },
+         { "lat": -34.6098757, "lon": -58.3922472 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 185207767,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6100820, "lon": -58.3926475 },
+         { "lat": -34.6100770, "lon": -58.3926727 },
+         { "lat": -34.6100665, "lon": -58.3926940 },
+         { "lat": -34.6100519, "lon": -58.3927103 },
+         { "lat": -34.6100335, "lon": -58.3927211 },
+         { "lat": -34.6100114, "lon": -58.3927248 },
+         { "lat": -34.6100114, "lon": -58.3927484 },
+         { "lat": -34.6101440, "lon": -58.3927390 },
+         { "lat": -34.6101400, "lon": -58.3926447 },
+         { "lat": -34.6100820, "lon": -58.3926475 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 185207774,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6100828, "lon": -58.3925159 },
+         { "lat": -34.6100745, "lon": -58.3924981 },
+         { "lat": -34.6100587, "lon": -58.3924788 },
+         { "lat": -34.6100426, "lon": -58.3924679 },
+         { "lat": -34.6100249, "lon": -58.3924622 },
+         { "lat": -34.6100095, "lon": -58.3924618 },
+         { "lat": -34.6100083, "lon": -58.3924311 },
+         { "lat": -34.6101256, "lon": -58.3924251 },
+         { "lat": -34.6101288, "lon": -58.3925154 },
+         { "lat": -34.6100828, "lon": -58.3925159 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 185207772,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6094521, "lon": -58.3928163 },
+         { "lat": -34.6096039, "lon": -58.3928076 },
+         { "lat": -34.6095992, "lon": -58.3926872 },
+         { "lat": -34.6094474, "lon": -58.3926959 },
+         { "lat": -34.6094521, "lon": -58.3928163 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 185207771,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6095594, "lon": -58.3925907 },
+         { "lat": -34.6095540, "lon": -58.3924915 },
+         { "lat": -34.6094372, "lon": -58.3925009 },
+         { "lat": -34.6094426, "lon": -58.3926000 },
+         { "lat": -34.6095594, "lon": -58.3925907 }
+      ]
+    }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housename": "Palacio del Congreso de la Nación Argentina",
+    "addr:housename:de": "Argentinischer Kongresspalast",
+    "addr:housenumber": "51",
+    "addr:province": "Buenos Aires",
+    "addr:street": "Avenida Entre Ríos",
+    "building": "government",
+    "building:architecture": "eclectic",
+    "building:colour": "#f2ecdc",
+    "government": "legislative",
+    "height": "26",
+    "historic": "heritage",
+    "name": "Congreso de la Nación Argentina",
+    "name:de": "Argentinischer Nationalkongress",
+    "name:en": "National Congress of Argentina",
+    "name:es": "Congreso de la Nación Argentina",
+    "name:fr": "Congrès de la nation argentine",
+    "name:pt": "Congresso da Nação Argentina",
+    "name:ru": "Национальный конгресс Аргентины",
+    "name:zh": "阿根廷国会",
+    "office": "government",
+    "start_date": "1906",
+    "tourism": "attraction",
+    "type": "multipolygon",
+    "wikidata": "Q646190",
+    "wikipedia": "es:Congreso de la Nación Argentina"
+  }
+}
+
+  ]
+}

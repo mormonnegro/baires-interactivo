@@ -1,0 +1,93 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; color: #1f1b17; font-family: "Lato", sans-serif; }
+    .cr-disp { font-family: "League Gothic", sans-serif; text-transform: uppercase; line-height: 0.92; letter-spacing: 0.01em; font-weight: 400; }
+    #cr-foto { position: absolute; inset: 0; overflow: hidden; }
+    #cr-foto-in { position: absolute; inset: 0; transform-origin: 46% 42%; }
+    #cr-foto img { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #cr-mesa { position: absolute; inset: 0; }
+    #cr-mesa-in { position: absolute; inset: 0; background: #e8dcc4; }
+    .cr-hoja { position: absolute; }
+    .cr-hoja img { display: block; height: 340px; width: auto; border: 3px solid #1f1b17; box-shadow: 10px 10px 0 rgba(31, 27, 23, 0.85); }
+    .cr-hoja b { display: block; font-family: "League Gothic", sans-serif; font-weight: 400; font-size: 62px; line-height: 1; margin-top: 16px; }
+    .cr-hoja i { display: block; font-style: normal; font-size: 30px; font-weight: 700; line-height: 1.15; white-space: nowrap; }
+    .cr-hoja i u { text-decoration: none; color: #c2321c; }
+    #cr-h1 { left: 96px; top: 84px; } #cr-h2 { left: 577px; top: 84px; } #cr-h3 { left: 974px; top: 84px; }
+    #cr-h4 { left: 96px; top: 556px; } #cr-h5 { left: 459px; top: 556px; } #cr-h6 { left: 862px; top: 556px; }
+    #cr-col { position: absolute; left: 1420px; top: 84px; width: 404px; height: 910px; }
+    #cr-col1 .cr-disp { font-size: 150px; }
+    #cr-col1 p { font-size: 38px; font-weight: 700; line-height: 1.2; margin-top: 8px; }
+    #cr-col2 { position: absolute; left: 0; top: 472px; width: 404px; }
+    #cr-col2 .cr-disp { font-size: 96px; color: #c2321c; }
+    #cr-col2 p { font-size: 38px; font-weight: 700; line-height: 1.2; margin-top: 8px; }
+    #cr-anio { position: absolute; left: 96px; top: 96px; width: 480px; height: 260px; }
+    #cr-anio-in { position: absolute; left: 0; top: 0; background: #1f1b17; color: #f1e7d2; padding: 10px 40px 22px; font-size: 230px; }
+    #cr-cuenta { position: absolute; left: 96px; top: 690px; width: 900px; height: 294px; }
+    #cr-cuenta-in { position: absolute; left: 0; bottom: 0; background: #1f1b17; color: #f1e7d2; padding: 16px 40px 28px; white-space: nowrap; }
+    #cr-n { font-size: 200px; min-width: 520px; }
+    #cr-cuenta-in p { font-size: 46px; font-weight: 700; }
+  </style>
+  <div id="root" data-composition-id="crece" data-width="1920" data-height="1080">
+    <div id="cr-foto" class="clip" data-start="0" data-duration="17.1" data-track-index="0" data-layout-ignore data-hold>
+      <div id="cr-foto-in">
+        <img id="cr-e0" src="assets/visor/etapa-1867.jpg" alt="" /><img id="cr-e1" src="assets/visor/etapa-1888.jpg" alt="" /><img id="cr-e2" src="assets/visor/etapa-1895.jpg" alt="" />
+        <img id="cr-e3" src="assets/visor/etapa-1905.jpg" alt="" /><img id="cr-e4" src="assets/visor/etapa-1910.jpg" alt="" /><img id="cr-e5" src="assets/visor/etapa-1921.jpg" alt="" /><img id="cr-e6" src="assets/visor/etapa-1940.jpg" alt="" />
+      </div>
+    </div>
+
+    <div id="cr-mesa" class="clip" data-start="0" data-duration="9" data-track-index="1">
+      <div id="cr-mesa-in">
+        <div class="cr-hoja" id="cr-h1"><img src="assets/planos/1888.jpg" alt="" /><b>1888</b><i>seña: <u>punteado rosado</u></i></div>
+        <div class="cr-hoja" id="cr-h2"><img src="assets/planos/1895.jpg" alt="" /><b>1895</b><i>seña: <u>rayado en cruz</u></i></div>
+        <div class="cr-hoja" id="cr-h3"><img src="assets/planos/1905.jpg" alt="" /><b>1905</b><i>seña: <u>relleno rosa</u></i></div>
+        <div class="cr-hoja" id="cr-h4"><img src="assets/planos/1910.jpg" alt="" /><b>1909</b><i>seña: <u>relleno rosa</u></i></div>
+        <div class="cr-hoja" id="cr-h5"><img src="assets/planos/1921.jpg" alt="" /><b>1921</b><i>seña: <u>relleno rosa</u></i></div>
+        <div class="cr-hoja" id="cr-h6"><img src="assets/planos/1940.jpg" alt="" /><b>1936</b><i>seña: <u>rayado rosa</u></i></div>
+        <div id="cr-col">
+          <div id="cr-col1"><div class="cr-disp">6 planos</div><p>Cada uno marca lo edificado con su propia seña de color.</p></div>
+          <div id="cr-col2"><div class="cr-disp">Casas nuevas</div><p>Generadas con reglas, donde el plano marca ciudad.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="cr-anio" class="clip" data-start="8.6" data-duration="8.5" data-track-index="2"><div class="cr-disp" id="cr-anio-in">1867</div></div>
+    <div id="cr-cuenta" class="clip" data-start="9.3" data-duration="7.8" data-track-index="3">
+      <div id="cr-cuenta-in"><div class="cr-disp" id="cr-n">16.599</div><p>cuerpos edificados</p></div>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const tl = gsap.timeline({ paused: true });
+      const miles = (x) => Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      const escribe = (sel, fmt, v0) => { const el = document.querySelector(sel), o = {}; let v = v0; Object.defineProperty(o, "v", { get: () => v, set: (x) => { v = x; el.textContent = fmt(x); } }); return o; };
+      // la mesa de papel tapa la toma anterior de arriba hacia abajo
+      tl.fromTo("#cr-mesa-in", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.inOut" }, 0);
+      tl.fromTo("#cr-foto-in", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#cr-foto-in", { opacity: 0 }, { opacity: 1, duration: 0.01, immediateRender: false }, 0.5);
+      // los seis planos caen de a uno
+      ["#cr-h1", "#cr-h2", "#cr-h3", "#cr-h4", "#cr-h5", "#cr-h6"].forEach((h, i) => {
+        const t = 0.55 + i * 0.3, giro = [-2.2, 1.6, -1.2, 1.8, -1.6, 1.3][i];
+        tl.fromTo(h + " img", { opacity: 0, y: -90, rotation: giro * 3, scale: 1.12 }, { opacity: 1, y: 0, rotation: giro, scale: 1, duration: 0.45, ease: "power4.out" }, t);
+        tl.fromTo(h + " b", { opacity: 0 }, { opacity: 1, duration: 0.15 }, t + 0.25);
+        tl.fromTo(h + " i", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 3.75 + i * 0.12);
+      });
+      tl.fromTo("#cr-col1", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 1.75);
+      tl.fromTo("#cr-col1 p", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 3.75);
+      tl.fromTo("#cr-col2", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 5.6);
+      // la mesa se levanta y queda la ciudad de 1867
+      tl.fromTo("#cr-mesa-in", { y: 0 }, { y: -1100, duration: 0.5, ease: "power3.in", immediateRender: false }, 8.4);
+      tl.fromTo("#cr-foto-in", { scale: 1 }, { scale: 1.07, duration: 8.7, ease: "none", immediateRender: false }, 8.4);
+      tl.fromTo("#cr-anio-in", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, 8.75);
+      tl.fromTo("#cr-cuenta-in", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, 9.4);
+      // el salto por las siete etapas
+      const anio = escribe("#cr-anio-in", (x) => String(Math.round(x)), 1867);
+      [1888, 1895, 1905, 1910, 1921, 1940].forEach((a, i) => {
+        const t = 13.4 + i * 0.25;
+        tl.fromTo("#cr-e" + (i + 1), { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "none" }, t);
+        tl.set(anio, { v: a }, t + 0.1);
+      });
+      tl.fromTo(escribe("#cr-n", miles, 16599), { v: 16599 }, { v: 64007, duration: 1.5, ease: "power1.inOut", immediateRender: false }, 13.4);
+      window.__timelines["crece"] = tl;
+    })();
+  </script>
+</template>

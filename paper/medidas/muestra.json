@@ -1,0 +1,53 @@
+[
+ {
+  "nombre": "oeste-0.5km",
+  "km": 0.5,
+  "x": 10112,
+  "y": 8522,
+  "lado": 444,
+  "clasesPct": {
+   "papel": 9.1,
+   "edificado (rayado cruzado)": 41.3,
+   "patio o fondo (rayado simple)": 42,
+   "negro lleno": 0.6,
+   "otra tinta": 6.9
+  },
+  "techos": 487,
+  "lotes": 134,
+  "arboles": 3
+ },
+ {
+  "nombre": "oeste-2.0km",
+  "km": 2,
+  "x": 10112,
+  "y": 6300,
+  "lado": 444,
+  "clasesPct": {
+   "papel": 31.4,
+   "edificado (rayado cruzado)": 20,
+   "patio o fondo (rayado simple)": 39.5,
+   "negro lleno": 0.2,
+   "otra tinta": 8.8
+  },
+  "techos": 408,
+  "lotes": 149,
+  "arboles": 31
+ },
+ {
+  "nombre": "oeste-3.5km",
+  "km": 3.5,
+  "x": 10112,
+  "y": 4078,
+  "lado": 444,
+  "clasesPct": {
+   "papel": 80.1,
+   "edificado (rayado cruzado)": 4.9,
+   "patio o fondo (rayado simple)": 12.4,
+   "negro lleno": 0,
+   "otra tinta": 2.5
+  },
+  "techos": 94,
+  "lotes": 41,
+  "arboles": 17
+ }
+]

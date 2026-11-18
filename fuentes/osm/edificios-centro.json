@@ -1,0 +1,6944 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.4 2390de5a",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-17T00:21:46Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "way",
+  "id": 23633883,
+  "bounds": {
+    "minlat": -34.6084171,
+    "minlon": -58.3742741,
+    "maxlat": -34.6079968,
+    "maxlon": -58.3736543
+  },
+  "nodes": [
+    256027308,
+    256027309,
+    256027310,
+    2319247941,
+    256027311,
+    256027308
+  ],
+  "geometry": [
+    { "lat": -34.6083836, "lon": -58.3736543 },
+    { "lat": -34.6084171, "lon": -58.3742541 },
+    { "lat": -34.6080269, "lon": -58.3742741 },
+    { "lat": -34.6079968, "lon": -58.3738024 },
+    { "lat": -34.6080681, "lon": -58.3736701 },
+    { "lat": -34.6083836, "lon": -58.3736543 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "1",
+    "addr:street": "Bolívar",
+    "alt_name": "Palacio de la Jefatura",
+    "amenity": "townhall",
+    "architect": "Juan A. Buschiazzo",
+    "building": "yes",
+    "building:levels": "5",
+    "height": "38",
+    "heritage": "4",
+    "historic": "building",
+    "name": "Palacio de Gobierno de la Ciudad",
+    "name:en": "Buenos Aires City Hall",
+    "official_name": "Palacio de Gobierno del Gobierno de la Ciudad Autónoma de Buenos Aires",
+    "old_name": "Palacio Municipal",
+    "owner": "Gobierno de la Ciudad de Buenos Aires",
+    "start_date": "1890-11-30",
+    "wikidata": "Q2132531",
+    "wikimedia_commons": "File:Antiguo_Palacio_del_Poder_Ejecutivo_de_la_Ciudad_Autónoma_de_Buenos_Aires.jpg",
+    "wikipedia": "es:Palacio Municipal de la Ciudad de Buenos Aires"
+  }
+},
+{
+  "type": "way",
+  "id": 23633886,
+  "bounds": {
+    "minlat": -34.6098718,
+    "minlon": -58.3747777,
+    "maxlat": -34.6091569,
+    "maxlon": -58.3738559
+  },
+  "nodes": [
+    256027316,
+    1969386171,
+    256027317,
+    1969386150,
+    256027318,
+    2319247957,
+    11106925997,
+    11106925996,
+    256027316
+  ],
+  "geometry": [
+    { "lat": -34.6098699, "lon": -58.3746048 },
+    { "lat": -34.6091868, "lon": -58.3738559 },
+    { "lat": -34.6091569, "lon": -58.3738807 },
+    { "lat": -34.6092217, "lon": -58.3747369 },
+    { "lat": -34.6092579, "lon": -58.3747777 },
+    { "lat": -34.6098242, "lon": -58.3747484 },
+    { "lat": -34.6098541, "lon": -58.3747145 },
+    { "lat": -34.6098718, "lon": -58.3746770 },
+    { "lat": -34.6098699, "lon": -58.3746048 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "104",
+    "addr:street": "Perú",
+    "architect": "Héctor Ayerza",
+    "building": "yes",
+    "height": "36.0",
+    "heritage": "4",
+    "historic": "building",
+    "name": "Legislatura de la Ciudad Autónoma de Buenos Aires",
+    "office": "government",
+    "old_name": "Concejo Deliberante",
+    "start_date": "1931",
+    "website": "https://www.legislatura.gov.ar/",
+    "wikidata": "Q4833194",
+    "wikimedia_commons": "File:Diagonal_Sur_Buenos_Aires.jpg",
+    "wikipedia": "es:Palacio de la Legislatura de la Ciudad de Buenos Aires"
+  }
+},
+{
+  "type": "way",
+  "id": 55384651,
+  "bounds": {
+    "minlat": -34.6072779,
+    "minlon": -58.3729311,
+    "maxlat": -34.6067289,
+    "maxlon": -58.3723062
+  },
+  "nodes": [
+    2475300711,
+    695813334,
+    695813335,
+    695813336,
+    695813337,
+    2475300715,
+    2210744196,
+    1978868637,
+    2475300711
+  ],
+  "geometry": [
+    { "lat": -34.6071111, "lon": -58.3726519 },
+    { "lat": -34.6067399, "lon": -58.3726869 },
+    { "lat": -34.6067289, "lon": -58.3724193 },
+    { "lat": -34.6067731, "lon": -58.3723442 },
+    { "lat": -34.6072503, "lon": -58.3723062 },
+    { "lat": -34.6072748, "lon": -58.3726817 },
+    { "lat": -34.6072779, "lon": -58.3729169 },
+    { "lat": -34.6071293, "lon": -58.3729311 },
+    { "lat": -34.6071111, "lon": -58.3726519 }
+  ],
+  "tags": {
+    "building": "yes",
+    "height": "29.8"
+  }
+},
+{
+  "type": "way",
+  "id": 186253156,
+  "bounds": {
+    "minlat": -34.6055049,
+    "minlon": -58.3729665,
+    "maxlat": -34.6051153,
+    "maxlon": -58.3723979
+  },
+  "nodes": [
+    1969400554,
+    1969400566,
+    1969400553,
+    4702138255,
+    1969400570,
+    1969400554
+  ],
+  "geometry": [
+    { "lat": -34.6051153, "lon": -58.3724210 },
+    { "lat": -34.6054127, "lon": -58.3723979 },
+    { "lat": -34.6054673, "lon": -58.3724513 },
+    { "lat": -34.6055049, "lon": -58.3729417 },
+    { "lat": -34.6051461, "lon": -58.3729665 },
+    { "lat": -34.6051153, "lon": -58.3724210 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "407",
+    "addr:postcode": "C1038AAI",
+    "addr:street": "Teniente General Juan Domingo Perón",
+    "amenity": "bank",
+    "atm": "yes",
+    "branch": "Casa Matriz",
+    "brand": "Galicia",
+    "brand:wikidata": "Q5717952",
+    "brand:wikipedia": "es:Banco Galicia",
+    "building": "yes",
+    "building:levels": "6",
+    "building:material": "glass",
+    "height": "30",
+    "name": "Galicia",
+    "official_name": "Edificio Eduardo Escasany",
+    "opening_hours": "Mo-Sa 10:00-15:00",
+    "owner": "Banco Galicia y Buenos Aires S.A."
+  }
+},
+{
+  "type": "way",
+  "id": 187148225,
+  "bounds": {
+    "minlat": -34.6051858,
+    "minlon": -58.3737058,
+    "maxlat": -34.6049581,
+    "maxlon": -58.3729665
+  },
+  "nodes": [
+    1979020798,
+    1979020797,
+    11751931780,
+    1979020794,
+    1969400570,
+    4702138254,
+    4702138256,
+    4702138266,
+    4702138265,
+    6243497748,
+    1979020801,
+    1979020798
+  ],
+  "geometry": [
+    { "lat": -34.6049581, "lon": -58.3730757 },
+    { "lat": -34.6050802, "lon": -58.3730669 },
+    { "lat": -34.6050735, "lon": -58.3729738 },
+    { "lat": -34.6050950, "lon": -58.3729708 },
+    { "lat": -34.6051461, "lon": -58.3729665 },
+    { "lat": -34.6051638, "lon": -58.3731593 },
+    { "lat": -34.6051738, "lon": -58.3733865 },
+    { "lat": -34.6051858, "lon": -58.3736946 },
+    { "lat": -34.6049887, "lon": -58.3737058 },
+    { "lat": -34.6049872, "lon": -58.3736736 },
+    { "lat": -34.6049738, "lon": -58.3733514 },
+    { "lat": -34.6049581, "lon": -58.3730757 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 239759679,
+  "bounds": {
+    "minlat": -34.6071293,
+    "minlon": -58.3731616,
+    "maxlat": -34.6067399,
+    "maxlon": -58.3726519
+  },
+  "nodes": [
+    2475300707,
+    11607170612,
+    695813334,
+    2475300711,
+    1978868637,
+    11607170611,
+    2475300713,
+    2475300707
+  ],
+  "geometry": [
+    { "lat": -34.6068083, "lon": -58.3731591 },
+    { "lat": -34.6067756, "lon": -58.3731616 },
+    { "lat": -34.6067399, "lon": -58.3726869 },
+    { "lat": -34.6071111, "lon": -58.3726519 },
+    { "lat": -34.6071293, "lon": -58.3729311 },
+    { "lat": -34.6070493, "lon": -58.3729389 },
+    { "lat": -34.6070511, "lon": -58.3731422 },
+    { "lat": -34.6068083, "lon": -58.3731591 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "434",
+    "addr:street": "Bartolomé Mitre",
+    "amenity": "bank",
+    "atm": "yes",
+    "branch": "Casa Central",
+    "brand": "Supervielle",
+    "brand:wikidata": "Q5718035",
+    "brand:wikipedia": "es:Banco Supervielle",
+    "building": "office",
+    "building:levels": "6",
+    "contact:phone": "+54 11 4324-8000",
+    "height": "26.2",
+    "name": "Supervielle",
+    "old_name": "Banco de Italia y Río de la Plata",
+    "opening_hours": "Mo-Fr 10:00-15:00",
+    "wikipedia": "es:Banco de Italia y Río de la Plata"
+  }
+},
+{
+  "type": "way",
+  "id": 239761039,
+  "bounds": {
+    "minlat": -34.6091168,
+    "minlon": -58.3748103,
+    "maxlat": -34.6086969,
+    "maxlon": -58.3743988
+  },
+  "nodes": [
+    2475309952,
+    11285225592,
+    2475309953,
+    2475309941,
+    11285225593,
+    2475309939,
+    2475309952
+  ],
+  "geometry": [
+    { "lat": -34.6090923, "lon": -58.3743988 },
+    { "lat": -34.6091168, "lon": -58.3747642 },
+    { "lat": -34.6091028, "lon": -58.3747841 },
+    { "lat": -34.6087427, "lon": -58.3748103 },
+    { "lat": -34.6087205, "lon": -58.3747950 },
+    { "lat": -34.6086969, "lon": -58.3744290 },
+    { "lat": -34.6090923, "lon": -58.3743988 }
+  ],
+  "tags": {
+    "building": "yes",
+    "height": "38.3"
+  }
+},
+{
+  "type": "way",
+  "id": 239761040,
+  "bounds": {
+    "minlat": -34.6090923,
+    "minlon": -58.3744290,
+    "maxlat": -34.6086846,
+    "maxlon": -58.3742123
+  },
+  "nodes": [
+    2475309938,
+    2475309939,
+    2475309952,
+    2475309951,
+    2475309949,
+    2475309938
+  ],
+  "geometry": [
+    { "lat": -34.6086846, "lon": -58.3742499 },
+    { "lat": -34.6086969, "lon": -58.3744290 },
+    { "lat": -34.6090923, "lon": -58.3743988 },
+    { "lat": -34.6090792, "lon": -58.3742123 },
+    { "lat": -34.6088931, "lon": -58.3742226 },
+    { "lat": -34.6086846, "lon": -58.3742499 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 239761041,
+  "bounds": {
+    "minlat": -34.6088931,
+    "minlon": -58.3742499,
+    "maxlat": -34.6086625,
+    "maxlon": -58.3738998
+  },
+  "nodes": [
+    2475309949,
+    2475309948,
+    2475309945,
+    2475309946,
+    2475309944,
+    2475309943,
+    2475309940,
+    2475309938,
+    2475309949
+  ],
+  "geometry": [
+    { "lat": -34.6088931, "lon": -58.3742226 },
+    { "lat": -34.6088693, "lon": -58.3738998 },
+    { "lat": -34.6088107, "lon": -58.3739058 },
+    { "lat": -34.6088253, "lon": -58.3741638 },
+    { "lat": -34.6087402, "lon": -58.3741722 },
+    { "lat": -34.6087181, "lon": -58.3739086 },
+    { "lat": -34.6086625, "lon": -58.3739114 },
+    { "lat": -34.6086846, "lon": -58.3742499 },
+    { "lat": -34.6088931, "lon": -58.3742226 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "540",
+    "addr:postcode": "C1084AAN",
+    "addr:street": "Avenida de Mayo",
+    "building": "yes",
+    "name": "Comisión Nacional de Museos y Monumentos Históricos",
+    "operator": "DNPyM",
+    "phone": "+54 11 4342-9691"
+  }
+},
+{
+  "type": "way",
+  "id": 265344159,
+  "bounds": {
+    "minlat": -34.6079026,
+    "minlon": -58.3735774,
+    "maxlat": -34.6070493,
+    "maxlon": -58.3729169
+  },
+  "nodes": [
+    2710081792,
+    2710081793,
+    310293523,
+    2710081747,
+    2475292686,
+    2475292682,
+    2475300713,
+    11607170611,
+    1978868637,
+    2210744196,
+    1978868644,
+    2475292700,
+    1978868717,
+    1978868688,
+    1978868679,
+    1978868645,
+    2475292713,
+    2710081789,
+    2710081790,
+    2711855923,
+    310293525,
+    2710082036,
+    2710081792
+  ],
+  "geometry": [
+    { "lat": -34.6078414, "lon": -58.3734661 },
+    { "lat": -34.6078427, "lon": -58.3735104 },
+    { "lat": -34.6070816, "lon": -58.3735774 },
+    { "lat": -34.6070795, "lon": -58.3735290 },
+    { "lat": -34.6070687, "lon": -58.3733862 },
+    { "lat": -34.6070568, "lon": -58.3732080 },
+    { "lat": -34.6070511, "lon": -58.3731422 },
+    { "lat": -34.6070493, "lon": -58.3729389 },
+    { "lat": -34.6071293, "lon": -58.3729311 },
+    { "lat": -34.6072779, "lon": -58.3729169 },
+    { "lat": -34.6072758, "lon": -58.3730322 },
+    { "lat": -34.6074277, "lon": -58.3730172 },
+    { "lat": -34.6074762, "lon": -58.3730100 },
+    { "lat": -34.6074726, "lon": -58.3729583 },
+    { "lat": -34.6075589, "lon": -58.3729494 },
+    { "lat": -34.6075625, "lon": -58.3730010 },
+    { "lat": -34.6076956, "lon": -58.3729806 },
+    { "lat": -34.6077911, "lon": -58.3729711 },
+    { "lat": -34.6078106, "lon": -58.3729691 },
+    { "lat": -34.6078221, "lon": -58.3729679 },
+    { "lat": -34.6078707, "lon": -58.3729628 },
+    { "lat": -34.6079026, "lon": -58.3734599 },
+    { "lat": -34.6078414, "lon": -58.3734661 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "27",
+    "addr:postcode": "C1004AAA",
+    "addr:street": "San Martín",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "building:levels": "1",
+    "check_date": "2026-10-02",
+    "contact:facebook": "Catedral-Primada-de-Buenos-Aires-215345905254810",
+    "contact:twitter": "catedraldebsas",
+    "denomination": "catholic",
+    "designation": "Catedral Primada de Buenos Aires",
+    "email": "catedralbuenosaires@catedralbuenosaires.org.ar",
+    "height": "13",
+    "int_name": "Catedral Metropolitana de Buenos Aires",
+    "name": "Catedral Metropolitana",
+    "name:en": "Metropolitan Cathedral",
+    "name:it": "Cattedrale Metropolitana",
+    "name:ru": "Кафедральный собор",
+    "opening_hours": "Mo-Fr 07:30-18:30; Sa 09:00-17:00; Su 09:00-18:30",
+    "phone": "+541143312845;+541143453369;+541143453736",
+    "religion": "christian",
+    "start_date": "1605",
+    "tourism": "attraction",
+    "website": "http://www.catedralbuenosaires.org.ar/",
+    "wheelchair": "limited",
+    "wikidata": "Q967929",
+    "wikipedia": "es:Catedral metropolitana de Buenos Aires"
+  }
+},
+{
+  "type": "way",
+  "id": 265344160,
+  "bounds": {
+    "minlat": -34.6070795,
+    "minlon": -58.3735505,
+    "maxlat": -34.6068083,
+    "maxlon": -58.3731422
+  },
+  "nodes": [
+    2475300713,
+    2475292682,
+    2475292686,
+    2710081747,
+    2475300709,
+    2475300707,
+    2475300713
+  ],
+  "geometry": [
+    { "lat": -34.6070511, "lon": -58.3731422 },
+    { "lat": -34.6070568, "lon": -58.3732080 },
+    { "lat": -34.6070687, "lon": -58.3733862 },
+    { "lat": -34.6070795, "lon": -58.3735290 },
+    { "lat": -34.6068447, "lon": -58.3735505 },
+    { "lat": -34.6068083, "lon": -58.3731591 },
+    { "lat": -34.6070511, "lon": -58.3731422 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "480",
+    "addr:street": "Bartolomé Mitre",
+    "amenity": "bank",
+    "architect": "Mario Roberto Álvarez y Asociados",
+    "atm": "yes",
+    "branch": "Casa Central",
+    "brand": "Santander",
+    "brand:en": "Santander Bank",
+    "brand:wikidata": "Q3385268",
+    "brand:wikipedia": "es:Banco Santander (Argentina)",
+    "building": "office",
+    "building:levels": "15",
+    "building:levels:underground": "2",
+    "contact:phone": "+54 11 4341-1000",
+    "height": "70",
+    "name": "Santander",
+    "old_name": "Edificio Banco Río de la Plata",
+    "opening_hours": "Mo-Fr 10:00-15:00",
+    "website": "https://www.santander.com.ar",
+    "wikipedia": "es:Edificio Banco Santander Río"
+  }
+},
+{
+  "type": "way",
+  "id": 265532339,
+  "bounds": {
+    "minlat": -34.6077920,
+    "minlon": -58.3726817,
+    "maxlat": -34.6072503,
+    "maxlon": -58.3722697
+  },
+  "nodes": [
+    2475300725,
+    2711855922,
+    2475300719,
+    695813337,
+    2475300715,
+    2475300717,
+    2475300725
+  ],
+  "geometry": [
+    { "lat": -34.6077920, "lon": -58.3726375 },
+    { "lat": -34.6077693, "lon": -58.3723273 },
+    { "lat": -34.6077284, "lon": -58.3722697 },
+    { "lat": -34.6072503, "lon": -58.3723062 },
+    { "lat": -34.6072748, "lon": -58.3726817 },
+    { "lat": -34.6073908, "lon": -58.3726762 },
+    { "lat": -34.6077920, "lon": -58.3726375 }
+  ],
+  "tags": {
+    "building": "yes",
+    "height": "37.8"
+  }
+},
+{
+  "type": "way",
+  "id": 288588307,
+  "bounds": {
+    "minlat": -34.6079646,
+    "minlon": -58.3748756,
+    "maxlat": -34.6076847,
+    "maxlon": -58.3744528
+  },
+  "nodes": [
+    2921404351,
+    2921404350,
+    2921404356,
+    2921404357,
+    2923586659,
+    2921404351
+  ],
+  "geometry": [
+    { "lat": -34.6076866, "lon": -58.3748756 },
+    { "lat": -34.6076847, "lon": -58.3744729 },
+    { "lat": -34.6079459, "lon": -58.3744528 },
+    { "lat": -34.6079646, "lon": -58.3748678 },
+    { "lat": -34.6079498, "lon": -58.3748690 },
+    { "lat": -34.6076866, "lon": -58.3748756 }
+  ],
+  "tags": {
+    "alt_name": "Edificio Florida 1",
+    "building": "yes",
+    "height": "39.6",
+    "name": "Edificio Palacio de las Sociedades Anónimas",
+    "owner": "Cámara de Sociedades Anónimas (CamSocAnon)",
+    "wikidata": "Q6058353",
+    "wikipedia": "es:Palacio de las Sociedades Anónimas"
+  }
+},
+{
+  "type": "way",
+  "id": 288588309,
+  "bounds": {
+    "minlat": -34.6076866,
+    "minlon": -58.3748875,
+    "maxlat": -34.6074772,
+    "maxlon": -58.3744576
+  },
+  "nodes": [
+    2921404349,
+    2921404346,
+    2921404345,
+    2921404347,
+    2921404348,
+    4867386577,
+    2921404351,
+    2921404350,
+    2921404349
+  ],
+  "geometry": [
+    { "lat": -34.6076523, "lon": -58.3744576 },
+    { "lat": -34.6074772, "lon": -58.3747994 },
+    { "lat": -34.6074796, "lon": -58.3748536 },
+    { "lat": -34.6074836, "lon": -58.3748621 },
+    { "lat": -34.6075041, "lon": -58.3748792 },
+    { "lat": -34.6075267, "lon": -58.3748875 },
+    { "lat": -34.6076866, "lon": -58.3748756 },
+    { "lat": -34.6076847, "lon": -58.3744729 },
+    { "lat": -34.6076523, "lon": -58.3744576 }
+  ],
+  "tags": {
+    "building": "yes",
+    "height": "43.2"
+  }
+},
+{
+  "type": "way",
+  "id": 288588312,
+  "bounds": {
+    "minlat": -34.6079459,
+    "minlon": -58.3744729,
+    "maxlat": -34.6076523,
+    "maxlon": -58.3740457
+  },
+  "nodes": [
+    2921404350,
+    2921404349,
+    2921404352,
+    2921404353,
+    2921404354,
+    2921404355,
+    2921404356,
+    2921404350
+  ],
+  "geometry": [
+    { "lat": -34.6076847, "lon": -58.3744729 },
+    { "lat": -34.6076523, "lon": -58.3744576 },
+    { "lat": -34.6078667, "lon": -58.3740457 },
+    { "lat": -34.6078805, "lon": -58.3740619 },
+    { "lat": -34.6079010, "lon": -58.3740714 },
+    { "lat": -34.6079229, "lon": -58.3740680 },
+    { "lat": -34.6079459, "lon": -58.3744528 },
+    { "lat": -34.6076847, "lon": -58.3744729 }
+  ],
+  "tags": {
+    "building": "yes",
+    "name": "Edificio Sud America",
+    "office": "government"
+  }
+},
+{
+  "type": "way",
+  "id": 288725803,
+  "bounds": {
+    "minlat": -34.6084661,
+    "minlon": -58.3749195,
+    "maxlat": -34.6083369,
+    "maxlon": -58.3745918
+  },
+  "nodes": [
+    2923586665,
+    2922878571,
+    2923586663,
+    2923586664,
+    2923586665
+  ],
+  "geometry": [
+    { "lat": -34.6084496, "lon": -58.3745918 },
+    { "lat": -34.6084661, "lon": -58.3749104 },
+    { "lat": -34.6083524, "lon": -58.3749195 },
+    { "lat": -34.6083369, "lon": -58.3745955 },
+    { "lat": -34.6084496, "lon": -58.3745918 }
+  ],
+  "tags": {
+    "building": "yes",
+    "height": "20.4"
+  }
+},
+{
+  "type": "way",
+  "id": 288804116,
+  "bounds": {
+    "minlat": -34.6083524,
+    "minlon": -58.3749323,
+    "maxlat": -34.6080578,
+    "maxlon": -58.3745955
+  },
+  "nodes": [
+    2923586663,
+    2922878570,
+    2923586661,
+    2923586664,
+    2923586663
+  ],
+  "geometry": [
+    { "lat": -34.6083524, "lon": -58.3749195 },
+    { "lat": -34.6080751, "lon": -58.3749323 },
+    { "lat": -34.6080578, "lon": -58.3746084 },
+    { "lat": -34.6083369, "lon": -58.3745955 },
+    { "lat": -34.6083524, "lon": -58.3749195 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "578",
+    "addr:street": "Rivadavia",
+    "building": "office",
+    "height": "28",
+    "name": "Aerolíneas Argentinas"
+  }
+},
+{
+  "type": "way",
+  "id": 288804117,
+  "bounds": {
+    "minlat": -34.6084496,
+    "minlon": -58.3746084,
+    "maxlat": -34.6080269,
+    "maxlon": -58.3742541
+  },
+  "nodes": [
+    2923586664,
+    2923586665,
+    256027309,
+    256027310,
+    2923586661,
+    2923586664
+  ],
+  "geometry": [
+    { "lat": -34.6083369, "lon": -58.3745955 },
+    { "lat": -34.6084496, "lon": -58.3745918 },
+    { "lat": -34.6084171, "lon": -58.3742541 },
+    { "lat": -34.6080269, "lon": -58.3742741 },
+    { "lat": -34.6080578, "lon": -58.3746084 },
+    { "lat": -34.6083369, "lon": -58.3745955 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "575",
+    "addr:street": "Avenida de Mayo",
+    "alt_name": "Edificio La Prensa",
+    "building": "yes",
+    "building:levels": "6",
+    "contact:website": "http://www.buenosaires.gob.ar/areas/cultura/al_dia/casacultura/casa.php",
+    "height": "44.2",
+    "heritage": "4",
+    "historic": "building",
+    "name": "Casa de la Cultura de la Ciudad",
+    "old_name": "Edificio La Prensa",
+    "owner": "Gobierno de la Ciudad de Buenos Aires",
+    "start_date": "1898",
+    "wikidata": "Q4985529",
+    "wikimedia_commons": "File:Casa_de_la_Cultura_Buenos_Aires.jpg",
+    "wikipedia": "es:Casa de la Cultura (Buenos Aires)"
+  }
+},
+{
+  "type": "way",
+  "id": 293947112,
+  "bounds": {
+    "minlat": -34.6089684,
+    "minlon": -58.3737910,
+    "maxlat": -34.6086426,
+    "maxlon": -58.3735694
+  },
+  "nodes": [
+    310294221,
+    310294222,
+    310294223,
+    310294224,
+    7234412495,
+    310294221
+  ],
+  "geometry": [
+    { "lat": -34.6089583, "lon": -58.3735694 },
+    { "lat": -34.6089684, "lon": -58.3737682 },
+    { "lat": -34.6086514, "lon": -58.3737910 },
+    { "lat": -34.6086426, "lon": -58.3735908 },
+    { "lat": -34.6088007, "lon": -58.3735729 },
+    { "lat": -34.6089583, "lon": -58.3735694 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "65",
+    "addr:street": "Bolívar",
+    "alt_name": "Cabildo de Mayo",
+    "building": "yes",
+    "construction_date": "1725",
+    "contact:email": "consultas@cabildonacional.gob.ar",
+    "contact:website": "http://www.cabildonacional.gob.ar/",
+    "guided_tour:groups": "with reservation",
+    "guided_tour:public": "Th-Fr 15:30, Sa-Su 12:30 & 15:30",
+    "heritage": "4",
+    "historic": "building",
+    "museum": "history",
+    "museum_type": "national",
+    "name": "Cabildo de Buenos Aires",
+    "name:es": "Cabildo de Buenos Aires",
+    "name:ja": "ブエノスアイレスのカビルド",
+    "name:zh": "布宜诺斯艾利斯卡比尔多",
+    "note": "Revision of names in Chinese is needed",
+    "old_name": "Cabildo de la ciudad de la Trinidad y Puerto de Santa María de Buenos Aires",
+    "opening_hours": "Tu-Fr 10:30-17:00, Sa-Su 10:30-18:00",
+    "operator": "DNM",
+    "short_name": "Cabildo",
+    "start_date": "1939-11",
+    "tourism": "yes",
+    "wikidata": "Q1024829",
+    "wikimedia_commons": "File:Cabildo de bs as.jpg",
+    "wikipedia": "es:Cabildo de Buenos Aires"
+  }
+},
+{
+  "type": "way",
+  "id": 311054663,
+  "bounds": {
+    "minlat": -34.6093451,
+    "minlon": -58.3732695,
+    "maxlat": -34.6091051,
+    "maxlon": -58.3727972
+  },
+  "nodes": [
+    3165939437,
+    3165939449,
+    3279356778,
+    3279356781,
+    3279356777,
+    3165939440,
+    3165939437
+  ],
+  "geometry": [
+    { "lat": -34.6091299, "lon": -58.3732695 },
+    { "lat": -34.6091051, "lon": -58.3728050 },
+    { "lat": -34.6093313, "lon": -58.3727972 },
+    { "lat": -34.6093451, "lon": -58.3730711 },
+    { "lat": -34.6093270, "lon": -58.3730725 },
+    { "lat": -34.6093221, "lon": -58.3732573 },
+    { "lat": -34.6091299, "lon": -58.3732695 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "476",
+    "addr:postcode": "1086",
+    "addr:street": "Hipólito Yrigoyen",
+    "building": "office",
+    "building:levels": "10",
+    "name": "La Franco Argentina"
+  }
+},
+{
+  "type": "way",
+  "id": 321205699,
+  "bounds": {
+    "minlat": -34.6093892,
+    "minlon": -58.3734548,
+    "maxlat": -34.6091299,
+    "maxlon": -58.3732573
+  },
+  "nodes": [
+    3165939437,
+    3279356772,
+    3279356775,
+    3279356785,
+    3279356783,
+    3165939440,
+    3165939437
+  ],
+  "geometry": [
+    { "lat": -34.6091299, "lon": -58.3732695 },
+    { "lat": -34.6091369, "lon": -58.3733279 },
+    { "lat": -34.6092344, "lon": -58.3734548 },
+    { "lat": -34.6093892, "lon": -58.3734519 },
+    { "lat": -34.6093765, "lon": -58.3732595 },
+    { "lat": -34.6093221, "lon": -58.3732573 },
+    { "lat": -34.6091299, "lon": -58.3732695 }
+  ],
+  "tags": {
+    "building": "yes",
+    "building:levels": "4"
+  }
+},
+{
+  "type": "way",
+  "id": 324855087,
+  "bounds": {
+    "minlat": -34.6096023,
+    "minlon": -58.3935983,
+    "maxlat": -34.6093953,
+    "maxlon": -58.3934408
+  },
+  "nodes": [
+    3315280492,
+    3315280493,
+    3315280494,
+    3315280495,
+    3315299149,
+    3315280492
+  ],
+  "geometry": [
+    { "lat": -34.6094014, "lon": -58.3935983 },
+    { "lat": -34.6093953, "lon": -58.3934965 },
+    { "lat": -34.6094356, "lon": -58.3934462 },
+    { "lat": -34.6095994, "lon": -58.3934408 },
+    { "lat": -34.6096023, "lon": -58.3935895 },
+    { "lat": -34.6094014, "lon": -58.3935983 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 325930016,
+  "bounds": {
+    "minlat": -34.6060094,
+    "minlon": -58.3728267,
+    "maxlat": -34.6057174,
+    "maxlon": -58.3724331
+  },
+  "nodes": [
+    3325535646,
+    3325535648,
+    3325535649,
+    3325535647,
+    3325535646
+  ],
+  "geometry": [
+    { "lat": -34.6057174, "lon": -58.3724542 },
+    { "lat": -34.6059898, "lon": -58.3724331 },
+    { "lat": -34.6060094, "lon": -58.3728056 },
+    { "lat": -34.6057370, "lon": -58.3728267 },
+    { "lat": -34.6057174, "lon": -58.3724542 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "430",
+    "addr:street": "Teniente General Juan Domingo Perón",
+    "alt_name": "Banco Galicia Casa Central",
+    "amenity": "bank",
+    "architect": "MRA",
+    "building": "office",
+    "building:colour": "#919191",
+    "building:levels": "33",
+    "building:material": "glass",
+    "height": "155",
+    "name": "Torre Galicia Central",
+    "roof:material": "concrete",
+    "wheelchair": "yes",
+    "wikidata": "Q10972183",
+    "wikimedia_commons": "Category:Torre Galicia Central",
+    "wikipedia": "es:Torre Galicia Central"
+  }
+},
+{
+  "type": "way",
+  "id": 473159337,
+  "bounds": {
+    "minlat": -34.6090997,
+    "minlon": -58.3918101,
+    "maxlat": -34.6089170,
+    "maxlon": -58.3912861
+  },
+  "nodes": [
+    2262235625,
+    4673237601,
+    6324725724,
+    4673237602,
+    4673237603,
+    4673237604,
+    2262235625
+  ],
+  "geometry": [
+    { "lat": -34.6089426, "lon": -58.3918101 },
+    { "lat": -34.6090724, "lon": -58.3918061 },
+    { "lat": -34.6090893, "lon": -58.3918023 },
+    { "lat": -34.6090997, "lon": -58.3917701 },
+    { "lat": -34.6090665, "lon": -58.3912861 },
+    { "lat": -34.6089170, "lon": -58.3912983 },
+    { "lat": -34.6089426, "lon": -58.3918101 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "building": "yes",
+    "name": "Hotel Dos Congresos",
+    "tourism": "hostel"
+  }
+},
+{
+  "type": "way",
+  "id": 473162787,
+  "bounds": {
+    "minlat": -34.6079100,
+    "minlon": -58.3918954,
+    "maxlat": -34.6077134,
+    "maxlon": -58.3914341
+  },
+  "nodes": [
+    4153633535,
+    4673266185,
+    4673266187,
+    6330044611,
+    4153633535
+  ],
+  "geometry": [
+    { "lat": -34.6077233, "lon": -58.3918954 },
+    { "lat": -34.6079100, "lon": -58.3918894 },
+    { "lat": -34.6079001, "lon": -58.3914341 },
+    { "lat": -34.6077134, "lon": -58.3914401 },
+    { "lat": -34.6077233, "lon": -58.3918954 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "101",
+    "addr:street": "Avenida Callao",
+    "amenity": "bank",
+    "atm": "yes",
+    "brand": "Banco Nación",
+    "brand:en": "Nation Bank",
+    "brand:es": "Banco Nación",
+    "brand:wikidata": "Q2883376",
+    "brand:wikipedia": "es:Banco de la Nación Argentina",
+    "building": "yes",
+    "check_date": "2026-10-01",
+    "contact:website": "http://www.bna.com.ar/",
+    "name": "Banco Nación",
+    "name:en": "Nation Bank",
+    "name:es": "Banco Nación",
+    "official_name": "Banco de la Nación Argentina",
+    "official_name:en": "Bank of the Argentine Nation",
+    "official_name:es": "Banco de la Nación Argentina",
+    "short_name": "BNA",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 473406267,
+  "bounds": {
+    "minlat": -34.6083055,
+    "minlon": -58.3755252,
+    "maxlat": -34.6080798,
+    "maxlon": -58.3750177
+  },
+  "nodes": [
+    4675235280,
+    4675235281,
+    6259352156,
+    6259352180,
+    6259352179,
+    4675235283,
+    4675235284,
+    6259352181,
+    13606528136,
+    4675235287,
+    4675235280
+  ],
+  "geometry": [
+    { "lat": -34.6082987, "lon": -58.3750177 },
+    { "lat": -34.6081240, "lon": -58.3750222 },
+    { "lat": -34.6080798, "lon": -58.3750940 },
+    { "lat": -34.6080830, "lon": -58.3751906 },
+    { "lat": -34.6081230, "lon": -58.3751886 },
+    { "lat": -34.6081333, "lon": -58.3755252 },
+    { "lat": -34.6082145, "lon": -58.3755211 },
+    { "lat": -34.6082049, "lon": -58.3752320 },
+    { "lat": -34.6082840, "lon": -58.3752137 },
+    { "lat": -34.6083055, "lon": -58.3752128 },
+    { "lat": -34.6082987, "lon": -58.3750177 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 473421044,
+  "bounds": {
+    "minlat": -34.6080015,
+    "minlon": -58.3754037,
+    "maxlat": -34.6077131,
+    "maxlon": -58.3750601
+  },
+  "nodes": [
+    4675385787,
+    4675385993,
+    4675385989,
+    4675385990,
+    6235439578,
+    13606528123,
+    4675385992,
+    4675385787
+  ],
+  "geometry": [
+    { "lat": -34.6079899, "lon": -58.3750601 },
+    { "lat": -34.6077131, "lon": -58.3750694 },
+    { "lat": -34.6077199, "lon": -58.3753310 },
+    { "lat": -34.6077992, "lon": -58.3753285 },
+    { "lat": -34.6078009, "lon": -58.3754037 },
+    { "lat": -34.6079433, "lon": -58.3753991 },
+    { "lat": -34.6080015, "lon": -58.3753953 },
+    { "lat": -34.6079899, "lon": -58.3750601 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "611",
+    "addr:street": "Rivadavia",
+    "building": "yes",
+    "name": "Florida 2"
+  }
+},
+{
+  "type": "way",
+  "id": 476359581,
+  "bounds": {
+    "minlat": -34.6045448,
+    "minlon": -58.3755857,
+    "maxlat": -34.6042198,
+    "maxlon": -58.3752296
+  },
+  "nodes": [
+    4699592715,
+    4699592716,
+    4699592717,
+    4699592718,
+    4699592719,
+    4699592720,
+    4699592715
+  ],
+  "geometry": [
+    { "lat": -34.6045448, "lon": -58.3755828 },
+    { "lat": -34.6045313, "lon": -58.3753084 },
+    { "lat": -34.6045136, "lon": -58.3752511 },
+    { "lat": -34.6044561, "lon": -58.3752296 },
+    { "lat": -34.6042198, "lon": -58.3752440 },
+    { "lat": -34.6042298, "lon": -58.3755857 },
+    { "lat": -34.6045448, "lon": -58.3755828 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "302",
+    "addr:street": "Florida",
+    "amenity": "bank",
+    "brand": "Banco Ciudad",
+    "brand:en": "City Bank",
+    "brand:es": "Banco Ciudad",
+    "brand:wikidata": "Q4856204",
+    "brand:wikipedia": "en:Bank of the City of Buenos Aires",
+    "building": "yes",
+    "description": "Headquarters",
+    "name": "Banco Ciudad",
+    "name:en": "City Bank",
+    "name:es": "Banco Ciudad",
+    "official_name": "Banco Ciudad de Buenos Aires",
+    "official_name:en": "Bank of the City of Buenos Aires",
+    "official_name:es": "Banco Ciudad de Buenos Aires",
+    "opening_hours": "Mo-Fr 10:00-15:00",
+    "phone": "+54 800 2220400"
+  }
+},
+{
+  "type": "way",
+  "id": 476377668,
+  "bounds": {
+    "minlat": -34.6071695,
+    "minlon": -58.3764090,
+    "maxlat": -34.6069946,
+    "maxlon": -58.3761961
+  },
+  "nodes": [
+    4699741307,
+    4699741308,
+    4699741309,
+    4699741310,
+    6235439535,
+    6235439534,
+    6235439512,
+    4699741307
+  ],
+  "geometry": [
+    { "lat": -34.6071695, "lon": -58.3764019 },
+    { "lat": -34.6070157, "lon": -58.3764090 },
+    { "lat": -34.6070000, "lon": -58.3763769 },
+    { "lat": -34.6069946, "lon": -58.3761996 },
+    { "lat": -34.6070742, "lon": -58.3761961 },
+    { "lat": -34.6070753, "lon": -58.3762325 },
+    { "lat": -34.6071674, "lon": -58.3762325 },
+    { "lat": -34.6071695, "lon": -58.3764019 }
+  ],
+  "tags": {
+    "building": "residential"
+  }
+},
+{
+  "type": "way",
+  "id": 476377669,
+  "bounds": {
+    "minlat": -34.6074434,
+    "minlon": -58.3759142,
+    "maxlat": -34.6069611,
+    "maxlon": -58.3757403
+  },
+  "nodes": [
+    4699741312,
+    4699741316,
+    4699741317,
+    4699741313,
+    13606528055,
+    6235439555,
+    13606528061,
+    6235439547,
+    13606528079,
+    6235439548,
+    4699741314,
+    4699741315,
+    6235439564,
+    6235439563,
+    6235439562,
+    6235439565,
+    6235439561,
+    6235439559,
+    6235439558,
+    6235439560,
+    4699741312
+  ],
+  "geometry": [
+    { "lat": -34.6069636, "lon": -58.3759074 },
+    { "lat": -34.6069611, "lon": -58.3758420 },
+    { "lat": -34.6069636, "lon": -58.3757915 },
+    { "lat": -34.6069720, "lon": -58.3757542 },
+    { "lat": -34.6069839, "lon": -58.3757539 },
+    { "lat": -34.6071046, "lon": -58.3757503 },
+    { "lat": -34.6071349, "lon": -58.3757494 },
+    { "lat": -34.6071856, "lon": -58.3757434 },
+    { "lat": -34.6072839, "lon": -58.3757452 },
+    { "lat": -34.6073010, "lon": -58.3757445 },
+    { "lat": -34.6074417, "lon": -58.3757403 },
+    { "lat": -34.6074434, "lon": -58.3758997 },
+    { "lat": -34.6073507, "lon": -58.3759012 },
+    { "lat": -34.6073498, "lon": -58.3758219 },
+    { "lat": -34.6073001, "lon": -58.3758227 },
+    { "lat": -34.6073011, "lon": -58.3759114 },
+    { "lat": -34.6071233, "lon": -58.3759142 },
+    { "lat": -34.6071222, "lon": -58.3758111 },
+    { "lat": -34.6070704, "lon": -58.3758119 },
+    { "lat": -34.6070714, "lon": -58.3759057 },
+    { "lat": -34.6069636, "lon": -58.3759074 }
+  ],
+  "tags": {
+    "building": "residential"
+  }
+},
+{
+  "type": "way",
+  "id": 476377671,
+  "bounds": {
+    "minlat": -34.6071060,
+    "minlon": -58.3745080,
+    "maxlat": -34.6068636,
+    "maxlon": -58.3743323
+  },
+  "nodes": [
+    4699741320,
+    4699741332,
+    13607142078,
+    13607142081,
+    6235254412,
+    13607160434,
+    10724806914,
+    6235254411,
+    6235254410,
+    4699741320
+  ],
+  "geometry": [
+    { "lat": -34.6068700, "lon": -58.3745080 },
+    { "lat": -34.6068636, "lon": -58.3743430 },
+    { "lat": -34.6068852, "lon": -58.3743406 },
+    { "lat": -34.6069876, "lon": -58.3743388 },
+    { "lat": -34.6071060, "lon": -58.3743323 },
+    { "lat": -34.6070742, "lon": -58.3743970 },
+    { "lat": -34.6070626, "lon": -58.3744182 },
+    { "lat": -34.6070110, "lon": -58.3744230 },
+    { "lat": -34.6070149, "lon": -58.3744984 },
+    { "lat": -34.6068700, "lon": -58.3745080 }
+  ],
+  "tags": {
+    "amenity": "bank",
+    "brand": "Citibank",
+    "brand:wikidata": "Q857063",
+    "brand:wikipedia": "en:Citibank",
+    "building": "yes",
+    "check_date": "2024-03-20",
+    "name": "Citi"
+  }
+},
+{
+  "type": "way",
+  "id": 476423039,
+  "bounds": {
+    "minlat": -34.6060073,
+    "minlon": -58.3736626,
+    "maxlat": -34.6056138,
+    "maxlon": -58.3732532
+  },
+  "nodes": [
+    4700151078,
+    4700151079,
+    4700151080,
+    4700151081,
+    6235373247,
+    4700151082,
+    4700151083,
+    4700151084,
+    4700151078
+  ],
+  "geometry": [
+    { "lat": -34.6056138, "lon": -58.3732651 },
+    { "lat": -34.6056342, "lon": -58.3735952 },
+    { "lat": -34.6056959, "lon": -58.3736626 },
+    { "lat": -34.6060073, "lon": -58.3736342 },
+    { "lat": -34.6060028, "lon": -58.3736064 },
+    { "lat": -34.6059977, "lon": -58.3734779 },
+    { "lat": -34.6057595, "lon": -58.3734996 },
+    { "lat": -34.6057443, "lon": -58.3732532 },
+    { "lat": -34.6056138, "lon": -58.3732651 }
+  ],
+  "tags": {
+    "building": "apartments"
+  }
+},
+{
+  "type": "way",
+  "id": 476423040,
+  "bounds": {
+    "minlat": -34.6060020,
+    "minlon": -58.3750516,
+    "maxlat": -34.6057484,
+    "maxlon": -58.3748476
+  },
+  "nodes": [
+    4700151086,
+    4700151087,
+    13606528038,
+    6235362716,
+    4700151389,
+    4700151086
+  ],
+  "geometry": [
+    { "lat": -34.6057635, "lon": -58.3750516 },
+    { "lat": -34.6057484, "lon": -58.3748534 },
+    { "lat": -34.6059489, "lon": -58.3748476 },
+    { "lat": -34.6059943, "lon": -58.3748494 },
+    { "lat": -34.6060020, "lon": -58.3750396 },
+    { "lat": -34.6057635, "lon": -58.3750516 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:street": "Teniente General Juan Domingo Perón",
+    "building": "apartments"
+  }
+},
+{
+  "type": "way",
+  "id": 476423041,
+  "bounds": {
+    "minlat": -34.6059353,
+    "minlon": -58.3753036,
+    "maxlat": -34.6057893,
+    "maxlon": -58.3751551
+  },
+  "nodes": [
+    4700151392,
+    6243448085,
+    4700151393,
+    4700151394,
+    6243448086,
+    6243446544,
+    4700151392
+  ],
+  "geometry": [
+    { "lat": -34.6057944, "lon": -58.3753036 },
+    { "lat": -34.6058690, "lon": -58.3753022 },
+    { "lat": -34.6059353, "lon": -58.3752974 },
+    { "lat": -34.6059325, "lon": -58.3751551 },
+    { "lat": -34.6058297, "lon": -58.3751599 },
+    { "lat": -34.6057893, "lon": -58.3752146 },
+    { "lat": -34.6057944, "lon": -58.3753036 }
+  ],
+  "tags": {
+    "building": "yes",
+    "name": "Cuesta Blanca",
+    "shop": "clothes",
+    "source": "Reconocimiento terrestre por Kaart 2016"
+  }
+},
+{
+  "type": "way",
+  "id": 476423042,
+  "bounds": {
+    "minlat": -34.6061762,
+    "minlon": -58.3770791,
+    "maxlat": -34.6058733,
+    "maxlon": -58.3765820
+  },
+  "nodes": [
+    4700151403,
+    4700151404,
+    4700151405,
+    4700151406,
+    4700151407,
+    4700151408,
+    4700151403
+  ],
+  "geometry": [
+    { "lat": -34.6059009, "lon": -58.3770700 },
+    { "lat": -34.6058733, "lon": -58.3766567 },
+    { "lat": -34.6059204, "lon": -58.3765843 },
+    { "lat": -34.6061512, "lon": -58.3765820 },
+    { "lat": -34.6061762, "lon": -58.3766334 },
+    { "lat": -34.6059446, "lon": -58.3770791 },
+    { "lat": -34.6059009, "lon": -58.3770700 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "building": "apartments"
+  }
+},
+{
+  "type": "way",
+  "id": 476731892,
+  "bounds": {
+    "minlat": -34.6055320,
+    "minlon": -58.3731593,
+    "maxlat": -34.6051461,
+    "maxlon": -58.3729417
+  },
+  "nodes": [
+    4702138254,
+    1969400570,
+    4702138255,
+    4702138269,
+    4702138254
+  ],
+  "geometry": [
+    { "lat": -34.6051638, "lon": -58.3731593 },
+    { "lat": -34.6051461, "lon": -58.3729665 },
+    { "lat": -34.6055049, "lon": -58.3729417 },
+    { "lat": -34.6055320, "lon": -58.3731304 },
+    { "lat": -34.6051638, "lon": -58.3731593 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "451",
+    "addr:street": "Teniente General Juan Domingo Perón",
+    "building": "apartments",
+    "building:levels": "4"
+  }
+},
+{
+  "type": "way",
+  "id": 476731897,
+  "bounds": {
+    "minlat": -34.6056657,
+    "minlon": -58.3750820,
+    "maxlat": -34.6053014,
+    "maxlon": -58.3746234
+  },
+  "nodes": [
+    4702138279,
+    4702138280,
+    4702138281,
+    4702138282,
+    6243484155,
+    11612679336,
+    11612679337,
+    6243484152,
+    4702138283,
+    4702138279
+  ],
+  "geometry": [
+    { "lat": -34.6053230, "lon": -58.3750820 },
+    { "lat": -34.6056017, "lon": -58.3750686 },
+    { "lat": -34.6056657, "lon": -58.3749841 },
+    { "lat": -34.6056372, "lon": -58.3746553 },
+    { "lat": -34.6055352, "lon": -58.3746695 },
+    { "lat": -34.6054090, "lon": -58.3746770 },
+    { "lat": -34.6054002, "lon": -58.3746234 },
+    { "lat": -34.6053351, "lon": -58.3746249 },
+    { "lat": -34.6053014, "lon": -58.3746339 },
+    { "lat": -34.6053230, "lon": -58.3750820 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:street": "Teniente General Juan Domingo Perón",
+    "building": "commercial"
+  }
+},
+{
+  "type": "way",
+  "id": 476731898,
+  "bounds": {
+    "minlat": -34.6057188,
+    "minlon": -58.3756896,
+    "maxlat": -34.6052923,
+    "maxlon": -58.3751683
+  },
+  "nodes": [
+    4702138285,
+    6243548898,
+    4702138286,
+    4702138287,
+    4702138288,
+    6243548891,
+    4702138285
+  ],
+  "geometry": [
+    { "lat": -34.6053112, "lon": -58.3756896 },
+    { "lat": -34.6053095, "lon": -58.3756736 },
+    { "lat": -34.6052923, "lon": -58.3751817 },
+    { "lat": -34.6056163, "lon": -58.3751683 },
+    { "lat": -34.6057001, "lon": -58.3752623 },
+    { "lat": -34.6057188, "lon": -58.3756815 },
+    { "lat": -34.6053112, "lon": -58.3756896 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "202",
+    "addr:street": "Teniente General Juan Domingo Perón",
+    "building": "apartments",
+    "building:levels": "2"
+  }
+},
+{
+  "type": "way",
+  "id": 476983815,
+  "bounds": {
+    "minlat": -34.6068992,
+    "minlon": -58.3764507,
+    "maxlat": -34.6066297,
+    "maxlon": -58.3760240
+  },
+  "nodes": [
+    2225546066,
+    13040471173,
+    4704005619,
+    4704005620,
+    4704005621,
+    4704005622,
+    2225546066
+  ],
+  "geometry": [
+    { "lat": -34.6068678, "lon": -58.3764400 },
+    { "lat": -34.6068992, "lon": -58.3763923 },
+    { "lat": -34.6068806, "lon": -58.3760254 },
+    { "lat": -34.6068180, "lon": -58.3760240 },
+    { "lat": -34.6066297, "lon": -58.3763942 },
+    { "lat": -34.6066612, "lon": -58.3764507 },
+    { "lat": -34.6068678, "lon": -58.3764400 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "660",
+    "addr:street": "Avenida Presidente Roque Sáenz Peña",
+    "amenity": "bank",
+    "building": "yes",
+    "building:levels": "10",
+    "name": "Comafi",
+    "old_name": "Palacio Italia América / Edificio Banco di Nápoli",
+    "start_date": "1927",
+    "wikipedia": "es:Edificio Banco Comafi"
+  }
+},
+{
+  "type": "way",
+  "id": 476996821,
+  "bounds": {
+    "minlat": -34.6068041,
+    "minlon": -58.3749920,
+    "maxlat": -34.6066255,
+    "maxlon": -58.3747126
+  },
+  "nodes": [
+    4413246428,
+    4704128782,
+    4704128783,
+    4704128784,
+    4704128785,
+    13606527969,
+    4704128786,
+    4413246428
+  ],
+  "geometry": [
+    { "lat": -34.6067908, "lon": -58.3747126 },
+    { "lat": -34.6068041, "lon": -58.3749465 },
+    { "lat": -34.6067966, "lon": -58.3749686 },
+    { "lat": -34.6067812, "lon": -58.3749843 },
+    { "lat": -34.6066364, "lon": -58.3749920 },
+    { "lat": -34.6066356, "lon": -58.3749470 },
+    { "lat": -34.6066255, "lon": -58.3747230 },
+    { "lat": -34.6067908, "lon": -58.3747126 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "101",
+    "addr:postcode": "C1005AAC",
+    "addr:street": "Florida",
+    "amenity": "bank",
+    "brand": "Banco Nación",
+    "brand:en": "Nation Bank",
+    "brand:es": "Banco Nación",
+    "brand:wikidata": "Q2883376",
+    "brand:wikipedia": "en:Banco de la Nación Argentina",
+    "building": "yes",
+    "contact:website": "http://www.bna.com.ar/",
+    "name": "Banco Nación",
+    "name:en": "Nation Bank",
+    "name:es": "Banco Nación",
+    "official_name": "Banco de la Nación Argentina",
+    "official_name:en": "Bank of the Argentine Nation",
+    "official_name:es": "Banco de la Nación Argentina",
+    "short_name": "BNA"
+  }
+},
+{
+  "type": "way",
+  "id": 476996826,
+  "bounds": {
+    "minlat": -34.6067081,
+    "minlon": -58.3745277,
+    "maxlat": -34.6062305,
+    "maxlon": -58.3743750
+  },
+  "nodes": [
+    4704128787,
+    4704128788,
+    6235362738,
+    13606527992,
+    6235362737,
+    13606527993,
+    6235362734,
+    13606527996,
+    6235362733,
+    13606527998,
+    4704133189,
+    6235362712,
+    4704133190,
+    6235362687,
+    6235362686,
+    6235362695,
+    6235362728,
+    4704128787
+  ],
+  "geometry": [
+    { "lat": -34.6067081, "lon": -58.3744966 },
+    { "lat": -34.6067054, "lon": -58.3743750 },
+    { "lat": -34.6065853, "lon": -58.3743819 },
+    { "lat": -34.6065678, "lon": -58.3743829 },
+    { "lat": -34.6064774, "lon": -58.3743867 },
+    { "lat": -34.6064673, "lon": -58.3743892 },
+    { "lat": -34.6063632, "lon": -58.3743943 },
+    { "lat": -34.6063467, "lon": -58.3743941 },
+    { "lat": -34.6062987, "lon": -58.3743985 },
+    { "lat": -34.6062810, "lon": -58.3743993 },
+    { "lat": -34.6062305, "lon": -58.3744039 },
+    { "lat": -34.6062323, "lon": -58.3744287 },
+    { "lat": -34.6062367, "lon": -58.3745277 },
+    { "lat": -34.6062525, "lon": -58.3745266 },
+    { "lat": -34.6063197, "lon": -58.3745222 },
+    { "lat": -34.6064261, "lon": -58.3745152 },
+    { "lat": -34.6065684, "lon": -58.3745058 },
+    { "lat": -34.6067081, "lon": -58.3744966 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:street": "Bartolomé Mitre",
+    "amenity": "bank",
+    "building": "yes",
+    "name": "Banco Tornquist",
+    "wikidata": "Q5818307"
+  }
+},
+{
+  "type": "way",
+  "id": 476996828,
+  "bounds": {
+    "minlat": -34.6066921,
+    "minlon": -58.3740647,
+    "maxlat": -34.6064663,
+    "maxlon": -58.3737737
+  },
+  "nodes": [
+    1982962740,
+    4704133191,
+    13606527991,
+    4704133192,
+    13606528000,
+    13606528008,
+    6235361382,
+    1982962740
+  ],
+  "geometry": [
+    { "lat": -34.6066884, "lon": -58.3737737 },
+    { "lat": -34.6066921, "lon": -58.3740569 },
+    { "lat": -34.6065554, "lon": -58.3740647 },
+    { "lat": -34.6064721, "lon": -58.3740644 },
+    { "lat": -34.6064710, "lon": -58.3739330 },
+    { "lat": -34.6064668, "lon": -58.3738015 },
+    { "lat": -34.6064663, "lon": -58.3737875 },
+    { "lat": -34.6066884, "lon": -58.3737737 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "108",
+    "addr:postcode": "C1004AAC",
+    "addr:street": "San Martín",
+    "amenity": "bank",
+    "atm": "yes",
+    "branch": "Edificio Esquina",
+    "brand": "Banco Provincia",
+    "brand:wikidata": "Q4856209",
+    "brand:wikipedia": "es:Banco de la Provincia de Buenos Aires",
+    "building": "yes",
+    "homebanking": "https://www.bancoprovincia.bancainternet.com.ar/eBanking/login/inicio.htm",
+    "name": "Banco Provincia",
+    "official_name": "Banco de la Provincia de Buenos Aires",
+    "phone": "+54 11 4347-0000",
+    "website": "https://www.bancoprovincia.com.ar/"
+  }
+},
+{
+  "type": "way",
+  "id": 476996831,
+  "bounds": {
+    "minlat": -34.6066882,
+    "minlon": -58.3735807,
+    "maxlat": -34.6064221,
+    "maxlon": -58.3729816
+  },
+  "nodes": [
+    1982959885,
+    4704133194,
+    4704133195,
+    4704133196,
+    4704133197,
+    4704133198,
+    6235373246,
+    6235373245,
+    4704133199,
+    1982959885
+  ],
+  "geometry": [
+    { "lat": -34.6066519, "lon": -58.3729816 },
+    { "lat": -34.6066882, "lon": -58.3734344 },
+    { "lat": -34.6066545, "lon": -58.3734899 },
+    { "lat": -34.6066088, "lon": -58.3735391 },
+    { "lat": -34.6065474, "lon": -58.3735726 },
+    { "lat": -34.6064489, "lon": -58.3735807 },
+    { "lat": -34.6064466, "lon": -58.3735399 },
+    { "lat": -34.6064425, "lon": -58.3733369 },
+    { "lat": -34.6064221, "lon": -58.3729926 },
+    { "lat": -34.6066519, "lon": -58.3729816 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "137",
+    "addr:postcode": "C1004AAC",
+    "addr:street": "San Martín",
+    "amenity": "bank",
+    "atm": "yes",
+    "branch": "Casa Central Doctor Arturo Jaureche",
+    "brand": "Banco Provincia",
+    "brand:wikidata": "Q4856209",
+    "brand:wikipedia": "es:Banco de la Provincia de Buenos Aires",
+    "building": "yes",
+    "check_date": "2026-10-02",
+    "homebanking": "https://www.bancoprovincia.bancainternet.com.ar/eBanking/login/inicio.htm",
+    "name": "Banco Provincia",
+    "official_name": "Banco de la Provincia de Buenos Aires",
+    "phone": "+54 11 4347-0000",
+    "website": "https://www.bancoprovincia.com.ar/"
+  }
+},
+{
+  "type": "way",
+  "id": 665763277,
+  "bounds": {
+    "minlat": -34.6089224,
+    "minlon": -58.3751839,
+    "maxlat": -34.6087415,
+    "maxlon": -58.3749858
+  },
+  "nodes": [
+    6231745061,
+    6231745039,
+    6231745036,
+    6231745038,
+    6231745033,
+    6231745037,
+    6231745032,
+    6231745061
+  ],
+  "geometry": [
+    { "lat": -34.6089161, "lon": -58.3749858 },
+    { "lat": -34.6089224, "lon": -58.3751753 },
+    { "lat": -34.6088521, "lon": -58.3751788 },
+    { "lat": -34.6087470, "lon": -58.3751839 },
+    { "lat": -34.6087415, "lon": -58.3750179 },
+    { "lat": -34.6087465, "lon": -58.3749992 },
+    { "lat": -34.6087625, "lon": -58.3749933 },
+    { "lat": -34.6089161, "lon": -58.3749858 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666010798,
+  "bounds": {
+    "minlat": -34.6070113,
+    "minlon": -58.3740629,
+    "maxlat": -34.6068214,
+    "maxlon": -58.3737097
+  },
+  "nodes": [
+    6235254391,
+    13607160414,
+    13607160413,
+    13607160410,
+    6235254389,
+    13607142085,
+    6235254388,
+    10724806915,
+    6235254387,
+    6235254391
+  ],
+  "geometry": [
+    { "lat": -34.6069961, "lon": -58.3737097 },
+    { "lat": -34.6069997, "lon": -58.3737613 },
+    { "lat": -34.6070022, "lon": -58.3738060 },
+    { "lat": -34.6070055, "lon": -58.3738745 },
+    { "lat": -34.6070113, "lon": -58.3740520 },
+    { "lat": -34.6068830, "lon": -58.3740589 },
+    { "lat": -34.6068381, "lon": -58.3740629 },
+    { "lat": -34.6068214, "lon": -58.3737885 },
+    { "lat": -34.6068633, "lon": -58.3737243 },
+    { "lat": -34.6069961, "lon": -58.3737097 }
+  ],
+  "tags": {
+    "brand": "Citibank",
+    "brand:wikidata": "Q857063",
+    "brand:wikipedia": "en:Citibank",
+    "building": "yes",
+    "name": "Citi",
+    "office": "financial"
+  }
+},
+{
+  "type": "way",
+  "id": 666018250,
+  "bounds": {
+    "minlat": -34.6062627,
+    "minlon": -58.3748494,
+    "maxlat": -34.6059894,
+    "maxlon": -58.3745543
+  },
+  "nodes": [
+    6235362716,
+    6235362718,
+    6235362713,
+    13606528026,
+    13606528027,
+    13606528031,
+    13606528035,
+    6235362702,
+    6235362715,
+    13606527954,
+    6235362690,
+    6235362714,
+    13606527950,
+    6235362716
+  ],
+  "geometry": [
+    { "lat": -34.6059943, "lon": -58.3748494 },
+    { "lat": -34.6059922, "lon": -58.3746341 },
+    { "lat": -34.6059894, "lon": -58.3745713 },
+    { "lat": -34.6060104, "lon": -58.3745703 },
+    { "lat": -34.6060672, "lon": -58.3745681 },
+    { "lat": -34.6061196, "lon": -58.3745628 },
+    { "lat": -34.6062181, "lon": -58.3745579 },
+    { "lat": -34.6062315, "lon": -58.3745553 },
+    { "lat": -34.6062473, "lon": -58.3745543 },
+    { "lat": -34.6062537, "lon": -58.3746310 },
+    { "lat": -34.6062559, "lon": -58.3746789 },
+    { "lat": -34.6062627, "lon": -58.3748284 },
+    { "lat": -34.6062410, "lon": -58.3748347 },
+    { "lat": -34.6059943, "lon": -58.3748494 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666019118,
+  "bounds": {
+    "minlat": -34.6064466,
+    "minlon": -58.3736064,
+    "maxlat": -34.6059977,
+    "maxlon": -58.3730653
+  },
+  "nodes": [
+    6235373247,
+    4700151082,
+    6235373244,
+    6235373243,
+    6235373241,
+    6235373240,
+    6235373242,
+    6235373245,
+    6235373246,
+    6235373247
+  ],
+  "geometry": [
+    { "lat": -34.6060028, "lon": -58.3736064 },
+    { "lat": -34.6059977, "lon": -58.3734779 },
+    { "lat": -34.6060131, "lon": -58.3733685 },
+    { "lat": -34.6060470, "lon": -58.3733660 },
+    { "lat": -34.6060324, "lon": -58.3730725 },
+    { "lat": -34.6061305, "lon": -58.3730653 },
+    { "lat": -34.6061451, "lon": -58.3733588 },
+    { "lat": -34.6064425, "lon": -58.3733369 },
+    { "lat": -34.6064466, "lon": -58.3735399 },
+    { "lat": -34.6060028, "lon": -58.3736064 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666019119,
+  "bounds": {
+    "minlat": -34.6062590,
+    "minlon": -58.3726916,
+    "maxlat": -34.6061195,
+    "maxlon": -58.3723564
+  },
+  "nodes": [
+    6235373251,
+    6235373248,
+    6235373249,
+    6235373250,
+    6235373251
+  ],
+  "geometry": [
+    { "lat": -34.6062590, "lon": -58.3726831 },
+    { "lat": -34.6061347, "lon": -58.3726916 },
+    { "lat": -34.6061195, "lon": -58.3723649 },
+    { "lat": -34.6062438, "lon": -58.3723564 },
+    { "lat": -34.6062590, "lon": -58.3726831 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666019121,
+  "bounds": {
+    "minlat": -34.6066354,
+    "minlon": -58.3726971,
+    "maxlat": -34.6062751,
+    "maxlon": -58.3725351
+  },
+  "nodes": [
+    6235373256,
+    6235373257,
+    6235373239,
+    6235373252,
+    6235373255,
+    6235373256
+  ],
+  "geometry": [
+    { "lat": -34.6066354, "lon": -58.3726655 },
+    { "lat": -34.6063957, "lon": -58.3726829 },
+    { "lat": -34.6062809, "lon": -58.3726971 },
+    { "lat": -34.6062751, "lon": -58.3725533 },
+    { "lat": -34.6066307, "lon": -58.3725351 },
+    { "lat": -34.6066354, "lon": -58.3726655 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666019122,
+  "bounds": {
+    "minlat": -34.6066422,
+    "minlon": -58.3728260,
+    "maxlat": -34.6063957,
+    "maxlon": -58.3726655
+  },
+  "nodes": [
+    6235373260,
+    6235373258,
+    6235373257,
+    6235373256,
+    6235373260
+  ],
+  "geometry": [
+    { "lat": -34.6066422, "lon": -58.3728142 },
+    { "lat": -34.6064004, "lon": -58.3728260 },
+    { "lat": -34.6063957, "lon": -58.3726829 },
+    { "lat": -34.6066354, "lon": -58.3726655 },
+    { "lat": -34.6066422, "lon": -58.3728142 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666019123,
+  "bounds": {
+    "minlat": -34.6066519,
+    "minlon": -58.3729995,
+    "maxlat": -34.6063289,
+    "maxlon": -58.3728142
+  },
+  "nodes": [
+    1982959885,
+    4704133199,
+    6235373259,
+    6235373261,
+    6235373258,
+    6235373260,
+    1982959885
+  ],
+  "geometry": [
+    { "lat": -34.6066519, "lon": -58.3729816 },
+    { "lat": -34.6064221, "lon": -58.3729926 },
+    { "lat": -34.6063386, "lon": -58.3729995 },
+    { "lat": -34.6063289, "lon": -58.3728267 },
+    { "lat": -34.6064004, "lon": -58.3728260 },
+    { "lat": -34.6066422, "lon": -58.3728142 },
+    { "lat": -34.6066519, "lon": -58.3729816 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666023955,
+  "bounds": {
+    "minlat": -34.6074265,
+    "minlon": -58.3753904,
+    "maxlat": -34.6072002,
+    "maxlon": -58.3750745
+  },
+  "nodes": [
+    6235439570,
+    6235439567,
+    11282700592,
+    11282700593,
+    13606528086,
+    6235439551,
+    6235439554,
+    6235439553,
+    6235439566,
+    6235439570
+  ],
+  "geometry": [
+    { "lat": -34.6074240, "lon": -58.3750745 },
+    { "lat": -34.6074265, "lon": -58.3751906 },
+    { "lat": -34.6074026, "lon": -58.3752322 },
+    { "lat": -34.6073794, "lon": -58.3752590 },
+    { "lat": -34.6073484, "lon": -58.3753159 },
+    { "lat": -34.6073077, "lon": -58.3753904 },
+    { "lat": -34.6072788, "lon": -58.3753874 },
+    { "lat": -34.6072002, "lon": -58.3753242 },
+    { "lat": -34.6073225, "lon": -58.3750801 },
+    { "lat": -34.6074240, "lon": -58.3750745 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666813505,
+  "bounds": {
+    "minlat": -34.6068384,
+    "minlon": -58.3758236,
+    "maxlat": -34.6064643,
+    "maxlon": -58.3751046
+  },
+  "nodes": [
+    6243446564,
+    6243446560,
+    6243446565,
+    6243446563,
+    6243446566,
+    6243446567,
+    4704128774,
+    6243446568,
+    4704128776,
+    4704128777,
+    4704128778,
+    4704128779,
+    4704128780,
+    6243446564
+  ],
+  "geometry": [
+    { "lat": -34.6066127, "lon": -58.3758236 },
+    { "lat": -34.6065285, "lon": -58.3757564 },
+    { "lat": -34.6064936, "lon": -58.3757157 },
+    { "lat": -34.6065281, "lon": -58.3756351 },
+    { "lat": -34.6064708, "lon": -58.3756407 },
+    { "lat": -34.6064643, "lon": -58.3754560 },
+    { "lat": -34.6066736, "lon": -58.3754468 },
+    { "lat": -34.6066683, "lon": -58.3751118 },
+    { "lat": -34.6067888, "lon": -58.3751046 },
+    { "lat": -34.6068133, "lon": -58.3751172 },
+    { "lat": -34.6068284, "lon": -58.3751442 },
+    { "lat": -34.6068384, "lon": -58.3753896 },
+    { "lat": -34.6068285, "lon": -58.3754114 },
+    { "lat": -34.6066127, "lon": -58.3758236 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:street": "Bartolomé Mitre",
+    "building": "residential",
+    "name": "Edificio Bencich"
+  }
+},
+{
+  "type": "way",
+  "id": 666813512,
+  "bounds": {
+    "minlat": -34.6066127,
+    "minlon": -58.3760422,
+    "maxlat": -34.6062946,
+    "maxlon": -58.3757157
+  },
+  "nodes": [
+    6243446565,
+    6243446559,
+    6243446558,
+    6243446560,
+    6243446564,
+    6243446562,
+    6243446556,
+    13606527924,
+    6243446561,
+    13606527946,
+    6243446557,
+    6243446572,
+    6243446565
+  ],
+  "geometry": [
+    { "lat": -34.6064936, "lon": -58.3757157 },
+    { "lat": -34.6064088, "lon": -58.3758779 },
+    { "lat": -34.6064526, "lon": -58.3759038 },
+    { "lat": -34.6065285, "lon": -58.3757564 },
+    { "lat": -34.6066127, "lon": -58.3758236 },
+    { "lat": -34.6064936, "lon": -58.3760422 },
+    { "lat": -34.6063841, "lon": -58.3759518 },
+    { "lat": -34.6063392, "lon": -58.3759146 },
+    { "lat": -34.6062946, "lon": -58.3758752 },
+    { "lat": -34.6063160, "lon": -58.3758396 },
+    { "lat": -34.6063786, "lon": -58.3757216 },
+    { "lat": -34.6064630, "lon": -58.3757162 },
+    { "lat": -34.6064936, "lon": -58.3757157 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666813513,
+  "bounds": {
+    "minlat": -34.6066736,
+    "minlon": -58.3754606,
+    "maxlat": -34.6064485,
+    "maxlon": -58.3751118
+  },
+  "nodes": [
+    6243446569,
+    6243446568,
+    4704128774,
+    6243446567,
+    6243446545,
+    6243446569
+  ],
+  "geometry": [
+    { "lat": -34.6064485, "lon": -58.3751249 },
+    { "lat": -34.6066683, "lon": -58.3751118 },
+    { "lat": -34.6066736, "lon": -58.3754468 },
+    { "lat": -34.6064643, "lon": -58.3754560 },
+    { "lat": -34.6064577, "lon": -58.3754606 },
+    { "lat": -34.6064485, "lon": -58.3751249 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666813514,
+  "bounds": {
+    "minlat": -34.6064630,
+    "minlon": -58.3757232,
+    "maxlat": -34.6062443,
+    "maxlon": -58.3751226
+  },
+  "nodes": [
+    6243448088,
+    6243448087,
+    6243446573,
+    6243446572,
+    6243446557,
+    13606527945,
+    6243446571,
+    6243448088
+  ],
+  "geometry": [
+    { "lat": -34.6062477, "lon": -58.3752854 },
+    { "lat": -34.6062443, "lon": -58.3751436 },
+    { "lat": -34.6064429, "lon": -58.3751226 },
+    { "lat": -34.6064630, "lon": -58.3757162 },
+    { "lat": -34.6063786, "lon": -58.3757216 },
+    { "lat": -34.6063113, "lon": -58.3757195 },
+    { "lat": -34.6062465, "lon": -58.3757232 },
+    { "lat": -34.6062477, "lon": -58.3752854 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666813517,
+  "bounds": {
+    "minlat": -34.6058766,
+    "minlon": -58.3758472,
+    "maxlat": -34.6057944,
+    "maxlon": -58.3753022
+  },
+  "nodes": [
+    6243448085,
+    6243446582,
+    6243446584,
+    4700151392,
+    6243448085
+  ],
+  "geometry": [
+    { "lat": -34.6058690, "lon": -58.3753022 },
+    { "lat": -34.6058766, "lon": -58.3758472 },
+    { "lat": -34.6058318, "lon": -58.3758447 },
+    { "lat": -34.6057944, "lon": -58.3753036 },
+    { "lat": -34.6058690, "lon": -58.3753022 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666813518,
+  "bounds": {
+    "minlat": -34.6062477,
+    "minlon": -58.3752974,
+    "maxlat": -34.6059325,
+    "maxlon": -58.3751436
+  },
+  "nodes": [
+    6243448088,
+    4700151393,
+    4700151394,
+    6243448087,
+    6243448088
+  ],
+  "geometry": [
+    { "lat": -34.6062477, "lon": -58.3752854 },
+    { "lat": -34.6059353, "lon": -58.3752974 },
+    { "lat": -34.6059325, "lon": -58.3751551 },
+    { "lat": -34.6062443, "lon": -58.3751436 },
+    { "lat": -34.6062477, "lon": -58.3752854 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666818504,
+  "bounds": {
+    "minlat": -34.6047721,
+    "minlon": -58.3746381,
+    "maxlat": -34.6045735,
+    "maxlon": -58.3744695
+  },
+  "nodes": [
+    6243483178,
+    6243483175,
+    6243483176,
+    6243483177,
+    6243483178
+  ],
+  "geometry": [
+    { "lat": -34.6045823, "lon": -58.3746381 },
+    { "lat": -34.6045735, "lon": -58.3744856 },
+    { "lat": -34.6047634, "lon": -58.3744695 },
+    { "lat": -34.6047721, "lon": -58.3746221 },
+    { "lat": -34.6045823, "lon": -58.3746381 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666818505,
+  "bounds": {
+    "minlat": -34.6053230,
+    "minlon": -58.3750863,
+    "maxlat": -34.6051478,
+    "maxlon": -58.3746339
+  },
+  "nodes": [
+    4702138283,
+    4702138279,
+    6243483180,
+    6243484092,
+    6243484091,
+    6243483179,
+    4702138283
+  ],
+  "geometry": [
+    { "lat": -34.6053014, "lon": -58.3746339 },
+    { "lat": -34.6053230, "lon": -58.3750820 },
+    { "lat": -34.6051665, "lon": -58.3750863 },
+    { "lat": -34.6051630, "lon": -58.3749020 },
+    { "lat": -34.6051590, "lon": -58.3748283 },
+    { "lat": -34.6051478, "lon": -58.3746510 },
+    { "lat": -34.6053014, "lon": -58.3746339 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666818506,
+  "bounds": {
+    "minlat": -34.6050014,
+    "minlon": -58.3751038,
+    "maxlat": -34.6048317,
+    "maxlon": -58.3745157
+  },
+  "nodes": [
+    6243484108,
+    6243483183,
+    6243483174,
+    6243483184,
+    6243483182,
+    6243484110,
+    6243484087,
+    6243484088,
+    6243484108
+  ],
+  "geometry": [
+    { "lat": -34.6050014, "lon": -58.3750953 },
+    { "lat": -34.6048477, "lon": -58.3751038 },
+    { "lat": -34.6048469, "lon": -58.3748282 },
+    { "lat": -34.6048317, "lon": -58.3745262 },
+    { "lat": -34.6049727, "lon": -58.3745157 },
+    { "lat": -34.6049796, "lon": -58.3746533 },
+    { "lat": -34.6049854, "lon": -58.3747679 },
+    { "lat": -34.6049897, "lon": -58.3748537 },
+    { "lat": -34.6050014, "lon": -58.3750953 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666818507,
+  "bounds": {
+    "minlat": -34.6051665,
+    "minlon": -58.3750953,
+    "maxlat": -34.6049796,
+    "maxlon": -58.3746396
+  },
+  "nodes": [
+    6243484110,
+    6243484105,
+    6243484106,
+    6243484097,
+    6243484107,
+    6243483179,
+    6243484091,
+    6243484090,
+    6243484089,
+    6243484092,
+    6243483180,
+    6243484108,
+    6243484088,
+    6243484086,
+    6243484085,
+    6243484087,
+    6243484110
+  ],
+  "geometry": [
+    { "lat": -34.6049796, "lon": -58.3746533 },
+    { "lat": -34.6050040, "lon": -58.3746513 },
+    { "lat": -34.6050479, "lon": -58.3746478 },
+    { "lat": -34.6051121, "lon": -58.3746426 },
+    { "lat": -34.6051487, "lon": -58.3746396 },
+    { "lat": -34.6051478, "lon": -58.3746510 },
+    { "lat": -34.6051590, "lon": -58.3748283 },
+    { "lat": -34.6051143, "lon": -58.3748319 },
+    { "lat": -34.6051183, "lon": -58.3749056 },
+    { "lat": -34.6051630, "lon": -58.3749020 },
+    { "lat": -34.6051665, "lon": -58.3750863 },
+    { "lat": -34.6050014, "lon": -58.3750953 },
+    { "lat": -34.6049897, "lon": -58.3748537 },
+    { "lat": -34.6050211, "lon": -58.3748512 },
+    { "lat": -34.6050164, "lon": -58.3747654 },
+    { "lat": -34.6049854, "lon": -58.3747679 },
+    { "lat": -34.6049796, "lon": -58.3746533 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666818508,
+  "bounds": {
+    "minlat": -34.6052162,
+    "minlon": -58.3746533,
+    "maxlat": -34.6049668,
+    "maxlon": -58.3744065
+  },
+  "nodes": [
+    6243484112,
+    6243484102,
+    6243484094,
+    6243484093,
+    6243484101,
+    6243484117,
+    6243484099,
+    6243484098,
+    6243484100,
+    6243484109,
+    6243484111,
+    6243484107,
+    6243484096,
+    6243484095,
+    6243484097,
+    6243484106,
+    6243484104,
+    6243484103,
+    6243484105,
+    6243484110,
+    6243483182,
+    6243484112
+  ],
+  "geometry": [
+    { "lat": -34.6049668, "lon": -58.3744260 },
+    { "lat": -34.6050071, "lon": -58.3744228 },
+    { "lat": -34.6050088, "lon": -58.3744541 },
+    { "lat": -34.6050826, "lon": -58.3744481 },
+    { "lat": -34.6050809, "lon": -58.3744168 },
+    { "lat": -34.6051261, "lon": -58.3744132 },
+    { "lat": -34.6051283, "lon": -58.3744549 },
+    { "lat": -34.6051817, "lon": -58.3744506 },
+    { "lat": -34.6051794, "lon": -58.3744084 },
+    { "lat": -34.6052038, "lon": -58.3744065 },
+    { "lat": -34.6052162, "lon": -58.3746342 },
+    { "lat": -34.6051487, "lon": -58.3746396 },
+    { "lat": -34.6051466, "lon": -58.3746005 },
+    { "lat": -34.6051100, "lon": -58.3746034 },
+    { "lat": -34.6051121, "lon": -58.3746426 },
+    { "lat": -34.6050479, "lon": -58.3746478 },
+    { "lat": -34.6050459, "lon": -58.3746100 },
+    { "lat": -34.6050019, "lon": -58.3746135 },
+    { "lat": -34.6050040, "lon": -58.3746513 },
+    { "lat": -34.6049796, "lon": -58.3746533 },
+    { "lat": -34.6049727, "lon": -58.3745157 },
+    { "lat": -34.6049668, "lon": -58.3744260 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666818514,
+  "bounds": {
+    "minlat": -34.6050894,
+    "minlon": -58.3742048,
+    "maxlat": -34.6049468,
+    "maxlon": -58.3738126
+  },
+  "nodes": [
+    6243484134,
+    6243484128,
+    6243484127,
+    6243484126,
+    6243484129,
+    12640096157,
+    6243484131,
+    6243484130,
+    6243484134
+  ],
+  "geometry": [
+    { "lat": -34.6050880, "lon": -58.3738126 },
+    { "lat": -34.6050894, "lon": -58.3739072 },
+    { "lat": -34.6050695, "lon": -58.3739077 },
+    { "lat": -34.6050732, "lon": -58.3741041 },
+    { "lat": -34.6050832, "lon": -58.3741038 },
+    { "lat": -34.6050850, "lon": -58.3742011 },
+    { "lat": -34.6049541, "lon": -58.3742048 },
+    { "lat": -34.6049468, "lon": -58.3738170 },
+    { "lat": -34.6050880, "lon": -58.3738126 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666818515,
+  "bounds": {
+    "minlat": -34.6052747,
+    "minlon": -58.3742361,
+    "maxlat": -34.6050880,
+    "maxlon": -58.3738091
+  },
+  "nodes": [
+    6243484142,
+    12640096154,
+    12640096155,
+    6243484115,
+    6243484132,
+    6243484128,
+    6243484134,
+    11749412468,
+    6243484141,
+    6243484142
+  ],
+  "geometry": [
+    { "lat": -34.6052533, "lon": -58.3741332 },
+    { "lat": -34.6052733, "lon": -58.3741328 },
+    { "lat": -34.6052742, "lon": -58.3741999 },
+    { "lat": -34.6052747, "lon": -58.3742322 },
+    { "lat": -34.6050942, "lon": -58.3742361 },
+    { "lat": -34.6050894, "lon": -58.3739072 },
+    { "lat": -34.6050880, "lon": -58.3738126 },
+    { "lat": -34.6052486, "lon": -58.3738091 },
+    { "lat": -34.6052489, "lon": -58.3738270 },
+    { "lat": -34.6052533, "lon": -58.3741332 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666818518,
+  "bounds": {
+    "minlat": -34.6055352,
+    "minlon": -58.3746770,
+    "maxlat": -34.6053171,
+    "maxlon": -58.3742410
+  },
+  "nodes": [
+    6243484155,
+    11612679336,
+    11612679337,
+    6243484152,
+    6243484151,
+    6243484150,
+    6243484148,
+    6243484147,
+    6243484146,
+    6243484149,
+    6243484155
+  ],
+  "geometry": [
+    { "lat": -34.6055352, "lon": -58.3746695 },
+    { "lat": -34.6054090, "lon": -58.3746770 },
+    { "lat": -34.6054002, "lon": -58.3746234 },
+    { "lat": -34.6053351, "lon": -58.3746249 },
+    { "lat": -34.6053171, "lon": -58.3742566 },
+    { "lat": -34.6055051, "lon": -58.3742410 },
+    { "lat": -34.6055091, "lon": -58.3743121 },
+    { "lat": -34.6054527, "lon": -58.3743168 },
+    { "lat": -34.6054679, "lon": -58.3745808 },
+    { "lat": -34.6055320, "lon": -58.3745801 },
+    { "lat": -34.6055352, "lon": -58.3746695 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666818521,
+  "bounds": {
+    "minlat": -34.6056372,
+    "minlon": -58.3746695,
+    "maxlat": -34.6055182,
+    "maxlon": -58.3744065
+  },
+  "nodes": [
+    4702138282,
+    6243484155,
+    6243484149,
+    6243484156,
+    6243484157,
+    4702138282
+  ],
+  "geometry": [
+    { "lat": -34.6056372, "lon": -58.3746553 },
+    { "lat": -34.6055352, "lon": -58.3746695 },
+    { "lat": -34.6055320, "lon": -58.3745801 },
+    { "lat": -34.6055182, "lon": -58.3744160 },
+    { "lat": -34.6056235, "lon": -58.3744065 },
+    { "lat": -34.6056372, "lon": -58.3746553 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666820134,
+  "bounds": {
+    "minlat": -34.6055532,
+    "minlon": -58.3736829,
+    "maxlat": -34.6052765,
+    "maxlon": -58.3733514
+  },
+  "nodes": [
+    4702138267,
+    6243497752,
+    6243497751,
+    6243497750,
+    6243497757,
+    4702138267
+  ],
+  "geometry": [
+    { "lat": -34.6055418, "lon": -58.3733514 },
+    { "lat": -34.6055532, "lon": -58.3736144 },
+    { "lat": -34.6055059, "lon": -58.3736730 },
+    { "lat": -34.6052835, "lon": -58.3736829 },
+    { "lat": -34.6052765, "lon": -58.3733778 },
+    { "lat": -34.6055418, "lon": -58.3733514 }
+  ],
+  "tags": {
+    "architect": "Chambers;Thomas",
+    "building": "yes",
+    "heritage": "4",
+    "name": "Edificio Ferrocarril Central de Córdoba",
+    "start_date": "1920"
+  }
+},
+{
+  "type": "way",
+  "id": 666825736,
+  "bounds": {
+    "minlat": -34.6049690,
+    "minlon": -58.3756953,
+    "maxlat": -34.6046455,
+    "maxlon": -58.3755909
+  },
+  "nodes": [
+    6243547846,
+    6243547845,
+    6243547844,
+    6243547843,
+    6243547846
+  ],
+  "geometry": [
+    { "lat": -34.6046455, "lon": -58.3756953 },
+    { "lat": -34.6046457, "lon": -58.3756008 },
+    { "lat": -34.6049670, "lon": -58.3755909 },
+    { "lat": -34.6049690, "lon": -58.3756853 },
+    { "lat": -34.6046455, "lon": -58.3756953 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666825741,
+  "bounds": {
+    "minlat": -34.6050879,
+    "minlon": -58.3764553,
+    "maxlat": -34.6049680,
+    "maxlon": -58.3760924
+  },
+  "nodes": [
+    4704005609,
+    6243547861,
+    6243547860,
+    6243547859,
+    4704005609
+  ],
+  "geometry": [
+    { "lat": -34.6050766, "lon": -58.3760924 },
+    { "lat": -34.6050879, "lon": -58.3764514 },
+    { "lat": -34.6049807, "lon": -58.3764553 },
+    { "lat": -34.6049680, "lon": -58.3760981 },
+    { "lat": -34.6050766, "lon": -58.3760924 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666825745,
+  "bounds": {
+    "minlat": -34.6057317,
+    "minlon": -58.3764307,
+    "maxlat": -34.6055536,
+    "maxlon": -58.3760595
+  },
+  "nodes": [
+    6243548886,
+    6243548888,
+    6243548885,
+    6243547884,
+    6243548886
+  ],
+  "geometry": [
+    { "lat": -34.6055536, "lon": -58.3760647 },
+    { "lat": -34.6057241, "lon": -58.3760595 },
+    { "lat": -34.6057317, "lon": -58.3764255 },
+    { "lat": -34.6055611, "lon": -58.3764307 },
+    { "lat": -34.6055536, "lon": -58.3760647 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666825746,
+  "bounds": {
+    "minlat": -34.6057241,
+    "minlon": -58.3760663,
+    "maxlat": -34.6055004,
+    "maxlon": -58.3759605
+  },
+  "nodes": [
+    6243547879,
+    6243548889,
+    6243548888,
+    6243548886,
+    6243547883,
+    6243548887,
+    6243547873,
+    6243547872,
+    6243547879
+  ],
+  "geometry": [
+    { "lat": -34.6055004, "lon": -58.3759677 },
+    { "lat": -34.6057221, "lon": -58.3759605 },
+    { "lat": -34.6057241, "lon": -58.3760595 },
+    { "lat": -34.6055536, "lon": -58.3760647 },
+    { "lat": -34.6055316, "lon": -58.3760653 },
+    { "lat": -34.6055028, "lon": -58.3760663 },
+    { "lat": -34.6055021, "lon": -58.3760395 },
+    { "lat": -34.6055008, "lon": -58.3759844 },
+    { "lat": -34.6055004, "lon": -58.3759677 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666825747,
+  "bounds": {
+    "minlat": -34.6057221,
+    "minlon": -58.3759688,
+    "maxlat": -34.6054662,
+    "maxlon": -58.3757624
+  },
+  "nodes": [
+    6243548892,
+    6243548889,
+    6243547879,
+    6243548890,
+    6243547877,
+    6243548894,
+    6243548893,
+    6243548892
+  ],
+  "geometry": [
+    { "lat": -34.6057180, "lon": -58.3757624 },
+    { "lat": -34.6057221, "lon": -58.3759605 },
+    { "lat": -34.6055004, "lon": -58.3759677 },
+    { "lat": -34.6054704, "lon": -58.3759688 },
+    { "lat": -34.6054691, "lon": -58.3759167 },
+    { "lat": -34.6054669, "lon": -58.3757997 },
+    { "lat": -34.6054662, "lon": -58.3757700 },
+    { "lat": -34.6057180, "lon": -58.3757624 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666825750,
+  "bounds": {
+    "minlat": -34.6053154,
+    "minlon": -58.3758378,
+    "maxlat": -34.6052109,
+    "maxlon": -58.3756736
+  },
+  "nodes": [
+    6243548899,
+    6243548898,
+    4702138285,
+    6243548897,
+    6243548896,
+    6243548899
+  ],
+  "geometry": [
+    { "lat": -34.6052109, "lon": -58.3756777 },
+    { "lat": -34.6053095, "lon": -58.3756736 },
+    { "lat": -34.6053112, "lon": -58.3756896 },
+    { "lat": -34.6053154, "lon": -58.3758337 },
+    { "lat": -34.6052146, "lon": -58.3758378 },
+    { "lat": -34.6052109, "lon": -58.3756777 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666825751,
+  "bounds": {
+    "minlat": -34.6053095,
+    "minlon": -58.3756777,
+    "maxlat": -34.6052014,
+    "maxlon": -58.3751817
+  },
+  "nodes": [
+    6243548901,
+    4702138286,
+    6243548898,
+    6243548899,
+    6243548901
+  ],
+  "geometry": [
+    { "lat": -34.6052014, "lon": -58.3751952 },
+    { "lat": -34.6052923, "lon": -58.3751817 },
+    { "lat": -34.6053095, "lon": -58.3756736 },
+    { "lat": -34.6052109, "lon": -58.3756777 },
+    { "lat": -34.6052014, "lon": -58.3751952 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666825752,
+  "bounds": {
+    "minlat": -34.6052146,
+    "minlon": -58.3758418,
+    "maxlat": -34.6050631,
+    "maxlon": -58.3751952
+  },
+  "nodes": [
+    6243548903,
+    6243548901,
+    6243548899,
+    6243548896,
+    6243548900,
+    13598819879,
+    13598819878,
+    13598819886,
+    6243548903
+  ],
+  "geometry": [
+    { "lat": -34.6050631, "lon": -58.3752036 },
+    { "lat": -34.6052014, "lon": -58.3751952 },
+    { "lat": -34.6052109, "lon": -58.3756777 },
+    { "lat": -34.6052146, "lon": -58.3758378 },
+    { "lat": -34.6050809, "lon": -58.3758418 },
+    { "lat": -34.6050770, "lon": -58.3757669 },
+    { "lat": -34.6050664, "lon": -58.3755420 },
+    { "lat": -34.6050717, "lon": -58.3754745 },
+    { "lat": -34.6050631, "lon": -58.3752036 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 666825755,
+  "bounds": {
+    "minlat": -34.6048844,
+    "minlon": -58.3754871,
+    "maxlat": -34.6047330,
+    "maxlon": -58.3752000
+  },
+  "nodes": [
+    4703935675,
+    6243548908,
+    6243548907,
+    6243548909,
+    6243548910,
+    4703935675
+  ],
+  "geometry": [
+    { "lat": -34.6047330, "lon": -58.3752041 },
+    { "lat": -34.6048791, "lon": -58.3752000 },
+    { "lat": -34.6048825, "lon": -58.3753799 },
+    { "lat": -34.6048844, "lon": -58.3754830 },
+    { "lat": -34.6047383, "lon": -58.3754871 },
+    { "lat": -34.6047330, "lon": -58.3752041 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 675355345,
+  "bounds": {
+    "minlat": -34.6084479,
+    "minlon": -58.3917555,
+    "maxlat": -34.6080008,
+    "maxlon": -58.3916229
+  },
+  "nodes": [
+    6324725710,
+    6324725712,
+    6324725711,
+    6324725709,
+    6324725710
+  ],
+  "geometry": [
+    { "lat": -34.6084363, "lon": -58.3916229 },
+    { "lat": -34.6084479, "lon": -58.3917159 },
+    { "lat": -34.6080035, "lon": -58.3917555 },
+    { "lat": -34.6080008, "lon": -58.3916408 },
+    { "lat": -34.6084363, "lon": -58.3916229 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 675355346,
+  "bounds": {
+    "minlat": -34.6084363,
+    "minlon": -58.3916408,
+    "maxlat": -34.6079987,
+    "maxlon": -58.3914423
+  },
+  "nodes": [
+    6324725709,
+    6324725718,
+    6324725695,
+    6324725710,
+    6324725709
+  ],
+  "geometry": [
+    { "lat": -34.6080008, "lon": -58.3916408 },
+    { "lat": -34.6079987, "lon": -58.3914671 },
+    { "lat": -34.6084277, "lon": -58.3914423 },
+    { "lat": -34.6084363, "lon": -58.3916229 },
+    { "lat": -34.6080008, "lon": -58.3916408 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 675355348,
+  "bounds": {
+    "minlat": -34.6084565,
+    "minlon": -58.3919008,
+    "maxlat": -34.6080035,
+    "maxlon": -58.3917159
+  },
+  "nodes": [
+    6324725714,
+    6324725711,
+    6324725712,
+    6324725713,
+    6324725714
+  ],
+  "geometry": [
+    { "lat": -34.6080154, "lon": -58.3919008 },
+    { "lat": -34.6080035, "lon": -58.3917555 },
+    { "lat": -34.6084479, "lon": -58.3917159 },
+    { "lat": -34.6084565, "lon": -58.3918706 },
+    { "lat": -34.6080154, "lon": -58.3919008 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "67",
+    "addr:postcode": "C1022AAA",
+    "addr:street": "Avenida Callao",
+    "amenity": "university",
+    "building": "yes",
+    "contact:phone": "+54 11 4371-4540",
+    "contact:website": "http://www.nuevaescuela.net/",
+    "name": "Nueva Escuela de Diseño y Comunicación",
+    "opening_hours": "Mo-Fr 09:00-20:00"
+  }
+},
+{
+  "type": "way",
+  "id": 708071953,
+  "bounds": {
+    "minlat": -34.6090611,
+    "minlon": -58.3924279,
+    "maxlat": -34.6086565,
+    "maxlon": -58.3920721
+  },
+  "nodes": [
+    6653386034,
+    14232918164,
+    14232918163,
+    14232918161,
+    14232918162,
+    6653386033,
+    14232918167,
+    14232918168,
+    6653386032,
+    6653386031,
+    6653386030,
+    6653386029,
+    680421918,
+    6653386034
+  ],
+  "geometry": [
+    { "lat": -34.6086605, "lon": -58.3924279 },
+    { "lat": -34.6086565, "lon": -58.3922948 },
+    { "lat": -34.6087218, "lon": -58.3922916 },
+    { "lat": -34.6087218, "lon": -58.3923582 },
+    { "lat": -34.6087726, "lon": -58.3923576 },
+    { "lat": -34.6087692, "lon": -58.3922834 },
+    { "lat": -34.6087884, "lon": -58.3922827 },
+    { "lat": -34.6087876, "lon": -58.3922200 },
+    { "lat": -34.6087260, "lon": -58.3922213 },
+    { "lat": -34.6087235, "lon": -58.3920832 },
+    { "lat": -34.6089529, "lon": -58.3920721 },
+    { "lat": -34.6090420, "lon": -58.3921362 },
+    { "lat": -34.6090611, "lon": -58.3923973 },
+    { "lat": -34.6086605, "lon": -58.3924279 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "1815",
+    "addr:street": "Avenida Rivadavia",
+    "building": "yes",
+    "disused": "yes",
+    "historic": "yes",
+    "name": "Confitería El Molino",
+    "tourism": "attraction",
+    "website": "https://delmolino.gob.ar/",
+    "wikidata": "Q1125324",
+    "wikimedia_commons": "Category:Confitería del Molino",
+    "wikipedia": "es:Confitería del Molino"
+  }
+},
+{
+  "type": "way",
+  "id": 1104088013,
+  "bounds": {
+    "minlat": -34.6078738,
+    "minlon": -58.3925141,
+    "maxlat": -34.6074610,
+    "maxlon": -58.3922236
+  },
+  "nodes": [
+    10103276295,
+    10103276296,
+    10103276297,
+    10103276298,
+    10103276295
+  ],
+  "geometry": [
+    { "lat": -34.6074706, "lon": -58.3925141 },
+    { "lat": -34.6074610, "lon": -58.3922362 },
+    { "lat": -34.6078673, "lon": -58.3922236 },
+    { "lat": -34.6078738, "lon": -58.3924975 },
+    { "lat": -34.6074706, "lon": -58.3925141 }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "100",
+    "addr:street": "Avenida Callao",
+    "building": "yes",
+    "name": "Chinese Culture House"
+  }
+},
+{
+  "type": "way",
+  "id": 1121110459,
+  "bounds": {
+    "minlat": -34.6091008,
+    "minlon": -58.3932518,
+    "maxlat": -34.6086077,
+    "maxlon": -58.3926633
+  },
+  "nodes": [
+    10254536122,
+    10254536123,
+    10254536124,
+    10254536125,
+    10254536126,
+    10254536127,
+    10254536128,
+    10254536129,
+    10254536130,
+    10254536131,
+    10254536132,
+    10254536133,
+    10254536134,
+    10254536135,
+    10254536136,
+    10254536137,
+    10254536138,
+    10254536139,
+    10254536140,
+    10254536141,
+    10254536122
+  ],
+  "geometry": [
+    { "lat": -34.6086296, "lon": -58.3932518 },
+    { "lat": -34.6087344, "lon": -58.3932408 },
+    { "lat": -34.6087197, "lon": -58.3930355 },
+    { "lat": -34.6087941, "lon": -58.3930276 },
+    { "lat": -34.6088098, "lon": -58.3932468 },
+    { "lat": -34.6089098, "lon": -58.3932362 },
+    { "lat": -34.6088960, "lon": -58.3930421 },
+    { "lat": -34.6089800, "lon": -58.3930332 },
+    { "lat": -34.6089945, "lon": -58.3932364 },
+    { "lat": -34.6091008, "lon": -58.3932252 },
+    { "lat": -34.6090607, "lon": -58.3926633 },
+    { "lat": -34.6089484, "lon": -58.3926751 },
+    { "lat": -34.6089680, "lon": -58.3929494 },
+    { "lat": -34.6088938, "lon": -58.3929573 },
+    { "lat": -34.6088753, "lon": -58.3926984 },
+    { "lat": -34.6087732, "lon": -58.3927091 },
+    { "lat": -34.6087922, "lon": -58.3929754 },
+    { "lat": -34.6087187, "lon": -58.3929831 },
+    { "lat": -34.6087152, "lon": -58.3929337 },
+    { "lat": -34.6086077, "lon": -58.3929450 },
+    { "lat": -34.6086296, "lon": -58.3932518 }
+  ],
+  "tags": {
+    "building": "office",
+    "name": "Anexo Congreso de la Nación",
+    "office": "government"
+  }
+},
+{
+  "type": "way",
+  "id": 1265024657,
+  "bounds": {
+    "minlat": -34.6052835,
+    "minlon": -58.3736946,
+    "maxlat": -34.6051738,
+    "maxlon": -58.3733778
+  },
+  "nodes": [
+    4702138266,
+    4702138256,
+    6243497757,
+    6243497750,
+    4702138266
+  ],
+  "geometry": [
+    { "lat": -34.6051858, "lon": -58.3736946 },
+    { "lat": -34.6051738, "lon": -58.3733865 },
+    { "lat": -34.6052765, "lon": -58.3733778 },
+    { "lat": -34.6052835, "lon": -58.3736829 },
+    { "lat": -34.6051858, "lon": -58.3736946 }
+  ],
+  "tags": {
+    "architect": "Gino Aloisi",
+    "building": "yes",
+    "heritage": "4",
+    "name": "Edificio Ex Compañía de Seguros La Inmobiliaria"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978184,
+  "bounds": {
+    "minlat": -34.6052409,
+    "minlon": -58.3767765,
+    "maxlat": -34.6050362,
+    "maxlon": -58.3766113
+  },
+  "nodes": [
+    13598819808,
+    13598819815,
+    13598819816,
+    13598819809,
+    13598819808
+  ],
+  "geometry": [
+    { "lat": -34.6052409, "lon": -58.3767694 },
+    { "lat": -34.6052347, "lon": -58.3766113 },
+    { "lat": -34.6050369, "lon": -58.3766277 },
+    { "lat": -34.6050362, "lon": -58.3767765 },
+    { "lat": -34.6052409, "lon": -58.3767694 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978190,
+  "bounds": {
+    "minlat": -34.6058008,
+    "minlon": -58.3770277,
+    "maxlat": -34.6056657,
+    "maxlon": -58.3767326
+  },
+  "nodes": [
+    13598819835,
+    13598819847,
+    13598819836,
+    13598819837,
+    13598819838,
+    13598819839,
+    13598819834,
+    13598819835
+  ],
+  "geometry": [
+    { "lat": -34.6056720, "lon": -58.3770277 },
+    { "lat": -34.6056665, "lon": -58.3768820 },
+    { "lat": -34.6056657, "lon": -58.3767801 },
+    { "lat": -34.6057213, "lon": -58.3767761 },
+    { "lat": -34.6057194, "lon": -58.3767375 },
+    { "lat": -34.6057867, "lon": -58.3767326 },
+    { "lat": -34.6058008, "lon": -58.3770185 },
+    { "lat": -34.6056720, "lon": -58.3770277 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978191,
+  "bounds": {
+    "minlat": -34.6057867,
+    "minlon": -58.3767801,
+    "maxlat": -34.6056581,
+    "maxlon": -58.3765972
+  },
+  "nodes": [
+    13598819836,
+    13598819840,
+    13598819841,
+    13598819842,
+    13598819839,
+    13598819838,
+    13598819837,
+    13598819836
+  ],
+  "geometry": [
+    { "lat": -34.6056657, "lon": -58.3767801 },
+    { "lat": -34.6056581, "lon": -58.3766042 },
+    { "lat": -34.6057582, "lon": -58.3765972 },
+    { "lat": -34.6057809, "lon": -58.3766279 },
+    { "lat": -34.6057867, "lon": -58.3767326 },
+    { "lat": -34.6057194, "lon": -58.3767375 },
+    { "lat": -34.6057213, "lon": -58.3767761 },
+    { "lat": -34.6056657, "lon": -58.3767801 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978192,
+  "bounds": {
+    "minlat": -34.6056665,
+    "minlon": -58.3768879,
+    "maxlat": -34.6055105,
+    "maxlon": -58.3766042
+  },
+  "nodes": [
+    13598819840,
+    13598819843,
+    13598819844,
+    13598819845,
+    13598819846,
+    13598819847,
+    13598819840
+  ],
+  "geometry": [
+    { "lat": -34.6056581, "lon": -58.3766042 },
+    { "lat": -34.6055105, "lon": -58.3766115 },
+    { "lat": -34.6055176, "lon": -58.3767541 },
+    { "lat": -34.6055567, "lon": -58.3767522 },
+    { "lat": -34.6055613, "lon": -58.3768879 },
+    { "lat": -34.6056665, "lon": -58.3768820 },
+    { "lat": -34.6056581, "lon": -58.3766042 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978194,
+  "bounds": {
+    "minlat": -34.6055432,
+    "minlon": -58.3772805,
+    "maxlat": -34.6053730,
+    "maxlon": -58.3766115
+  },
+  "nodes": [
+    13598819843,
+    13598819851,
+    13598819852,
+    13598819853,
+    13598819849,
+    13598819848,
+    13598819844,
+    13598819843
+  ],
+  "geometry": [
+    { "lat": -34.6055105, "lon": -58.3766115 },
+    { "lat": -34.6053730, "lon": -58.3766215 },
+    { "lat": -34.6054057, "lon": -58.3772805 },
+    { "lat": -34.6055432, "lon": -58.3772704 },
+    { "lat": -34.6055353, "lon": -58.3771113 },
+    { "lat": -34.6055243, "lon": -58.3768900 },
+    { "lat": -34.6055176, "lon": -58.3767541 },
+    { "lat": -34.6055105, "lon": -58.3766115 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978195,
+  "bounds": {
+    "minlat": -34.6049441,
+    "minlon": -58.3765208,
+    "maxlat": -34.6046603,
+    "maxlon": -58.3763578
+  },
+  "nodes": [
+    13598819854,
+    13598819855,
+    13598819856,
+    13598819857,
+    13598819858,
+    13598819854
+  ],
+  "geometry": [
+    { "lat": -34.6046636, "lon": -58.3763704 },
+    { "lat": -34.6049349, "lon": -58.3763578 },
+    { "lat": -34.6049441, "lon": -58.3765122 },
+    { "lat": -34.6047770, "lon": -58.3765208 },
+    { "lat": -34.6046603, "lon": -58.3764173 },
+    { "lat": -34.6046636, "lon": -58.3763704 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978196,
+  "bounds": {
+    "minlat": -34.6049349,
+    "minlon": -58.3763704,
+    "maxlat": -34.6046583,
+    "maxlon": -58.3761914
+  },
+  "nodes": [
+    13598819854,
+    13598819859,
+    13598819860,
+    13598819855,
+    13598819854
+  ],
+  "geometry": [
+    { "lat": -34.6046636, "lon": -58.3763704 },
+    { "lat": -34.6046583, "lon": -58.3762041 },
+    { "lat": -34.6049297, "lon": -58.3761914 },
+    { "lat": -34.6049349, "lon": -58.3763578 },
+    { "lat": -34.6046636, "lon": -58.3763704 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978197,
+  "bounds": {
+    "minlat": -34.6049297,
+    "minlon": -58.3762041,
+    "maxlat": -34.6046583,
+    "maxlon": -58.3760946
+  },
+  "nodes": [
+    13598819859,
+    13598819861,
+    13598819862,
+    13598819860,
+    13598819859
+  ],
+  "geometry": [
+    { "lat": -34.6046583, "lon": -58.3762041 },
+    { "lat": -34.6046597, "lon": -58.3761087 },
+    { "lat": -34.6049227, "lon": -58.3760946 },
+    { "lat": -34.6049297, "lon": -58.3761914 },
+    { "lat": -34.6046583, "lon": -58.3762041 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978198,
+  "bounds": {
+    "minlat": -34.6049227,
+    "minlon": -58.3761087,
+    "maxlat": -34.6046576,
+    "maxlon": -58.3760042
+  },
+  "nodes": [
+    13598819861,
+    13598819863,
+    13598819867,
+    13598819864,
+    13598819862,
+    13598819861
+  ],
+  "geometry": [
+    { "lat": -34.6046597, "lon": -58.3761087 },
+    { "lat": -34.6046576, "lon": -58.3760181 },
+    { "lat": -34.6048133, "lon": -58.3760098 },
+    { "lat": -34.6049181, "lon": -58.3760042 },
+    { "lat": -34.6049227, "lon": -58.3760946 },
+    { "lat": -34.6046597, "lon": -58.3761087 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978199,
+  "bounds": {
+    "minlat": -34.6048133,
+    "minlon": -58.3760181,
+    "maxlat": -34.6046543,
+    "maxlon": -58.3758876
+  },
+  "nodes": [
+    13598819863,
+    13598819865,
+    13598819868,
+    13598819866,
+    13598819867,
+    13598819863
+  ],
+  "geometry": [
+    { "lat": -34.6046576, "lon": -58.3760181 },
+    { "lat": -34.6046543, "lon": -58.3758962 },
+    { "lat": -34.6047945, "lon": -58.3758884 },
+    { "lat": -34.6048087, "lon": -58.3758876 },
+    { "lat": -34.6048133, "lon": -58.3760098 },
+    { "lat": -34.6046576, "lon": -58.3760181 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978200,
+  "bounds": {
+    "minlat": -34.6049181,
+    "minlon": -58.3760098,
+    "maxlat": -34.6047934,
+    "maxlon": -58.3758314
+  },
+  "nodes": [
+    13598819868,
+    13598819869,
+    13598819870,
+    13598819871,
+    13598819872,
+    13598819864,
+    13598819867,
+    13598819866,
+    13598819868
+  ],
+  "geometry": [
+    { "lat": -34.6047945, "lon": -58.3758884 },
+    { "lat": -34.6047934, "lon": -58.3758332 },
+    { "lat": -34.6048550, "lon": -58.3758314 },
+    { "lat": -34.6048558, "lon": -58.3758724 },
+    { "lat": -34.6049141, "lon": -58.3758707 },
+    { "lat": -34.6049181, "lon": -58.3760042 },
+    { "lat": -34.6048133, "lon": -58.3760098 },
+    { "lat": -34.6048087, "lon": -58.3758876 },
+    { "lat": -34.6047945, "lon": -58.3758884 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978201,
+  "bounds": {
+    "minlat": -34.6049071,
+    "minlon": -58.3758962,
+    "maxlat": -34.6046483,
+    "maxlon": -58.3757810
+  },
+  "nodes": [
+    13598819870,
+    13598819873,
+    13598819874,
+    13598819875,
+    13598819876,
+    13598819865,
+    13598819868,
+    13598819869,
+    13598819870
+  ],
+  "geometry": [
+    { "lat": -34.6048550, "lon": -58.3758314 },
+    { "lat": -34.6048546, "lon": -58.3758099 },
+    { "lat": -34.6049071, "lon": -58.3758079 },
+    { "lat": -34.6049064, "lon": -58.3757810 },
+    { "lat": -34.6046483, "lon": -58.3757892 },
+    { "lat": -34.6046543, "lon": -58.3758962 },
+    { "lat": -34.6047945, "lon": -58.3758884 },
+    { "lat": -34.6047934, "lon": -58.3758332 },
+    { "lat": -34.6048550, "lon": -58.3758314 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978202,
+  "bounds": {
+    "minlat": -34.6050770,
+    "minlon": -58.3757892,
+    "maxlat": -34.6046448,
+    "maxlon": -58.3755420
+  },
+  "nodes": [
+    13598819876,
+    6243547846,
+    6243547843,
+    6243547844,
+    6243547845,
+    13598819877,
+    13598819878,
+    13598819879,
+    13598819881,
+    13598819875,
+    13598819876
+  ],
+  "geometry": [
+    { "lat": -34.6046483, "lon": -58.3757892 },
+    { "lat": -34.6046455, "lon": -58.3756953 },
+    { "lat": -34.6049690, "lon": -58.3756853 },
+    { "lat": -34.6049670, "lon": -58.3755909 },
+    { "lat": -34.6046457, "lon": -58.3756008 },
+    { "lat": -34.6046448, "lon": -58.3755550 },
+    { "lat": -34.6050664, "lon": -58.3755420 },
+    { "lat": -34.6050770, "lon": -58.3757669 },
+    { "lat": -34.6049571, "lon": -58.3757790 },
+    { "lat": -34.6049064, "lon": -58.3757810 },
+    { "lat": -34.6046483, "lon": -58.3757892 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978203,
+  "bounds": {
+    "minlat": -34.6049594,
+    "minlon": -58.3758724,
+    "maxlat": -34.6048546,
+    "maxlon": -58.3757790
+  },
+  "nodes": [
+    13598819872,
+    13598819880,
+    13598819881,
+    13598819875,
+    13598819874,
+    13598819873,
+    13598819870,
+    13598819871,
+    13598819872
+  ],
+  "geometry": [
+    { "lat": -34.6049141, "lon": -58.3758707 },
+    { "lat": -34.6049594, "lon": -58.3758677 },
+    { "lat": -34.6049571, "lon": -58.3757790 },
+    { "lat": -34.6049064, "lon": -58.3757810 },
+    { "lat": -34.6049071, "lon": -58.3758079 },
+    { "lat": -34.6048546, "lon": -58.3758099 },
+    { "lat": -34.6048550, "lon": -58.3758314 },
+    { "lat": -34.6048558, "lon": -58.3758724 },
+    { "lat": -34.6049141, "lon": -58.3758707 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978204,
+  "bounds": {
+    "minlat": -34.6050821,
+    "minlon": -58.3758677,
+    "maxlat": -34.6049571,
+    "maxlon": -58.3757669
+  },
+  "nodes": [
+    13598819880,
+    13598819882,
+    6243548900,
+    13598819879,
+    13598819881,
+    13598819880
+  ],
+  "geometry": [
+    { "lat": -34.6049594, "lon": -58.3758677 },
+    { "lat": -34.6050821, "lon": -58.3758644 },
+    { "lat": -34.6050809, "lon": -58.3758418 },
+    { "lat": -34.6050770, "lon": -58.3757669 },
+    { "lat": -34.6049571, "lon": -58.3757790 },
+    { "lat": -34.6049594, "lon": -58.3758677 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978205,
+  "bounds": {
+    "minlat": -34.6051861,
+    "minlon": -58.3764514,
+    "maxlat": -34.6050763,
+    "maxlon": -58.3760769
+  },
+  "nodes": [
+    6243547861,
+    13598819883,
+    13598819884,
+    13598819885,
+    4704005609,
+    6243547861
+  ],
+  "geometry": [
+    { "lat": -34.6050879, "lon": -58.3764514 },
+    { "lat": -34.6051861, "lon": -58.3764468 },
+    { "lat": -34.6051744, "lon": -58.3760769 },
+    { "lat": -34.6050763, "lon": -58.3760814 },
+    { "lat": -34.6050766, "lon": -58.3760924 },
+    { "lat": -34.6050879, "lon": -58.3764514 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1482978206,
+  "bounds": {
+    "minlat": -34.6050717,
+    "minlon": -58.3754787,
+    "maxlat": -34.6049742,
+    "maxlon": -58.3752036
+  },
+  "nodes": [
+    13598819886,
+    13598819887,
+    13598819888,
+    6243548903,
+    13598819886
+  ],
+  "geometry": [
+    { "lat": -34.6050717, "lon": -58.3754745 },
+    { "lat": -34.6049827, "lon": -58.3754787 },
+    { "lat": -34.6049742, "lon": -58.3752078 },
+    { "lat": -34.6050631, "lon": -58.3752036 },
+    { "lat": -34.6050717, "lon": -58.3754745 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935221,
+  "bounds": {
+    "minlat": -34.6064936,
+    "minlon": -58.3764776,
+    "maxlat": -34.6060217,
+    "maxlon": -58.3759146
+  },
+  "nodes": [
+    6243446562,
+    13606527914,
+    13606527915,
+    13606527927,
+    13606527916,
+    13606527917,
+    13606527929,
+    13606527931,
+    13606527918,
+    13606527919,
+    13606527920,
+    13606527921,
+    13606527922,
+    13606527923,
+    13606527924,
+    6243446556,
+    6243446562
+  ],
+  "geometry": [
+    { "lat": -34.6064936, "lon": -58.3760422 },
+    { "lat": -34.6062516, "lon": -58.3764746 },
+    { "lat": -34.6060234, "lon": -58.3764776 },
+    { "lat": -34.6060224, "lon": -58.3763599 },
+    { "lat": -34.6060217, "lon": -58.3763247 },
+    { "lat": -34.6060885, "lon": -58.3763225 },
+    { "lat": -34.6060863, "lon": -58.3762189 },
+    { "lat": -34.6060866, "lon": -58.3761696 },
+    { "lat": -34.6060886, "lon": -58.3761566 },
+    { "lat": -34.6061436, "lon": -58.3761538 },
+    { "lat": -34.6061382, "lon": -58.3761108 },
+    { "lat": -34.6062218, "lon": -58.3761072 },
+    { "lat": -34.6062187, "lon": -58.3759998 },
+    { "lat": -34.6063399, "lon": -58.3759981 },
+    { "lat": -34.6063392, "lon": -58.3759146 },
+    { "lat": -34.6063841, "lon": -58.3759518 },
+    { "lat": -34.6064936, "lon": -58.3760422 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935222,
+  "bounds": {
+    "minlat": -34.6060234,
+    "minlon": -58.3764776,
+    "maxlat": -34.6058473,
+    "maxlon": -58.3763599
+  },
+  "nodes": [
+    13606527915,
+    13606527925,
+    13606527926,
+    13606527927,
+    13606527915
+  ],
+  "geometry": [
+    { "lat": -34.6060234, "lon": -58.3764776 },
+    { "lat": -34.6058507, "lon": -58.3764771 },
+    { "lat": -34.6058473, "lon": -58.3763655 },
+    { "lat": -34.6060224, "lon": -58.3763599 },
+    { "lat": -34.6060234, "lon": -58.3764776 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935223,
+  "bounds": {
+    "minlat": -34.6060885,
+    "minlon": -58.3763655,
+    "maxlat": -34.6058443,
+    "maxlon": -58.3762189
+  },
+  "nodes": [
+    13606527926,
+    13606527928,
+    13606527929,
+    13606527917,
+    13606527916,
+    13606527927,
+    13606527926
+  ],
+  "geometry": [
+    { "lat": -34.6058473, "lon": -58.3763655 },
+    { "lat": -34.6058443, "lon": -58.3762267 },
+    { "lat": -34.6060863, "lon": -58.3762189 },
+    { "lat": -34.6060885, "lon": -58.3763225 },
+    { "lat": -34.6060217, "lon": -58.3763247 },
+    { "lat": -34.6060224, "lon": -58.3763599 },
+    { "lat": -34.6058473, "lon": -58.3763655 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935224,
+  "bounds": {
+    "minlat": -34.6060866,
+    "minlon": -58.3762267,
+    "maxlat": -34.6058435,
+    "maxlon": -58.3761696
+  },
+  "nodes": [
+    13606527928,
+    13606527930,
+    13606527931,
+    13606527929,
+    13606527928
+  ],
+  "geometry": [
+    { "lat": -34.6058443, "lon": -58.3762267 },
+    { "lat": -34.6058435, "lon": -58.3761806 },
+    { "lat": -34.6060866, "lon": -58.3761696 },
+    { "lat": -34.6060863, "lon": -58.3762189 },
+    { "lat": -34.6058443, "lon": -58.3762267 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935225,
+  "bounds": {
+    "minlat": -34.6061436,
+    "minlon": -58.3761806,
+    "maxlat": -34.6058342,
+    "maxlon": -58.3759452
+  },
+  "nodes": [
+    13606527930,
+    13606527932,
+    13606527933,
+    13606527936,
+    13606527934,
+    13606527938,
+    13606527935,
+    13606527920,
+    13606527919,
+    13606527918,
+    13606527931,
+    13606527930
+  ],
+  "geometry": [
+    { "lat": -34.6058435, "lon": -58.3761806 },
+    { "lat": -34.6058342, "lon": -58.3759534 },
+    { "lat": -34.6060151, "lon": -58.3759452 },
+    { "lat": -34.6060172, "lon": -58.3760124 },
+    { "lat": -34.6060197, "lon": -58.3760830 },
+    { "lat": -34.6061255, "lon": -58.3760830 },
+    { "lat": -34.6061374, "lon": -58.3760825 },
+    { "lat": -34.6061382, "lon": -58.3761108 },
+    { "lat": -34.6061436, "lon": -58.3761538 },
+    { "lat": -34.6060886, "lon": -58.3761566 },
+    { "lat": -34.6060866, "lon": -58.3761696 },
+    { "lat": -34.6058435, "lon": -58.3761806 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935226,
+  "bounds": {
+    "minlat": -34.6061255,
+    "minlon": -58.3760830,
+    "maxlat": -34.6060172,
+    "maxlon": -58.3760075
+  },
+  "nodes": [
+    13606527936,
+    13606527937,
+    13606527938,
+    13606527934,
+    13606527936
+  ],
+  "geometry": [
+    { "lat": -34.6060172, "lon": -58.3760124 },
+    { "lat": -34.6061233, "lon": -58.3760075 },
+    { "lat": -34.6061255, "lon": -58.3760830 },
+    { "lat": -34.6060197, "lon": -58.3760830 },
+    { "lat": -34.6060172, "lon": -58.3760124 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935227,
+  "bounds": {
+    "minlat": -34.6061233,
+    "minlon": -58.3760124,
+    "maxlat": -34.6060151,
+    "maxlon": -58.3759401
+  },
+  "nodes": [
+    13606527937,
+    13606527940,
+    13606527939,
+    13606527933,
+    13606527936,
+    13606527937
+  ],
+  "geometry": [
+    { "lat": -34.6061233, "lon": -58.3760075 },
+    { "lat": -34.6061227, "lon": -58.3759892 },
+    { "lat": -34.6061229, "lon": -58.3759401 },
+    { "lat": -34.6060151, "lon": -58.3759452 },
+    { "lat": -34.6060172, "lon": -58.3760124 },
+    { "lat": -34.6061233, "lon": -58.3760075 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935228,
+  "bounds": {
+    "minlat": -34.6062218,
+    "minlon": -58.3761108,
+    "maxlat": -34.6061227,
+    "maxlon": -58.3759852
+  },
+  "nodes": [
+    13606527920,
+    13606527935,
+    13606527938,
+    13606527937,
+    13606527940,
+    13606527942,
+    13606527941,
+    13606527922,
+    13606527921,
+    13606527920
+  ],
+  "geometry": [
+    { "lat": -34.6061382, "lon": -58.3761108 },
+    { "lat": -34.6061374, "lon": -58.3760825 },
+    { "lat": -34.6061255, "lon": -58.3760830 },
+    { "lat": -34.6061233, "lon": -58.3760075 },
+    { "lat": -34.6061227, "lon": -58.3759892 },
+    { "lat": -34.6061969, "lon": -58.3759863 },
+    { "lat": -34.6062150, "lon": -58.3759852 },
+    { "lat": -34.6062187, "lon": -58.3759998 },
+    { "lat": -34.6062218, "lon": -58.3761072 },
+    { "lat": -34.6061382, "lon": -58.3761108 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935229,
+  "bounds": {
+    "minlat": -34.6063399,
+    "minlon": -58.3759998,
+    "maxlat": -34.6061948,
+    "maxlon": -58.3757195
+  },
+  "nodes": [
+    13606527942,
+    13606527943,
+    13606527944,
+    6243446583,
+    6243446571,
+    13606527945,
+    13606527946,
+    6243446561,
+    13606527924,
+    13606527923,
+    13606527922,
+    13606527941,
+    13606527942
+  ],
+  "geometry": [
+    { "lat": -34.6061969, "lon": -58.3759863 },
+    { "lat": -34.6061948, "lon": -58.3759323 },
+    { "lat": -34.6062546, "lon": -58.3759288 },
+    { "lat": -34.6062510, "lon": -58.3758376 },
+    { "lat": -34.6062465, "lon": -58.3757232 },
+    { "lat": -34.6063113, "lon": -58.3757195 },
+    { "lat": -34.6063160, "lon": -58.3758396 },
+    { "lat": -34.6062946, "lon": -58.3758752 },
+    { "lat": -34.6063392, "lon": -58.3759146 },
+    { "lat": -34.6063399, "lon": -58.3759981 },
+    { "lat": -34.6062187, "lon": -58.3759998 },
+    { "lat": -34.6062150, "lon": -58.3759852 },
+    { "lat": -34.6061969, "lon": -58.3759863 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935230,
+  "bounds": {
+    "minlat": -34.6062722,
+    "minlon": -58.3750396,
+    "maxlat": -34.6059943,
+    "maxlon": -58.3748347
+  },
+  "nodes": [
+    4700151389,
+    13606527947,
+    13606527951,
+    13606527948,
+    13606527949,
+    13606527950,
+    6235362716,
+    4700151389
+  ],
+  "geometry": [
+    { "lat": -34.6060020, "lon": -58.3750396 },
+    { "lat": -34.6062722, "lon": -58.3750235 },
+    { "lat": -34.6062680, "lon": -58.3749427 },
+    { "lat": -34.6062680, "lon": -58.3749200 },
+    { "lat": -34.6062445, "lon": -58.3749214 },
+    { "lat": -34.6062410, "lon": -58.3748347 },
+    { "lat": -34.6059943, "lon": -58.3748494 },
+    { "lat": -34.6060020, "lon": -58.3750396 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935231,
+  "bounds": {
+    "minlat": -34.6063286,
+    "minlon": -58.3749427,
+    "maxlat": -34.6062537,
+    "maxlon": -58.3746265
+  },
+  "nodes": [
+    13606527951,
+    13606527952,
+    13606527962,
+    13606527963,
+    13606527953,
+    13606527954,
+    6235362690,
+    6235362714,
+    13606527948,
+    13606527951
+  ],
+  "geometry": [
+    { "lat": -34.6062680, "lon": -58.3749427 },
+    { "lat": -34.6063286, "lon": -58.3749385 },
+    { "lat": -34.6063248, "lon": -58.3748033 },
+    { "lat": -34.6063235, "lon": -58.3747035 },
+    { "lat": -34.6063231, "lon": -58.3746265 },
+    { "lat": -34.6062537, "lon": -58.3746310 },
+    { "lat": -34.6062559, "lon": -58.3746789 },
+    { "lat": -34.6062627, "lon": -58.3748284 },
+    { "lat": -34.6062680, "lon": -58.3749200 },
+    { "lat": -34.6062680, "lon": -58.3749427 }
+  ],
+  "tags": {
+    "building": "yes",
+    "layer": "-1"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935232,
+  "bounds": {
+    "minlat": -34.6064663,
+    "minlon": -58.3749971,
+    "maxlat": -34.6063248,
+    "maxlon": -58.3748001
+  },
+  "nodes": [
+    13606527952,
+    13606527955,
+    13606527956,
+    13606527957,
+    13606527958,
+    13606527970,
+    13606527959,
+    13606527960,
+    13606527961,
+    13606527962,
+    13606527952
+  ],
+  "geometry": [
+    { "lat": -34.6063286, "lon": -58.3749385 },
+    { "lat": -34.6063293, "lon": -58.3749643 },
+    { "lat": -34.6064198, "lon": -58.3749605 },
+    { "lat": -34.6064208, "lon": -58.3749971 },
+    { "lat": -34.6064663, "lon": -58.3749966 },
+    { "lat": -34.6064654, "lon": -58.3749517 },
+    { "lat": -34.6064648, "lon": -58.3749002 },
+    { "lat": -34.6064295, "lon": -58.3749017 },
+    { "lat": -34.6064266, "lon": -58.3748001 },
+    { "lat": -34.6063248, "lon": -58.3748033 },
+    { "lat": -34.6063286, "lon": -58.3749385 }
+  ],
+  "tags": {
+    "building": "yes",
+    "layer": "-1"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935233,
+  "bounds": {
+    "minlat": -34.6064882,
+    "minlon": -58.3747440,
+    "maxlat": -34.6063228,
+    "maxlon": -58.3745534
+  },
+  "nodes": [
+    13606527963,
+    13606527964,
+    13606527965,
+    13606527966,
+    13606527975,
+    13606527967,
+    13606527968,
+    13606527953,
+    13606527963
+  ],
+  "geometry": [
+    { "lat": -34.6063235, "lon": -58.3747035 },
+    { "lat": -34.6064144, "lon": -58.3747028 },
+    { "lat": -34.6064147, "lon": -58.3747440 },
+    { "lat": -34.6064860, "lon": -58.3747435 },
+    { "lat": -34.6064882, "lon": -58.3746972 },
+    { "lat": -34.6064862, "lon": -58.3745538 },
+    { "lat": -34.6063228, "lon": -58.3745534 },
+    { "lat": -34.6063231, "lon": -58.3746265 },
+    { "lat": -34.6063235, "lon": -58.3747035 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935234,
+  "bounds": {
+    "minlat": -34.6066364,
+    "minlon": -58.3749966,
+    "maxlat": -34.6064654,
+    "maxlon": -58.3749470
+  },
+  "nodes": [
+    13606527958,
+    4704128785,
+    13606527969,
+    13606527974,
+    13606527971,
+    13606527970,
+    13606527958
+  ],
+  "geometry": [
+    { "lat": -34.6064663, "lon": -58.3749966 },
+    { "lat": -34.6066364, "lon": -58.3749920 },
+    { "lat": -34.6066356, "lon": -58.3749470 },
+    { "lat": -34.6065999, "lon": -58.3749486 },
+    { "lat": -34.6065064, "lon": -58.3749499 },
+    { "lat": -34.6064654, "lon": -58.3749517 },
+    { "lat": -34.6064663, "lon": -58.3749966 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935235,
+  "bounds": {
+    "minlat": -34.6065999,
+    "minlon": -58.3749499,
+    "maxlat": -34.6065051,
+    "maxlon": -58.3747900
+  },
+  "nodes": [
+    13606527971,
+    13606527972,
+    13606527973,
+    13606527974,
+    13606527971
+  ],
+  "geometry": [
+    { "lat": -34.6065064, "lon": -58.3749499 },
+    { "lat": -34.6065051, "lon": -58.3747912 },
+    { "lat": -34.6065986, "lon": -58.3747900 },
+    { "lat": -34.6065999, "lon": -58.3749486 },
+    { "lat": -34.6065064, "lon": -58.3749499 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935236,
+  "bounds": {
+    "minlat": -34.6065855,
+    "minlon": -58.3747355,
+    "maxlat": -34.6064862,
+    "maxlon": -58.3745283
+  },
+  "nodes": [
+    13606527975,
+    13606527976,
+    13606527977,
+    13606527978,
+    13606527979,
+    13606527980,
+    13606527981,
+    13606527967,
+    13606527975
+  ],
+  "geometry": [
+    { "lat": -34.6064882, "lon": -58.3746972 },
+    { "lat": -34.6065145, "lon": -58.3746967 },
+    { "lat": -34.6065150, "lon": -58.3747355 },
+    { "lat": -34.6065855, "lon": -58.3747340 },
+    { "lat": -34.6065826, "lon": -58.3745283 },
+    { "lat": -34.6065071, "lon": -58.3745299 },
+    { "lat": -34.6065074, "lon": -58.3745534 },
+    { "lat": -34.6064862, "lon": -58.3745538 },
+    { "lat": -34.6064882, "lon": -58.3746972 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935237,
+  "bounds": {
+    "minlat": -34.6067158,
+    "minlon": -58.3746860,
+    "maxlat": -34.6066057,
+    "maxlon": -58.3745552
+  },
+  "nodes": [
+    13606527982,
+    13606527983,
+    13606527984,
+    13606527985,
+    13606527982
+  ],
+  "geometry": [
+    { "lat": -34.6066097, "lon": -58.3746860 },
+    { "lat": -34.6066057, "lon": -58.3745602 },
+    { "lat": -34.6067117, "lon": -58.3745552 },
+    { "lat": -34.6067158, "lon": -58.3746810 },
+    { "lat": -34.6066097, "lon": -58.3746860 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935238,
+  "bounds": {
+    "minlat": -34.6067299,
+    "minlon": -58.3743829,
+    "maxlat": -34.6065554,
+    "maxlon": -58.3740549
+  },
+  "nodes": [
+    4704128788,
+    13606527986,
+    13606527987,
+    13606527988,
+    13606527989,
+    13606527990,
+    4704133191,
+    13606527991,
+    13606527992,
+    6235362738,
+    4704128788
+  ],
+  "geometry": [
+    { "lat": -34.6067054, "lon": -58.3743750 },
+    { "lat": -34.6066982, "lon": -58.3741883 },
+    { "lat": -34.6066471, "lon": -58.3741912 },
+    { "lat": -34.6066447, "lon": -58.3741301 },
+    { "lat": -34.6067299, "lon": -58.3741253 },
+    { "lat": -34.6067272, "lon": -58.3740549 },
+    { "lat": -34.6066921, "lon": -58.3740569 },
+    { "lat": -34.6065554, "lon": -58.3740647 },
+    { "lat": -34.6065678, "lon": -58.3743829 },
+    { "lat": -34.6065853, "lon": -58.3743819 },
+    { "lat": -34.6067054, "lon": -58.3743750 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935239,
+  "bounds": {
+    "minlat": -34.6064673,
+    "minlon": -58.3743941,
+    "maxlat": -34.6063422,
+    "maxlon": -58.3742243
+  },
+  "nodes": [
+    13606527993,
+    13606527994,
+    13606527995,
+    13606527996,
+    13606527993
+  ],
+  "geometry": [
+    { "lat": -34.6064673, "lon": -58.3743892 },
+    { "lat": -34.6064628, "lon": -58.3742243 },
+    { "lat": -34.6063422, "lon": -58.3742292 },
+    { "lat": -34.6063467, "lon": -58.3743941 },
+    { "lat": -34.6064673, "lon": -58.3743892 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935240,
+  "bounds": {
+    "minlat": -34.6062810,
+    "minlon": -58.3744039,
+    "maxlat": -34.6062206,
+    "maxlon": -58.3742391
+  },
+  "nodes": [
+    13606527997,
+    13606527998,
+    4704133189,
+    13606527999,
+    13606527997
+  ],
+  "geometry": [
+    { "lat": -34.6062712, "lon": -58.3742391 },
+    { "lat": -34.6062810, "lon": -58.3743993 },
+    { "lat": -34.6062305, "lon": -58.3744039 },
+    { "lat": -34.6062206, "lon": -58.3742437 },
+    { "lat": -34.6062712, "lon": -58.3742391 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935241,
+  "bounds": {
+    "minlat": -34.6064710,
+    "minlon": -58.3740140,
+    "maxlat": -34.6061887,
+    "maxlon": -58.3738015
+  },
+  "nodes": [
+    13606528000,
+    13606528001,
+    13606528002,
+    13606528003,
+    13606528004,
+    13606528005,
+    13606528006,
+    13606528007,
+    13606528008,
+    13606528000
+  ],
+  "geometry": [
+    { "lat": -34.6064710, "lon": -58.3739330 },
+    { "lat": -34.6063749, "lon": -58.3739367 },
+    { "lat": -34.6063757, "lon": -58.3740080 },
+    { "lat": -34.6062699, "lon": -58.3740140 },
+    { "lat": -34.6062702, "lon": -58.3739540 },
+    { "lat": -34.6061977, "lon": -58.3739513 },
+    { "lat": -34.6061924, "lon": -58.3738864 },
+    { "lat": -34.6061887, "lon": -58.3738083 },
+    { "lat": -34.6064668, "lon": -58.3738015 },
+    { "lat": -34.6064710, "lon": -58.3739330 }
+  ],
+  "tags": {
+    "building": "yes",
+    "layer": "-1"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935242,
+  "bounds": {
+    "minlat": -34.6064750,
+    "minlon": -58.3741752,
+    "maxlat": -34.6062036,
+    "maxlon": -58.3740644
+  },
+  "nodes": [
+    13606528009,
+    13606528010,
+    4704133192,
+    13606528011,
+    13606528009
+  ],
+  "geometry": [
+    { "lat": -34.6062085, "lon": -58.3741752 },
+    { "lat": -34.6064750, "lon": -58.3741619 },
+    { "lat": -34.6064721, "lon": -58.3740644 },
+    { "lat": -34.6062036, "lon": -58.3740742 },
+    { "lat": -34.6062085, "lon": -58.3741752 }
+  ],
+  "tags": {
+    "building": "yes",
+    "layer": "-1"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935243,
+  "bounds": {
+    "minlat": -34.6062114,
+    "minlon": -58.3742488,
+    "maxlat": -34.6059249,
+    "maxlon": -58.3737467
+  },
+  "nodes": [
+    13606528012,
+    13606528007,
+    13606528006,
+    13606528005,
+    13606528011,
+    13606528009,
+    13606528013,
+    13606528022,
+    13606528014,
+    13606528051,
+    13606528046,
+    13606528015,
+    13606528012
+  ],
+  "geometry": [
+    { "lat": -34.6061863, "lon": -58.3737467 },
+    { "lat": -34.6061887, "lon": -58.3738083 },
+    { "lat": -34.6061924, "lon": -58.3738864 },
+    { "lat": -34.6061977, "lon": -58.3739513 },
+    { "lat": -34.6062036, "lon": -58.3740742 },
+    { "lat": -34.6062085, "lon": -58.3741752 },
+    { "lat": -34.6062114, "lon": -58.3742347 },
+    { "lat": -34.6061794, "lon": -58.3742368 },
+    { "lat": -34.6059445, "lon": -58.3742488 },
+    { "lat": -34.6059401, "lon": -58.3740579 },
+    { "lat": -34.6059314, "lon": -58.3739940 },
+    { "lat": -34.6059249, "lon": -58.3737522 },
+    { "lat": -34.6061863, "lon": -58.3737467 }
+  ],
+  "tags": {
+    "building": "yes",
+    "layer": "-1"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935244,
+  "bounds": {
+    "minlat": -34.6062150,
+    "minlon": -58.3744759,
+    "maxlat": -34.6059445,
+    "maxlon": -58.3742368
+  },
+  "nodes": [
+    13606528014,
+    13606528050,
+    13606528016,
+    13606528017,
+    13606528018,
+    13606528023,
+    13606528030,
+    13606528034,
+    13606528019,
+    13606528020,
+    13606528021,
+    13606528022,
+    13606528014
+  ],
+  "geometry": [
+    { "lat": -34.6059445, "lon": -58.3742488 },
+    { "lat": -34.6059448, "lon": -58.3742596 },
+    { "lat": -34.6059508, "lon": -58.3744177 },
+    { "lat": -34.6059724, "lon": -58.3744166 },
+    { "lat": -34.6059744, "lon": -58.3744759 },
+    { "lat": -34.6059888, "lon": -58.3744759 },
+    { "lat": -34.6060492, "lon": -58.3744736 },
+    { "lat": -34.6061286, "lon": -58.3744690 },
+    { "lat": -34.6062150, "lon": -58.3744647 },
+    { "lat": -34.6062114, "lon": -58.3743352 },
+    { "lat": -34.6061829, "lon": -58.3743366 },
+    { "lat": -34.6061794, "lon": -58.3742368 },
+    { "lat": -34.6059445, "lon": -58.3742488 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935245,
+  "bounds": {
+    "minlat": -34.6060672,
+    "minlon": -58.3745703,
+    "maxlat": -34.6059888,
+    "maxlon": -58.3744736
+  },
+  "nodes": [
+    13606528023,
+    13606528024,
+    13606528025,
+    13606528026,
+    13606528027,
+    13606528028,
+    13606528029,
+    13606528030,
+    13606528023
+  ],
+  "geometry": [
+    { "lat": -34.6059888, "lon": -58.3744759 },
+    { "lat": -34.6059903, "lon": -58.3745322 },
+    { "lat": -34.6060094, "lon": -58.3745314 },
+    { "lat": -34.6060104, "lon": -58.3745703 },
+    { "lat": -34.6060672, "lon": -58.3745681 },
+    { "lat": -34.6060659, "lon": -58.3745179 },
+    { "lat": -34.6060504, "lon": -58.3745185 },
+    { "lat": -34.6060492, "lon": -58.3744736 },
+    { "lat": -34.6059888, "lon": -58.3744759 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935246,
+  "bounds": {
+    "minlat": -34.6062181,
+    "minlon": -58.3745628,
+    "maxlat": -34.6061180,
+    "maxlon": -58.3744647
+  },
+  "nodes": [
+    13606528031,
+    13606528032,
+    13606528033,
+    13606528034,
+    13606528019,
+    13606528035,
+    13606528031
+  ],
+  "geometry": [
+    { "lat": -34.6061196, "lon": -58.3745628 },
+    { "lat": -34.6061180, "lon": -58.3745148 },
+    { "lat": -34.6061301, "lon": -58.3745142 },
+    { "lat": -34.6061286, "lon": -58.3744690 },
+    { "lat": -34.6062150, "lon": -58.3744647 },
+    { "lat": -34.6062181, "lon": -58.3745579 },
+    { "lat": -34.6061196, "lon": -58.3745628 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935247,
+  "bounds": {
+    "minlat": -34.6059489,
+    "minlon": -58.3748534,
+    "maxlat": -34.6057460,
+    "maxlon": -58.3747263
+  },
+  "nodes": [
+    4700151087,
+    13606528036,
+    13606528037,
+    13606528038,
+    4700151087
+  ],
+  "geometry": [
+    { "lat": -34.6057484, "lon": -58.3748534 },
+    { "lat": -34.6057460, "lon": -58.3747322 },
+    { "lat": -34.6059465, "lon": -58.3747263 },
+    { "lat": -34.6059489, "lon": -58.3748476 },
+    { "lat": -34.6057484, "lon": -58.3748534 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935248,
+  "bounds": {
+    "minlat": -34.6059465,
+    "minlon": -58.3747322,
+    "maxlat": -34.6057211,
+    "maxlon": -58.3743553
+  },
+  "nodes": [
+    13606528036,
+    13606528039,
+    13606528043,
+    13606528040,
+    13606528037,
+    13606528036
+  ],
+  "geometry": [
+    { "lat": -34.6057460, "lon": -58.3747322 },
+    { "lat": -34.6057211, "lon": -58.3743764 },
+    { "lat": -34.6058470, "lon": -58.3743628 },
+    { "lat": -34.6059167, "lon": -58.3743553 },
+    { "lat": -34.6059465, "lon": -58.3747263 },
+    { "lat": -34.6057460, "lon": -58.3747322 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935249,
+  "bounds": {
+    "minlat": -34.6058470,
+    "minlon": -58.3743764,
+    "maxlat": -34.6056743,
+    "maxlon": -58.3740002
+  },
+  "nodes": [
+    13606528039,
+    13606528041,
+    13606528042,
+    13606528054,
+    13606528047,
+    13606528043,
+    13606528039
+  ],
+  "geometry": [
+    { "lat": -34.6057211, "lon": -58.3743764 },
+    { "lat": -34.6056743, "lon": -58.3740134 },
+    { "lat": -34.6058246, "lon": -58.3740002 },
+    { "lat": -34.6058327, "lon": -58.3741234 },
+    { "lat": -34.6058349, "lon": -58.3742165 },
+    { "lat": -34.6058470, "lon": -58.3743628 },
+    { "lat": -34.6057211, "lon": -58.3743764 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935250,
+  "bounds": {
+    "minlat": -34.6059314,
+    "minlon": -58.3740134,
+    "maxlat": -34.6056611,
+    "maxlon": -58.3737522
+  },
+  "nodes": [
+    13606528041,
+    13606528044,
+    13606528045,
+    13606528015,
+    13606528046,
+    13606528042,
+    13606528041
+  ],
+  "geometry": [
+    { "lat": -34.6056743, "lon": -58.3740134 },
+    { "lat": -34.6056611, "lon": -58.3738074 },
+    { "lat": -34.6056863, "lon": -58.3737746 },
+    { "lat": -34.6059249, "lon": -58.3737522 },
+    { "lat": -34.6059314, "lon": -58.3739940 },
+    { "lat": -34.6058246, "lon": -58.3740002 },
+    { "lat": -34.6056743, "lon": -58.3740134 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935251,
+  "bounds": {
+    "minlat": -34.6059448,
+    "minlon": -58.3742622,
+    "maxlat": -34.6058327,
+    "maxlon": -58.3740579
+  },
+  "nodes": [
+    13606528047,
+    13606528048,
+    13606528049,
+    13606528050,
+    13606528014,
+    13606528051,
+    13606528052,
+    13606528053,
+    13606528054,
+    13606528047
+  ],
+  "geometry": [
+    { "lat": -34.6058349, "lon": -58.3742165 },
+    { "lat": -34.6058696, "lon": -58.3742153 },
+    { "lat": -34.6058707, "lon": -58.3742622 },
+    { "lat": -34.6059448, "lon": -58.3742596 },
+    { "lat": -34.6059445, "lon": -58.3742488 },
+    { "lat": -34.6059401, "lon": -58.3740579 },
+    { "lat": -34.6058579, "lon": -58.3740607 },
+    { "lat": -34.6058593, "lon": -58.3741225 },
+    { "lat": -34.6058327, "lon": -58.3741234 },
+    { "lat": -34.6058349, "lon": -58.3742165 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935252,
+  "bounds": {
+    "minlat": -34.6071526,
+    "minlon": -58.3757539,
+    "maxlat": -34.6069839,
+    "maxlon": -58.3755573
+  },
+  "nodes": [
+    13606528055,
+    13606528056,
+    13606528057,
+    13606528058,
+    13606528059,
+    13606528060,
+    13606528061,
+    6235439555,
+    13606528055
+  ],
+  "geometry": [
+    { "lat": -34.6069839, "lon": -58.3757539 },
+    { "lat": -34.6070904, "lon": -58.3755573 },
+    { "lat": -34.6071526, "lon": -58.3756050 },
+    { "lat": -34.6071283, "lon": -58.3756544 },
+    { "lat": -34.6071517, "lon": -58.3756731 },
+    { "lat": -34.6071340, "lon": -58.3757057 },
+    { "lat": -34.6071349, "lon": -58.3757494 },
+    { "lat": -34.6071046, "lon": -58.3757503 },
+    { "lat": -34.6069839, "lon": -58.3757539 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935253,
+  "bounds": {
+    "minlat": -34.6073907,
+    "minlon": -58.3756634,
+    "maxlat": -34.6070809,
+    "maxlon": -58.3753474
+  },
+  "nodes": [
+    13606528057,
+    13606528062,
+    13606528078,
+    13606528063,
+    13606528064,
+    13606528065,
+    13606528066,
+    13606528067,
+    13606528068,
+    13606528069,
+    13606528070,
+    13606528071,
+    13606528072,
+    13606528073,
+    13606528082,
+    13606528074,
+    13606528075,
+    13606528076,
+    13606528077,
+    13606528056,
+    13606528057
+  ],
+  "geometry": [
+    { "lat": -34.6071526, "lon": -58.3756050 },
+    { "lat": -34.6071711, "lon": -58.3755695 },
+    { "lat": -34.6071876, "lon": -58.3755822 },
+    { "lat": -34.6072227, "lon": -58.3756091 },
+    { "lat": -34.6072488, "lon": -58.3756154 },
+    { "lat": -34.6072471, "lon": -58.3755547 },
+    { "lat": -34.6072029, "lon": -58.3755240 },
+    { "lat": -34.6072272, "lon": -58.3754755 },
+    { "lat": -34.6073029, "lon": -58.3755314 },
+    { "lat": -34.6073024, "lon": -58.3755524 },
+    { "lat": -34.6073181, "lon": -58.3755602 },
+    { "lat": -34.6073209, "lon": -58.3756634 },
+    { "lat": -34.6073907, "lon": -58.3756602 },
+    { "lat": -34.6073903, "lon": -58.3754316 },
+    { "lat": -34.6073771, "lon": -58.3754305 },
+    { "lat": -34.6073302, "lon": -58.3754300 },
+    { "lat": -34.6073287, "lon": -58.3754600 },
+    { "lat": -34.6071862, "lon": -58.3753474 },
+    { "lat": -34.6070809, "lon": -58.3755442 },
+    { "lat": -34.6070904, "lon": -58.3755573 },
+    { "lat": -34.6071526, "lon": -58.3756050 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935254,
+  "bounds": {
+    "minlat": -34.6072841,
+    "minlon": -58.3757452,
+    "maxlat": -34.6071856,
+    "maxlon": -58.3755822
+  },
+  "nodes": [
+    13606528078,
+    6235439547,
+    13606528079,
+    13606528081,
+    13606528080,
+    13606528064,
+    13606528063,
+    13606528078
+  ],
+  "geometry": [
+    { "lat": -34.6071876, "lon": -58.3755822 },
+    { "lat": -34.6071856, "lon": -58.3757434 },
+    { "lat": -34.6072839, "lon": -58.3757452 },
+    { "lat": -34.6072841, "lon": -58.3756649 },
+    { "lat": -34.6072827, "lon": -58.3756140 },
+    { "lat": -34.6072488, "lon": -58.3756154 },
+    { "lat": -34.6072227, "lon": -58.3756091 },
+    { "lat": -34.6071876, "lon": -58.3755822 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935255,
+  "bounds": {
+    "minlat": -34.6073209,
+    "minlon": -58.3756649,
+    "maxlat": -34.6072471,
+    "maxlon": -58.3755524
+  },
+  "nodes": [
+    13606528081,
+    13606528071,
+    13606528070,
+    13606528069,
+    13606528065,
+    13606528064,
+    13606528080,
+    13606528081
+  ],
+  "geometry": [
+    { "lat": -34.6072841, "lon": -58.3756649 },
+    { "lat": -34.6073209, "lon": -58.3756634 },
+    { "lat": -34.6073181, "lon": -58.3755602 },
+    { "lat": -34.6073024, "lon": -58.3755524 },
+    { "lat": -34.6072471, "lon": -58.3755547 },
+    { "lat": -34.6072488, "lon": -58.3756154 },
+    { "lat": -34.6072827, "lon": -58.3756140 },
+    { "lat": -34.6072841, "lon": -58.3756649 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935256,
+  "bounds": {
+    "minlat": -34.6074567,
+    "minlon": -58.3754305,
+    "maxlat": -34.6073077,
+    "maxlon": -58.3753159
+  },
+  "nodes": [
+    13606528082,
+    13606528083,
+    13606528084,
+    13606528085,
+    13606528088,
+    13606528086,
+    6235439551,
+    13606528087,
+    13606528074,
+    13606528082
+  ],
+  "geometry": [
+    { "lat": -34.6073771, "lon": -58.3754305 },
+    { "lat": -34.6073774, "lon": -58.3753852 },
+    { "lat": -34.6074567, "lon": -58.3753859 },
+    { "lat": -34.6074552, "lon": -58.3753194 },
+    { "lat": -34.6074293, "lon": -58.3753202 },
+    { "lat": -34.6073484, "lon": -58.3753159 },
+    { "lat": -34.6073077, "lon": -58.3753904 },
+    { "lat": -34.6073305, "lon": -58.3753906 },
+    { "lat": -34.6073302, "lon": -58.3754300 },
+    { "lat": -34.6073771, "lon": -58.3754305 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935257,
+  "bounds": {
+    "minlat": -34.6075777,
+    "minlon": -58.3755079,
+    "maxlat": -34.6074240,
+    "maxlon": -58.3750701
+  },
+  "nodes": [
+    13606528088,
+    6235439567,
+    6235439570,
+    13606528089,
+    13606528092,
+    13606528090,
+    13606528091,
+    13606528084,
+    13606528085,
+    13606528088
+  ],
+  "geometry": [
+    { "lat": -34.6074293, "lon": -58.3753202 },
+    { "lat": -34.6074265, "lon": -58.3751906 },
+    { "lat": -34.6074240, "lon": -58.3750745 },
+    { "lat": -34.6075599, "lon": -58.3750701 },
+    { "lat": -34.6075678, "lon": -58.3754366 },
+    { "lat": -34.6075777, "lon": -58.3755079 },
+    { "lat": -34.6074591, "lon": -58.3755011 },
+    { "lat": -34.6074567, "lon": -58.3753859 },
+    { "lat": -34.6074552, "lon": -58.3753194 },
+    { "lat": -34.6074293, "lon": -58.3753202 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935258,
+  "bounds": {
+    "minlat": -34.6077146,
+    "minlon": -58.3754422,
+    "maxlat": -34.6075599,
+    "maxlon": -58.3750669
+  },
+  "nodes": [
+    13606528092,
+    13606528099,
+    13606528113,
+    13606528093,
+    13606528094,
+    13606528095,
+    13606528096,
+    13606528097,
+    13606528098,
+    13606528089,
+    13606528092
+  ],
+  "geometry": [
+    { "lat": -34.6075678, "lon": -58.3754366 },
+    { "lat": -34.6076357, "lon": -58.3754422 },
+    { "lat": -34.6076806, "lon": -58.3754411 },
+    { "lat": -34.6077146, "lon": -58.3754315 },
+    { "lat": -34.6077111, "lon": -58.3752855 },
+    { "lat": -34.6076717, "lon": -58.3752868 },
+    { "lat": -34.6076698, "lon": -58.3752070 },
+    { "lat": -34.6077008, "lon": -58.3752059 },
+    { "lat": -34.6076975, "lon": -58.3750669 },
+    { "lat": -34.6075599, "lon": -58.3750701 },
+    { "lat": -34.6075678, "lon": -58.3754366 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935259,
+  "bounds": {
+    "minlat": -34.6077253,
+    "minlon": -58.3758340,
+    "maxlat": -34.6074729,
+    "maxlon": -58.3754411
+  },
+  "nodes": [
+    13606528099,
+    13606528100,
+    13606528090,
+    13606528101,
+    13606528102,
+    13606528103,
+    6235439515,
+    13606528104,
+    13606528105,
+    13606528106,
+    13606528107,
+    13606528108,
+    13606528109,
+    13606528110,
+    13606528111,
+    13606528112,
+    13606528113,
+    13606528099
+  ],
+  "geometry": [
+    { "lat": -34.6076357, "lon": -58.3754422 },
+    { "lat": -34.6076368, "lon": -58.3755065 },
+    { "lat": -34.6075777, "lon": -58.3755079 },
+    { "lat": -34.6075810, "lon": -58.3757081 },
+    { "lat": -34.6074729, "lon": -58.3757107 },
+    { "lat": -34.6074749, "lon": -58.3758340 },
+    { "lat": -34.6075996, "lon": -58.3758310 },
+    { "lat": -34.6076566, "lon": -58.3758189 },
+    { "lat": -34.6076570, "lon": -58.3757259 },
+    { "lat": -34.6076229, "lon": -58.3757143 },
+    { "lat": -34.6076220, "lon": -58.3756582 },
+    { "lat": -34.6076851, "lon": -58.3756567 },
+    { "lat": -34.6076860, "lon": -58.3757261 },
+    { "lat": -34.6077253, "lon": -58.3757267 },
+    { "lat": -34.6077190, "lon": -58.3755099 },
+    { "lat": -34.6076818, "lon": -58.3755107 },
+    { "lat": -34.6076806, "lon": -58.3754411 },
+    { "lat": -34.6076357, "lon": -58.3754422 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935260,
+  "bounds": {
+    "minlat": -34.6079213,
+    "minlon": -58.3758208,
+    "maxlat": -34.6076566,
+    "maxlon": -58.3757185
+  },
+  "nodes": [
+    6235439517,
+    13606528114,
+    13606528115,
+    13606528110,
+    13606528109,
+    13606528105,
+    13606528104,
+    6235439517
+  ],
+  "geometry": [
+    { "lat": -34.6077041, "lon": -58.3758192 },
+    { "lat": -34.6079213, "lon": -58.3758208 },
+    { "lat": -34.6079170, "lon": -58.3757185 },
+    { "lat": -34.6077253, "lon": -58.3757267 },
+    { "lat": -34.6076860, "lon": -58.3757261 },
+    { "lat": -34.6076570, "lon": -58.3757259 },
+    { "lat": -34.6076566, "lon": -58.3758189 },
+    { "lat": -34.6077041, "lon": -58.3758192 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935261,
+  "bounds": {
+    "minlat": -34.6080371,
+    "minlon": -58.3758411,
+    "maxlat": -34.6079170,
+    "maxlon": -58.3757154
+  },
+  "nodes": [
+    13606528115,
+    13606528116,
+    13606528117,
+    13606528118,
+    13606528114,
+    13606528115
+  ],
+  "geometry": [
+    { "lat": -34.6079170, "lon": -58.3757185 },
+    { "lat": -34.6080289, "lon": -58.3757154 },
+    { "lat": -34.6080371, "lon": -58.3758370 },
+    { "lat": -34.6079218, "lon": -58.3758411 },
+    { "lat": -34.6079213, "lon": -58.3758208 },
+    { "lat": -34.6079170, "lon": -58.3757185 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935262,
+  "bounds": {
+    "minlat": -34.6080289,
+    "minlon": -58.3757185,
+    "maxlat": -34.6079097,
+    "maxlon": -58.3754619
+  },
+  "nodes": [
+    13606528116,
+    13606528119,
+    13606528122,
+    13606528120,
+    13606528115,
+    13606528116
+  ],
+  "geometry": [
+    { "lat": -34.6080289, "lon": -58.3757154 },
+    { "lat": -34.6080171, "lon": -58.3754619 },
+    { "lat": -34.6079447, "lon": -58.3754634 },
+    { "lat": -34.6079097, "lon": -58.3754684 },
+    { "lat": -34.6079170, "lon": -58.3757185 },
+    { "lat": -34.6080289, "lon": -58.3757154 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935263,
+  "bounds": {
+    "minlat": -34.6079170,
+    "minlon": -58.3757267,
+    "maxlat": -34.6077190,
+    "maxlon": -58.3754684
+  },
+  "nodes": [
+    13606528111,
+    13606528121,
+    13606528120,
+    13606528115,
+    13606528110,
+    13606528111
+  ],
+  "geometry": [
+    { "lat": -34.6077190, "lon": -58.3755099 },
+    { "lat": -34.6077230, "lon": -58.3754705 },
+    { "lat": -34.6079097, "lon": -58.3754684 },
+    { "lat": -34.6079170, "lon": -58.3757185 },
+    { "lat": -34.6077253, "lon": -58.3757267 },
+    { "lat": -34.6077190, "lon": -58.3755099 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935264,
+  "bounds": {
+    "minlat": -34.6079447,
+    "minlon": -58.3754705,
+    "maxlat": -34.6077199,
+    "maxlon": -58.3753285
+  },
+  "nodes": [
+    13606528122,
+    13606528123,
+    6235439578,
+    4675385990,
+    4675385989,
+    13606528121,
+    13606528122
+  ],
+  "geometry": [
+    { "lat": -34.6079447, "lon": -58.3754634 },
+    { "lat": -34.6079433, "lon": -58.3753991 },
+    { "lat": -34.6078009, "lon": -58.3754037 },
+    { "lat": -34.6077992, "lon": -58.3753285 },
+    { "lat": -34.6077199, "lon": -58.3753310 },
+    { "lat": -34.6077230, "lon": -58.3754705 },
+    { "lat": -34.6079447, "lon": -58.3754634 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935265,
+  "bounds": {
+    "minlat": -34.6084772,
+    "minlon": -58.3752128,
+    "maxlat": -34.6082987,
+    "maxlon": -58.3750093
+  },
+  "nodes": [
+    4675235287,
+    13606528124,
+    13606528125,
+    4675235280,
+    4675235287
+  ],
+  "geometry": [
+    { "lat": -34.6083055, "lon": -58.3752128 },
+    { "lat": -34.6084772, "lon": -58.3752058 },
+    { "lat": -34.6084640, "lon": -58.3750093 },
+    { "lat": -34.6082987, "lon": -58.3750177 },
+    { "lat": -34.6083055, "lon": -58.3752128 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935266,
+  "bounds": {
+    "minlat": -34.6084832,
+    "minlon": -58.3754924,
+    "maxlat": -34.6082337,
+    "maxlon": -58.3752058
+  },
+  "nodes": [
+    13606528124,
+    13606528126,
+    13606528150,
+    13606528137,
+    13606528127,
+    13606528128,
+    13606528129,
+    13606528130,
+    13606528131,
+    13606528132,
+    13606528133,
+    13606528134,
+    13606528135,
+    13606528136,
+    4675235287,
+    13606528124
+  ],
+  "geometry": [
+    { "lat": -34.6084772, "lon": -58.3752058 },
+    { "lat": -34.6084832, "lon": -58.3754249 },
+    { "lat": -34.6084751, "lon": -58.3754257 },
+    { "lat": -34.6083896, "lon": -58.3754287 },
+    { "lat": -34.6083076, "lon": -58.3754321 },
+    { "lat": -34.6083092, "lon": -58.3754895 },
+    { "lat": -34.6082379, "lon": -58.3754924 },
+    { "lat": -34.6082337, "lon": -58.3753405 },
+    { "lat": -34.6083059, "lon": -58.3753375 },
+    { "lat": -34.6083069, "lon": -58.3753726 },
+    { "lat": -34.6083676, "lon": -58.3753701 },
+    { "lat": -34.6083656, "lon": -58.3752998 },
+    { "lat": -34.6082865, "lon": -58.3753030 },
+    { "lat": -34.6082840, "lon": -58.3752137 },
+    { "lat": -34.6083055, "lon": -58.3752128 },
+    { "lat": -34.6084772, "lon": -58.3752058 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935267,
+  "bounds": {
+    "minlat": -34.6084958,
+    "minlon": -58.3756734,
+    "maxlat": -34.6082438,
+    "maxlon": -58.3754257
+  },
+  "nodes": [
+    13606528137,
+    13606528138,
+    13606528139,
+    13606528140,
+    13606528141,
+    13606528142,
+    13606528172,
+    13606528143,
+    13606528144,
+    13606528154,
+    13606528151,
+    13606528145,
+    13606528146,
+    13606528147,
+    13606528148,
+    13606528149,
+    13606528150,
+    13606528137
+  ],
+  "geometry": [
+    { "lat": -34.6083896, "lon": -58.3754287 },
+    { "lat": -34.6083909, "lon": -58.3754834 },
+    { "lat": -34.6083232, "lon": -58.3754858 },
+    { "lat": -34.6083239, "lon": -58.3755154 },
+    { "lat": -34.6082438, "lon": -58.3755196 },
+    { "lat": -34.6082470, "lon": -58.3756138 },
+    { "lat": -34.6082554, "lon": -58.3756134 },
+    { "lat": -34.6083078, "lon": -58.3756115 },
+    { "lat": -34.6083092, "lon": -58.3756734 },
+    { "lat": -34.6083396, "lon": -58.3756721 },
+    { "lat": -34.6083818, "lon": -58.3756689 },
+    { "lat": -34.6084855, "lon": -58.3756644 },
+    { "lat": -34.6084844, "lon": -58.3756194 },
+    { "lat": -34.6084958, "lon": -58.3756190 },
+    { "lat": -34.6084924, "lon": -58.3754751 },
+    { "lat": -34.6084763, "lon": -58.3754757 },
+    { "lat": -34.6084751, "lon": -58.3754257 },
+    { "lat": -34.6083896, "lon": -58.3754287 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935268,
+  "bounds": {
+    "minlat": -34.6085140,
+    "minlon": -58.3759124,
+    "maxlat": -34.6082426,
+    "maxlon": -58.3756636
+  },
+  "nodes": [
+    13606528151,
+    13606528152,
+    13606528153,
+    13606528154,
+    13606528144,
+    13606528155,
+    13606528156,
+    13606528157,
+    13606528158,
+    13606528159,
+    13606528160,
+    13606528161,
+    13606528162,
+    13606528163,
+    13606528164,
+    13606528165,
+    13606528166,
+    13606528145,
+    13606528151
+  ],
+  "geometry": [
+    { "lat": -34.6083818, "lon": -58.3756689 },
+    { "lat": -34.6083838, "lon": -58.3757370 },
+    { "lat": -34.6083415, "lon": -58.3757389 },
+    { "lat": -34.6083396, "lon": -58.3756721 },
+    { "lat": -34.6083092, "lon": -58.3756734 },
+    { "lat": -34.6082815, "lon": -58.3756746 },
+    { "lat": -34.6082841, "lon": -58.3757653 },
+    { "lat": -34.6082426, "lon": -58.3757670 },
+    { "lat": -34.6082446, "lon": -58.3758181 },
+    { "lat": -34.6082853, "lon": -58.3758163 },
+    { "lat": -34.6082856, "lon": -58.3759124 },
+    { "lat": -34.6083542, "lon": -58.3759070 },
+    { "lat": -34.6083520, "lon": -58.3758294 },
+    { "lat": -34.6083958, "lon": -58.3758275 },
+    { "lat": -34.6083980, "lon": -58.3759036 },
+    { "lat": -34.6085140, "lon": -58.3758945 },
+    { "lat": -34.6085047, "lon": -58.3756636 },
+    { "lat": -34.6084855, "lon": -58.3756644 },
+    { "lat": -34.6083818, "lon": -58.3756689 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935269,
+  "bounds": {
+    "minlat": -34.6082489,
+    "minlon": -58.3759351,
+    "maxlat": -34.6081233,
+    "maxlon": -58.3756871
+  },
+  "nodes": [
+    13606528157,
+    13606528167,
+    13606528173,
+    13606528168,
+    13606528169,
+    13606528170,
+    13606528158,
+    13606528157
+  ],
+  "geometry": [
+    { "lat": -34.6082426, "lon": -58.3757670 },
+    { "lat": -34.6082395, "lon": -58.3756871 },
+    { "lat": -34.6081390, "lon": -58.3756921 },
+    { "lat": -34.6081233, "lon": -58.3756907 },
+    { "lat": -34.6081351, "lon": -58.3759351 },
+    { "lat": -34.6082489, "lon": -58.3759288 },
+    { "lat": -34.6082446, "lon": -58.3758181 },
+    { "lat": -34.6082426, "lon": -58.3757670 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1483935270,
+  "bounds": {
+    "minlat": -34.6082578,
+    "minlon": -58.3756921,
+    "maxlat": -34.6081333,
+    "maxlon": -58.3755196
+  },
+  "nodes": [
+    13606528167,
+    13606528171,
+    13606528172,
+    13606528142,
+    13606528141,
+    4675235284,
+    4675235283,
+    13606528173,
+    13606528167
+  ],
+  "geometry": [
+    { "lat": -34.6082395, "lon": -58.3756871 },
+    { "lat": -34.6082578, "lon": -58.3756862 },
+    { "lat": -34.6082554, "lon": -58.3756134 },
+    { "lat": -34.6082470, "lon": -58.3756138 },
+    { "lat": -34.6082438, "lon": -58.3755196 },
+    { "lat": -34.6082145, "lon": -58.3755211 },
+    { "lat": -34.6081333, "lon": -58.3755252 },
+    { "lat": -34.6081390, "lon": -58.3756921 },
+    { "lat": -34.6082395, "lon": -58.3756871 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005750,
+  "bounds": {
+    "minlat": -34.6069881,
+    "minlon": -58.3743406,
+    "maxlat": -34.6068837,
+    "maxlon": -58.3742177
+  },
+  "nodes": [
+    13607142078,
+    13607142079,
+    13607142080,
+    13607142091,
+    13607142086,
+    13607142081,
+    13607142078
+  ],
+  "geometry": [
+    { "lat": -34.6068852, "lon": -58.3743406 },
+    { "lat": -34.6068837, "lon": -58.3742196 },
+    { "lat": -34.6069861, "lon": -58.3742177 },
+    { "lat": -34.6069872, "lon": -58.3742555 },
+    { "lat": -34.6069881, "lon": -58.3743266 },
+    { "lat": -34.6069876, "lon": -58.3743388 },
+    { "lat": -34.6068852, "lon": -58.3743406 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005751,
+  "bounds": {
+    "minlat": -34.6070104,
+    "minlon": -58.3742196,
+    "maxlat": -34.6068831,
+    "maxlon": -58.3741324
+  },
+  "nodes": [
+    13607142079,
+    13607142082,
+    13607142083,
+    13607142094,
+    13607142084,
+    13607142080,
+    13607142079
+  ],
+  "geometry": [
+    { "lat": -34.6068837, "lon": -58.3742196 },
+    { "lat": -34.6068831, "lon": -58.3741324 },
+    { "lat": -34.6070101, "lon": -58.3741329 },
+    { "lat": -34.6070104, "lon": -58.3741543 },
+    { "lat": -34.6070083, "lon": -58.3742191 },
+    { "lat": -34.6069861, "lon": -58.3742177 },
+    { "lat": -34.6068837, "lon": -58.3742196 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005752,
+  "bounds": {
+    "minlat": -34.6070113,
+    "minlon": -58.3741329,
+    "maxlat": -34.6068830,
+    "maxlon": -58.3740520
+  },
+  "nodes": [
+    13607142082,
+    13607142085,
+    6235254389,
+    13607160403,
+    13607142083,
+    13607142082
+  ],
+  "geometry": [
+    { "lat": -34.6068831, "lon": -58.3741324 },
+    { "lat": -34.6068830, "lon": -58.3740589 },
+    { "lat": -34.6070113, "lon": -58.3740520 },
+    { "lat": -34.6070092, "lon": -58.3740635 },
+    { "lat": -34.6070101, "lon": -58.3741329 },
+    { "lat": -34.6068831, "lon": -58.3741324 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005753,
+  "bounds": {
+    "minlat": -34.6071222,
+    "minlon": -58.3743266,
+    "maxlat": -34.6069872,
+    "maxlon": -58.3742224
+  },
+  "nodes": [
+    13607142086,
+    13607142087,
+    13607142088,
+    13607142092,
+    13607142089,
+    13607142090,
+    13607142091,
+    13607142086
+  ],
+  "geometry": [
+    { "lat": -34.6069881, "lon": -58.3743266 },
+    { "lat": -34.6071222, "lon": -58.3743240 },
+    { "lat": -34.6071208, "lon": -58.3742224 },
+    { "lat": -34.6070590, "lon": -58.3742229 },
+    { "lat": -34.6070208, "lon": -58.3742243 },
+    { "lat": -34.6070212, "lon": -58.3742549 },
+    { "lat": -34.6069872, "lon": -58.3742555 },
+    { "lat": -34.6069881, "lon": -58.3743266 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005754,
+  "bounds": {
+    "minlat": -34.6070590,
+    "minlon": -58.3742243,
+    "maxlat": -34.6070083,
+    "maxlon": -58.3741534
+  },
+  "nodes": [
+    13607142092,
+    13607142093,
+    13607142094,
+    13607142084,
+    13607142089,
+    13607142092
+  ],
+  "geometry": [
+    { "lat": -34.6070590, "lon": -58.3742229 },
+    { "lat": -34.6070546, "lon": -58.3741534 },
+    { "lat": -34.6070104, "lon": -58.3741543 },
+    { "lat": -34.6070083, "lon": -58.3742191 },
+    { "lat": -34.6070208, "lon": -58.3742243 },
+    { "lat": -34.6070590, "lon": -58.3742229 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005755,
+  "bounds": {
+    "minlat": -34.6072369,
+    "minlon": -58.3741543,
+    "maxlat": -34.6070092,
+    "maxlon": -58.3740412
+  },
+  "nodes": [
+    13607142093,
+    13607142095,
+    13607142096,
+    13607142097,
+    13607142098,
+    13607142099,
+    13607142100,
+    13607160401,
+    13607160402,
+    13607160403,
+    13607142083,
+    13607142094,
+    13607142093
+  ],
+  "geometry": [
+    { "lat": -34.6070546, "lon": -58.3741534 },
+    { "lat": -34.6070542, "lon": -58.3741205 },
+    { "lat": -34.6071711, "lon": -58.3741182 },
+    { "lat": -34.6071715, "lon": -58.3741480 },
+    { "lat": -34.6072369, "lon": -58.3741467 },
+    { "lat": -34.6072362, "lon": -58.3740947 },
+    { "lat": -34.6072149, "lon": -58.3740412 },
+    { "lat": -34.6070267, "lon": -58.3740450 },
+    { "lat": -34.6070270, "lon": -58.3740632 },
+    { "lat": -34.6070092, "lon": -58.3740635 },
+    { "lat": -34.6070101, "lon": -58.3741329 },
+    { "lat": -34.6070104, "lon": -58.3741543 },
+    { "lat": -34.6070546, "lon": -58.3741534 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005756,
+  "bounds": {
+    "minlat": -34.6072219,
+    "minlon": -58.3740635,
+    "maxlat": -34.6070055,
+    "maxlon": -58.3738598
+  },
+  "nodes": [
+    13607160404,
+    13607160405,
+    13607160406,
+    13607160407,
+    13607160408,
+    13607160427,
+    13607160409,
+    13607142100,
+    13607160401,
+    13607160402,
+    13607160403,
+    6235254389,
+    13607160410,
+    13607160404
+  ],
+  "geometry": [
+    { "lat": -34.6070573, "lon": -58.3738708 },
+    { "lat": -34.6070603, "lon": -58.3740065 },
+    { "lat": -34.6071589, "lon": -58.3740033 },
+    { "lat": -34.6071559, "lon": -58.3738647 },
+    { "lat": -34.6072143, "lon": -58.3738598 },
+    { "lat": -34.6072148, "lon": -58.3738843 },
+    { "lat": -34.6072219, "lon": -58.3740341 },
+    { "lat": -34.6072149, "lon": -58.3740412 },
+    { "lat": -34.6070267, "lon": -58.3740450 },
+    { "lat": -34.6070270, "lon": -58.3740632 },
+    { "lat": -34.6070092, "lon": -58.3740635 },
+    { "lat": -34.6070113, "lon": -58.3740520 },
+    { "lat": -34.6070055, "lon": -58.3738745 },
+    { "lat": -34.6070573, "lon": -58.3738708 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005757,
+  "bounds": {
+    "minlat": -34.6071048,
+    "minlon": -58.3738745,
+    "maxlat": -34.6070022,
+    "maxlon": -58.3737988
+  },
+  "nodes": [
+    13607160404,
+    13607160411,
+    13607160412,
+    13607160413,
+    13607160410,
+    13607160404
+  ],
+  "geometry": [
+    { "lat": -34.6070573, "lon": -58.3738708 },
+    { "lat": -34.6071048, "lon": -58.3738673 },
+    { "lat": -34.6071015, "lon": -58.3737988 },
+    { "lat": -34.6070022, "lon": -58.3738060 },
+    { "lat": -34.6070055, "lon": -58.3738745 },
+    { "lat": -34.6070573, "lon": -58.3738708 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005758,
+  "bounds": {
+    "minlat": -34.6072143,
+    "minlon": -58.3738673,
+    "maxlat": -34.6069997,
+    "maxlon": -58.3737166
+  },
+  "nodes": [
+    13607160414,
+    13607160415,
+    13607160416,
+    13607160417,
+    13607160418,
+    13607160419,
+    13607160420,
+    13607160421,
+    13607160408,
+    13607160407,
+    13607160411,
+    13607160412,
+    13607160413,
+    13607160414
+  ],
+  "geometry": [
+    { "lat": -34.6069997, "lon": -58.3737613 },
+    { "lat": -34.6070633, "lon": -58.3737562 },
+    { "lat": -34.6070614, "lon": -58.3737218 },
+    { "lat": -34.6071258, "lon": -58.3737166 },
+    { "lat": -34.6071275, "lon": -58.3737469 },
+    { "lat": -34.6071994, "lon": -58.3737412 },
+    { "lat": -34.6071998, "lon": -58.3737621 },
+    { "lat": -34.6072123, "lon": -58.3737618 },
+    { "lat": -34.6072143, "lon": -58.3738598 },
+    { "lat": -34.6071559, "lon": -58.3738647 },
+    { "lat": -34.6071048, "lon": -58.3738673 },
+    { "lat": -34.6071015, "lon": -58.3737988 },
+    { "lat": -34.6070022, "lon": -58.3738060 },
+    { "lat": -34.6069997, "lon": -58.3737613 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005759,
+  "bounds": {
+    "minlat": -34.6073491,
+    "minlon": -58.3738930,
+    "maxlat": -34.6071983,
+    "maxlon": -58.3736809
+  },
+  "nodes": [
+    13607160419,
+    13607160422,
+    6235254394,
+    6235253665,
+    13607160423,
+    13607160424,
+    13607160425,
+    13607160426,
+    13607160427,
+    13607160408,
+    13607160421,
+    13607160420,
+    13607160419
+  ],
+  "geometry": [
+    { "lat": -34.6071994, "lon": -58.3737412 },
+    { "lat": -34.6071983, "lon": -58.3736852 },
+    { "lat": -34.6073460, "lon": -58.3736809 },
+    { "lat": -34.6073491, "lon": -58.3738397 },
+    { "lat": -34.6073046, "lon": -58.3738410 },
+    { "lat": -34.6073056, "lon": -58.3738916 },
+    { "lat": -34.6072594, "lon": -58.3738930 },
+    { "lat": -34.6072592, "lon": -58.3738830 },
+    { "lat": -34.6072148, "lon": -58.3738843 },
+    { "lat": -34.6072143, "lon": -58.3738598 },
+    { "lat": -34.6072123, "lon": -58.3737618 },
+    { "lat": -34.6071998, "lon": -58.3737621 },
+    { "lat": -34.6071994, "lon": -58.3737412 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005760,
+  "bounds": {
+    "minlat": -34.6073021,
+    "minlon": -58.3746029,
+    "maxlat": -34.6071150,
+    "maxlon": -58.3744037
+  },
+  "nodes": [
+    6235254407,
+    13607160435,
+    13607160428,
+    13607160430,
+    13607160429,
+    4699741328,
+    6235254407
+  ],
+  "geometry": [
+    { "lat": -34.6071150, "lon": -58.3745058 },
+    { "lat": -34.6071513, "lon": -58.3744531 },
+    { "lat": -34.6071756, "lon": -58.3744037 },
+    { "lat": -34.6072617, "lon": -58.3744663 },
+    { "lat": -34.6073021, "lon": -58.3744889 },
+    { "lat": -34.6072440, "lon": -58.3746029 },
+    { "lat": -34.6071150, "lon": -58.3745058 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005761,
+  "bounds": {
+    "minlat": -34.6072948,
+    "minlon": -58.3744663,
+    "maxlat": -34.6070742,
+    "maxlon": -58.3743132
+  },
+  "nodes": [
+    13607160430,
+    13607160431,
+    13607160439,
+    13607160432,
+    13607160433,
+    13607142087,
+    6235254412,
+    13607160434,
+    13607160435,
+    13607160428,
+    13607160430
+  ],
+  "geometry": [
+    { "lat": -34.6072617, "lon": -58.3744663 },
+    { "lat": -34.6072948, "lon": -58.3743991 },
+    { "lat": -34.6072315, "lon": -58.3743509 },
+    { "lat": -34.6071834, "lon": -58.3743132 },
+    { "lat": -34.6071728, "lon": -58.3743313 },
+    { "lat": -34.6071222, "lon": -58.3743240 },
+    { "lat": -34.6071060, "lon": -58.3743323 },
+    { "lat": -34.6070742, "lon": -58.3743970 },
+    { "lat": -34.6071513, "lon": -58.3744531 },
+    { "lat": -34.6071756, "lon": -58.3744037 },
+    { "lat": -34.6072617, "lon": -58.3744663 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005762,
+  "bounds": {
+    "minlat": -34.6073480,
+    "minlon": -58.3744160,
+    "maxlat": -34.6072315,
+    "maxlon": -58.3742912
+  },
+  "nodes": [
+    13607160431,
+    13607160436,
+    13607160437,
+    13607160438,
+    13607160439,
+    13607160431
+  ],
+  "geometry": [
+    { "lat": -34.6072948, "lon": -58.3743991 },
+    { "lat": -34.6073170, "lon": -58.3744160 },
+    { "lat": -34.6073480, "lon": -58.3743561 },
+    { "lat": -34.6072631, "lon": -58.3742912 },
+    { "lat": -34.6072315, "lon": -58.3743509 },
+    { "lat": -34.6072948, "lon": -58.3743991 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005763,
+  "bounds": {
+    "minlat": -34.6073825,
+    "minlon": -58.3743561,
+    "maxlat": -34.6072631,
+    "maxlon": -58.3742247
+  },
+  "nodes": [
+    13607160437,
+    13607160440,
+    13607160441,
+    13607160438,
+    13607160437
+  ],
+  "geometry": [
+    { "lat": -34.6073480, "lon": -58.3743561 },
+    { "lat": -34.6073825, "lon": -58.3742895 },
+    { "lat": -34.6072983, "lon": -58.3742247 },
+    { "lat": -34.6072631, "lon": -58.3742912 },
+    { "lat": -34.6073480, "lon": -58.3743561 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005764,
+  "bounds": {
+    "minlat": -34.6074108,
+    "minlon": -58.3742895,
+    "maxlat": -34.6072983,
+    "maxlon": -58.3741395
+  },
+  "nodes": [
+    13607160440,
+    13607160442,
+    13607160443,
+    13607160444,
+    13607160448,
+    13607160445,
+    13607160447,
+    13607160441,
+    13607160440
+  ],
+  "geometry": [
+    { "lat": -34.6073825, "lon": -58.3742895 },
+    { "lat": -34.6074108, "lon": -58.3742367 },
+    { "lat": -34.6073651, "lon": -58.3742013 },
+    { "lat": -34.6073816, "lon": -58.3741699 },
+    { "lat": -34.6073635, "lon": -58.3741543 },
+    { "lat": -34.6073435, "lon": -58.3741395 },
+    { "lat": -34.6073298, "lon": -58.3741651 },
+    { "lat": -34.6072983, "lon": -58.3742247 },
+    { "lat": -34.6073825, "lon": -58.3742895 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005765,
+  "bounds": {
+    "minlat": -34.6073298,
+    "minlon": -58.3743509,
+    "maxlat": -34.6071834,
+    "maxlon": -58.3741275
+  },
+  "nodes": [
+    13607160432,
+    13607160446,
+    13607160447,
+    13607160441,
+    13607160438,
+    13607160439,
+    13607160432
+  ],
+  "geometry": [
+    { "lat": -34.6071834, "lon": -58.3743132 },
+    { "lat": -34.6072817, "lon": -58.3741275 },
+    { "lat": -34.6073298, "lon": -58.3741651 },
+    { "lat": -34.6072983, "lon": -58.3742247 },
+    { "lat": -34.6072631, "lon": -58.3742912 },
+    { "lat": -34.6072315, "lon": -58.3743509 },
+    { "lat": -34.6071834, "lon": -58.3743132 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005766,
+  "bounds": {
+    "minlat": -34.6075089,
+    "minlon": -58.3742367,
+    "maxlat": -34.6073635,
+    "maxlon": -58.3740018
+  },
+  "nodes": [
+    13607160448,
+    13607160460,
+    13607160449,
+    13607160450,
+    13607160442,
+    13607160443,
+    13607160444,
+    13607160448
+  ],
+  "geometry": [
+    { "lat": -34.6073635, "lon": -58.3741543 },
+    { "lat": -34.6074282, "lon": -58.3740261 },
+    { "lat": -34.6074455, "lon": -58.3740018 },
+    { "lat": -34.6075089, "lon": -58.3740514 },
+    { "lat": -34.6074108, "lon": -58.3742367 },
+    { "lat": -34.6073651, "lon": -58.3742013 },
+    { "lat": -34.6073816, "lon": -58.3741699 },
+    { "lat": -34.6073635, "lon": -58.3741543 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005767,
+  "bounds": {
+    "minlat": -34.6073755,
+    "minlon": -58.3741651,
+    "maxlat": -34.6072238,
+    "maxlon": -58.3740354
+  },
+  "nodes": [
+    13607160446,
+    13607160451,
+    13607160452,
+    13607160453,
+    13607160454,
+    13607160455,
+    13607160445,
+    13607160447,
+    13607160446
+  ],
+  "geometry": [
+    { "lat": -34.6072817, "lon": -58.3741275 },
+    { "lat": -34.6072238, "lon": -58.3740393 },
+    { "lat": -34.6072707, "lon": -58.3740354 },
+    { "lat": -34.6073019, "lon": -58.3740873 },
+    { "lat": -34.6073264, "lon": -58.3740394 },
+    { "lat": -34.6073755, "lon": -58.3740761 },
+    { "lat": -34.6073435, "lon": -58.3741395 },
+    { "lat": -34.6073298, "lon": -58.3741651 },
+    { "lat": -34.6072817, "lon": -58.3741275 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005768,
+  "bounds": {
+    "minlat": -34.6074282,
+    "minlon": -58.3741543,
+    "maxlat": -34.6072238,
+    "maxlon": -58.3739364
+  },
+  "nodes": [
+    13607160454,
+    13607160452,
+    13607160451,
+    13607160456,
+    13607160457,
+    13607160458,
+    13607160459,
+    13607160460,
+    13607160448,
+    13607160445,
+    13607160455,
+    13607160454
+  ],
+  "geometry": [
+    { "lat": -34.6073264, "lon": -58.3740394 },
+    { "lat": -34.6072707, "lon": -58.3740354 },
+    { "lat": -34.6072238, "lon": -58.3740393 },
+    { "lat": -34.6072239, "lon": -58.3739364 },
+    { "lat": -34.6073666, "lon": -58.3739365 },
+    { "lat": -34.6074236, "lon": -58.3739791 },
+    { "lat": -34.6074076, "lon": -58.3740107 },
+    { "lat": -34.6074282, "lon": -58.3740261 },
+    { "lat": -34.6073635, "lon": -58.3741543 },
+    { "lat": -34.6073435, "lon": -58.3741395 },
+    { "lat": -34.6073755, "lon": -58.3740761 },
+    { "lat": -34.6073264, "lon": -58.3740394 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005792,
+  "bounds": {
+    "minlat": -34.6089244,
+    "minlon": -58.3753080,
+    "maxlat": -34.6087470,
+    "maxlon": -58.3751753
+  },
+  "nodes": [
+    6231745038,
+    13607160530,
+    6231745058,
+    6231745039,
+    6231745038
+  ],
+  "geometry": [
+    { "lat": -34.6087470, "lon": -58.3751839 },
+    { "lat": -34.6087511, "lon": -58.3753080 },
+    { "lat": -34.6089244, "lon": -58.3752992 },
+    { "lat": -34.6089224, "lon": -58.3751753 },
+    { "lat": -34.6087470, "lon": -58.3751839 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1484005793,
+  "bounds": {
+    "minlat": -34.6091837,
+    "minlon": -58.3756505,
+    "maxlat": -34.6087838,
+    "maxlon": -58.3755039
+  },
+  "nodes": [
+    13607160531,
+    13607160532,
+    13607160533,
+    13607160534,
+    13607160531
+  ],
+  "geometry": [
+    { "lat": -34.6087838, "lon": -58.3755406 },
+    { "lat": -34.6091768, "lon": -58.3755039 },
+    { "lat": -34.6091837, "lon": -58.3756137 },
+    { "lat": -34.6087908, "lon": -58.3756505 },
+    { "lat": -34.6087838, "lon": -58.3755406 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1563663295,
+  "bounds": {
+    "minlat": -34.6087849,
+    "minlon": -58.3918323,
+    "maxlat": -34.6085060,
+    "maxlon": -58.3912358
+  },
+  "nodes": [
+    14232918150,
+    14232918149,
+    14232918148,
+    14232918147,
+    14232918146,
+    14232918145,
+    14232918150
+  ],
+  "geometry": [
+    { "lat": -34.6087849, "lon": -58.3918106 },
+    { "lat": -34.6087534, "lon": -58.3912886 },
+    { "lat": -34.6086183, "lon": -58.3913007 },
+    { "lat": -34.6086144, "lon": -58.3912358 },
+    { "lat": -34.6085060, "lon": -58.3912455 },
+    { "lat": -34.6085415, "lon": -58.3918323 },
+    { "lat": -34.6087849, "lon": -58.3918106 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1563663296,
+  "bounds": {
+    "minlat": -34.6090524,
+    "minlon": -58.3912647,
+    "maxlat": -34.6086108,
+    "maxlon": -58.3909919
+  },
+  "nodes": [
+    14232918154,
+    14232918153,
+    14232918152,
+    14232918151,
+    14232918154
+  ],
+  "geometry": [
+    { "lat": -34.6090524, "lon": -58.3912211 },
+    { "lat": -34.6086248, "lon": -58.3912647 },
+    { "lat": -34.6086108, "lon": -58.3910409 },
+    { "lat": -34.6090378, "lon": -58.3909919 },
+    { "lat": -34.6090524, "lon": -58.3912211 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1563663297,
+  "bounds": {
+    "minlat": -34.6090720,
+    "minlon": -58.3926517,
+    "maxlat": -34.6087440,
+    "maxlon": -58.3925384
+  },
+  "nodes": [
+    14232918158,
+    14232918157,
+    14232918156,
+    14232918155,
+    14232918158
+  ],
+  "geometry": [
+    { "lat": -34.6087484, "lon": -58.3926517 },
+    { "lat": -34.6090720, "lon": -58.3926289 },
+    { "lat": -34.6090677, "lon": -58.3925384 },
+    { "lat": -34.6087440, "lon": -58.3925612 },
+    { "lat": -34.6087484, "lon": -58.3926517 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1563663298,
+  "bounds": {
+    "minlat": -34.6090657,
+    "minlon": -58.3925546,
+    "maxlat": -34.6086716,
+    "maxlon": -58.3924077
+  },
+  "nodes": [
+    14232918166,
+    14232918165,
+    14232918160,
+    14232918159,
+    14232918166
+  ],
+  "geometry": [
+    { "lat": -34.6090657, "lon": -58.3925278 },
+    { "lat": -34.6090600, "lon": -58.3924077 },
+    { "lat": -34.6086716, "lon": -58.3924346 },
+    { "lat": -34.6086773, "lon": -58.3925546 },
+    { "lat": -34.6090657, "lon": -58.3925278 }
+  ],
+  "tags": {
+    "building": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 2468981,
+  "bounds": {
+    "minlat": -34.6103198,
+    "minlon": -58.3932092,
+    "maxlat": -34.6092928,
+    "maxlon": -58.3921141
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 185207770,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.6098757, "lon": -58.3922472 },
+         { "lat": -34.6098761, "lon": -58.3922276 },
+         { "lat": -34.6098763, "lon": -58.3922070 },
+         { "lat": -34.6098615, "lon": -58.3922079 },
+         { "lat": -34.6097745, "lon": -58.3922153 },
+         { "lat": -34.6096586, "lon": -58.3922250 },
+         { "lat": -34.6096581, "lon": -58.3922472 },
+         { "lat": -34.6096583, "lon": -58.3922782 },
+         { "lat": -34.6094501, "lon": -58.3922907 },
+         { "lat": -34.6094478, "lon": -58.3922016 },
+         { "lat": -34.6092928, "lon": -58.3922153 },
+         { "lat": -34.6093616, "lon": -58.3931403 },
+         { "lat": -34.6095895, "lon": -58.3931212 },
+         { "lat": -34.6095851, "lon": -58.3930036 },
+         { "lat": -34.6096388, "lon": -58.3930016 },
+         { "lat": -34.6096397, "lon": -58.3930390 },
+         { "lat": -34.6096482, "lon": -58.3930701 },
+         { "lat": -34.6096595, "lon": -58.3930989 },
+         { "lat": -34.6096721, "lon": -58.3931217 },
+         { "lat": -34.6096866, "lon": -58.3931425 },
+         { "lat": -34.6097063, "lon": -58.3931635 },
+         { "lat": -34.6097294, "lon": -58.3931825 },
+         { "lat": -34.6097489, "lon": -58.3931941 },
+         { "lat": -34.6097705, "lon": -58.3932030 },
+         { "lat": -34.6097877, "lon": -58.3932066 },
+         { "lat": -34.6098066, "lon": -58.3932077 },
+         { "lat": -34.6098441, "lon": -58.3932092 },
+         { "lat": -34.6098660, "lon": -58.3932040 },
+         { "lat": -34.6098876, "lon": -58.3931955 },
+         { "lat": -34.6099136, "lon": -58.3931812 },
+         { "lat": -34.6099329, "lon": -58.3931644 },
+         { "lat": -34.6099504, "lon": -58.3931483 },
+         { "lat": -34.6099643, "lon": -58.3931269 },
+         { "lat": -34.6099792, "lon": -58.3931043 },
+         { "lat": -34.6099887, "lon": -58.3930788 },
+         { "lat": -34.6099985, "lon": -58.3930483 },
+         { "lat": -34.6100039, "lon": -58.3930122 },
+         { "lat": -34.6100026, "lon": -58.3929483 },
+         { "lat": -34.6100735, "lon": -58.3929417 },
+         { "lat": -34.6100777, "lon": -58.3930841 },
+         { "lat": -34.6103090, "lon": -58.3930733 },
+         { "lat": -34.6102945, "lon": -58.3928599 },
+         { "lat": -34.6102548, "lon": -58.3928610 },
+         { "lat": -34.6102520, "lon": -58.3927511 },
+         { "lat": -34.6103198, "lon": -58.3927505 },
+         { "lat": -34.6103063, "lon": -58.3924057 },
+         { "lat": -34.6102580, "lon": -58.3924062 },
+         { "lat": -34.6102429, "lon": -58.3921141 },
+         { "lat": -34.6100847, "lon": -58.3921211 },
+         { "lat": -34.6100849, "lon": -58.3922347 },
+         { "lat": -34.6098757, "lon": -58.3922472 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 185207767,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6100820, "lon": -58.3926475 },
+         { "lat": -34.6100770, "lon": -58.3926727 },
+         { "lat": -34.6100665, "lon": -58.3926940 },
+         { "lat": -34.6100519, "lon": -58.3927103 },
+         { "lat": -34.6100335, "lon": -58.3927211 },
+         { "lat": -34.6100114, "lon": -58.3927248 },
+         { "lat": -34.6100114, "lon": -58.3927484 },
+         { "lat": -34.6101440, "lon": -58.3927390 },
+         { "lat": -34.6101400, "lon": -58.3926447 },
+         { "lat": -34.6100820, "lon": -58.3926475 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 185207774,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6100828, "lon": -58.3925159 },
+         { "lat": -34.6100745, "lon": -58.3924981 },
+         { "lat": -34.6100587, "lon": -58.3924788 },
+         { "lat": -34.6100426, "lon": -58.3924679 },
+         { "lat": -34.6100249, "lon": -58.3924622 },
+         { "lat": -34.6100095, "lon": -58.3924618 },
+         { "lat": -34.6100083, "lon": -58.3924311 },
+         { "lat": -34.6101256, "lon": -58.3924251 },
+         { "lat": -34.6101288, "lon": -58.3925154 },
+         { "lat": -34.6100828, "lon": -58.3925159 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 185207772,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6094521, "lon": -58.3928163 },
+         { "lat": -34.6096039, "lon": -58.3928076 },
+         { "lat": -34.6095992, "lon": -58.3926872 },
+         { "lat": -34.6094474, "lon": -58.3926959 },
+         { "lat": -34.6094521, "lon": -58.3928163 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 185207771,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6095594, "lon": -58.3925907 },
+         { "lat": -34.6095540, "lon": -58.3924915 },
+         { "lat": -34.6094372, "lon": -58.3925009 },
+         { "lat": -34.6094426, "lon": -58.3926000 },
+         { "lat": -34.6095594, "lon": -58.3925907 }
+      ]
+    }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housename": "Palacio del Congreso de la Nación Argentina",
+    "addr:housename:de": "Argentinischer Kongresspalast",
+    "addr:housenumber": "51",
+    "addr:province": "Buenos Aires",
+    "addr:street": "Avenida Entre Ríos",
+    "building": "government",
+    "building:architecture": "eclectic",
+    "building:colour": "#f2ecdc",
+    "government": "legislative",
+    "height": "26",
+    "historic": "heritage",
+    "name": "Congreso de la Nación Argentina",
+    "name:de": "Argentinischer Nationalkongress",
+    "name:en": "National Congress of Argentina",
+    "name:es": "Congreso de la Nación Argentina",
+    "name:fr": "Congrès de la nation argentine",
+    "name:pt": "Congresso da Nação Argentina",
+    "name:ru": "Национальный конгресс Аргентины",
+    "name:zh": "阿根廷国会",
+    "office": "government",
+    "start_date": "1906",
+    "tourism": "attraction",
+    "type": "multipolygon",
+    "wikidata": "Q646190",
+    "wikipedia": "es:Congreso de la Nación Argentina"
+  }
+},
+{
+  "type": "relation",
+  "id": 9249423,
+  "bounds": {
+    "minlat": -34.6091651,
+    "minlon": -58.3752992,
+    "maxlat": -34.6089161,
+    "maxlon": -58.3749668
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 665763281,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.6089161, "lon": -58.3749858 },
+         { "lat": -34.6091214, "lon": -58.3749668 },
+         { "lat": -34.6091411, "lon": -58.3749784 },
+         { "lat": -34.6091556, "lon": -58.3750059 },
+         { "lat": -34.6091651, "lon": -58.3752910 },
+         { "lat": -34.6090992, "lon": -58.3752942 },
+         { "lat": -34.6090980, "lon": -58.3752589 },
+         { "lat": -34.6090284, "lon": -58.3752624 },
+         { "lat": -34.6090296, "lon": -58.3752976 },
+         { "lat": -34.6089244, "lon": -58.3752992 },
+         { "lat": -34.6089224, "lon": -58.3751753 },
+         { "lat": -34.6089161, "lon": -58.3749858 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 665763278,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6090825, "lon": -58.3751692 },
+         { "lat": -34.6090805, "lon": -58.3751068 },
+         { "lat": -34.6091212, "lon": -58.3751048 },
+         { "lat": -34.6091232, "lon": -58.3751672 },
+         { "lat": -34.6090825, "lon": -58.3751692 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 665763279,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6090086, "lon": -58.3752134 },
+         { "lat": -34.6090063, "lon": -58.3751431 },
+         { "lat": -34.6090483, "lon": -58.3751410 },
+         { "lat": -34.6090507, "lon": -58.3752114 },
+         { "lat": -34.6090086, "lon": -58.3752134 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 665763280,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6089777, "lon": -58.3751075 },
+         { "lat": -34.6089756, "lon": -58.3750435 },
+         { "lat": -34.6090108, "lon": -58.3750418 },
+         { "lat": -34.6090129, "lon": -58.3751058 },
+         { "lat": -34.6089777, "lon": -58.3751075 }
+      ]
+    }
+  ],
+  "tags": {
+    "building": "yes",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 9254658,
+  "bounds": {
+    "minlat": -34.6072440,
+    "minlon": -58.3749649,
+    "maxlat": -34.6068700,
+    "maxlon": -58.3744984
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 476377670,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.6070854, "lon": -58.3744999 },
+         { "lat": -34.6070149, "lon": -58.3744984 },
+         { "lat": -34.6068700, "lon": -58.3745080 },
+         { "lat": -34.6068878, "lon": -58.3748444 },
+         { "lat": -34.6068953, "lon": -58.3749000 },
+         { "lat": -34.6069100, "lon": -58.3749346 },
+         { "lat": -34.6069404, "lon": -58.3749566 },
+         { "lat": -34.6069822, "lon": -58.3749649 },
+         { "lat": -34.6070387, "lon": -58.3749528 },
+         { "lat": -34.6070829, "lon": -58.3749266 },
+         { "lat": -34.6072440, "lon": -58.3746029 },
+         { "lat": -34.6071150, "lon": -58.3745058 },
+         { "lat": -34.6070854, "lon": -58.3744999 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 666010797,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6070319, "lon": -58.3747570 },
+         { "lat": -34.6069869, "lon": -58.3747410 },
+         { "lat": -34.6069780, "lon": -58.3745663 },
+         { "lat": -34.6070902, "lon": -58.3746006 },
+         { "lat": -34.6070991, "lon": -58.3746319 },
+         { "lat": -34.6070319, "lon": -58.3747570 }
+      ]
+    }
+  ],
+  "tags": {
+    "building": "commercial",
+    "name": "Edificio First National Bank of Boston",
+    "type": "multipolygon",
+    "wikidata": "Q5818109"
+  }
+},
+{
+  "type": "relation",
+  "id": 9254659,
+  "bounds": {
+    "minlat": -34.6077299,
+    "minlon": -58.3740607,
+    "maxlat": -34.6073460,
+    "maxlon": -58.3736473
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 666010796,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6073922, "lon": -58.3738091 },
+         { "lat": -34.6073949, "lon": -58.3738442 },
+         { "lat": -34.6074307, "lon": -58.3738402 },
+         { "lat": -34.6074616, "lon": -58.3739025 },
+         { "lat": -34.6074727, "lon": -58.3738838 },
+         { "lat": -34.6074832, "lon": -58.3738670 },
+         { "lat": -34.6075019, "lon": -58.3738650 },
+         { "lat": -34.6075015, "lon": -58.3738881 },
+         { "lat": -34.6075318, "lon": -58.3738485 },
+         { "lat": -34.6075336, "lon": -58.3738240 },
+         { "lat": -34.6075182, "lon": -58.3738032 },
+         { "lat": -34.6073922, "lon": -58.3738091 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 169342394,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.6073460, "lon": -58.3736809 },
+         { "lat": -34.6076897, "lon": -58.3736473 },
+         { "lat": -34.6077255, "lon": -58.3736635 },
+         { "lat": -34.6077299, "lon": -58.3736852 },
+         { "lat": -34.6077224, "lon": -58.3737190 },
+         { "lat": -34.6075358, "lon": -58.3740607 },
+         { "lat": -34.6074337, "lon": -58.3739825 },
+         { "lat": -34.6074153, "lon": -58.3739615 },
+         { "lat": -34.6073804, "lon": -58.3739186 },
+         { "lat": -34.6073689, "lon": -58.3738797 },
+         { "lat": -34.6073491, "lon": -58.3738397 },
+         { "lat": -34.6073460, "lon": -58.3736809 }
+      ]
+    }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "511",
+    "addr:postcode": "C1035AAA",
+    "addr:province": "Buenos Aires",
+    "addr:street": "Avenida Roque Sáenz Peña",
+    "building": "public",
+    "height": "44.5",
+    "name": "Secretaría de Gabinete y Coordinación Administrativa",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 9272753,
+  "bounds": {
+    "minlat": -34.6062510,
+    "minlon": -58.3758472,
+    "maxlat": -34.6058690,
+    "maxlon": -58.3752854
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 666813516,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.6062477, "lon": -58.3752854 },
+         { "lat": -34.6062465, "lon": -58.3757232 },
+         { "lat": -34.6062510, "lon": -58.3758376 },
+         { "lat": -34.6058766, "lon": -58.3758472 },
+         { "lat": -34.6058690, "lon": -58.3753022 },
+         { "lat": -34.6059353, "lon": -58.3752974 },
+         { "lat": -34.6062477, "lon": -58.3752854 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 666813515,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6060787, "lon": -58.3754707 },
+         { "lat": -34.6059994, "lon": -58.3754697 },
+         { "lat": -34.6059623, "lon": -58.3754263 },
+         { "lat": -34.6059627, "lon": -58.3753773 },
+         { "lat": -34.6060005, "lon": -58.3753369 },
+         { "lat": -34.6060798, "lon": -58.3753378 },
+         { "lat": -34.6061073, "lon": -58.3753774 },
+         { "lat": -34.6061069, "lon": -58.3754263 },
+         { "lat": -34.6060787, "lon": -58.3754707 }
+      ]
+    }
+  ],
+  "tags": {
+    "building": "yes",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 9272804,
+  "bounds": {
+    "minlat": -34.6062090,
+    "minlon": -58.3742225,
+    "maxlat": -34.6059254,
+    "maxlon": -58.3737432
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 666018260,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.6061932, "lon": -58.3737432 },
+         { "lat": -34.6061940, "lon": -58.3738692 },
+         { "lat": -34.6061977, "lon": -58.3739513 },
+         { "lat": -34.6062080, "lon": -58.3741840 },
+         { "lat": -34.6062090, "lon": -58.3742057 },
+         { "lat": -34.6061867, "lon": -58.3742071 },
+         { "lat": -34.6061119, "lon": -58.3742121 },
+         { "lat": -34.6060576, "lon": -58.3742156 },
+         { "lat": -34.6059533, "lon": -58.3742225 },
+         { "lat": -34.6059442, "lon": -58.3740183 },
+         { "lat": -34.6059414, "lon": -58.3739561 },
+         { "lat": -34.6059254, "lon": -58.3737614 },
+         { "lat": -34.6061932, "lon": -58.3737432 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 666814620,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6060935, "lon": -58.3739471 },
+         { "lat": -34.6060422, "lon": -58.3739493 },
+         { "lat": -34.6060398, "lon": -58.3738674 },
+         { "lat": -34.6060911, "lon": -58.3738652 },
+         { "lat": -34.6060935, "lon": -58.3739471 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 666814621,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6060297, "lon": -58.3740365 },
+         { "lat": -34.6061047, "lon": -58.3740317 },
+         { "lat": -34.6061100, "lon": -58.3741527 },
+         { "lat": -34.6060350, "lon": -58.3741576 },
+         { "lat": -34.6060297, "lon": -58.3740365 }
+      ]
+    }
+  ],
+  "tags": {
+    "building": "yes",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 9272843,
+  "bounds": {
+    "minlat": -34.6054276,
+    "minlon": -58.3741999,
+    "maxlat": -34.6052489,
+    "maxlon": -58.3738232
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 666818517,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.6054276, "lon": -58.3741966 },
+         { "lat": -34.6052742, "lon": -58.3741999 },
+         { "lat": -34.6052733, "lon": -58.3741328 },
+         { "lat": -34.6052533, "lon": -58.3741332 },
+         { "lat": -34.6052489, "lon": -58.3738270 },
+         { "lat": -34.6054222, "lon": -58.3738232 },
+         { "lat": -34.6054276, "lon": -58.3741966 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 666818516,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6053729, "lon": -58.3740540 },
+         { "lat": -34.6053011, "lon": -58.3740555 },
+         { "lat": -34.6052996, "lon": -58.3739496 },
+         { "lat": -34.6053713, "lon": -58.3739480 },
+         { "lat": -34.6053729, "lon": -58.3740540 }
+      ]
+    }
+  ],
+  "tags": {
+    "addr:city": "Ciudad Autónoma de Buenos Aires",
+    "addr:country": "AR",
+    "addr:housenumber": "216",
+    "addr:postcode": "C1004AAF",
+    "addr:province": "Buenos Aires",
+    "addr:street": "San Martín",
+    "building": "museum",
+    "check_date": "2026-10-02",
+    "description": "Numismática. Piezas de moneda metalica y de papel moneda que circularon en el territorio argentino desde el siglo XVI hasta el presente. Elementos de fabricación de monedas y billetes: bocetos de proyectos, platos de yeso, ensayos, matrices y cuños, plan",
+    "email": "museo@bcra.gov.ar",
+    "fee": "no",
+    "museum": "history",
+    "museum_type": "national",
+    "name": "Museo del Banco Central",
+    "official_name": "Museo Histórico y Numismático del Banco Central de la República Argentina \"Dr. José Evaristo Uriburu\"",
+    "opening_hours": "Mo-Fr 10:00-16:00",
+    "phone": "+54 11 4348-3882",
+    "start_date": "1910",
+    "tourism": "museum",
+    "type": "multipolygon",
+    "website:es": "https://www.bcra.gob.ar/BCRAyVos/Museo_Historico_y_Numismatico.asp",
+    "wikidata": "Q21328724",
+    "wikimedia_commons": "File:Museo del Banco Central.jpg"
+  }
+},
+{
+  "type": "relation",
+  "id": 9272972,
+  "bounds": {
+    "minlat": -34.6055405,
+    "minlon": -58.3764329,
+    "maxlat": -34.6053544,
+    "maxlon": -58.3759167
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 666825744,
+      "role": "outer",
+      "geometry": [
+         { "lat": -34.6055316, "lon": -58.3760653 },
+         { "lat": -34.6055405, "lon": -58.3764266 },
+         { "lat": -34.6053669, "lon": -58.3764329 },
+         { "lat": -34.6053580, "lon": -58.3760706 },
+         { "lat": -34.6053575, "lon": -58.3760518 },
+         { "lat": -34.6053963, "lon": -58.3760503 },
+         { "lat": -34.6053947, "lon": -58.3759865 },
+         { "lat": -34.6053561, "lon": -58.3759879 },
+         { "lat": -34.6053544, "lon": -58.3759209 },
+         { "lat": -34.6054691, "lon": -58.3759167 },
+         { "lat": -34.6054704, "lon": -58.3759688 },
+         { "lat": -34.6055004, "lon": -58.3759677 },
+         { "lat": -34.6055008, "lon": -58.3759844 },
+         { "lat": -34.6054356, "lon": -58.3759868 },
+         { "lat": -34.6054369, "lon": -58.3760418 },
+         { "lat": -34.6055021, "lon": -58.3760395 },
+         { "lat": -34.6055028, "lon": -58.3760663 },
+         { "lat": -34.6055316, "lon": -58.3760653 }
+      ]
+    },
+    {
+      "type": "way",
+      "ref": 666825742,
+      "role": "inner",
+      "geometry": [
+         { "lat": -34.6054195, "lon": -58.3761596 },
+         { "lat": -34.6054841, "lon": -58.3761589 },
+         { "lat": -34.6054845, "lon": -58.3762179 },
+         { "lat": -34.6054199, "lon": -58.3762186 },
+         { "lat": -34.6054195, "lon": -58.3761596 }
+      ]
+    }
+  ],
+  "tags": {
+    "building": "yes",
+    "type": "multipolygon"
+  }
+}
+
+  ]
+}

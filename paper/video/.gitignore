@@ -1,0 +1,6 @@
+# cachés y estado local de la herramienta (guardan rutas absolutas del disco)
+.hyperframes/
+.thumbnails/
+.transcode-cache/
+.waveform-cache/
+node_modules/
