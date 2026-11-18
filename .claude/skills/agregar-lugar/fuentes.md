@@ -9,7 +9,7 @@
 | Latitud y longitud | Las del artículo (arriba a la derecha) o las de OpenStreetMap. **Siempre se comprueban** con `node tools/esquina.mjs --punto lat lon` contra las esquinas. | `'OpenStreetMap, el edificio en el mapa de hoy: las coordenadas'` |
 | Cómo era | Fotos **fechadas** de Wikimedia Commons (la categoría del lugar; buscar también por el nombre viejo y por la calle). El Archivo General de la Nación, Witcomb, Gonnet, Panunzi, Christiano Junior, Olds, Bourquin y Coppola están casi todos ahí. | `'Wikimedia Commons, «Título exacto.jpg» (autor, año, dominio público): el frente sobre tal calle'` |
 | La planta, si sigue en pie | `fuentes/osm/` (el mapa de hoy, ya bajado) y `src/edificios.js`. | `'OpenStreetMap: la planta'` |
-| La planta, si no está más | La foto aérea de 1940 del mapa de la Ciudad (sale en la hoja de revisión, en el encuadre del lugar) y los planos de época que ya están calzados (`fuentes/planos/epoca-<año>.webp`). | `'Foto aérea de 1940 del mapa interactivo de la Ciudad de Buenos Aires: la planta y el rumbo'` |
+| La planta, si no está más | La foto aérea de 1940 del mapa de la Ciudad (sale en la hoja de revisión, en el encuadre del lugar) y los planos de época que ya están calzados (`fuentes/planos/epoca-<año>.webp`; tienen poco detalle: sirven para una manzana o un parque, no para algo chico). | `'Foto aérea de 1940 del mapa interactivo de la Ciudad de Buenos Aires: la planta y el rumbo'` |
 | Qué había antes ahí | El visor mismo, en el año anterior (`node tools/shot.mjs`), y las fichas de los vecinos. | — |
 
 Una fuente es algo que otra persona puede volver a abrir. «Lo sé» no es una fuente. Un sitio sin autor que repite

@@ -78,9 +78,16 @@ node tools/esquina.mjs --punto -34.6037 -58.3816              # una latitud y lo
 - La primera fuente: **las esquinas** de la manzana (las cuatro, si ocupa la manzana: dan la planta y el rumbo).
   `esquina.mjs` da el cruce de los ejes de las calles: la vereda está 6 a 10 metros adentro.
 - La segunda: **una latitud y longitud** de otro lado (la del artículo, la de OpenStreetMap), pasada con `--punto`.
+  Ojo con lo que se mudó: las coordenadas del artículo son las de donde está hoy.
 - Tienen que caer a menos de una cuadra una de la otra. Si no, una está mal: averiguá cuál antes de seguir.
 - La tercera, contra lo que ya hay: mirá qué pone el visor en ese punto (paso 5, «mirar antes») y qué marcas hay
   cerca (`grep` de los números en `src/marcas.js`).
+- **Si el lugar ya no existe y nadie da sus coordenadas** (algo demolido o mudado hace un siglo), no las inventes:
+  declarás solo la `esquina`, y como segunda fuente usás un vecino que siga en pie y salga en las fotos de época
+  (su dirección o sus coordenadas, con `--punto`), anotado en `fuentes`. La revisión va a dejar un aviso («una
+  sola fuente»): es lo esperado, y se cuenta en el pedido. El punto exacto queda dicho como supuesto.
+- Si una calle no aparece (`no hay calle…`), cambió de nombre: `--calle` con un pedazo del nombre, o probá con la
+  calle de al lado.
 
 Las cuentas: el plano de 1867 está escaneado a 0,675 m por píxel. En el plano, **x crece hacia el norte e y hacia
 el río** (el este). En el mundo del visor, en metros desde la Plaza de Mayo:
@@ -122,10 +129,13 @@ export CHROME="$(node tools/revisar-lugar.mjs --chrome)"
 node tools/shot.mjs --puerto 5478 --query color --serie '[{"name":"antes","año":1940,"ver":{"x":350,"z":-640,"dist":320,"yaw":0,"pitch":1.57}}]'
 ```
 (`x`, `z`: los metros del mundo que te dio `esquina.mjs`; sale en `shots/antes.png`, visto de arriba con el oeste
-arriba, como el plano.)
+arriba, como el plano. La cámara no se acerca a menos de 170 metros: con un `dist` más chico sale igual de lejos.
+Una calle o una plaza seca casi no se distinguen del papel: que se vea liso no quiere decir que no haya nada.)
 
 **Un archivo nuevo** en `src/lugares/<nombre-con-guiones>.js`, copiado de `plantilla-lugar.js`, salvo que el lugar
-sea parte de uno que ya está (una estatua en una plaza que ya tiene archivo va en ese archivo). Se registra en
+sea un detalle de uno que ya está y dure lo mismo que él (un banco, un cantero: va en el archivo de la plaza). Lo
+que tiene sus propios años, su marca y su ficha —una fuente que estuvo quince años en una plazoleta, un monumento—
+va en archivo aparte aunque esté dentro de una plaza ya hecha: así la revisión lo mira solo y no se toca lo ajeno. Se registra en
 `src/hitos.js` con dos cambios y nada más: el `import` junto a los otros, y el nombre **al final** de la lista
 `const LUGARES = { … }`. En el medio, les cambia los colores a todos los lugares que siguen, y la revisión lo nota.
 
@@ -165,7 +175,7 @@ qué foto sale cada cosa y qué es a ojo, como en `teatro-colon.js`.
 
 ## 6. Marca, ficha y foto
 
-**La marca** (`src/marcas.js`, lista `LUGARES`; agregala junto a las de su zona, o al final de su grupo):
+**La marca** (`src/marcas.js`, lista `LUGARES`; agregala al lado de la marca más cercana que ya haya; si no hay ninguna cerca, al final de la lista):
 
 ```js
 ['Mercado Spinetto', 9949, 5861, 12, 2, 'El mercado de Pichincha y Alsina, de 1894.', { desde: 2, radio: 56 }],
@@ -175,6 +185,10 @@ nivel (1: barrios y plazas grandes; 2: edificios; 3: lo chico, que se rotula de 
 oración** · `{ desde, hasta }` en etapas, `radio` (cuántos metros cuentan como tocarlo), `velo: 'suelo'` si es
 suelo y no edificio, `ficha: '…'` si la clave de la ficha no es el nombre. Si tu lugar reemplaza a otro que tiene
 marca, cortale la época a esa (`hasta`) en la etapa en que llega el tuyo, y contalo en el pedido.
+
+Si ya hay una marca con ese nombre en otro sitio o de otra época (el Teatro Colón de 1857 y el de 1908; una fuente
+antes y después de mudarse), la tuya lleva **el mismo nombre** y una ficha aparte: `ficha: 'Nombre (año)'` en la
+marca, y esa clave en `FICHAS`, con `titulo: 'Nombre'`. Mirá cómo está hecho «Teatro Colón».
 
 **La ficha** (`src/fichas.js`, en `FICHAS`, con la misma clave que el nombre de la marca):
 
@@ -221,6 +235,9 @@ Si no hay foto libre: la ficha va sin `fotos` y se anota en `PENDIENTES.md`, en 
 ```
 npm run revisar -- <clave>          # la clave es el nombre con que lo importaste en src/hitos.js
 ```
+Compara contra `main`. Si saliste de otra rama, o si avisa que la base está vieja, traé lo último (`git fetch
+origin`) o decile de cuál saliste: `npm run revisar -- <clave> --base <rama>`. Si fallan «No cambia nada fuera de
+su entorno» o «Toca solo lo suyo» con archivos que no tocaste, es esto: no cambies nada para que pasen.
 Tarda un minuto o dos. Deja:
 - `revision/<clave>.jpg`: **la hoja**. El lugar en cada etapa en que aparece, cambia o se va (y la anterior, para
   ver qué había), de costado en color, de arriba en color y en tinta; al lado, la foto aérea de 1940 en el mismo

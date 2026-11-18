@@ -71,7 +71,16 @@ if (!claves0.length && !si('cambiados')) {
 const AÑOS = [1867, ...lee('public/datos/crece.json').epocas.map((e) => e.año)], ULTIMA = AÑOS.length - 1;
 /** La etapa de un año: la primera que ya lo encuentra hecho; −1 si es posterior a la última. */
 const etapaDe = (año) => (año <= AÑOS[0] ? 0 : AÑOS.findIndex((x) => x >= año));
-const BASE = (() => { const pedida = op('base'); for (const r of pedida ? [pedida] : ['origin/main', 'main']) { const b = git('merge-base', 'HEAD', r); if (b) return { rama: r, commit: b }; } return null; })();
+// (sin `--base`, de origin/main y main se toma la que tenga el punto de partida más cercano: una de las dos puede estar vieja)
+const BASE = (() => {
+  const pedida = op('base'); let mejor = null;
+  for (const r of pedida ? [pedida] : ['origin/main', 'main']) {
+    const b = git('merge-base', 'HEAD', r); if (!b) continue;
+    const lejos = +(git('rev-list', '--count', `${b}..HEAD`) ?? 1e9);
+    if (!mejor || lejos < mejor.lejos) mejor = { rama: r, commit: b, lejos };
+  }
+  return mejor;
+})();
 /** Los archivos que cambian respecto de la base (con lo que todavía no se commiteó y lo nuevo sin agregar). */
 const TOCADOS = BASE ? [...new Set([...(git('diff', '--name-only', BASE.commit) ?? '').split('\n'), ...(git('ls-files', '--others', '--exclude-standard') ?? '').split('\n')].filter(Boolean))].sort() : null;
 
@@ -451,6 +460,8 @@ function resumen(clave, R, extra) {
 
 // ---------------------------------------------------------------------------------------------------------- a correr
 console.log(`Revisando ${CLAVES.join(', ')}${BASE ? ` contra ${BASE.rama} (${BASE.commit.slice(0, 7)})` : ' (sin rama base)'} · etapas: ${AÑOS.join(', ')}`);
+// (si la base no tiene ni esta herramienta, es anterior al punto de partida: todo lo que cambió desde entonces va a figurar como del aporte)
+if (BASE && !si('del-autor') && TOCADOS.includes('tools/revisar-lugar.mjs')) console.log(`Ojo: ${BASE.rama} es más vieja que la rama de la que saliste, y lo que cambió desde entonces va a figurar como tuyo. Traé lo último (git fetch origin) o pasá --base <la rama de la que saliste>.`);
 const AQUI = await armar(process.cwd(), CLAVES);
 let ALLA = null, copia = null;
 if (BASE) {
