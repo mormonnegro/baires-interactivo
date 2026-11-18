@@ -29,10 +29,6 @@
 // escala: unos 10 metros de ancho y 7 de alto; Wikipedia da para la fuente de hoy «6 m de alto (aprox.) x 13 m de
 // ancho (aprox)»); hacia dónde miraba cada figura (Corsani dice que la Venus miraba a la Casa de Gobierno); que el
 // cantero tuviera en 1905 y 1910 el contorno de 1940; cuántos postes tenía la cadena.
-// Lo que falta: los árboles del cantero, que en las fotos lo llenan. Con árboles propios (`T.arbol`) la revisión de
-// este lugar mide mal: src/hitos.js manda al final de la lista los árboles de 1950 de todos los lugares, y los
-// últimos pasan a contarse como de este. Quedan para cuando eso se arregle.
-
 export const LUGAR = {
   nombre: 'Fuente de las Nereidas (1903)',
   clase: 'edificio',
@@ -56,6 +52,7 @@ export const LUGAR = {
     'hacia dónde miraba cada figura',
     'que el cantero tuviera en 1905 y 1910 el contorno de 1940',
     'cuántos postes tenía la cadena',
+    'dónde iba cada árbol del cantero',
   ],
 };
 
@@ -72,7 +69,9 @@ export default function (c) {
   // césped, con la fuente cerca de la base. El contorno, el de src/lugares/plaza-colon.js.
   const yRosales = (x) => 9930 + (x - 10476) * 0.3065;
   T.cantero([q(10606, 9947), q(10772, 9947), q(10772, yRosales(10772) - 22)]);
-  // (Los árboles del cantero, que se ven en las fotos, no van: ver el comentario de arriba.)
+  // Los árboles del cantero, que en las fotos lo llenan y dejan ver la fuente entre el follaje. Dónde iba cada uno
+  // es supuesto: van repartidos por el césped, sin tapar la fuente.
+  for (const [px, py] of [[10650, 9953], [10675, 9955], [10700, 9953], [10700, 9968], [10722, 9953], [10722, 9972], [10766, 9952], [10766, 9990]]) T.arbol(...q(px, py), 3);
 
   // La fuente. Abajo, la plataforma redonda de piedra; alrededor, la cadena (acá, solo los postes).
   const RP = 5.6;

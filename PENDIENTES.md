@@ -33,10 +33,6 @@ despeje un solar o cambie el suelo.
   *Averiguar*: de qué año es el trazado, un plano o una foto aérea que lo muestre (senderos, escalinatas, el
   anfiteatro, las estatuas con sus años) y qué había en cada etapa. Es suelo y árboles: puede hacer falta que el
   dueño saque los árboles de la quinta.
-- 🟢 **Los árboles del cantero de la Fuente de las Nereidas (1905 y 1910).** La fuente ya está en su primer lugar
-  (`src/lugares/nereidas-1903.js`), pero el cantero va pelado, y en las fotos de la ficha está lleno de árboles.
-  No se pusieron porque, con árboles propios, `npm run revisar` mide mal el lugar (el comentario del archivo dice
-  por qué). *Averiguar*: dónde iban, con una foto que muestre el cantero entero.
 - 🟡 **Las terrazas y escalinatas de la Plaza Colón, de 1911.** `src/lugares/plaza-colon.js` dice que no están.
   *Averiguar*: cómo eran (una foto o un plano), dónde iban respecto de la Casa de Gobierno y hasta cuándo duraron.
 - 🟢 **La marca y la ficha de la Plaza Colón.** La plaza y el Parque Colón están modelados

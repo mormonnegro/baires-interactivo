@@ -1216,7 +1216,7 @@ export const FICHAS = {
     texto: [
       'Lola Mora la hizo en Roma, en mármol de Carrara, por encargo del intendente Adolfo Bullrich, y vino a dirigir el armado. Iba a ir en la Plaza de Mayo, pero los desnudos molestaron y terminó acá, en el cantero en punta entre el Paseo de Julio, la avenida Rosales y Cangallo. Se inauguró el 21 de mayo de 1903.',
       'Las quejas siguieron, y en 1918 la mudaron a la Costanera Sur, que se estaba haciendo: está ahí desde el 8 de diciembre de ese año. El traslado también lo dirigió ella.',
-      'Una nota de La Nación de 2023 la pone una cuadra más al norte, entre Cangallo y Sarmiento; acá va donde la marca el plano del estudio de Patricia Corsani, de 2007. El punto exacto dentro del cantero, las medidas de la fuente y el contorno del cantero son supuestos. Faltan los árboles que lo llenaban.',
+      'Una nota de La Nación de 2023 la pone una cuadra más al norte, entre Cangallo y Sarmiento; acá va donde la marca el plano del estudio de Patricia Corsani, de 2007. El punto exacto dentro del cantero, las medidas de la fuente, el contorno del cantero y el lugar de cada árbol son supuestos.',
     ],
     hoyEs: 'la fuente sigue en la Costanera Sur.',
     fotos: ['nereidas-palace', 'nereidas-postal', 'nereidas-1916'],
