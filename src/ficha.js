@@ -33,6 +33,7 @@ body.hoy #ficha { max-height: calc(100vh - 24px - 204px); max-height: calc(100dv
 #ficha figcaption { margin-top: 5px; font-size: 12px; line-height: 1.38; opacity: .86; }
 #ficha figcaption b { font-weight: 500; font-style: normal; }
 #ficha figcaption i { opacity: .9; }
+#ficha .por { margin: 10px 0 0; font-size: 12px; opacity: .7; } #ficha .por a { color: inherit; }
 #ficha .sinfoto { margin: 2px 0 0; font-size: 12px; font-style: italic; opacity: .6; }
 .marca.fichada .tag i { display: none !important; }
 .marca.fichada.abierta .tag { padding: 3px 9px 4px; }
@@ -86,6 +87,9 @@ const HTML = `
 <div class="cabeza"><h2></h2><p class="era"></p></div>
 <div class="cuerpo"><div class="fotos una"></div><div class="texto"></div><div class="fotos mas"></div></div>`;
 
+/** Quién maquetó el lugar, si no fue el autor del visor: la ficha lo dice al pie (`por: '@usuario'` o `['@una', '@otro']`
+ *  en src/fichas.js, el nombre de usuario de GitHub). Lo que no tenga forma de usuario no se muestra. */
+const porDe = (por) => { const q = [por ?? []].flat().filter((u) => /^@[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$/.test(u)); return q.length ? `<p class="por">Maquetado por ${q.map((u) => `<a href="https://github.com/${u.slice(1)}" target="_blank" rel="noopener">${u}</a>`).join(' y ')}.</p>` : ''; };
 const pieDe = (f) => `<b>${f.que}</b> <i>${[f.autor, f.fecha].filter(Boolean).join(', ')}.</i>${f.nota ? ' ' + f.nota : ''}`;
 
 /**
@@ -176,7 +180,7 @@ export function createFicha({ camera, cam, lienzo, marcas, U = null, pedirCuadro
     abierta = m; fotos = (d.fotos ?? []).map((k) => ({ archivo: k, ...FOTOS[k] })).filter((f) => f.que);
     el.classList.toggle('hoy', !!d.hoy);
     $('h2').textContent = d.titulo ?? nombre; { const era = d.eras?.[m.desde] ?? d.era ?? ''; $('.era').textContent = era; $('.era').hidden = !era; } // (`eras`: lo que cambia con la época de la marca, como el Cabildo)
-    $('.texto').innerHTML = d.texto.map((p) => `<p>${p}</p>`).join('') + (d.hoyEs ? `<p class="hoyes"><b>Hoy</b> · ${d.hoyEs}</p>` : '') + (fotos.length || d.hoy ? '' : '<p class="sinfoto">Sin imagen de época confiable de este lugar.</p>');
+    $('.texto').innerHTML = d.texto.map((p) => `<p>${p}</p>`).join('') + (d.hoyEs ? `<p class="hoyes"><b>Hoy</b> · ${d.hoyEs}</p>` : '') + (fotos.length || d.hoy ? '' : '<p class="sinfoto">Sin imagen de época confiable de este lugar.</p>') + porDe(d.por);
     const una = $('.fotos.una'), mas = $('.fotos.mas'); una.textContent = ''; mas.textContent = '';
     fotos.forEach((f, i) => {
       const fig = document.createElement('figure');

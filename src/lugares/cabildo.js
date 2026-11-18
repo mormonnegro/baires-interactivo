@@ -23,6 +23,20 @@
 // Los arcos son de verdad —un muro con los huecos abiertos— y detrás va un paño de tinta: la galería en sombra. El
 // contrafrente y los costados van lisos, con los vanos pintados; de la torre de Benoit van los tres cuerpos y la
 // cúpula, sin sus columnas. Al lado, hasta que pasa la avenida, sigue la Policía, como la dibuja el plano.
+// Lo que el lugar dice de sí mismo, para `node tools/revisar-lugar.mjs cabildo` (el formato: src/lugares/LEEME.md).
+export const LUGAR = {
+  nombre: 'Cabildo', clase: 'edificio', desde: 1765, // (la torre vieja; está desde el plano y cambia en 1888, 1895 y 1940)
+  esquina: ['Bolívar', 'Hipólito Yrigoyen'], coordenadas: [-34.60885833, -58.37375556], // (las de tools/geo.mjs, de Wikipedia en español)
+  marcas: ['Cabildo'],
+  fuentes: [
+    'Wikipedia en español, «Cabildo de Buenos Aires»: las fechas de cada reforma',
+    'Wikimedia Commons, «Cabildo de Buenos Aires (1864)» (Esteban Gonnet) y «Cabildo detalle by junior 1876» (Christiano Junior): el colonial',
+    'Wikimedia Commons, «Cabildo de bsas torre benoit» y «Plaza de mayo 1880s»: la reforma de Benoit',
+    'Wikimedia Commons, «Cabildo buenos aires 1915» y «Cabildo de bs as lado bolivar 1910»: sin la torre ni los arcos del norte',
+    'Wikimedia Commons, «Cabildo de bs as restaurado 1940» y «Cabildo de Buenos Aires en 1950»: la restauración de Buschiazzo',
+  ],
+  supuestos: ['las alturas, medidas sobre las fotos', 'el ancho del cuerpo del medio y el fondo', 'el contrafrente y los costados, lisos'],
+};
 export default function (c) {
   const { THREE, PIEDRA, TINTA, PIZARRA, CASA, PINTADO, PINTA, BLANCO, SILLAR } = c;
   const T = c.lugar(10294, 9358); // (x hacia el norte, z hacia la plaza: el frente es +z)

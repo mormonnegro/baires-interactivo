@@ -3,6 +3,7 @@ node_modules
 dist
 shots
 tmp
+revision
 .wrangler
 .env
 .env.*

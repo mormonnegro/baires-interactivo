@@ -8,6 +8,7 @@
     "serve": "vite preview --port 5430",
     "plano": "node --max-old-space-size=8000 tools/1-clases.mjs && node --max-old-space-size=8000 tools/2-ciudad.mjs && node tools/empacar.mjs && node --max-old-space-size=8000 tools/3-laminas.mjs && node tools/osm.mjs && node --max-old-space-size=6000 tools/calce.mjs && node --max-old-space-size=8000 tools/hoy.mjs && node tools/calles.mjs",
     "shot": "node tools/shot.mjs",
+    "revisar": "node tools/revisar-lugar.mjs",
     "empacar": "node tools/empacar.mjs",
     "carga": "node tools/carga.mjs",
     "telefono": "node tools/telefono.mjs",

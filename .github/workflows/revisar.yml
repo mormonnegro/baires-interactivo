@@ -1,0 +1,42 @@
+# La revisión corta de cada pedido: que instale, que compile y los controles de los lugares que no necesitan
+# navegador. Corre con el código del pedido, así que no tiene ningún permiso más que leer, ni secretos.
+name: Revisar el pedido
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: revisar-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  revisar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - name: Instalar
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Compilar
+        run: npx vite build
+      - name: Revisar los lugares que cambian
+        env:
+          BASE: origin/${{ github.base_ref }}
+          # (el autor del visor sí puede tocar el generador y la configuración: en sus pedidos eso es un aviso, no una falla)
+          DE_QUIEN: ${{ github.event.pull_request.user.login == 'mormonnegro' && '--del-autor' || '' }}
+        run: |
+          rc=0
+          node tools/revisar-lugar.mjs --cambiados --sin-navegador --sin-compilar --base "$BASE" $DE_QUIEN || rc=$?
+          for f in revision/*.md; do if [ -f "$f" ]; then cat "$f" >> "$GITHUB_STEP_SUMMARY"; fi; done
+          exit $rc

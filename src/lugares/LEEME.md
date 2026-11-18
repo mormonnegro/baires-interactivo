@@ -137,3 +137,35 @@ llega la obra. Sin eso, las casas inventadas de ese lugar no se levantan nunca y
 obra tardía trae calzada (una avenida), el punto donde desemboca en una calle que ya estaba no entra en la lámina de
 las calles —para que esa calle no cambie antes de tiempo—: esa boca se pinta a mano, con un `T.tapete` de asfalto
 que nace con la obra (ver el final de `obelisco-1940.js`).
+
+## Lo que el lugar dice de sí mismo (`LUGAR`)
+
+Además de la función que lo construye, el archivo de un lugar exporta una ficha técnica. La lee
+`node tools/revisar-lugar.mjs <clave>`, que compara lo que el lugar dice con lo que de verdad construye: si dice que
+es de 1936 y aparece en 1921, o si dice que está en Corrientes y Alem y quedó a cuatro cuadras, el control falla.
+Los lugares nuevos la llevan siempre; de los viejos, la tienen `teatro-colon.js` y `cabildo.js`, que sirven de modelo.
+
+```js
+export const LUGAR = {
+  nombre: 'Teatro Colón (1908)',       // cómo se llama, para la hoja de revisión
+  clase: 'edificio',                   // 'edificio' (un edificio o un monumento suelto) o 'conjunto' (una plaza, un parque, un estadio, varias cosas)
+  desde: 1908,                         // el año en que quedó hecho (un año, no una etapa)
+  // hasta: 1931,                      // el año en que se demolió, si se demolió
+  // obra: 1890,                       // el año en que empezó la obra, si el lugar se muestra «en obra» antes de `desde`
+  esquina: ['Libertad', 'Tucumán'],    // la esquina de hoy más cercana (los nombres de `node tools/esquina.mjs --calle …`)
+  // coordenadas: [-34.6011, -58.3831], // latitud y longitud de hoy, de OTRA fuente que la esquina (y decir cuál en `fuentes`)
+  marcas: ['Teatro Colón'],            // los nombres de sus marcas en src/marcas.js
+  fuentes: ['…', '…'],                 // de dónde sale cada dato: qué página, y qué se tomó de ahí
+  supuestos: ['…'],                    // lo que no se pudo verificar (las medidas, las alturas, lo que la foto no muestra)
+  // solar: '…',                       // si hace falta despejar un solar: qué esquinas y desde qué año (lo hace el dueño)
+  // mirar: -0.6,                      // desde dónde lo mira la hoja de revisión (el giro de la cámara, en radianes)
+};
+```
+
+Lleva una de las dos, `esquina` o `coordenadas`; mejor las dos, de fuentes distintas: la herramienta controla que
+caigan a menos de 90 m de lo construido y a menos de 200 m una de la otra. `clase` decide el cupo de puntos: 25.000
+para un edificio, 90.000 para un conjunto (los que hay pesan entre 6 y 22 mil los edificios sueltos, y entre 70 y 115
+mil las plazas con todas sus épocas; `lab.hitos.puntos`, en la consola del visor, dice cuánto pesa cada uno).
+
+El crédito de quien lo maquetó no va acá sino en la ficha, que es lo que se ve: `por: '@usuario'` en la entrada de
+`FICHAS` (`src/fichas.js`) agrega al pie «Maquetado por @usuario».

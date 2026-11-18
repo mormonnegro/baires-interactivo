@@ -11,6 +11,18 @@
 // Lo que la foto no muestra va simple y parejo: el otro costado igual al que se ve, el contrafrente sin adornos y, a
 // cada lado, la entrada del pasaje de carruajes (que cruza el edificio de Tucumán a Viamonte) como un arco grande.
 // Las medidas de la planta son las de src/edificios.js; las alturas, a ojo sobre la foto, con la gente de escala.
+// Lo que el lugar dice de sí mismo, para `node tools/revisar-lugar.mjs teatroColon` (el formato: src/lugares/LEEME.md).
+export const LUGAR = {
+  nombre: 'Teatro Colón (1908)', clase: 'edificio', desde: 1908,
+  esquina: ['Libertad', 'Tucumán'],
+  marcas: ['Teatro Colón'],
+  fuentes: [
+    'Wikimedia Commons, «Archivo General de la Nación Argentina sin fecha Buenos Aires, Teatro Colón.jpg» (hacia 1910, dominio público): el frente sobre Libertad y un costado',
+    'OpenStreetMap (src/edificios.js, clave «colon»): el lugar y las medidas de la planta',
+    'Wikipedia en español, «Teatro Colón»: los años y los autores',
+  ],
+  supuestos: ['las alturas, a ojo sobre la foto', 'el costado que la foto no muestra, igual al otro', 'el contrafrente, sin adornos'],
+};
 export default function (c) {
   const { THREE, PIEDRA, TINTA, PINTADO, PINTA, CREMA, SILLAR } = c;
   const T = c.obra('colon', CREMA); // (x hacia Libertad, al oeste: el frente es +x; z hacia el norte)

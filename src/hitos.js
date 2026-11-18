@@ -51,6 +51,9 @@ const PIEDRA = 6, TINTA = 7, PIZARRA = 8, CASA = 0, FOLLAJE = 5, PINTADO = 9;
 const LUGARES = { nueveDeJulio, plazaCongreso, plazaDeMayo, puerto, puertoMadero, diagonalNorte, teatroColon, puertoNuevo, cabildo, casaRosada, subteA, avenidaDeMayo, retiro, modernos, viejos1867, plazaSanMartin, plazaLavalle, plazaConstitucion, plazaOnce, plazaBritanica, obelisco1940, playasRetiro, palermo, barrios, plazaColon, obras1950 }; // (playasRetiro va al final: cada pieza que se agrega le corre la tirada de colores a las que siguen)
 /** De qué va pintado lo PINTADO (el número va en aWall.z; los colores están en src/tinta.js). */
 export const PINTA = { MADERA: 0, VERDE: 1, BRONCE: 2, ROJO: 3, OCRE: 4, LONA: 5, BALASTO: 6, CESPED: 7, AGUA: 8, BALDOSA: 9, GRANZA: 10, ADOQUIN: 11, FLORES: 12, ASFALTO: 13, CHAPA: 14, NEGRO: 15, BLANCO: 16, LADRILLO: 17, PATINA: 18, COBRE: 19 };
+/** De dónde a dónde van los puntos de cada lugar en la malla, en la de lo que va a ras del suelo y en la lista de
+ *  árboles: [malla0, raso0, árbol0, malla1, raso1, árbol1]. Lo llena createHitos; lo lee tools/revisar-lugar.mjs. */
+export const TRAMOS = {};
 
 /** Parte los triángulos de una malla (sin índice) hasta que ningún lado pase de `max` metros: lo que va a ras del
  *  suelo se apoya en el terreno punto por punto, y un paño grande de pocos triángulos lo cortaría. */
@@ -573,7 +576,7 @@ export function createHitos({ meta, mz }, tinta) {
     etapaDe: (año) => ETAPAS.findIndex((a) => a >= año) + 1,
   };
   const puntos = {}; // (cuántos puntos pone cada lugar, contando los de a ras del suelo: para saber cuál pesa)
-  for (const [nombre, hacer] of Object.entries(LUGARES)) { desde = 0; hasta = 0; const n0 = P.length + RASO.P.length; try { hacer(ctx); } catch (e) { console.warn(`el lugar ${nombre} no se pudo armar:`, e); } puntos[nombre] = (P.length + RASO.P.length - n0) / 3; }
+  for (const [nombre, hacer] of Object.entries(LUGARES)) { desde = 0; hasta = 0; const n0 = P.length + RASO.P.length, t0 = [P.length / 3, RASO.P.length / 3, arboles.length]; try { hacer(ctx); } catch (e) { console.warn(`el lugar ${nombre} no se pudo armar:`, e); } puntos[nombre] = (P.length + RASO.P.length - n0) / 3; TRAMOS[nombre] = [...t0, P.length / 3, RASO.P.length / 3, arboles.length]; }
   desde = 0; hasta = 0;
 
   const g = new THREE.BufferGeometry();
