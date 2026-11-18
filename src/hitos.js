@@ -45,10 +45,11 @@ import { AÑOS } from './etapas.js';
 import obelisco1940 from './lugares/obelisco-1940.js';
 import plazaColon from './lugares/plaza-colon.js';
 import obras1950 from './lugares/obras-1950.js';
+import nereidas1903 from './lugares/nereidas-1903.js';
 
 const PIEDRA = 6, TINTA = 7, PIZARRA = 8, CASA = 0, FOLLAJE = 5, PINTADO = 9;
 // Los lugares hechos a mano, cada uno en su archivo (src/lugares/LEEME.md cuenta con qué se construyen).
-const LUGARES = { nueveDeJulio, plazaCongreso, plazaDeMayo, puerto, puertoMadero, diagonalNorte, teatroColon, puertoNuevo, cabildo, casaRosada, subteA, avenidaDeMayo, retiro, modernos, viejos1867, plazaSanMartin, plazaLavalle, plazaConstitucion, plazaOnce, plazaBritanica, obelisco1940, playasRetiro, palermo, barrios, plazaColon, obras1950 }; // (playasRetiro va al final: cada pieza que se agrega le corre la tirada de colores a las que siguen)
+const LUGARES = { nueveDeJulio, plazaCongreso, plazaDeMayo, puerto, puertoMadero, diagonalNorte, teatroColon, puertoNuevo, cabildo, casaRosada, subteA, avenidaDeMayo, retiro, modernos, viejos1867, plazaSanMartin, plazaLavalle, plazaConstitucion, plazaOnce, plazaBritanica, obelisco1940, playasRetiro, palermo, barrios, plazaColon, obras1950, nereidas1903 }; // (playasRetiro va al final: cada pieza que se agrega le corre la tirada de colores a las que siguen)
 /** De qué va pintado lo PINTADO (el número va en aWall.z; los colores están en src/tinta.js). */
 export const PINTA = { MADERA: 0, VERDE: 1, BRONCE: 2, ROJO: 3, OCRE: 4, LONA: 5, BALASTO: 6, CESPED: 7, AGUA: 8, BALDOSA: 9, GRANZA: 10, ADOQUIN: 11, FLORES: 12, ASFALTO: 13, CHAPA: 14, NEGRO: 15, BLANCO: 16, LADRILLO: 17, PATINA: 18, COBRE: 19 };
 /** De dónde a dónde van los puntos de cada lugar en la malla, en la de lo que va a ras del suelo y en la lista de

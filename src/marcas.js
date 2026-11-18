@@ -182,6 +182,7 @@ export const LUGARES = [
   ['Dársena Norte', 12350, 10500, 10, 2, 'Habilitada en 1897.', { desde: 3, radio: 110, velo: 'suelo' }],
   ['Yacht Club Argentino', 12215, 10858, 27, 3, 'La sede con su torre, de 1915.', { desde: 5, radio: 30 }],
   ['Fuente de las Nereidas', 8752, 11512, 7, 2, 'De Lola Mora, 1903: la mudaron acá en 1918.', { desde: 5, radio: 18, velo: 'suelo' }],
+  ['Fuente de las Nereidas', 10747, 9969, 8, 2, 'De Lola Mora: estuvo en este cantero del Paseo de Julio de 1903 a 1918.', { desde: 3, hasta: 5, ficha: 'Fuente de las Nereidas (1903)', radio: 18 }],
   ['Espigón', 8983, 11700, 6, 3, 'El espigón del balneario, de 1919.', { desde: 5, ficha: 'Costanera Sur', radio: 40 }],
   ['Cervecería Munich', 10062, 11158, 23, 2, 'De Andrés Kálnay, 1927.', { desde: 6, radio: 30 }],
   // el Puerto Nuevo (src/lugares/puerto-nuevo.js)

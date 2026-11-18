@@ -181,6 +181,8 @@ const PIES = {
   'subte-saenz-1915': { que: 'Los andenes de la estación Sáenz Peña, con sus columnas de hierro.', autor: SIN_AUTOR, fecha: 'hacia 1915' },
   'nereidas-1916': { que: 'La fuente en su primer lugar, sobre el Paseo de Julio.', autor: SIN_AUTOR, fecha: '1916' },
   'nereidas-1938': { que: 'La fuente en la Costanera Sur, con una pérgola detrás.', autor: 'Leo Wehrli', fecha: '1938' },
+  'nereidas-palace': { que: 'La fuente en el cantero del Paseo de Julio, con su cadena. Detrás, el Palace Hotel, que sigue en pie en 25 de Mayo y Perón.', autor: 'Archivo General de la Nación', fecha: 'entre 1912 y 1918', nota: 'Commons la fecha hacia 1910, pero el hotel ya tiene la mansarda que reemplazó a su terraza, y eso fue después de 1912.' },
+  'nereidas-postal': { que: 'Postal coloreada: la fuente entre los árboles y, del otro lado del Paseo de Julio, el Palace Hotel todavía con su terraza y su mirador.', autor: SIN_AUTOR, fecha: 'hacia 1910' },
   'munich-1927': { que: 'La cervecería recién abierta, con las mesas en la terraza.', autor: SIN_AUTOR, fecha: 'c. 1927' },
   'munich-noche': { que: 'La Munich de noche, iluminada.', autor: 'Hermanos Forero', fecha: '26 de julio de 1929' },
 };
@@ -1208,6 +1210,17 @@ export const FICHAS = {
     ],
     hoyEs: 'sigue en la Costanera Sur.',
     fotos: ['nereidas-1916', 'nereidas-1938'],
+  },
+  'Fuente de las Nereidas (1903)': {
+    titulo: 'Fuente de las Nereidas', era: 'La fuente de Lola Mora en su primer lugar, sobre el Paseo de Julio. De 1903 a 1918.',
+    texto: [
+      'Lola Mora la hizo en Roma, en mármol de Carrara, por encargo del intendente Adolfo Bullrich, y vino a dirigir el armado. Iba a ir en la Plaza de Mayo, pero los desnudos molestaron y terminó acá, en el cantero en punta entre el Paseo de Julio, la avenida Rosales y Cangallo. Se inauguró el 21 de mayo de 1903.',
+      'Las quejas siguieron, y en 1918 la mudaron a la Costanera Sur, que se estaba haciendo: está ahí desde el 8 de diciembre de ese año. El traslado también lo dirigió ella.',
+      'Una nota de La Nación de 2023 la pone una cuadra más al norte, entre Cangallo y Sarmiento; acá va donde la marca el plano del estudio de Patricia Corsani, de 2007. El punto exacto dentro del cantero, las medidas de la fuente y el contorno del cantero son supuestos. Faltan los árboles que lo llenaban.',
+    ],
+    hoyEs: 'la fuente sigue en la Costanera Sur.',
+    fotos: ['nereidas-palace', 'nereidas-postal', 'nereidas-1916'],
+    por: '@mormonnegro',
   },
   'Cervecería Munich': {
     era: 'La cervecería del balneario, inaugurada el 21 de diciembre de 1927.',
