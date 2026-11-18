@@ -16,6 +16,7 @@
 //     y La Continental).
 // Las medidas están en metros; los lugares, en píxeles del plano (los mismos de tools/plano.mjs).
 import * as THREE from 'three';
+import { trozar } from './trozos.js';
 import { EDIFICIOS } from './edificios.js';
 import nueveDeJulio from './lugares/nueve-de-julio.js';
 import plazaCongreso from './lugares/plaza-congreso.js';
@@ -577,8 +578,9 @@ export function createHitos({ meta, mz }, tinta) {
     const gr = new THREE.BufferGeometry();
     gr.setAttribute('position', new THREE.Float32BufferAttribute(RASO.P, 3)); gr.setAttribute('normal', new THREE.Float32BufferAttribute(RASO.N, 3)); gr.setAttribute('aInfo', new THREE.Float32BufferAttribute(RASO.I, 4)); gr.setAttribute('aAncla', new THREE.Float32BufferAttribute(new Float32Array(RASO.P.length), 3)); gr.setAttribute('aWall', new THREE.Float32BufferAttribute(RASO.Wl, 4));
     const rasos = new THREE.Mesh(gr, tinta.make({ manto: 2, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }));
-    rasos.receiveShadow = true; rasos.frustumCulled = false; mesh.add(rasos);
+    rasos.receiveShadow = true; rasos.frustumCulled = false; trozar(rasos); mesh.add(rasos);
   }
+  trozar(mesh); // (en trozos, como las casas: src/trozos.js)
   // Para el velo de lo que se puede tocar (src/ficha.js): qué hay hecho a mano junto a una marca. De cada ancla (el
   // origen de un lugar), hasta dónde llegan sus piezas y en qué etapas existen; y, en una grilla de 8 m, dónde hay piezas.
   const CELDA = 8, anclas = new Map(), celdas = new Map();

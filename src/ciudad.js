@@ -3,6 +3,7 @@
 // en celdas de su manzana. Acá se pasan a metros del mundo: x hacia el norte, z hacia el río, con el cero en la plaza.
 import { LINEAS } from './vias.js';
 import * as THREE from 'three';
+import { trozar } from './trozos.js';
 import { mergeVertices, mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 import { pedir } from './url.js';
@@ -329,13 +330,14 @@ export function mallaCasas({ mz, techos, muros }, { plaza, metro }, tiempos = fa
   return { g, nT, nM, manzanas: dist.length };
 }
 
-export function createCiudad({ meta, mz, techos, muros, arboles }, tinta, otros = []) {
+export function createCiudad({ meta, mz, techos, muros, arboles }, tinta, otros = [], { liviano = false } = {}) {
   const { plaza, metro } = meta.plano, group = new THREE.Group();
   /** de píxeles del plano a metros del mundo */
   const mundo = (px, py) => [(px - plaza[0]) * metro, (py - plaza[1]) * metro];
   const { g, nT, nM, manzanas } = mallaCasas({ mz, techos, muros }, meta.plano);
   const casas = new THREE.Mesh(g, tinta.make({ manto: 3 }));
   casas.customDepthMaterial = tinta.depth(); casas.castShadow = casas.receiveShadow = true; casas.frustumCulled = false;
+  trozar(casas); // (en trozos: lo que no se ve no se dibuja, src/trozos.js)
   group.add(casas);
 
   // --- los árboles: una copa por cada árbol dibujado en el plano ---
@@ -370,8 +372,10 @@ export function createCiudad({ meta, mz, techos, muros, arboles }, tinta, otros 
     inst.customDepthMaterial = profArbol; inst.castShadow = true; inst.receiveShadow = false;
     group.add(inst); copas.push({ inst, geos });
   }
-  /** Elige el detalle de cada zona de árboles según la distancia a la cámara. */
-  const detalle = (pos) => { for (const { inst, geos } of copas) { const d = pos.distanceTo(inst.boundingSphere.center) - inst.boundingSphere.radius, g = geos[d < 900 ? 0 : d < 2800 ? 1 : 2]; if (inst.geometry !== g) inst.geometry = g; } };
+  /** Elige el detalle de cada zona de árboles según la distancia a la cámara. (En un teléfono, la copa trabajada y la
+   *  mediana llegan hasta la mitad de lejos: en su pantalla un árbol a 500 m son unos pocos puntos.) */
+  const FINA = liviano ? 450 : 900, MEDIA = liviano ? 1500 : 2800;
+  const detalle = (pos) => { for (const { inst, geos } of copas) { const d = pos.distanceTo(inst.boundingSphere.center) - inst.boundingSphere.radius, g = geos[d < FINA ? 0 : d < MEDIA ? 1 : 2]; if (inst.geometry !== g) inst.geometry = g; } };
   return { group, casas, detalle, mundo, cuenta: { techos: nT, muros: nM, arboles: nA, manzanas } };
 }
 
@@ -380,6 +384,7 @@ export function createCrece(d, meta, tinta) {
   const { g, nT, nM, manzanas } = mallaCasas(d, meta.plano, true);
   const mesh = new THREE.Mesh(g, tinta.make({ manto: 3 }));
   mesh.customDepthMaterial = tinta.depth(); mesh.castShadow = mesh.receiveShadow = true; mesh.frustumCulled = false;
+  trozar(mesh);
   return { mesh, cuenta: { techos: nT, muros: nM, manzanas } };
 }
 /** Anota en la malla de 1867 lo que se demuele con los años: mueT y mueM son pares (registro, etapa) de sus techos y de

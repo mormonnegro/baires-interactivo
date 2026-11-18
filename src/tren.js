@@ -10,6 +10,7 @@
 //     de lo que ve la cámara, a una distancia donde se distingue, y si desde el último dibujo se movió al menos medio
 //     punto de pantalla. Fuera de eso siguen andando (es una cuenta), pero no hacen dibujar nada.
 import * as THREE from 'three';
+import { trozar } from './trozos.js';
 
 import { VIA, LINEAS } from './vias.js';
 export { VIA }; // (src/ciudad.js la usa: el lector del plano toma por árboles los puntos con que está dibujada)
@@ -154,6 +155,7 @@ export function createTren(tinta, { mundo, alto = () => innerHeight, etapa = () 
     g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(N, 3)); g.setAttribute('aInfo', new THREE.Float32BufferAttribute(I, 4)); g.setAttribute('aWall', new THREE.Float32BufferAttribute(W, 4));
     // (apenas por encima del suelo: un empujón en la profundidad para que no titile contra él)
     const m = new THREE.Mesh(g, tinta.make({ polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3 })); m.frustumCulled = false; m.receiveShadow = true; m.castShadow = false;
+    trozar(m); // (en trozos: las vías que no se ven no se dibujan, src/trozos.js)
     return m;
   })();
 

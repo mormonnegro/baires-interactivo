@@ -106,6 +106,25 @@ no pisar los años, que van centrados. Los botones miden 44 px por lo menos, y
 las etiquetas de las marcas no atajan el dedo: se puede arrastrar o pellizcar el plano desde arriba de una, y el toque
 se resuelve en el lienzo (`marcas.enPunto`, en `src/ficha.js`). Parado y acostado.
 
+**Lo que no se ve no se dibuja** (`src/trozos.js`). Las casas de 1867, las que crecen después, los lugares hechos a
+mano, las vías y la hoja eran mallas de una pieza que se dibujaban enteras en cada cuadro, dos veces (la sombra y la
+vista), aunque se mirara una sola manzana: 7,2 a 7,9 millones de triángulos por cuadro en 1940, se mirara lo que se
+mirara. Ahora cada una va partida en trozos por celdas de 800 m, y lo que queda fuera de la vista o de la sombra no se
+dibuja: mirando el centro de 1940 de cerca son 2,0 millones, y llegando a la ciudad, 3,0. Son los mismos triángulos
+con el mismo material (se reordenan en un solo índice; no se copia nada), así que se ve igual: comparando capturas
+de escritorio con y sin trozos (`?entera` vuelve a las mallas de una pieza) cambian, como mucho, 57 puntos de
+1.350.000. Desde más de 2.200 m de altura, donde se ve casi todo el pliego, las mallas vuelven a ir enteras: cientos
+de trozos salían más caros que tres mallas. En un teléfono, además, las copas trabajadas de los árboles del plano
+llegan hasta la mitad de lejos (450 y 1.500 m en vez de 900 y 2.800).
+
+`node tools/ritmo.mjs` lo mide: de varias vistas, en 1867 y en 1940, las llamadas de dibujo, los triángulos y los
+milisegundos de un cuadro, los cuadros por segundo con la cámara girando, y cuánto tarda en armarse cada malla, con
+la pantalla de un teléfono y el procesador frenado (`--entera` mide sin trozos, para comparar). Los triángulos y las
+llamadas valen para cualquier equipo; los milisegundos no: la placa de video es la de la máquina donde corre, mucho
+más rápida que la de un teléfono. **Lo que queda pesado**, medido con el procesador a un cuarto: armar los lugares
+hechos a mano tarda unos 3 s y la malla de lo que crece otros 2,3 s (la primera vez que se sale de 1867), y en ese
+rato la página no responde; y la memoria de JavaScript ronda los 900 MB.
+
 Para probarlo: `npm run build` y después `node tools/carga.mjs` (cuánto tarda y cuánto pesa cada etapa, con la red y el
 procesador frenados; `--red 4g-lenta`, `--entrar`), `node tools/tactil.mjs` (los gestos, uno por uno, y que quieta no
 dibuje) y `node tools/telefono.mjs` (capturas de cada estado y el tamaño de los blancos táctiles). Los tres aceptan
@@ -790,6 +809,8 @@ los postes de un cerco): no se distingue qué son y no están.
     src/buscar.js         el buscador de direcciones  src/geo.js     la cuenta de la georreferencia (la comparten
                           las herramientas y el navegador, con los números de tools/geo.json)
     src/url.js            las direcciones con versión, y los pedidos que index.html adelanta
+    src/trozos.js         las mallas grandes, partidas en trozos por celdas: lo que no se ve no se dibuja
+    tools/ritmo.mjs       cuánto cuesta dibujar un cuadro, como en un teléfono (triángulos, llamadas, milisegundos)
 
 `npm run plano` rehace todo desde `fuentes/plano-1867.jpg` (el escaneo no está en el repositorio: pesa 60 MB; ver
 «Lo que no está en el repositorio», acá abajo).

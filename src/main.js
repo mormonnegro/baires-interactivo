@@ -26,6 +26,7 @@ import { createTren } from './tren.js';
 import { pedir as bajar, u } from './url.js';
 import { loadRelieve } from './relieve.js';
 import { createEpocas } from './epocas.js';
+import { trozar, trozosEnteros } from './trozos.js';
 
 const q = new URLSearchParams(location.search), capture = q.has('capture'), $ = (id) => document.getElementById(id);
 // el cartel de entrada: se puede ir leyendo mientras carga el plano  (?sinintro lo saltea)
@@ -44,7 +45,7 @@ const renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: 'h
 const maxTex = renderer.capabilities.maxTextureSize, aniso = renderer.capabilities.getMaxAnisotropy();
 // un teléfono (o un equipo con poca memoria): láminas y sombras más chicas. Se ve igual: la pantalla tiene menos puntos.
 const liviano = q.has('liviano') || (!q.has('pesado') && (maxTex < 8192 || Math.min(screen.width, screen.height) < 600 || (navigator.deviceMemory ?? 8) < 4));
-const PUNTOS = capture ? 1 : Math.min(devicePixelRatio, 2);
+const PUNTOS = capture ? 1 : q.has('puntos') ? Math.min(3, Math.max(0.5, parseFloat(q.get('puntos')) || 1)) : Math.min(devicePixelRatio, 2); // (`?puntos=1.5`: para probar)
 renderer.setPixelRatio(PUNTOS);
 renderer.setSize(innerWidth, innerHeight);
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
@@ -110,7 +111,7 @@ let mesa;
   // (apenas hundida, para que no pelee con lo que está apoyado en ella. Sin corrimiento por pendiente: mirando de lejos
   // y al ras, ese corrimiento la mandaba detrás de la mesa y el plano se veía negro.)
   const hoja = new THREE.Mesh(g.translate(0, -0.05, 0), tinta.make({ polygonOffset: true, polygonOffsetFactor: 0, polygonOffsetUnits: 2 }));
-  hoja.receiveShadow = true; scene.add(hoja);
+  hoja.receiveShadow = true; trozar(hoja); scene.add(hoja); // (en trozos, como la ciudad: src/trozos.js)
   mesa = new THREE.Mesh(new THREE.PlaneGeometry(120000, 120000).rotateX(-Math.PI / 2).translate(0, -150, 0), new THREE.MeshBasicMaterial({ color: tal(0x2a2521) }));
   scene.add(mesa);
 }
@@ -232,6 +233,7 @@ const FONDO = scene.background, CIELO = tal(0xe6d9bd), CELESTE = tal(0xc3d3da), 
 
 // --- levantar y acostar la ciudad: una ola que sale de la plaza ---
 const LEJOS = 9500; // más lejos que la última casa
+const ALTO_ENTERA = 2200; // (desde más arriba se ve casi todo el pliego: las mallas van enteras, src/trozos.js)
 let arriba = false, frente = -400, falla = false;
 function rotular() { $('alzar').textContent = falla ? 'No cargó: reintentar' : !arriba ? 'Levantar la ciudad' : ciudad ? 'Volver al plano' : 'Cargando la ciudad…'; }
 function levantar(on) { arriba = on; rotular(); document.body.classList.toggle('arriba', on); pedirCuadro(3); }
@@ -257,6 +259,7 @@ function frame(dt, si = false) {
   U.uHoy.value = hoyListo ? hoyK * hoyK * (3 - 2 * hoyK) : 0;
   // (en avión, en un teléfono, no se piden láminas finas: se pasa demasiado rápido para aprovecharlas, y pesan)
   if (enModo) { if (!(liviano && modos.vuela)) afinar(modos.vista, false, camera); } else if (cam.destino.dist < 5200) afinar(cam.destino);
+  trozosEnteros(camera.position.y > ALTO_ENTERA);
   ciudad?.detalle(camera.position);
   patios?.detalle(camera.position, U.uColor.value);
   marcas?.update(frente, enModo ? modos.cerca : null, epocas.etapa); // (cada marca, en los años en que vale)
@@ -287,8 +290,8 @@ const epocas = createEpocas($('epocas'), U, {
     await pDatos;
     const [d, t, t2] = await Promise.all([loadCrece(), lamina(liviano ? 'plano/crece-2k.webp' : 'plano/crece.webp', true), lamina(liviano ? 'plano/despeje-2k.webp' : 'plano/despeje.webp', true)]);
     while (!ciudad) { if (falla) throw new Error('sin ciudad'); await new Promise((r) => setTimeout(r, 60)); }
-    U.tCrece.value = t; U.tDespeje.value = t2; crece = createCrece({ ...d, meta }, meta, tinta); crece.datos = { ...d, meta }; scene.add(crece.mesh);
-    marcarMueren(ciudad.casas, datos, d); modos?.sumar(crece.datos);
+    U.tCrece.value = t; U.tDespeje.value = t2; const t0 = performance.now(); crece = createCrece({ ...d, meta }, meta, tinta); crece.datos = { ...d, meta }; scene.add(crece.mesh);
+    marcarMueren(ciudad.casas, datos, d); modos?.sumar(crece.datos); lab.tiempos.crece = Math.round(performance.now() - t0);
   },
   alCambiar(año) {
     // (el título dice de qué año es lo que se mira; si la ciudad estaba acostada, se levanta: lo que crece son casas)
@@ -358,8 +361,9 @@ try {
   datos = await pDatos;
   // el relieve llega con la ciudad (acostado, el plano es una hoja lisa); si no llega, todo queda a nivel
     if (EXAG > 0) try { relieve = await loadRelieve({ plaza, metro, ancho: laminas.ancho, alto: laminas.alto }); U.tRelieve.value = relieve.tex; U.uRelieve.value = EXAG; } catch (e) { console.warn(e); }
-  hitos = createHitos(datos, tinta);
-  ciudad = createCiudad(datos, tinta, hitos.arboles);
+  const t0 = performance.now(); hitos = createHitos(datos, tinta);
+  const t1 = performance.now(); ciudad = createCiudad(datos, tinta, hitos.arboles, { liviano });
+  lab.tiempos = { hitos: Math.round(t1 - t0), ciudad: Math.round(performance.now() - t1) }; // (cuánto tardó en armarse cada cosa, en ms: tools/ritmo.mjs)
   scene.add(ciudad.group, hitos.mesh);
   tren = createTren(tinta, { mundo: (px, py) => [(px - plaza[0]) * metro, (py - plaza[1]) * metro], alto: () => renderer.domElement.height, etapa: () => epocas.etapa, liviano });
   scene.add(tren.grupo);
